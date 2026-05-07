@@ -1,0 +1,79 @@
+<div class="card bg-base-100 shadow-xl border border-base-200">
+    @can('{{ MODEL_SNAKE }}:view')
+    <div class="card-body">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
+            <div class="form-control w-full max-w-xs">
+                <div class="join">
+                    <input wire:model.live.debounce.300ms="search" type="text" placeholder="Search {{ MODEL_PLURAL }}..." class="input input-bordered join-item w-full" />
+                    <button class="btn btn-square join-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex gap-2">
+                <button wire:click="$dispatch('openModal', { component: '{{ VIEW_PATH }}.editor' })" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" /></svg>
+                    Add {{ MODEL_NAME }}
+                </button>
+            </div>
+        </div>
+
+        @if(count($selected) > 0)
+            <div class="alert alert-info shadow-lg mb-4">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span>{{ count($selected) }} items selected</span>
+                </div>
+                <div class="flex-none">
+                    <button class="btn btn-sm btn-ghost text-error">Delete</button>
+                </div>
+            </div>
+        @endif
+
+        <div class="overflow-x-auto rounded-box">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" wire:model.live="selectAll" class="checkbox checkbox-primary checkbox-sm" />
+                        </th>
+{{ TABLE_COLUMNS }}
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody wire:loading.class="opacity-50">
+                    @forelse($rows as $row)
+                        <tr class="hover">
+                            <td>
+                                <input type="checkbox" value="{{ $row->id }}" wire:model.live="selected" class="checkbox checkbox-primary checkbox-sm" />
+                            </td>
+                            {{-- Loop through columns --}}
+                            @foreach(array_keys($row->getAttributes()) as $attr)
+                                 <td>{{ $row->$attr }}</td>
+                            @endforeach
+                            <td class="text-right">
+                                <button wire:click="$dispatch('openModal', { component: '{{ VIEW_PATH }}.editor', arguments: { record: {{ $row->id }} } })" class="btn btn-ghost btn-xs text-primary">Edit</button>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="100%" class="text-center py-10 text-base-content/50 italic">No {{ MODEL_PLURAL }} found.</td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+
+        <div class="mt-6">
+            {{ $rows->links() }}
+        </div>
+    </div>
+    @else
+    <div class="card-body py-10 text-center">
+        <div class="opacity-50 mb-2">🛡️</div>
+        <div class="text-sm font-bold opacity-50 uppercase tracking-widest">Access Denied</div>
+        <p class="text-xs opacity-40 mt-1">You do not have permission to view this resource.</p>
+    </div>
+    @endcan
+</div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full bg-white">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config('app.name', 'Laravel') }} - Minimal</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
+</head>
+<body class="h-full font-sans antialiased text-gray-900 selection:bg-indigo-100">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <header class="flex items-center justify-between py-10">
+            <div class="flex items-center gap-4">
+                <div class="h-8 w-8 rounded bg-gray-900"></div>
+                <span class="text-sm font-bold uppercase tracking-widest text-gray-500">Fabric</span>
+            </div>
+            <nav class="flex gap-6 text-sm font-medium text-gray-600">
+                <a href="#" class="hover:text-indigo-600 transition">Dashboard</a>
+                <a href="#" class="hover:text-indigo-600 transition">Account</a>
+            </nav>
+        </header>
+
+        <main class="py-12">
+            <div class="prose prose-indigo max-w-none">
+                {{ $slot }}
+            </div>
+        </main>
+
+        <footer class="py-20 border-t border-gray-100 text-center text-xs text-gray-400">
+            &copy; {{ date('Y') }} {{ config('app.name') }}. Scaffolding by Fabric.
+        </footer>
+    </div>
+    @livewireScripts
+</body>
+</html>

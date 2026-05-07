@@ -1,0 +1,20 @@
+@props([
+    'value' => 0,
+    'max' => 100,
+    'color' => 'indigo'
+])
+
+@php
+    $colors = [
+        'indigo' => 'bg-indigo-600',
+        'red' => 'bg-red-600',
+        'green' => 'bg-green-600',
+        'yellow' => 'bg-yellow-600',
+    ];
+
+    $percentage = ($value / $max) * 100;
+@endphp
+
+<div class="w-full bg-gray-200 rounded-full h-2.5">
+    <div class="{{ $colors[$color] ?? 'bg-indigo-600' }} h-2.5 rounded-full transition-all duration-500" style="width: {{ $percentage }}%"></div>
+</div>

@@ -1,0 +1,131 @@
+<?php
+
+namespace {{ NAMESPACE }};
+
+use Livewire\Component;
+use Livewire\WithPagination;
+use {{ MODEL_CLASS }};
+
+/**
+ * [FABRIC-METADATA]
+ * Model: {{ MODEL_NAME }}
+ * Theme: Tailwind (Advanced)
+ * Philosophy: Zero-Dependency Power Table
+ */
+class {{ MODEL_NAME }}Table extends Component
+{
+    use WithPagination;
+
+    /**
+     * 🧬 FORGED BY FABRIC
+     * Handles state for searching, sorting, and filtering {{ MODEL_NAME }} records.
+     * Use wire:model.live on input fields to trigger real-time updates.
+     */
+    public $search = '';
+    public $filters = [];
+    
+    /**
+     * 📊 Sorting Engine
+     * 'sortField' determines the column, 'sortDirection' determines the order.
+     */
+    public $sortField = 'id';
+    public $sortDirection = 'desc';
+
+    // UI State
+    public $columnVisibility = [];
+    public $selected = [];
+    public $selectAll = false;
+    
+    // [FABRIC-RELATIONSHIP-PROPERTIES]
+    {{ TABLE_FILTER_PROPERTIES }}
+
+    protected $queryString = [
+        'search' => ['except' => ''],
+        'sortField' => ['except' => 'id'],
+        'sortDirection' => ['except' => 'desc'],
+    ];
+
+    public function mount()
+    {
+        // [FABRIC-RELATIONSHIP-FETCH]
+    }
+
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortField = $field;
+            $this->sortDirection = 'asc';
+        }
+    }
+
+    public function updatedSelectAll($value)
+    {
+        if ($value) {
+            $this->selected = $this->getRowsQuery()->pluck('id')->map(fn($id) => (string) $id)->toArray();
+        } else {
+            $this->selected = [];
+        }
+    }
+
+    public function getRowsQuery()
+    {
+        return {{ MODEL_NAME }}::query()
+            {{ TABLE_FILTER_LOGIC }}
+            ->when($this->search, function ($query) {
+                $query->where(function ($q) {
+{{ SEARCH_LOGIC }}
+                });
+            })
+            ->orderBy($this->sortField, $this->sortDirection);
+    }
+
+    public function render()
+    {
+        return view('{{ VIEW_PATH }}.table', [
+            'rows' => $this->getRowsQuery()->paginate(10),
+        ]);
+    }
+
+    /**
+     * 📥 ATOMIC CSV EXPORT
+     * Forged by Fabric to provide high-performance data extraction without
+     * requiring heavy external packages like Laravel-Excel.
+     */
+    public function exportToCsv()
+    {
+        $filename = "{{ MODEL_NAME }}_" . now()->format('Y-m-d_His') . ".csv";
+        $headers = [
+            "Content-type"        => "text/csv",
+            "Content-Disposition" => "attachment; filename=$filename",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        ];
+
+        $columns = ['id', {{ SEARCH_COL }}, 'created_at']; // Customizable
+        
+        $callback = function() use($columns) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, array_map('ucfirst', $columns));
+
+            $this->getRowsQuery()->chunk(100, function($rows) use($file, $columns) {
+                foreach ($rows as $row) {
+                    $data = [];
+                    foreach ($columns as $col) {
+                        $data[] = $row->{$col};
+                    }
+                    fputcsv($file, $data);
+                }
+            });
+
+            fclose($file);
+        };
+
+        return response()->stream($callback, 200, $headers);
+    }
+
+    {{ TABLE_ACTION_METHODS }}
+    {{ SOFT_DELETE_ACTIONS }}
+}

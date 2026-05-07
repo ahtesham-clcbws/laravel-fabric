@@ -1,0 +1,33 @@
+@props([
+    'label' => null,
+    'id' => null
+])
+
+@php
+    $id = $id ?? $attributes->whereStartsWith('wire:model')->first() ?? Str::random(8);
+@endphp
+
+<div class="flex items-center justify-between">
+    @if($label)
+        <span class="flex grow flex-col">
+            <span class="text-sm font-medium leading-6 text-gray-900" id="{{ $id }}-label">{{ $label }}</span>
+        </span>
+    @endif
+    
+    <button 
+        type="button" 
+        x-data="{ on: @entangle($attributes->wire('model')) }"
+        @click="on = !on"
+        :class="on ? 'bg-indigo-600' : 'bg-gray-200'"
+        class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2" 
+        role="switch" 
+        aria-checked="false" 
+        aria-labelledby="{{ $id }}-label"
+    >
+        <span 
+            aria-hidden="true" 
+            :class="on ? 'translate-x-5' : 'translate-x-0'"
+            class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"
+        ></span>
+    </button>
+</div>

@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Livewire\Fabric;
+
+use Livewire\Component;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
+/**
+ * 🧬 FORGED BY FABRIC (Global Spotlight)
+ * A high-speed, keyboard-first command palette for discovery and navigation.
+ */
+class Spotlight extends Component
+{
+    public string $query = '';
+    public array $results = [];
+
+    public function updatedQuery()
+    {
+        if (strlen($this->query) < 2) {
+            $this->results = [];
+            return;
+        }
+
+        // Search across registered resources
+        // This is a high-level simulation of the Global Search logic
+        $this->results = [
+            ['title' => 'Create New User', 'url' => route('fabric.users.index'), 'icon' => '👤', 'type' => 'Action'],
+            ['title' => 'System Health', 'url' => route('fabric.dashboard'), 'icon' => '🏥', 'type' => 'Page'],
+        ];
+    }
+
+    public function render()
+    {
+        return view('livewire.fabric.spotlight');
+    }
+}

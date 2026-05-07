@@ -1,0 +1,94 @@
+<div class="flex flex-col">
+  <div class="-m-1.5 overflow-x-auto">
+    <div class="p-1.5 min-w-full inline-block align-middle">
+      <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700">
+        <!-- Header -->
+        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
+          <div>
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
+              {{ MODEL_PLURAL }}
+            </h2>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Manage your {{ MODEL_PLURAL }} and metadata.
+            </p>
+          </div>
+
+          <div>
+            <div class="inline-flex gap-x-2">
+              <input wire:model.live.debounce.300ms="search" type="text" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800" placeholder="Search...">
+              
+              <button wire:click="$dispatch('openModal', { component: '{{ VIEW_PATH }}.editor' })" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-{{ PRIMARY }} text-white hover:bg-{{ PRIMARY }} disabled:opacity-50 disabled:pointer-events-none">
+                <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                Add {{ MODEL_NAME }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- End Header -->
+
+        <!-- Table -->
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          <thead class="bg-gray-50 dark:bg-slate-800">
+            <tr>
+              <th scope="col" class="pl-6 py-3 text-left">
+                <div class="flex items-center h-5">
+                  <input wire:model.live="selectAll" type="checkbox" class="border-gray-200 rounded text-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-{{ PRIMARY }} dark:checked:border-{{ PRIMARY }} dark:focus:ring-offset-gray-800">
+                </div>
+              </th>
+{{ TABLE_COLUMNS }}
+              <th scope="col" class="px-6 py-3 text-right"></th>
+            </tr>
+          </thead>
+
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+            @forelse($rows as $row)
+                <tr>
+                    <td class="h-px w-px whitespace-nowrap">
+                        <div class="pl-6 py-3">
+                            <input value="{{ $row->id }}" wire:model.live="selected" type="checkbox" class="border-gray-200 rounded text-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-{{ PRIMARY }} dark:checked:border-{{ PRIMARY }} dark:focus:ring-offset-gray-800">
+                        </div>
+                    </td>
+                    {{-- Loop through columns --}}
+                    @foreach(array_keys($row->getAttributes()) as $attr)
+                         <td class="h-px w-px whitespace-nowrap">
+                            <div class="px-6 py-3">
+                                <span class="text-sm text-gray-600 dark:text-gray-400">{{ $row->$attr }}</span>
+                            </div>
+                         </td>
+                    @endforeach
+                    <td class="h-px w-px whitespace-nowrap text-right">
+                        <div class="px-6 py-1.5">
+                            <button wire:click="$dispatch('openModal', { component: '{{ VIEW_PATH }}.editor', arguments: { record: {{ $row->id }} } })" class="inline-flex items-center gap-x-1 text-sm font-medium text-{{ PRIMARY }} decoration-2 hover:underline dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
+                                Edit
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="100%" class="px-6 py-10 text-center text-gray-500 dark:text-gray-400">No {{ MODEL_PLURAL }} found.</td>
+                </tr>
+            @endforelse
+          </tbody>
+        </table>
+        <!-- End Table -->
+
+        <!-- Footer -->
+        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700">
+          <div>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              <span class="font-semibold text-gray-800 dark:text-gray-200">{{ $rows->total() }}</span> results
+            </p>
+          </div>
+
+          <div>
+            <div class="inline-flex gap-x-2">
+                {{ $rows->links() }}
+            </div>
+          </div>
+        </div>
+        <!-- End Footer -->
+      </div>
+    </div>
+  </div>
+</div>

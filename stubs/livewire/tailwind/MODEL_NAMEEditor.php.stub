@@ -1,0 +1,65 @@
+<?php
+
+namespace {{ NAMESPACE }};
+
+use LivewireUI\Modal\ModalComponent;
+use Livewire\Attributes\Validate;
+use {{ MODEL_CLASS }};
+
+/**
+ * [FABRIC-METADATA]
+ * Model: {{ MODEL_NAME }}
+ * Theme: Tailwind
+ */
+class {{ MODEL_NAME }}Editor extends ModalComponent
+{
+    /**
+     * 🧬 FORGED BY FABRIC
+     * The $form array holds the state for all input fields.
+     * Use $record for the Eloquent model instance.
+     */
+    public array $form = [];
+    public ?{{ MODEL_NAME }} $record = null;
+    
+    /**
+     * 🔍 Dynamic Validation
+     * These rules are derived directly from your database schema during forging.
+     */
+
+    public function rules()
+    {
+        return {{ VALIDATION_RULES }};
+    }
+
+    public function mount({{ MODEL_NAME }} $record = null)
+    {
+        $this->record = $record ?: new {{ MODEL_NAME }};
+        $this->form = $this->record->toArray();
+        
+        // [FABRIC-RELATIONSHIP-FETCH]
+    }
+
+    public function save()
+    {
+        // $this->authorize($this->record->exists ? 'update' : 'create', $this->record);
+        
+        $this->validate();
+        $this->record->fill($this->form);
+        $this->record->save();
+
+        {{ PIVOT_SYNC }}
+
+        $this->dispatch('{{ MODEL_VARIABLE }}-saved');
+        $this->dispatch('closeModal');
+    }
+
+    /**
+     * [FABRIC-HOOK:REACTIVE-LOGIC]
+     */
+    {{ FIELD_REACTIVE_HOOKS }}
+
+    public function render()
+    {
+        return view('{{ VIEW_PATH }}.editor');
+    }
+}
