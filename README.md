@@ -12,6 +12,10 @@
 [![PHP Version](https://img.shields.io/badge/PHP-8.2+-777BB4)](https://php.net)
 [![Laravel Version](https://img.shields.io/badge/Laravel-13.0+-FF2D20)](https://laravel.com)
 [![License](https://img.shields.io/badge/License-Proprietary-gold)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Private_Beta-red)](https://clcbws.com)
+
+> [!CAUTION]
+> **🚧 PRIVATE BETA**: This repository is currently private while we complete the final "Titan" feature suite and perform internal QA. Public distribution is coming soon.
 
 ---
 
