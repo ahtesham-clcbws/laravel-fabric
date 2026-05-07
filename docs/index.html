@@ -10,6 +10,9 @@
     :root {
       --theme-color: #4F46E5;
     }
+    .markdown-section {
+      max-width: 800px;
+    }
   </style>
 </head>
 <body>
@@ -21,6 +24,16 @@
       loadSidebar: true,
       subMaxLevel: 2,
       auto2top: true,
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md' // Fix for infinite loading in sub-directories
+      },
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: 'Search Documentation...',
+        noData: 'No Results Found',
+        depth: 6
+      }
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
