@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
 class PostmanCommand extends Command
 {
@@ -24,7 +26,8 @@ class PostmanCommand extends Command
         ];
 
         // Scan Api Controllers
-        $controllers = File::files(app_path('Http/Controllers/Api'));
+        $apiPath = app_path('Http/Controllers/Api');
+        $controllers = File::exists($apiPath) ? File::files($apiPath) : [];
         
         foreach ($controllers as $file) {
             $name = $file->getFilenameWithoutExtension();

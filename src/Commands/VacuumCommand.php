@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 
 class VacuumCommand extends Command
@@ -58,11 +61,13 @@ class VacuumCommand extends Command
 
     protected function optimizeDb()
     {
-        $this->components->task("Optimizing Database Tables", function() {
-            $tables = DB::select('SHOW TABLES');
+        $this->components->task('Optimizing Database Tables', function() {
+            $tables = \Illuminate\Support\Facades\Schema::getTables();
             foreach ($tables as $table) {
-                $tableName = array_values((array)$table)[0];
-                DB::statement("OPTIMIZE TABLE {$tableName}");
+                $tableName = is_array($table) ? ($table['name'] ?? null) : $table;
+                if ($tableName) {
+                    \Illuminate\Support\Facades\DB::statement("ANALYZE `{$tableName}`");
+                }
             }
             return "All tables optimized.";
         });

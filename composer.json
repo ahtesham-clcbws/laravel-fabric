@@ -1,6 +1,7 @@
 {
     "name": "clcbws/laravel-fabric",
-    "description": "A high-fidelity, zero-runtime scaffolding engine for Laravel apps.",
+    "version": "1.0.0-beta.1",
+    "description": "High-fidelity, zero-dependency administrative scaffolding engine for the modern web.",
     "type": "library",
     "license": "MIT",
     "authors": [

@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Facades;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Facade;
 

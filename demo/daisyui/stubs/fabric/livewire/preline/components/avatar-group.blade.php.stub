@@ -1,0 +1,26 @@
+@props([
+    'avatars' => [],
+    'size' => 'md'
+])
+
+@php
+    $sizes = [
+        'xs' => 'size-6',
+        'sm' => 'size-8',
+        'md' => 'size-10',
+        'lg' => 'size-12',
+    ];
+    $sizeClass = $sizes[$size] ?? $sizes['md'];
+@endphp
+
+<div class="flex -space-x-2">
+    @foreach($avatars as $avatar)
+        <img class="inline-block {{ $sizeClass }} rounded-full ring-2 ring-white dark:ring-slate-900" src="{{ $avatar }}" alt="Avatar">
+    @endforeach
+    
+    @if($slot->isNotEmpty())
+        <span class="inline-flex items-center justify-center {{ $sizeClass }} rounded-full bg-gray-100 border-2 border-white font-medium text-gray-700 leading-none dark:bg-gray-700 dark:border-slate-900 dark:text-gray-200">
+            {{ $slot }}
+        </span>
+    @endif
+</div>

@@ -1,21 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Engines\Loom;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 
 class ContextCommand extends Command
 {
     protected $signature = 'fabric:context';
     protected $description = 'Generate a high-fidelity architectural context for AI pairing';
 
-    public function handle(Loom $loom)
+    public function handle(Loom $loom): void
     {
         $this->components->info("Fabric AI-Context: Generating Cognitive Map...");
 
-        $models = collect(File::files(app_path('Models')))
+        $modelPath = app_path('Models');
+        $models = collect(File::exists($modelPath) ? File::files($modelPath) : [])
             ->map(fn($f) => "App\\Models\\" . $f->getFilenameWithoutExtension())
             ->filter(fn($m) => class_exists($m));
 
@@ -38,7 +42,8 @@ class ContextCommand extends Command
         }
 
         $context .= "## 🌐 API & Controller Intelligence\n\n";
-        $controllers = File::files(app_path('Http/Controllers/Api'));
+        $apiPath = app_path('Http/Controllers/Api');
+        $controllers = File::exists($apiPath) ? File::files($apiPath) : [];
         
         foreach ($controllers as $file) {
             $content = File::get($file->getPathname());

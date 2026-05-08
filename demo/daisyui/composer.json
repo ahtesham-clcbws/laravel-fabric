@@ -3,20 +3,24 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.3",
         "clcbws/laravel-fabric": "dev-main",
+        "lab404/laravel-impersonate": "^1.7",
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
         "livewire/livewire": "^4.0",
-        "wire-elements/modal": "^3.0",
-        "spatie/laravel-medialibrary": "^11.0",
-        "spatie/laravel-activitylog": "^5.0",
         "maatwebsite/excel": "^3.1",
+        "spatie/laravel-activitylog": "^5.0",
+        "spatie/laravel-medialibrary": "^11.0",
         "spatie/laravel-permission": "^7.0",
-        "lab404/laravel-impersonate": "^1.7"
+        "spatie/laravel-settings": "^3.8",
+        "wire-elements/modal": "^3.0"
     },
     "repositories": [
         {
@@ -62,6 +66,11 @@
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "php artisan serve --port=8001 &",
+            "npm run dev"
         ]
     },
     "config": {

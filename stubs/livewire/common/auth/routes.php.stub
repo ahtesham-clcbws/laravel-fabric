@@ -1,6 +1,8 @@
+<?php
 
-use App\Livewire\Auth\Login;
+use App\Livewire\Fabric\Auth\Login;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)->name('login');
@@ -9,7 +11,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::post('logout', function () {
-        auth()->logout();
+        Auth::logout();
         session()->invalidate();
         session()->regenerateToken();
         return redirect('/');

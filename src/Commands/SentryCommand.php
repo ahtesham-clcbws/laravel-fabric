@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 
 class SentryCommand extends Command
 {

@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Engines\Loom;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 
 class GuardCommand extends Command
@@ -20,7 +23,7 @@ class GuardCommand extends Command
         $this->snapshotPath = storage_path('app/fabric_schema.json');
     }
 
-    public function handle(Loom $loom)
+    public function handle(Loom $loom): void
     {
         if ($this->option('snapshot')) {
             $this->takeSnapshot($loom);
@@ -35,27 +38,27 @@ class GuardCommand extends Command
         $this->detectDrift($loom);
     }
 
-    protected function takeSnapshot(Loom $loom)
+    protected function takeSnapshot(Loom $loom): void
     {
         $this->components->info("Taking database schema snapshot...");
         
-        $tables = \Illuminate\Support\Facades\DB::connection()->getDoctrineSchemaManager()->listTableNames();
+        $tables = Schema::getTableListing();
         $snapshot = [];
 
         foreach ($tables as $table) {
-            $snapshot[$table] = \Illuminate\Support\Facades\DB::connection()->getDoctrineSchemaManager()->listTableColumns($table);
+            $snapshot[$table] = Schema::getColumns($table);
         }
 
         File::put($this->snapshotPath, \json_encode($snapshot, JSON_PRETTY_PRINT));
         $this->info("Snapshot saved to storage/app/fabric_schema.json");
     }
 
-    protected function detectDrift(Loom $loom)
+    protected function detectDrift(Loom $loom): void
     {
         $this->components->info("Checking for schema drift...");
         
         $oldSchema = \json_decode(File::get($this->snapshotPath), true);
-        $newTables = \Illuminate\Support\Facades\DB::connection()->getDoctrineSchemaManager()->listTableNames();
+        $newTables = Schema::getTableListing();
         
         $driftDetected = false;
 
@@ -66,18 +69,22 @@ class GuardCommand extends Command
                 continue;
             }
 
-            $currentColumns = \Illuminate\Support\Facades\DB::connection()->getDoctrineSchemaManager()->listTableColumns($table);
+            $currentColumns = Schema::getColumns($table);
+            $currentColumnNames = collect($currentColumns)->pluck('name')->toArray();
             
             // Check for missing/new columns
-            foreach ($columns as $colName => $colData) {
-                if (!isset($currentColumns[$colName])) {
+            foreach ($columns as $col) {
+                $colName = $col['name'] ?? null;
+                if ($colName && !\in_array($colName, $currentColumnNames)) {
                     $this->warn("Column REMOVED in {$table}: {$colName}");
                     $driftDetected = true;
                 }
             }
 
-            foreach ($currentColumns as $colName => $colData) {
-                if (!isset($columns[$colName])) {
+            foreach ($currentColumns as $col) {
+                $colName = $col['name'];
+                $oldColumnNames = collect($columns)->pluck('name')->toArray();
+                if (!\in_array($colName, $oldColumnNames)) {
                     $this->info("Column ADDED in {$table}: {$colName}");
                     if ($this->option('fix')) {
                         $this->generateFixMigration($table, $colName, 'add');
@@ -92,7 +99,7 @@ class GuardCommand extends Command
         }
     }
 
-    protected function generateFixMigration(string $table, string $column, string $action)
+    protected function generateFixMigration(string $table, string $column, string $action): void
     {
         $timestamp = date('Y_m_d_His');
         $filename = "{$timestamp}_fix_drift_{$action}_{$column}_on_{$table}_table.php";
@@ -102,6 +109,7 @@ class GuardCommand extends Command
         $down = $action === 'add' ? "\$table->dropColumn('{$column}');" : "\$table->string('{$column}')->nullable();";
 
         $stub = "<?php
+
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

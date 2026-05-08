@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Facades\Fabric;
 use Illuminate\Console\Command;
@@ -26,7 +30,7 @@ class WizardCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         intro('🎨 Laravel Fabric Wizard');
 

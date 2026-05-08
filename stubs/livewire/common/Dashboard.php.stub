@@ -2,14 +2,19 @@
 
 namespace App\Livewire\Fabric;
 
+use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 class Dashboard extends Component
 {
+    #[Layout('layouts.fabric.sidebar')]
     public function getStats()
     {
         return [
-            // [FABRIC-DASHBOARD-STATS]
+            ['label' => 'Total Users', 'value' => '1,284', 'increase' => '12%', 'icon' => '👥'],
+            ['label' => 'Revenue', 'value' => '$42,500', 'increase' => '8%', 'icon' => '💰'],
+            ['label' => 'Resources Forged', 'value' => '54', 'increase' => '100%', 'icon' => '⚡'],
+            ['label' => 'System Health', 'value' => 'Optimal', 'increase' => '0', 'icon' => '🟢'],
         ];
     }
 

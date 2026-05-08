@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -41,6 +45,7 @@ class FabricServiceProvider extends ServiceProvider
         }
 
         \Illuminate\Support\Facades\Blade::anonymousComponentPath(resource_path('views/components/fabric'), 'fabric');
+        \Illuminate\Support\Facades\Blade::anonymousComponentPath(resource_path('views/layouts/fabric'), 'fabric');
     }
 
     /**
@@ -53,6 +58,9 @@ class FabricServiceProvider extends ServiceProvider
             \CLCBWS\Fabric\Commands\ListResourcesCommand::class,
             \CLCBWS\Fabric\Commands\PublishStubsCommand::class,
             \CLCBWS\Fabric\Commands\GenerateResourceCommand::class,
+            \CLCBWS\Fabric\Commands\GenerateSettingsCommand::class,
+            \CLCBWS\Fabric\Commands\GenerateSiteCommand::class,
+            \CLCBWS\Fabric\Commands\SeedCommand::class,
             \CLCBWS\Fabric\Commands\AssetsCommand::class,
             \CLCBWS\Fabric\Commands\WizardCommand::class,
             \CLCBWS\Fabric\Commands\ReverseMigrationCommand::class,

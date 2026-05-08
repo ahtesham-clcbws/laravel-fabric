@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Engines;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Contracts\LoomContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
 use ReflectionClass;
 
 class Loom implements LoomContract
@@ -47,9 +50,9 @@ class Loom implements LoomContract
             $field = $this->mapColumn($tableName, $column, $model);
             
             // Overwrite type if it's a relationship
-            if (isset($contract['relationships'][$column])) {
+            if (isset($contract['relationships']['belongs_to'][$column])) {
                 $field['type'] = 'relationship';
-                $field['relationship'] = $contract['relationships'][$column];
+                $field['relationship'] = $contract['relationships']['belongs_to'][$column];
             }
 
             $contract['fields'][$column] = $field;
@@ -67,7 +70,7 @@ class Loom implements LoomContract
 
         return [
             'media'      => \in_array('Spatie\MediaLibrary\HasMedia', $traits),
-            'permission' => \class_exists('Spatie\Permission\PermissionServiceProvider'),
+            'permission' => \class_exists('Spatie\Permission\PermissionServiceProvider') && (\in_array('Spatie\Permission\Traits\HasRoles', $traits) || \in_array('Spatie\Permission\Traits\HasPermissions', $traits)),
             'activity'   => \in_array('Spatie\Activitylog\Traits\LogsActivity', $traits) || \in_array('Spatie\Activitylog\Models\Concerns\LogsActivity', $traits),
             'scout'      => \in_array('Laravel\Scout\Searchable', $traits),
             'excel'      => \class_exists('Maatwebsite\LaravelExcel\ExcelServiceProvider'),
@@ -140,13 +143,13 @@ class Loom implements LoomContract
     protected function isSortable(string $type, string $column): bool
     {
         // Numbers, dates, and short strings are generally sortable
-        return in_array($type, ['integer', 'bigint', 'datetime', 'date', 'string', 'boolean']);
+        return \in_array($type, ['integer', 'bigint', 'datetime', 'date', 'string', 'boolean']);
     }
 
     protected function isSearchable(string $type, string $column): bool
     {
         // Text and strings are searchable
-        return in_array(strtolower($type), ['string', 'text', 'email', 'varchar', 'char']);
+        return \in_array(\strtolower($type), ['string', 'text', 'email', 'varchar', 'char']);
     }
 
     /**
@@ -176,18 +179,23 @@ class Loom implements LoomContract
         $rules = [];
         if (!$isFillable) return $rules;
 
-        $col = Schema::getConnection()->getDoctrineColumn($table, $column);
+        $columns = Schema::getColumns($table);
+        $col = collect($columns)->firstWhere('name', $column);
         
+        if (!$col) return $rules;
+
         // 1. Requirement
-        if ($col->getNotnull() && $col->getDefault() === null) {
+        if (!$col['nullable'] && $col['default'] === null) {
             $rules[] = 'required';
         } else {
             $rules[] = 'nullable';
         }
 
-        // 2. Length
-        if ($col->getLength()) {
-            $rules[] = "max:{$col->getLength()}";
+        // 2. Length (heuristic for strings)
+        if (Str::contains($col['type'] ?? '', 'varchar')) {
+            // Native schema doesn't always expose length easily without DBAL, 
+            // but we can try to guess or use 255
+            $rules[] = "max:255";
         }
 
         // 3. Types

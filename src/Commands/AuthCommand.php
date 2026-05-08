@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use CLCBWS\Fabric\Engines\Fabricator;
 use CLCBWS\Fabric\Engines\Guard;
 
@@ -32,7 +35,7 @@ class AuthCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(Guard $guard, Fabricator $fabricator)
+    public function handle(Guard $guard, Fabricator $fabricator): void
     {
         $guard->enforce();
 
@@ -69,7 +72,7 @@ class AuthCommand extends Command
         };
     }
 
-    protected function scaffoldLayouts(Fabricator $fabricator)
+    protected function scaffoldLayouts(Fabricator $fabricator): void
     {
         $theme = config('fabric.theme', 'tailwind');
         $runtime = config('fabric.runtime', 'livewire');
@@ -93,20 +96,20 @@ class AuthCommand extends Command
         }
     }
 
-    protected function scaffoldLogin(Fabricator $fabricator)
+    protected function scaffoldLogin(Fabricator $fabricator): void
     {
         $theme = config('fabric.theme', 'tailwind');
         $runtime = config('fabric.runtime', 'livewire');
 
         // 1. Component Logic
         $componentSource = __DIR__ . "/../../stubs/{$runtime}/common/auth/Login.php.stub";
-        $componentTarget = app_path("Livewire/Auth/Login.php");
+        $componentTarget = app_path("Livewire/Fabric/Auth/Login.php");
 
         if (File::exists($componentSource)) {
             $content = File::get($componentSource);
             $content = str_replace(
                 ['{{ NAMESPACE }}', '{{ VIEW }}'],
-                ['App\\Livewire\\Auth', 'livewire.auth.login'],
+                ['App\\Livewire\\Fabric\\Auth', 'livewire.fabric.auth.login'],
                 $content
             );
             File::ensureDirectoryExists(dirname($componentTarget));
@@ -115,7 +118,7 @@ class AuthCommand extends Command
 
         // 2. Component View
         $viewSource = __DIR__ . "/../../stubs/{$runtime}/{$theme}/auth/login.blade.php.stub";
-        $viewTarget = resource_path("views/livewire/auth/login.blade.php");
+        $viewTarget = resource_path("views/livewire/fabric/auth/login.blade.php");
 
         if (File::exists($viewSource)) {
             $content = File::get($viewSource);
@@ -124,20 +127,20 @@ class AuthCommand extends Command
         }
     }
 
-    protected function scaffoldRegister(Fabricator $fabricator)
+    protected function scaffoldRegister(Fabricator $fabricator): void
     {
         $theme = config('fabric.theme', 'tailwind');
         $runtime = config('fabric.runtime', 'livewire');
 
         // 1. Component Logic
         $componentSource = __DIR__ . "/../../stubs/{$runtime}/common/auth/Register.php.stub";
-        $componentTarget = app_path("Livewire/Auth/Register.php");
+        $componentTarget = app_path("Livewire/Fabric/Auth/Register.php");
 
         if (File::exists($componentSource)) {
             $content = File::get($componentSource);
             $content = str_replace(
                 ['{{ NAMESPACE }}', '{{ LAYOUT }}', '{{ VIEW }}'],
-                ['App\\Livewire\\Auth', 'layouts.app', 'livewire.auth.register'],
+                ['App\\Livewire\\Fabric\\Auth', 'layouts.app', 'livewire.fabric.auth.register'],
                 $content
             );
             File::ensureDirectoryExists(dirname($componentTarget));
@@ -146,7 +149,7 @@ class AuthCommand extends Command
 
         // 2. Component View
         $viewSource = __DIR__ . "/../../stubs/{$runtime}/{$theme}/auth/register.blade.php.stub";
-        $viewTarget = resource_path("views/livewire/auth/register.blade.php");
+        $viewTarget = resource_path("views/livewire/fabric/auth/register.blade.php");
 
         if (File::exists($viewSource)) {
             $content = File::get($viewSource);
@@ -161,7 +164,7 @@ class AuthCommand extends Command
             if (! str_contains($routeContent, "Register::class")) {
                 $routeContent = str_replace(
                     "use App\\Livewire\\Auth\\Login;",
-                    "use App\\Livewire\\Auth\\Login;\nuse App\\Livewire\\Auth\\Register;",
+                    "use App\\Livewire\\Fabric\\Auth\\Login;\nuse App\\Livewire\\Fabric\\Auth\\Register;",
                     $routeContent
                 );
                 $routeContent = str_replace(
@@ -174,25 +177,25 @@ class AuthCommand extends Command
         }
     }
 
-    protected function scaffoldRecovery(Fabricator $fabricator)
+    protected function scaffoldRecovery(Fabricator $fabricator): void
     {
         // Implementation will follow with stubs
     }
 
-    protected function scaffoldProfile(Fabricator $fabricator)
+    protected function scaffoldProfile(Fabricator $fabricator): void
     {
         $theme = config('fabric.theme', 'tailwind');
         $runtime = config('fabric.runtime', 'livewire');
 
         // 1. Component Logic
         $componentSource = __DIR__ . "/../../stubs/{$runtime}/common/auth/Profile.php.stub";
-        $componentTarget = app_path("Livewire/Auth/Profile.php");
+        $componentTarget = app_path("Livewire/Fabric/Auth/Profile.php");
 
         if (File::exists($componentSource)) {
             $content = File::get($componentSource);
             $content = str_replace(
                 ['{{ NAMESPACE }}', '{{ VIEW }}'],
-                ['App\\Livewire\\Auth', 'livewire.auth.profile'],
+                ['App\\Livewire\\Fabric\\Auth', 'livewire.fabric.auth.profile'],
                 $content
             );
             File::ensureDirectoryExists(dirname($componentTarget));
@@ -201,7 +204,7 @@ class AuthCommand extends Command
 
         // 2. Component View
         $viewSource = __DIR__ . "/../../stubs/{$runtime}/{$theme}/auth/profile.blade.php.stub";
-        $viewTarget = resource_path("views/livewire/auth/profile.blade.php");
+        $viewTarget = resource_path("views/livewire/fabric/auth/profile.blade.php");
 
         if (File::exists($viewSource)) {
             $content = File::get($viewSource);
@@ -210,13 +213,13 @@ class AuthCommand extends Command
         }
 
         // 3. Update Auth Routes to include Profile
-        $routePath = base_path("routes/auth.php");
+        $routePath = base_path("routes/fabric.php");
         if (File::exists($routePath)) {
             $routeContent = File::get($routePath);
             if (! str_contains($routeContent, "Profile::class")) {
                 $routeContent = str_replace(
                     "use App\\Livewire\\Auth\\Login;",
-                    "use App\\Livewire\\Auth\\Login;\nuse App\\Livewire\\Auth\\Profile;",
+                    "use App\\Livewire\\Fabric\\Auth\\Login;\nuse App\\Livewire\\Fabric\\Auth\\Profile;",
                     $routeContent
                 );
                 $routeContent = str_replace(
@@ -229,29 +232,22 @@ class AuthCommand extends Command
         }
     }
 
-    protected function scaffoldSessions(Fabricator $fabricator)
+    protected function scaffoldSessions(Fabricator $fabricator): void
     {
         // Implementation will follow with stubs
     }
 
-    protected function scaffoldRoutes(Fabricator $fabricator)
+    protected function scaffoldRoutes(Fabricator $fabricator): void
     {
         $runtime = config('fabric.runtime', 'livewire');
         $routeSource = __DIR__ . "/../../stubs/{$runtime}/common/auth/routes.php.stub";
-        $routeTarget = base_path("routes/auth.php");
+        $routeTarget = base_path("routes/fabric.php");
 
         if (File::exists($routeSource)) {
             $content = File::get($routeSource);
-            File::put($routeTarget, $content);
-
-            // Register in web.php if not already there
-            $webPath = base_path("routes/web.php");
-            if (File::exists($webPath)) {
-                $webContent = File::get($webPath);
-                if (! str_contains($webContent, "require __DIR__.'/auth.php'")) {
-                    File::append($webPath, "\nrequire __DIR__.'/auth.php';\n");
-                }
-            }
+            // Clean up opening tag if we are appending
+            $content = preg_replace('/^<\?php\s*/', '', $content);
+            File::append($routeTarget, "\n\n/* --- Fabric Auth Routes --- */\n" . $content);
         }
     }
 }

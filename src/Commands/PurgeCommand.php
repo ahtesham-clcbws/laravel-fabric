@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Engines\Loom;
 use Illuminate\Console\Command;

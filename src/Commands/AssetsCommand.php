@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 
 class AssetsCommand extends Command
 {
@@ -24,7 +27,7 @@ class AssetsCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
         $theme = config('fabric.theme', 'tailwind');
         $runtime = config('fabric.runtime', 'livewire');
@@ -110,6 +113,35 @@ class AssetsCommand extends Command
             $content = str_replace('{{ NAMESPACE }}', 'App\\Livewire\\Fabric', $content);
             File::ensureDirectoryExists(dirname($labTarget));
             File::put($labTarget, $content);
+        }
+
+        // 5. Scaffold Dashboard
+        $dashboardSource = __DIR__ . "/../../stubs/livewire/common/Dashboard.php.stub";
+        $dashboardTarget = app_path("Livewire/Fabric/Dashboard.php");
+        
+        if (File::exists($dashboardSource)) {
+            $content = File::get($dashboardSource);
+            $content = str_replace('{{ NAMESPACE }}', 'App\\Livewire\\Fabric', $content);
+            File::ensureDirectoryExists(dirname($dashboardTarget));
+            File::put($dashboardTarget, $content);
+        }
+
+        // 6. Publish Core Views
+        $coreViews = [
+            'dashboard' => "stubs/livewire/{$theme}/dashboard.blade.php.stub",
+            'lab'       => "stubs/livewire/{$theme}/lab.blade.php.stub",
+            'omnisearch' => "stubs/livewire/{$theme}/components/omnisearch.blade.php.stub",
+        ];
+
+        foreach ($coreViews as $name => $stubPath) {
+            $source = __DIR__ . "/../../{$stubPath}";
+            $target = resource_path("views/livewire/fabric/{$name}.blade.php");
+            
+            if (File::exists($source)) {
+                File::ensureDirectoryExists(dirname($target));
+                File::copy($source, $target);
+                $this->components->twoColumnDetail("View: livewire/fabric/{$name}", '<fg=green>Published</>');
+            }
         }
 
         $this->newLine();

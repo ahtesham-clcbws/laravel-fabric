@@ -1,16 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 
 class StubForgeCommand extends Command
 {
     protected $signature = 'fabric:stub {name}';
     protected $description = 'Forge a new master blueprint (stub) for custom component development';
 
-    public function handle()
+    public function handle(): void
     {
         $name = $this->argument('name');
         $filename = "{$name}.php.stub";
@@ -22,6 +25,7 @@ class StubForgeCommand extends Command
         }
 
         $stub = "<?php
+
 
 namespace {{ NAMESPACE }};
 

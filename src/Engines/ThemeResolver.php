@@ -1,8 +1,11 @@
 <?php
 
-namespace CLCBWS\Fabric\Engines;
+declare(strict_types=1);
 
+namespace CLCBWS\Fabric\Engines;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+
 
 class ThemeResolver
 {

@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Engines\Loom;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
 class ApiCommand extends Command
 {
@@ -52,6 +54,7 @@ class ApiCommand extends Command
 
         $stub = "<?php
 
+
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
@@ -79,6 +82,7 @@ class {$name}Resource extends JsonResource
         $searchCol = collect($contract['fields'])->keys()->first(fn($f) => in_array($f, ['name', 'title', 'email', 'subject'])) ?? 'id';
 
         $stub = "<?php
+
 
 namespace App\Http\Controllers\Api;
 

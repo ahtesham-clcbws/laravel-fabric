@@ -1,17 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
 class InstallCommand extends Command
 {
     protected $signature = 'fabric:install {--prefix=}';
     protected $description = 'Initialize the Laravel Fabric ecosystem and register routes';
 
-    public function handle()
+    public function handle(): void
     {
         $this->components->info("Initializing Laravel Fabric...");
 
@@ -22,29 +24,37 @@ class InstallCommand extends Command
         $this->call('fabric:assets');
 
         // 3. Setup Routes
-        $prefix = $this->option('prefix') ?? \config('fabric.prefix', 'admin');
+        $prefix = $this->option('prefix') ?? \config('fabric.prefix', 'fabric');
         $this->setupRoutes($prefix);
 
-        // 4. Seed Admin User
+        // 4. Setup Scripts
+        $this->setupScripts();
+
+        // 5. Seed Admin User
         if ($this->confirm('Would you like to forge a Seed Admin user?', true)) {
             $this->createAdminUser();
+        }
+
+        // 5. Register in web.php
+        $webPath = base_path('routes/web.php');
+        if (File::exists($webPath)) {
+            $webContent = File::get($webPath);
+            if (!str_contains($webContent, "require __DIR__.'/fabric.php'")) {
+                File::append($webPath, "\nrequire __DIR__.'/fabric.php';\n");
+            }
         }
 
         $this->newLine();
         $this->info("✨ Laravel Fabric has been installed successfully!");
         $this->info("Dashboard Prefix: /{$prefix}");
-        
-        $this->newLine();
-        $this->components->warn("IMPORTANT: For Laravel 13, ensure you register the routes in bootstrap/app.php if not using the default web.php.");
-        $this->line("Add this to your web.php or a custom routes file:");
-        $this->line("Route::middleware('web')->group(base_path('routes/fabric.php'));");
     }
 
-    protected function setupRoutes(string $prefix)
+    protected function setupRoutes(string $prefix): void
     {
         $path = base_path('routes/fabric.php');
         
         $content = "<?php
+
 
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Fabric\Dashboard;
@@ -78,7 +88,7 @@ Route::middleware(['web', 'guest'])->prefix('{$prefix}')->group(function () {
         $this->components->twoColumnDetail("Routes: routes/fabric.php", '<fg=green>Forged</>');
     }
 
-    protected function createAdminUser()
+    protected function createAdminUser(): void
     {
         $name = $this->ask('Admin Name', 'Fabric Admin');
         $email = $this->ask('Admin Email', 'admin@example.com');
@@ -101,5 +111,22 @@ Route::middleware(['web', 'guest'])->prefix('{$prefix}')->group(function () {
         } catch (\Exception $e) {
             $this->error("Could not create user: " . $e->getMessage());
         }
+    }
+
+    protected function setupScripts(): void
+    {
+        $path = base_path('composer.json');
+        if (!File::exists($path)) return;
+
+        $composer = json_decode(File::get($path), true);
+        
+        $composer['scripts']['dev'] = [
+            "Composer\\Config::disableProcessTimeout",
+            "php artisan serve --port=8001 &",
+            "npm run dev"
+        ];
+
+        File::put($path, json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        $this->components->twoColumnDetail("Scripts: composer dev", '<fg=green>Injected</>');
     }
 }

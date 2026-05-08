@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Engines;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Http;
 
@@ -49,7 +53,7 @@ class Guard
     /**
      * Enforce the license check. Throws exception if invalid.
      */
-    public function enforce()
+    public function enforce(): void
     {
         if (!$this->verify()) {
             throw new \Exception("\n\n❌ [FABRIC LICENSE ERROR]\nCommercial or Enterprise usage detected without a valid license.\nPlease obtain a license at: https://clcbws.com/license\n\n");

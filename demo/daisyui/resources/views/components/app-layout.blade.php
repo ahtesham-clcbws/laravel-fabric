@@ -1,3 +1,3 @@
-<x-fabric::layouts.sidebar>
+<x-fabric::sidebar>
     {{ $slot }}
-</x-fabric::layouts.sidebar>
+</x-fabric::sidebar>

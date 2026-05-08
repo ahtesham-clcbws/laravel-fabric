@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Auth;
+namespace App\Livewire\Fabric\Auth;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -58,9 +58,37 @@ class Profile extends Component
 
         $this->dispatch('password-updated');
     }
+    public function logoutOtherDevices(): void
+    {
+        $this->validate([
+            'current_password' => ['required', 'string', 'current_password'],
+        ]);
+
+        Auth::logoutOtherDevices($this->current_password);
+
+        $this->dispatch('sessions-invalidated');
+    }
+
+    public function generateApiKey(): void
+    {
+        $token = \Illuminate\Support\Str::random(64);
+        
+        Auth::user()->api_tokens()->create([
+            'name' => 'Forged Key',
+            'token' => hash('sha256', $token),
+        ]);
+
+        $this->dispatch('token-generated', token: $token);
+    }
+
+    public function revokeApiKey(int $id): void
+    {
+        Auth::user()->api_tokens()->where('id', $id)->delete();
+        $this->dispatch('token-revoked');
+    }
 
     public function render()
     {
-        return view('livewire.auth.profile');
+        return view('livewire.fabric.auth.profile');
     }
 }

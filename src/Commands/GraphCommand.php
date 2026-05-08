@@ -1,22 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Engines\Loom;
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 
 class GraphCommand extends Command
 {
     protected $signature = 'fabric:graph';
     protected $description = 'Generate a high-fidelity Mermaid.js relationship graph of your forged resources';
 
-    public function handle(Loom $loom)
+    public function handle(Loom $loom): void
     {
         $this->components->info("Forging Nexus Graph: Analyzing Resource Connections...");
 
         // Get all models in app/Models
-        $models = collect(\Illuminate\Support\Facades\File::files(app_path('Models')))
+        $modelPath = app_path('Models');
+        $models = collect(File::exists($modelPath) ? File::files($modelPath) : [])
             ->map(fn($f) => "App\\Models\\" . $f->getFilenameWithoutExtension())
             ->filter(fn($m) => class_exists($m));
 

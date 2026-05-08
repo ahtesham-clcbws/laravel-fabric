@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Engines\Fabricator;
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 
 class GenerateResourceCommand extends Command
 {
@@ -13,7 +16,7 @@ class GenerateResourceCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'fabric:generate {model} {--theme=} {--runtime=} {--tenant} {--force}';
+    protected $signature = 'fabric:generate {model} {--theme=} {--runtime=} {--tenant} {--force} {--sort=id} {--direction=desc}';
 
     /**
      * The console command description.
@@ -25,10 +28,11 @@ class GenerateResourceCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(Fabricator $fabricator)
+    public function handle(Fabricator $fabricator): void
     {
         $model = $this->argument('model');
         $modelClass = $this->qualifyModel($model);
+        $modelName = \class_basename($modelClass);
 
         if (!class_exists($modelClass)) {
             $this->error("Model {$modelClass} not found.");
@@ -42,6 +46,8 @@ class GenerateResourceCommand extends Command
                 'theme' => $this->option('theme'),
                 'runtime' => $this->option('runtime'),
                 'tenant' => $this->option('tenant'),
+                'sort' => $this->option('sort'),
+                'direction' => $this->option('direction'),
             ]);
 
             foreach ($files as $file) {
@@ -51,7 +57,8 @@ class GenerateResourceCommand extends Command
                 );
             }
 
-            $this->components->info("Registered {$modelName} in global Spotlight Search.");
+            $this->registerInSearch($modelClass);
+            $this->registerRoute($modelClass);
             
             $this->displayWisdom();
 
@@ -60,7 +67,7 @@ class GenerateResourceCommand extends Command
         }
     }
 
-    protected function displayWisdom()
+    protected function displayWisdom(): void
     {
         $quotes = [
             "Any fool can write code that a computer can understand. Good programmers write code that humans can understand. — Martin Fowler",
@@ -77,6 +84,45 @@ class GenerateResourceCommand extends Command
         $this->newLine();
         $this->line("  <fg=gray;italic>“{$quote}”</>");
         $this->newLine();
+    }
+
+    /**
+     * Register the resource in routes/fabric.php.
+     */
+    protected function registerRoute(string $modelClass): void
+    {
+        $path = base_path('routes/fabric.php');
+        if (!File::exists($path)) return;
+
+        $modelName = class_basename($modelClass);
+        $routePrefix = Str::kebab($modelName);
+        $normalizedClass = \str_replace('/', '\\', $modelClass);
+        $normalizedDir = \str_replace('/', '\\', \dirname(\str_replace('\\', '/', $normalizedClass)));
+        $subNamespace = \str_replace(['App\\Models\\', 'App\\Models', 'App\\'], '', $normalizedDir);
+        $subNamespace = \str_replace(['/', '\\'], '\\', $subNamespace);
+        $slashPrefix = !empty($subNamespace) ? \trim($subNamespace, '\\') . "\\" : "";
+        
+        $componentClass = "App\\Livewire\\Fabric\\{$slashPrefix}{$modelName}\\Table";
+        $routeLine = "    Route::get('/{$routePrefix}', \\{$componentClass}::class)->name('{$routePrefix}.index');";
+
+        $content = File::get($path);
+        
+        // If force, remove old route first
+        if ($this->option('force')) {
+            $content = preg_replace('/Route::get\(\'\/' . $routePrefix . '\'.*?;/s', '', $content);
+        }
+
+        if (str_contains($content, "fabric.{$routePrefix}.index")) return;
+
+        if (str_contains($content, '// [FABRIC-RESOURCE-ROUTES]')) {
+            $content = str_replace('// [FABRIC-RESOURCE-ROUTES]', "{$routeLine}\n    // [FABRIC-RESOURCE-ROUTES]", $content);
+        } else {
+            // Fallback: append before the last closing brace of the group
+            $content = preg_replace('/}\);(\s*\/\/ Guest Routes|$)/', "    {$routeLine}\n});$1", $content);
+        }
+
+        File::put($path, $content);
+        $this->components->info("Registered {$modelName} routes in routes/fabric.php.");
     }
 
     /**

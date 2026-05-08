@@ -202,14 +202,11 @@ class ComposerStaticInita50fcd33e602a87f118e718581a41326
             'Composer\\Semver\\' => 16,
             'Carbon\\Doctrine\\' => 16,
             'Carbon\\' => 7,
+            'CLCBWS\\Fabric\\' => 14,
         ),
         'B' =>
         array (
             'Brick\\Math\\' => 11,
-        ),
-        'A' =>
-        array (
-            'Ahtesham\\Fabric\\' => 16,
         ),
     );
 
@@ -606,13 +603,13 @@ class ComposerStaticInita50fcd33e602a87f118e718581a41326
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
+        'CLCBWS\\Fabric\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Brick\\Math\\' =>
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
-        ),
-        'Ahtesham\\Fabric\\' =>
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Services;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -10,12 +14,27 @@ class SearchRegistry
     protected array $resources = [];
     protected array $actions = [];
 
+    public function __construct()
+    {
+        $configResources = \config('fabric.resources', []);
+        foreach ($configResources as $name => $config) {
+            $this->registerResource(
+                $config['model'],
+                $config['route'],
+                $config['icon'] ?? '📦',
+                $config['columns'] ?? ['name', 'title'],
+                $config['group'] ?? 'Resources'
+            );
+        }
+    }
+
     /**
      * Register a model as a searchable resource.
      */
     public function registerResource(string $model, string $route, string $icon = '📦', array $searchColumns = ['name', 'title'], string $group = 'Resources'): void
     {
         $this->resources[strtolower(\class_basename($model))] = [
+            'name'    => strtolower(\class_basename($model)),
             'model'   => $model,
             'route'   => $route,
             'icon'    => $icon,
@@ -86,7 +105,7 @@ class SearchRegistry
                 $results->push([
                     'title'       => $record->{$config['columns'][0]} ?? $name . " #{$record->id}",
                     'description' => __('Result in ') . \Illuminate\Support\Str::plural($name),
-                    'route'       => \str_replace('.index', '.show', $config['route']),
+                    'route'       => $config['route'],
                     'params'      => ['record' => $record->id],
                     'icon'        => $config['icon'],
                     'type'        => 'record',

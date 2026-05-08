@@ -23,28 +23,9 @@ class Omnisearch extends Component
 
     protected function performSearch(): array
     {
-        $results = [];
+        $registry = app(\CLCBWS\Fabric\Services\SearchRegistry::class);
         
-        // This is where Fabric shines: It can search across all registered models
-        // For the demo, we'll search for common admin tasks and registered models
-        $models = [
-            'Company' => ['route' => 'company.index', 'icon' => '📦'],
-            'User' => ['route' => 'user.index', 'icon' => '👤'],
-            'Setting' => ['route' => 'setting.index', 'icon' => '⚙️'],
-        ];
-
-        foreach ($models as $name => $data) {
-            if (Str::contains(Str::lower($name), Str::lower($this->query))) {
-                $results[] = [
-                    'title' => "Manage {$name}s",
-                    'description' => "Quick access to {$name} management",
-                    'route' => $data['route'],
-                    'icon' => $data['icon']
-                ];
-            }
-        }
-
-        return $results;
+        return $registry->search($this->query)->toArray();
     }
 
     public function render()

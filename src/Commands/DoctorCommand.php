@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Engines\Guard;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 
 class DoctorCommand extends Command
 {
@@ -25,7 +28,7 @@ class DoctorCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(Guard $guard)
+    public function handle(Guard $guard): void
     {
         $this->components->info('🩺 Laravel Fabric: Diagnostic Forge');
 
@@ -48,7 +51,7 @@ class DoctorCommand extends Command
         $this->info('Fabric: Doctor is done.');
     }
 
-    protected function checkFrontend()
+    protected function checkFrontend(): void
     {
         $theme = config('fabric.theme', 'tailwind');
 
@@ -88,9 +91,9 @@ class DoctorCommand extends Command
     protected function checkPHP(): void
     {
         $version = PHP_VERSION;
-        $success = version_compare($version, '8.2.0', '>=');
+        $success = version_compare($version, '8.3.0', '>=');
         
-        $status = $success ? '<fg=green>PASSED</>' : '<fg=red>FAILED (Requires 8.2+)</>';
+        $status = $success ? '<fg=green>PASSED</>' : '<fg=red>FAILED (Requires 8.3+)</>';
         $this->components->twoColumnDetail('PHP Version (' . $version . ')', $status);
     }
 
@@ -100,19 +103,19 @@ class DoctorCommand extends Command
     protected function checkLaravel(): void
     {
         $version = $this->getLaravel()->version();
-        $success = version_compare($version, '12.0.0', '>=');
+        $success = version_compare($version, '13.0.0', '>=');
 
-        $status = $success ? '<fg=green>PASSED</>' : '<fg=red>FAILED (Requires 12.0+)</>';
+        $status = $success ? '<fg=green>PASSED</>' : '<fg=red>FAILED (Requires 13.0+)</>';
         $this->components->twoColumnDetail('Laravel Version (' . $version . ')', $status);
     }
 
-    protected function checkConfig()
+    protected function checkConfig(): void
     {
         $exists = File::exists(config_path('fabric.php'));
         $this->components->twoColumnDetail('Config Published', $exists ? '<fg=green>Yes</>' : '<fg=yellow>No (Default used)</>');
     }
 
-    protected function checkRuntime()
+    protected function checkRuntime(): void
     {
         $runtime = config('fabric.runtime', 'livewire');
         $this->components->twoColumnDetail('Active Runtime', "<fg=cyan>{$runtime}</>");
@@ -123,7 +126,7 @@ class DoctorCommand extends Command
         }
     }
 
-    protected function checkThemes()
+    protected function checkThemes(): void
     {
         $theme = config('fabric.theme', 'tailwind');
         $this->components->twoColumnDetail('Active Theme', "<fg=cyan>{$theme}</>");

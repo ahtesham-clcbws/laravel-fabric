@@ -1,17 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Engines\Loom;
 use Illuminate\Console\Command;
-use Illuminate\Support\Str;
 
 class HydrateCommand extends Command
 {
     protected $signature = 'fabric:hydrate {model} {count=50}';
     protected $description = 'Forge realistic, context-aware dummy data for any model';
 
-    public function handle(Loom $loom)
+    public function handle(Loom $loom): void
     {
         $model = $this->argument('model');
         $count = (int) $this->argument('count');
@@ -39,7 +42,7 @@ class HydrateCommand extends Command
         $this->info("✨ Hydration Complete. {$model} is now alive with data.");
     }
 
-    protected function guessFaker(string $name, string $type, $faker)
+    protected function guessFaker(string $name, string $type, $faker): mixed
     {
         $name = strtolower($name);
 

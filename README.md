@@ -8,14 +8,14 @@
 
 **The Enterprise-Grade Scaffolding Engine for the Modern Web.**
 
-[![Latest Version](https://img.shields.io/badge/version-1.0.0-gold)](https://clcbws.com)
+[![Latest Version](https://img.shields.io/badge/version-1.0.0--beta.1-gold)](https://clcbws.com)
 [![PHP Version](https://img.shields.io/badge/PHP-8.2+-777BB4)](https://php.net)
 [![Laravel Version](https://img.shields.io/badge/Laravel-13.0+-FF2D20)](https://laravel.com)
 [![License](https://img.shields.io/badge/License-Proprietary-gold)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Private_Beta-red)](https://clcbws.com)
+[![Status](https://img.shields.io/badge/Status-Public_Beta-green)](https://clcbws.com)
 
-> [!CAUTION]
-> **🚧 PRIVATE BETA**: This repository is currently private while we complete the final feature suite and perform internal QA. Public distribution is coming soon.
+> [!IMPORTANT]
+> **🚀 PUBLIC BETA**: Laravel Fabric has entered Public Beta. All core engines are operational. We are now finalizing the documentation and premium theme stubs.
 
 ---
 
@@ -101,13 +101,16 @@ FABRIC_LICENSE_KEY=FAB-XXXX-XXXX-XXXX
 
 ---
 
-## 🚀 The First Forge
-
-Forge a complete admin resource (Table, Editor, Show, and Tests) in seconds:
-
 ```bash
 php artisan fabric:forge User
 ```
+
+---
+
+## 🎨 Premium Demos
+
+Check out our production-grade demos forged entirely with the Fabric CLI:
+- **[DaisyUI Premium Demo](docs/demo/daisyui.md)**: 15+ pages, 1300px locked content, dynamic settings, and high-fidelity aesthetics.
 
 ---
 

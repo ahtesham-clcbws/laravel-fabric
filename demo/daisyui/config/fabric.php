@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'theme' => '',
+    'theme' => 'daisyui',
 
     /*
     |--------------------------------------------------------------------------
@@ -101,6 +101,42 @@ return [
         'created_at',
         'updated_at',
         'deleted_at',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Forged Resources
+    |--------------------------------------------------------------------------
+    |
+    | This list is automatically maintained by the fabric:generate command.
+    |
+    */
+
+    'resources' => [
+        'category' => [
+            'model' => \App\Models\Category::class,
+            'route' => 'fabric.category.index',
+            'icon' => '📂',
+            'group' => 'Resources',
+        ],
+        'user' => [
+            'model' => \App\Models\User::class,
+            'route' => 'fabric.user.index',
+            'icon' => '👤',
+            'group' => 'Core',
+        ],
+        'post' => [
+            'model' => \App\Models\Post::class,
+            'route' => 'fabric.post.index',
+            'icon' => '📝',
+            'group' => 'Resources',
+        ],
+        'tag' => [
+            'model' => \App\Models\Tag::class,
+            'route' => 'fabric.tag.index',
+            'icon' => '🏷️',
+            'group' => 'Resources',
+        ],
     ],
 
 ];

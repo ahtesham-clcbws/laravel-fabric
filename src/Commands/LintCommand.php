@@ -1,21 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
 class LintCommand extends Command
 {
     protected $signature = 'fabric:lint';
     protected $description = 'Audit the architectural integrity of your models and components';
 
-    public function handle()
+    public function handle(): void
     {
         $this->components->info("Fabric Architectural Auditor: Scanning for Senior Standards...");
 
-        $models = File::files(app_path('Models'));
+        $modelPath = app_path('Models');
+        $models = File::exists($modelPath) ? File::files($modelPath) : [];
         $score = 100;
         $issues = 0;
 

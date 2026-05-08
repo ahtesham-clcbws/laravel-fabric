@@ -1,0 +1,23 @@
+<?php
+
+namespace {{ NAMESPACE }};
+
+use Livewire\Component;
+use {{ MODEL_CLASS }};
+
+/**
+ * [FABRIC-METADATA]
+ * Model: {{ MODEL_NAME }}
+ * Type: Metrics/Stats
+ */
+class {{ MODEL_NAME }}Stats extends Component
+{
+    public function render()
+    {
+        return view('{{ VIEW_PATH }}.stats', [
+            'total' => {{ MODEL_NAME }}::count(),
+            'latest' => {{ MODEL_NAME }}::latest()->take(5)->get(),
+            // [FABRIC-HOOK:STATS-LOGIC]
+        ]);
+    }
+}

@@ -102,6 +102,6 @@ return array(
     'Composer\\Semver\\' => array($vendorDir . '/composer/semver/src'),
     'Carbon\\Doctrine\\' => array($vendorDir . '/carbonphp/carbon-doctrine-types/src/Carbon/Doctrine'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
+    'CLCBWS\\Fabric\\' => array($baseDir . '/src'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
-    'Ahtesham\\Fabric\\' => array($baseDir . '/src'),
 );

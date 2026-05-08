@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Engines;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Str;
 
 class Blueprint
 {
@@ -84,6 +87,7 @@ class Blueprint
 
         return <<<EOT
 <?php
+
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;

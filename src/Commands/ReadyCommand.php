@@ -1,16 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 
 class ReadyCommand extends Command
 {
     protected $signature = 'fabric:ready';
     protected $description = 'Pre-flight check to verify production readiness';
 
-    public function handle()
+    public function handle(): void
     {
         $this->components->info("Fabric Deployment Safety: Auditing Environment...");
 

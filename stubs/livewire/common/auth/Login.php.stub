@@ -37,7 +37,7 @@ class Login extends Component
         RateLimiter::clear($this->throttleKey());
         session()->regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        $this->redirectIntended(default: route('fabric.dashboard', absolute: false), navigate: true);
     }
 
     protected function ensureIsNotRateLimited(): void

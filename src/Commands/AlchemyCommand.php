@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
 use CLCBWS\Fabric\Engines\Alchemist;
-use Illuminate\Support\Facades\File;
 use function Laravel\Prompts\text;
 use function Laravel\Prompts\textarea;
 
@@ -13,7 +16,7 @@ class AlchemyCommand extends Command
     protected $signature = 'fabric:alchemy';
     protected $description = 'Transmute a static component into a dynamic Fabric stub';
 
-    public function handle(Alchemist $alchemist)
+    public function handle(Alchemist $alchemist): int
     {
         $this->components->info("The Alchemist: Transmuting Static UI into Dynamic Stubs");
 

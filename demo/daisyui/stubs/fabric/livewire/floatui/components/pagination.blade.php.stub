@@ -1,0 +1,10 @@
+<div class="max-w-screen-xl mx-auto mt-12 px-4 text-gray-600 md:px-8">
+    <div class="hidden justify-between sm:flex">
+        <a href="javascript:void(0)" class="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50">Previous</a>
+        <div class="flex items-center gap-x-3">
+            <a href="javascript:void(0)" class="px-3 py-2 text-{{ PRIMARY }} border border-{{ PRIMARY }} rounded-lg duration-150 bg-indigo-50">1</a>
+            <a href="javascript:void(0)" class="px-3 py-2 border rounded-lg duration-150 hover:text-{{ PRIMARY }} hover:bg-gray-50">2</a>
+        </div>
+        <a href="javascript:void(0)" class="px-4 py-2 border rounded-lg duration-150 hover:bg-gray-50">Next</a>
+    </div>
+</div>

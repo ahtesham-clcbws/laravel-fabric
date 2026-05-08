@@ -1,18 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Engines\Loom;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class AnonCommand extends Command
 {
     protected $signature = 'fabric:anon';
     protected $description = 'Irreversibly scrub PII from your database for safe development';
 
-    public function handle(Loom $loom)
+    public function handle(Loom $loom): void
     {
         if (!$this->confirm('WARNING: This will IRREVERSIBLY change your database. Proceed?', false)) {
             return;
@@ -20,7 +23,8 @@ class AnonCommand extends Command
 
         $this->components->info("Fabric Data-Anonymizer: Scrubbing PII...");
 
-        $models = collect(\Illuminate\Support\Facades\File::files(app_path('Models')))
+        $modelPath = app_path('Models');
+        $models = collect(File::exists($modelPath) ? File::files($modelPath) : [])
             ->map(fn($f) => "App\\Models\\" . $f->getFilenameWithoutExtension())
             ->filter(fn($m) => class_exists($m));
 
@@ -48,7 +52,7 @@ class AnonCommand extends Command
         $this->info("✨ Database successfully anonymized. It is now safe for development.");
     }
 
-    protected function getAnonValue(string $key, $faker)
+    protected function getAnonValue(string $key, $faker): ?string
     {
         $key = strtolower($key);
         if (Str::contains($key, 'name')) return $faker->name;

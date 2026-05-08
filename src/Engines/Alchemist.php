@@ -1,8 +1,11 @@
 <?php
 
-namespace CLCBWS\Fabric\Engines;
+declare(strict_types=1);
 
+namespace CLCBWS\Fabric\Engines;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+
 
 readonly class Alchemist
 {
@@ -31,7 +34,7 @@ readonly class Alchemist
 
         // Replace Color References (Heuristic for common Tailwind colors)
         $content = preg_replace('/indigo-[0-9]{3}/', '{{ PRIMARY }}', $content);
-        $content = preg_replace('/gray-[0-9]{3}/', '{{ SECONDARY }}', $content);
+        $content = preg_replace('/gray-[0-9]{3}/', '{{ NEUTRAL }}', $content);
 
         // Replace Wire:model patterns
         $content = preg_replace('/wire:model(\.blur|\.live)?="[^"]+"/', 'wire:model$1="form.{{ FIELD_NAME }}"', $content);

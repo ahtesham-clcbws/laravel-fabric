@@ -1,0 +1,98 @@
+<div class="p-6 space-y-6">
+    <div class="flex items-center justify-between">
+        <div>
+            <h1 class="text-3xl font-black uppercase tracking-tighter text-primary">Admin Dashboard</h1>
+            <p class="text-base-content/60 italic">Overview & System Vitals</p>
+        </div>
+
+        <div class="flex items-center gap-4 bg-base-100 p-4 rounded-xl shadow-sm border">
+            <div>
+                <p class="text-xs font-bold uppercase opacity-50">Maintenance Mode</p>
+                <p class="text-sm font-bold {{ $maintenanceMode ? 'text-error' : 'text-success' }}">
+                    {{ $maintenanceMode ? 'Active' : 'Offline' }}
+                </p>
+            </div>
+            <input type="checkbox" wire:click="toggleMaintenance" class="toggle toggle-primary" {{ $maintenanceMode ? 'checked' : '' }} />
+        </div>
+        
+        <div class="flex items-center gap-4">
+             <livewire:fabric.global-search />
+        </div>
+    </div>
+
+    <!-- Bento Grid Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        @foreach($stats as $stat)
+            <div class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition">
+                <p class="text-sm font-medium text-gray-500 uppercase">{{ $stat['label'] }}</p>
+                <p class="mt-2 text-3xl font-bold text-gray-900">{{ $stat['value'] }}</p>
+                <div class="mt-2 flex items-center text-xs {{ $stat['change'] >= 0 ? 'text-green-600' : 'text-red-600' }}">
+                    <span>{{ $stat['change'] }}% since last month</span>
+                </div>
+            </div>
+        @endforeach
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Main Activity Feed -->
+        <div class="lg:col-span-2 p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
+            <h2 class="text-lg font-bold text-gray-900 mb-4">Recent Activity</h2>
+            <div class="flow-root">
+                <ul role="list" class="-mb-8">
+                    @forelse($activities as $activity)
+                        <li>
+                            <div class="relative pb-8">
+                                @if(!$loop->last)
+                                    <span class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-gray-200"></span>
+                                @endif
+                                <div class="relative flex space-x-3">
+                                    <div>
+                                        <span class="h-8 w-8 rounded-full bg-{{ PRIMARY }} flex items-center justify-center ring-8 ring-white">
+                                            <svg class="h-4 w-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                                        </span>
+                                    </div>
+                                    <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                                        <div>
+                                            <p class="text-sm text-gray-500">{{ $activity->description }} <a href="#" class="font-medium text-gray-900">{{ $activity->subject_type }} #{{ $activity->subject_id }}</a></p>
+                                        </div>
+                                        <div class="whitespace-nowrap text-right text-sm text-gray-500">
+                                            <time>{{ $activity->created_at->diffForHumans() }}</time>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    @empty
+                         <li class="text-sm text-gray-500 italic">No recent activity detected.</li>
+                    @endforelse
+                </ul>
+            </div>
+        </div>
+
+        <!-- Quick Actions Bento Box -->
+        <div class="space-y-6">
+            <div class="p-6 bg-{{ PRIMARY }} rounded-xl text-white shadow-lg overflow-hidden relative">
+                <div class="relative z-10">
+                    <h3 class="text-lg font-bold">Quick Forge</h3>
+                    <p class="mt-1 text-xs opacity-80">Ready to expand your empire? Use the Wizard to add new resources.</p>
+                    <button class="mt-4 px-4 py-2 bg-white text-{{ PRIMARY }} rounded-md text-xs font-bold uppercase shadow-sm">Launch Wizard</button>
+                </div>
+                <svg class="absolute right-[-20px] bottom-[-20px] w-32 h-32 text-white opacity-10" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+
+            <div class="p-6 bg-white rounded-xl border border-gray-100 shadow-sm">
+                <h3 class="text-sm font-bold text-gray-900">System Health</h3>
+                <div class="mt-4 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-500">Database</span>
+                        <span class="px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">OPTIMIZED</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-500">Cache</span>
+                        <span class="px-2 py-0.5 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">HIT RATE 98%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

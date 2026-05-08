@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Auth;
+namespace App\Livewire\Fabric\Auth;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Support\Facades\Auth;
@@ -63,8 +63,43 @@ class Login extends Component
         return Str::transliterate(Str::lower($this->email).'|'.request()->ip());
     }
 
+    public function sendOtp()
+    {
+        $this->validate(['email' => 'required|email|exists:users,email']);
+
+        if (RateLimiter::tooManyAttempts('otp:'.$this->email, 3)) {
+            $seconds = RateLimiter::availableIn('otp:'.$this->email);
+            throw ValidationException::withMessages([
+                'email' => "Too many OTP requests. Please wait {$seconds} seconds.",
+            ]);
+        }
+
+        RateLimiter::hit('otp:'.$this->email, 600); // 10 minute lockout
+        
+        $otp = rand(100000, 999999);
+        session(['fabric_otp' => $otp, 'fabric_otp_email' => $this->email]);
+        
+        // In production, you would send an email here.
+        // For zero-dependency local dev, we log it.
+        \Illuminate\Support\Facades\Log::info("Fabric OTP for {$this->email}: {$otp}");
+        
+        $this->dispatch('notify', message: 'OTP sent to your logs/email.');
+    }
+
+    public function verifyMagic(string $token)
+    {
+        $email = \Illuminate\Support\Facades\Cache::get("magic_link_{$token}");
+        if ($email) {
+            $user = \App\Models\User::where('email', $email)->first();
+            Auth::login($user);
+            return redirect()->intended(route('fabric.dashboard'));
+        }
+        
+        abort(403, 'Invalid or expired magic link.');
+    }
+
     public function render()
     {
-        return view('livewire.auth.login');
+        return view('livewire.fabric.auth.login');
     }
 }

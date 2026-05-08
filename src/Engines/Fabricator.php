@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Engines;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Contracts\FabricatorContract;
 use CLCBWS\Fabric\Services\ViewCompiler;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
 readonly class Fabricator implements FabricatorContract
 {
@@ -30,11 +32,22 @@ readonly class Fabricator implements FabricatorContract
         $this->guard->enforce();
 
         $dataContract = $this->loom->introspect($modelClass);
+        $dataContract['options'] = $options;
         $theme = $options['theme'] ?? \config('fabric.theme', 'tailwind');
         $runtime = $options['runtime'] ?? \config('fabric.runtime', 'livewire');
 
         $stubPath = $this->themeResolver->resolvePath($theme, $runtime);
         $stubs = $this->themeResolver->getStubs($stubPath);
+
+        // Include common logic stubs (Table, Editor, etc.)
+        $commonPath = __DIR__ . '/../../stubs/' . $runtime . '/common';
+        if (File::isDirectory($commonPath)) {
+            $commonStubs = array_filter($this->themeResolver->getStubs($commonPath), function($file) {
+                return Str::contains($file->getFilename(), 'MODEL_NAME') || 
+                       in_array($file->getFilename(), ['Table.php.stub', 'Editor.php.stub', 'Show.php.stub', 'Stats.php.stub']);
+            });
+            $stubs = array_merge($stubs, $commonStubs);
+        }
 
         $generatedFiles = [];
 
@@ -82,6 +95,13 @@ readonly class Fabricator implements FabricatorContract
             File::makeDirectory($directory, 0755, true);
         }
 
+        // Enforce Strict PHP opening tags
+        if (Str::endsWith($targetPath, '.php') && !Str::endsWith($targetPath, '.blade.php')) {
+            if (!Str::startsWith(ltrim($compiled), '<?php')) {
+                $compiled = "<?php\n\n" . ltrim($compiled);
+            }
+        }
+
         File::put($targetPath, $compiled);
 
         return $targetPath;
@@ -96,8 +116,10 @@ readonly class Fabricator implements FabricatorContract
         $modelName = \class_basename($fullModelClass);
         
         // Extract sub-namespace relative to App\Models
-        $subNamespace = \str_replace(['App\\Models\\', 'App\\'], '', \dirname(\str_replace('\\', '/', $fullModelClass)));
-        $subNamespace = \str_replace('/', DIRECTORY_SEPARATOR, $subNamespace);
+        $normalizedClass = \str_replace('/', '\\', $fullModelClass);
+        $normalizedDir = \str_replace('/', '\\', \dirname(\str_replace('\\', '/', $normalizedClass)));
+        $subNamespace = \str_replace(['App\\Models\\', 'App\\Models', 'App\\'], '', $normalizedDir);
+        $subNamespace = \str_replace(['/', '\\'], DIRECTORY_SEPARATOR, $subNamespace);
         $subNamespace = \trim($subNamespace, DIRECTORY_SEPARATOR);
         
         $targetDirName = !empty($subNamespace) ? $subNamespace . DIRECTORY_SEPARATOR . $modelName : $modelName;

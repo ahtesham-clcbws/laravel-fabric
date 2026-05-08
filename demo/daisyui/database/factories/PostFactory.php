@@ -11,9 +11,11 @@ class PostFactory extends Factory
     {
         return [
             'category_id' => Category::factory(),
-            'title' => fake()->sentence(),
+            'title' => $title = fake()->sentence(),
+            'slug' => \Illuminate\Support\Str::slug($title),
+            'featured_image' => 'assets/images/blog_' . fake()->numberBetween(1, 3) . '.png',
             'content' => fake()->paragraphs(3, true),
-            'is_published' => fake()->boolean(),
+            'is_published' => true,
             'published_at' => fake()->dateTime(),
             'meta_data' => ['key' => 'value'],
         ];

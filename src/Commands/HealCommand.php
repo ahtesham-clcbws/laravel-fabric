@@ -1,19 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CLCBWS\Fabric\Commands;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 use CLCBWS\Fabric\Engines\Loom;
 use CLCBWS\Fabric\Services\ViewCompiler;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 
 class HealCommand extends Command
 {
     protected $signature = 'fabric:heal {model} {--force}';
     protected $description = 'Surgically patch existing Fabric components with new database columns';
 
-    public function handle(Loom $loom, ViewCompiler $compiler)
+    public function handle(Loom $loom, ViewCompiler $compiler): void
     {
         $model = $this->argument('model');
         $modelClass = "App\\Models\\{$model}";
