@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -33,42 +33,42 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-base-100 antialiased">
+<body class="min-h-screen bg-base-100 antialiased selection:bg-primary selection:text-primary-content">
     <!-- Navbar -->
-    <div class="navbar bg-base-100/80 backdrop-blur-md sticky top-0 z-50 border-b border-base-200">
+    <div class="navbar bg-base-100/80 backdrop-blur-xl sticky top-0 z-50 border-b border-base-200 py-6">
         <div class="container-1300 flex items-center justify-between">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('about') }}">About</a></li>
-                        <li><a href="{{ route('services.index') }}">Services</a></li>
-                        <li><a href="{{ route('blog.index') }}">Blog</a></li>
-                        <li><a href="{{ route('contact') }}">Contact</a></li>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow-2xl bg-base-100 rounded-3xl w-64 border border-base-200">
+                        <li><a href="{{ route('home') }}" class="py-3 font-bold">Home</a></li>
+                        <li><a href="{{ route('about') }}" class="py-3 font-bold">About</a></li>
+                        <li><a href="{{ route('services.index') }}" class="py-3 font-bold">Services</a></li>
+                        <li><a href="{{ route('blog.index') }}" class="py-3 font-bold">Blog</a></li>
+                        <li><a href="{{ route('contact') }}" class="py-3 font-bold">Contact</a></li>
                     </ul>
                 </div>
-                <a href="{{ route('home') }}" class="text-2xl font-bold tracking-tighter">
+                <a href="{{ route('home') }}" class="text-3xl font-black tracking-tighter">
                     <span class="text-primary">Laravel</span>Fabric
                 </a>
             </div>
             <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal px-1 font-medium gap-2">
-                    <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
-                    <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About</a></li>
-                    <li><a href="{{ route('services.index') }}" class="{{ request()->routeIs('services.*') ? 'active' : '' }}">Services</a></li>
-                    <li><a href="{{ route('blog.index') }}" class="{{ request()->routeIs('blog.*') ? 'active' : '' }}">Blog</a></li>
-                    <li><a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
+                <ul class="menu menu-horizontal px-1 font-bold gap-4 uppercase text-[10px] tracking-[0.2em]">
+                    <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Home</a></li>
+                    <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">About</a></li>
+                    <li><a href="{{ route('services.index') }}" class="{{ request()->routeIs('services.*') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Services</a></li>
+                    <li><a href="{{ route('blog.index') }}" class="{{ request()->routeIs('blog.*') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Blog</a></li>
+                    <li><a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Contact</a></li>
                 </ul>
             </div>
-            <div class="navbar-end gap-2">
+            <div class="navbar-end gap-4">
                 @auth
-                    <a href="{{ route('fabric.dashboard') }}" class="btn btn-ghost btn-sm">Admin</a>
+                    <a href="{{ route('fabric.dashboard') }}" class="btn btn-ghost btn-sm font-bold uppercase tracking-widest text-[10px]">Admin</a>
                 @else
-                    <a href="{{ route('login') }}" class="btn btn-ghost btn-sm">Login</a>
-                    <a href="{{ route('register') }}" class="btn btn-primary btn-sm rounded-full px-6">Get Started</a>
+                    <a href="{{ route('login') }}" class="btn btn-ghost btn-sm font-bold uppercase tracking-widest text-[10px]">Login</a>
+                    <a href="{{ route('register') }}" class="btn btn-primary btn-sm rounded-full px-8 font-black uppercase tracking-widest text-[10px]">Get Started</a>
                 @endauth
             </div>
         </div>
@@ -79,45 +79,9 @@
         {{ $slot }}
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-base-200 mt-20">
-        <div class="container-1300 footer p-10 text-base-content py-20">
-            <aside>
-                <div class="text-3xl font-bold tracking-tighter mb-4">
-                    <span class="text-primary">Laravel</span>Fabric
-                </div>
-                <p>{{ $settings->site_name }}<br/>{{ $settings->site_description }}</p>
-            </aside> 
-            <nav>
-                <h6 class="footer-title opacity-50 uppercase tracking-widest">Services</h6> 
-                <a href="{{ route('services.index') }}" class="link link-hover">Branding</a>
-                <a href="{{ route('services.index') }}" class="link link-hover">Design</a>
-                <a href="{{ route('services.index') }}" class="link link-hover">Marketing</a>
-            </nav> 
-            <nav>
-                <h6 class="footer-title opacity-50 uppercase tracking-widest">Company</h6> 
-                <a href="{{ route('about') }}" class="link link-hover">About us</a>
-                <a href="{{ route('contact') }}" class="link link-hover">Contact</a>
-                <a href="{{ route('blog.index') }}" class="link link-hover">Blog</a>
-            </nav> 
-            <nav>
-                <h6 class="footer-title opacity-50 uppercase tracking-widest">Legal</h6> 
-                <a href="{{ route('terms') }}" class="link link-hover">Terms of use</a>
-                <a href="{{ route('privacy') }}" class="link link-hover">Privacy policy</a>
-            </nav>
-        </div>
-        <div class="border-t border-base-300">
-            <div class="container-1300 footer py-4 text-base-content">
-                <aside class="items-center grid-flow-col">
-                    <p>&copy; {{ date('Y') }} {{ $settings->site_name }}. All rights reserved.</p>
-                </aside> 
-                <nav class="md:place-self-center md:justify-self-end">
-                    <div class="grid grid-flow-col gap-4">
-                        <span>{{ $settings->address }}</span>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component Integration -->
+    <x-website.footer />
+
+    @stack('scripts')
 </body>
 </html>

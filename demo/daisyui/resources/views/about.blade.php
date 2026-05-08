@@ -1,31 +1,46 @@
 <x-web-layout>
-    <x-slot name="title">About Us</x-slot>
+    <x-slot name="title">Our Story</x-slot>
 
-    <section class="py-24">
+    <!-- Header Section -->
+    <section class="bg-base-100 py-40 lg:py-64">
         <div class="container-1300">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <div>
-                    <div class="badge badge-primary font-bold mb-4 px-4 py-3 uppercase tracking-widest text-xs">Our Story</div>
-                    <h1 class="text-6xl lg:text-7xl font-bold tracking-tighter leading-[1.1] mb-8">
-                        Forging the <br/> <span class="text-primary italic">Future</span> of Web.
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+                <div class="space-y-12">
+                    <div class="badge badge-primary badge-outline font-black tracking-[0.3em] px-6 py-4 uppercase text-xs">The Fabric Story</div>
+                    <h1 class="text-7xl lg:text-9xl font-black tracking-tighter leading-[0.8] text-base-content uppercase">
+                        Forging <br/> <span class="text-primary italic">The Future</span> <br/> of Web.
                     </h1>
-                    <p class="text-xl text-base-content/60 leading-relaxed mb-8">
-                        Laravel Fabric was born from a simple idea: that building administrative interfaces shouldn't be a chore. We've spent years perfecting our "Alchemist" engine to transmute static ideas into dynamic reality.
+                    <p class="text-2xl text-base-content/40 leading-relaxed max-w-xl font-medium">
+                        We started with a simple mission: to eliminate the friction between a great idea and a production-ready application.
                     </p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                        <div>
-                            <div class="text-4xl font-bold text-primary mb-2">10+</div>
-                            <div class="font-bold opacity-50 uppercase tracking-widest text-xs">Years Experience</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold text-secondary mb-2">500+</div>
-                            <div class="font-bold opacity-50 uppercase tracking-widest text-xs">Projects Forged</div>
-                        </div>
-                    </div>
                 </div>
                 <div class="relative">
-                    <div class="absolute inset-0 bg-primary/10 rounded-[3rem] rotate-6 scale-105"></div>
-                    <img src="{{ asset('assets/images/hero.png') }}" class="rounded-[3rem] shadow-2xl relative z-10" />
+                    <div class="absolute -top-20 -right-20 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+                    <img src="{{ asset('assets/images/hero.png') }}" class="rounded-[5rem] shadow-2xl relative z-10 grayscale" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="bg-base-200 py-64 border-y border-base-300">
+        <div class="container-1300 text-center">
+            <h2 class="text-6xl font-black tracking-tighter mb-24 uppercase">Our Core <span class="text-primary italic">Principles</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+                <div class="bg-base-100 p-20 rounded-[4rem] shadow-xl space-y-8">
+                    <div class="text-5xl font-black text-primary">01</div>
+                    <h3 class="text-3xl font-black tracking-tight uppercase">Precision</h3>
+                    <p class="text-base-content/50 font-medium leading-relaxed">Every line of code is forged with mathematical accuracy and architectural integrity.</p>
+                </div>
+                <div class="bg-base-100 p-20 rounded-[4rem] shadow-xl space-y-8">
+                    <div class="text-5xl font-black text-secondary">02</div>
+                    <h3 class="text-3xl font-black tracking-tight uppercase">Performance</h3>
+                    <p class="text-base-content/50 font-medium leading-relaxed">High-fidelity interfaces that load at the speed of thought, optimized for elite hardware.</p>
+                </div>
+                <div class="bg-base-100 p-20 rounded-[4rem] shadow-xl space-y-8">
+                    <div class="text-5xl font-black text-accent">03</div>
+                    <h3 class="text-3xl font-black tracking-tight uppercase">Privacy</h3>
+                    <p class="text-base-content/50 font-medium leading-relaxed">Zero-dependency architecture ensures your data remains your property, forever.</p>
                 </div>
             </div>
         </div>

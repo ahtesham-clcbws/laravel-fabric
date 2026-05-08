@@ -1,102 +1,122 @@
 <x-web-layout>
     @inject('settings', 'App\Settings\GeneralSettings')
     
-    <!-- Hero Section: Clean White -->
-    <section class="bg-base-100 overflow-hidden relative border-b border-base-200">
-        <div class="container-1300 py-20 lg:py-32">
-            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-                <div class="w-full lg:w-5/12">
-                    <div class="badge badge-primary badge-outline mb-6 font-bold tracking-widest px-4 py-3 uppercase text-xs">Forged with Laravel Fabric</div>
-                    <h1 class="text-6xl lg:text-8xl font-black tracking-tighter leading-[0.85] mb-10">
-                        Build <span class="text-primary italic">Better</span> <br/> 
-                        Interfaces <span class="underline decoration-secondary decoration-8">Faster</span>.
+    <!-- Section 1: Hero (Clean White) -->
+    <section class="relative bg-base-100 overflow-hidden border-b border-base-200">
+        <div class="container-1300 py-48 lg:py-72">
+            <div class="flex flex-col lg:flex-row items-center gap-24 lg:gap-56">
+                <div class="w-full lg:w-7/12 space-y-20">
+                    <div class="inline-flex items-center gap-5 bg-primary/10 border border-primary/20 rounded-full px-10 py-4">
+                        <span class="relative flex h-4 w-4">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-4 w-4 bg-primary"></span>
+                        </span>
+                        <span class="text-sm font-black uppercase tracking-[0.4em] text-primary">Public Beta v1.0.0</span>
+                    </div>
+                    
+                    <h1 class="text-8xl lg:text-[11rem] font-black tracking-tighter leading-[0.75] text-base-content uppercase">
+                        Forge <br/> <span class="text-primary italic">Better</span> <br/> Apps.
                     </h1>
-                    <p class="text-xl text-base-content/60 leading-relaxed mb-12 max-w-lg">
-                        {{ $settings->site_description }} Experience the power of reactive CRUD, dynamic settings, and premium aesthetics.
+                    
+                    <p class="text-3xl text-base-content/40 leading-relaxed max-w-2xl font-medium italic">
+                        {{ $settings->site_description }} The most advanced scaffolding engine for Laravel developers.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-6">
-                        <a href="{{ route('register') }}" class="btn btn-primary btn-lg rounded-full px-12 shadow-2xl shadow-primary/30 text-lg">Get Started</a>
-                        <a href="{{ route('services.index') }}" class="btn btn-ghost btn-lg rounded-full px-12 text-lg">Our Services</a>
+                    
+                    <div class="flex flex-col sm:flex-row gap-12 pt-10">
+                        <a href="{{ route('register') }}" class="btn btn-primary btn-lg rounded-full px-24 shadow-[0_40px_80px_-15px_rgba(var(--p),.6)] text-2xl font-black uppercase tracking-widest h-28">Get Started</a>
+                        <a href="{{ route('services.index') }}" class="btn btn-ghost btn-lg rounded-full px-20 text-xl font-black uppercase border-4 border-base-200 h-28">View Demos</a>
                     </div>
                 </div>
-                <div class="w-full lg:w-7/12 relative">
-                    <div class="absolute -top-20 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[100px]"></div>
-                    <!-- Hero Image: No shadow, no border as requested -->
-                    <div class="relative z-10">
-                        <img src="{{ asset('assets/images/hero.png') }}" class="w-full rounded-[4rem] hover:scale-[1.01] transition-transform duration-700" />
+                
+                <div class="w-full lg:w-5/12 relative">
+                    <div class="absolute -top-64 -right-64 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[180px]"></div>
+                    <div class="relative z-10 p-4 bg-base-100 rounded-[7rem] shadow-[0_100px_200px_-40px_rgba(0,0,0,0.2)] border border-base-200">
+                        <img src="{{ asset('assets/images/hero.png') }}" class="w-full rounded-[6rem] grayscale contrast-125" />
                     </div>
                 </div>
             </div>
 
-            <!-- Trusted By Section -->
-            <div class="mt-48 pt-16 border-t border-base-200 flex flex-wrap items-center justify-between gap-12 opacity-30 grayscale px-6">
-                <span class="font-bold uppercase tracking-[0.4em] text-[10px] w-full lg:w-auto mb-6 lg:mb-0 text-center lg:text-left">Trusted By Global Industry Leaders</span>
-                <span class="text-4xl font-black tracking-tighter">Google</span>
-                <span class="text-4xl font-black tracking-tighter">Meta</span>
-                <span class="text-4xl font-black tracking-tighter">Stripe</span>
-                <span class="text-4xl font-black tracking-tighter">Apple</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section: Separated with bg-base-200 -->
-    <section class="bg-base-200 py-32 border-b border-base-300">
-        <div class="container-1300">
-            <div class="stats stats-vertical lg:stats-horizontal w-full bg-base-100 shadow-2xl rounded-[3rem] p-12 lg:p-20 gap-12 border border-base-300">
-                <div class="stat px-0">
-                    <div class="stat-title uppercase tracking-widest font-bold text-[10px] text-primary mb-4">Total Active Users</div>
-                    <div class="stat-value text-7xl tracking-tighter">31.8K</div>
-                    <div class="stat-desc mt-4 text-sm font-semibold text-success flex items-center gap-2 uppercase tracking-widest">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
-                        22% Increase
+            <!-- Trusted By: Huge Spacing -->
+            <div class="mt-72 pt-32 border-t border-base-200">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-32 opacity-20 grayscale">
+                    <div class="text-xs font-black uppercase tracking-[0.8em] text-base-content whitespace-nowrap">Global Industry Titans</div>
+                    <div class="flex flex-wrap items-center justify-center lg:justify-end gap-x-32 gap-y-20">
+                        <span class="text-6xl font-black tracking-tighter">Google</span>
+                        <span class="text-6xl font-black tracking-tighter">Meta</span>
+                        <span class="text-6xl font-black tracking-tighter">Stripe</span>
+                        <span class="text-6xl font-black tracking-tighter">Apple</span>
                     </div>
-                </div>
-                <div class="stat px-0 border-l-0 lg:border-l border-base-200 lg:pl-24">
-                    <div class="stat-title uppercase tracking-widest font-bold text-[10px] text-primary mb-4">Total Projects Forged</div>
-                    <div class="stat-value text-7xl tracking-tighter">4,200</div>
-                    <div class="stat-desc mt-4 text-sm font-semibold opacity-60 italic uppercase tracking-widest">99.9% Uptime SLA</div>
-                </div>
-                <div class="stat px-0 border-l-0 lg:border-l border-base-200 lg:pl-24">
-                    <div class="stat-title uppercase tracking-widest font-bold text-[10px] text-primary mb-4">Successful Deployments</div>
-                    <div class="stat-value text-7xl tracking-tighter">1,200</div>
-                    <div class="stat-desc mt-4 text-sm font-semibold opacity-60 italic uppercase tracking-widest">Global Distribution</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Blog Section: Back to bg-base-100 -->
-    <section class="py-32 bg-base-100">
+    <!-- Section 2: Stats (Light Contrast) -->
+    <section class="bg-slate-50 py-72 border-b border-base-300">
         <div class="container-1300">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-                <div class="max-w-xl text-left">
-                    <h2 class="text-7xl font-black tracking-tighter leading-none mb-8 text-base-content">Latest <span class="text-primary italic underline underline-offset-[16px]">Blog</span> Posts</h2>
-                    <p class="text-2xl text-base-content/50 leading-relaxed">Insights, tutorials, and updates from the Laravel Fabric ecosystem.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-32">
+                <div class="bg-base-100 p-24 rounded-[6rem] shadow-2xl border border-base-200 space-y-12">
+                    <div class="w-24 h-24 bg-primary/5 rounded-[3rem] flex items-center justify-center text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="text-9xl font-black tracking-tighter text-base-content">31K</div>
+                        <div class="text-sm font-black uppercase tracking-[0.6em] text-primary">Global Elite Users</div>
+                    </div>
                 </div>
-                <a href="{{ route('blog.index') }}" class="btn btn-outline btn-primary rounded-full px-12 btn-lg border-2 font-bold uppercase tracking-widest text-xs">View Archives</a>
+                <div class="bg-base-100 p-24 rounded-[6rem] shadow-2xl border border-base-200 space-y-12">
+                    <div class="w-24 h-24 bg-secondary/5 rounded-[3rem] flex items-center justify-center text-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="text-9xl font-black tracking-tighter text-base-content">4.2K</div>
+                        <div class="text-sm font-black uppercase tracking-[0.6em] text-secondary">Projects Forged</div>
+                    </div>
+                </div>
+                <div class="bg-base-100 p-24 rounded-[6rem] shadow-2xl border border-base-200 space-y-12">
+                    <div class="w-24 h-24 bg-accent/5 rounded-[3rem] flex items-center justify-center text-accent">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="text-9xl font-black tracking-tighter text-base-content">1.2K</div>
+                        <div class="text-sm font-black uppercase tracking-[0.6em] text-accent">Elite Deployments</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Blog (Clean White) -->
+    <section class="py-72 bg-base-100">
+        <div class="container-1300">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-48 gap-24">
+                <div class="max-w-3xl">
+                    <h2 class="text-[10rem] font-black tracking-tighter leading-[0.8] mb-12 text-base-content uppercase">Latest <br/> <span class="text-primary italic underline underline-offset-[24px]">Dispatch</span></h2>
+                    <p class="text-4xl text-base-content/20 font-black italic uppercase tracking-widest">Architectural Dossiers.</p>
+                </div>
+                <a href="{{ route('blog.index') }}" class="btn btn-outline btn-primary rounded-full px-24 btn-lg h-32 border-4 font-black uppercase tracking-[0.5em] text-sm">Archives</a>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-40">
                 @forelse(App\Models\Post::where('is_published', true)->latest()->take(3)->get() as $post)
-                    <div class="group block space-y-10">
-                        <!-- Blog Image -->
-                        <div class="relative aspect-[4/3] overflow-hidden rounded-[4rem] shadow-2xl border border-base-200">
-                            <img src="{{ asset($post->featured_image ?? 'assets/images/blog_placeholder.png') }}" class="group-hover:scale-105 transition-transform duration-1000 w-full h-full object-cover" />
-                            <div class="absolute top-10 left-10">
-                                <div class="badge badge-primary font-bold shadow-2xl py-6 px-8 rounded-full text-xs uppercase tracking-[0.2em]">{{ $post->category->name ?? 'Article' }}</div>
+                    <div class="group flex flex-col h-full space-y-16">
+                        <a href="{{ route('blog.show', $post->slug) }}" class="block relative aspect-[4/5] overflow-hidden rounded-[7rem] shadow-[0_60px_120px_-30px_rgba(0,0,0,0.2)] border border-base-200">
+                            <img src="{{ asset($post->featured_image ?? 'assets/images/blog_placeholder.png') }}" class="group-hover:scale-105 transition-transform duration-[2000ms] w-full h-full object-cover grayscale group-hover:grayscale-0" />
+                            <div class="absolute bottom-20 left-20">
+                                <div class="badge badge-primary font-black shadow-2xl py-10 px-12 rounded-full text-sm uppercase tracking-[0.5em]">{{ $post->category->name ?? 'Article' }}</div>
                             </div>
+                        </a>
+                        <div class="space-y-10 px-8">
+                            <h3 class="text-6xl font-black leading-tight group-hover:text-primary transition-colors tracking-tighter uppercase">{{ $post->title }}</h3>
+                            <p class="text-3xl text-base-content/40 leading-relaxed line-clamp-2 font-medium italic">{{ strip_tags($post->content) }}</p>
                         </div>
-                        <div class="space-y-6">
-                            <h3 class="text-4xl font-bold leading-tight group-hover:text-primary transition-colors tracking-tighter">{{ $post->title }}</h3>
-                            <p class="text-base-content/40 leading-relaxed text-xl line-clamp-3">{{ strip_tags($post->content) }}</p>
-                            <a href="{{ route('blog.show', $post->slug) }}" class="text-primary font-black text-sm uppercase tracking-[0.3em] flex items-center gap-4 hover:gap-8 transition-all duration-500">
-                                Read Full Article 
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                            </a>
-                        </div>
+                        <a href="{{ route('blog.show', $post->slug) }}" class="mt-auto px-8 text-primary font-black text-sm uppercase tracking-[0.6em] flex items-center gap-8 hover:gap-16 transition-all duration-700">
+                            Read Dossier 
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                        </a>
                     </div>
                 @empty
-                    <div class="col-span-full py-40 text-center opacity-20 italic text-2xl">No blog posts found.</div>
+                    <div class="col-span-full py-72 text-center opacity-10 font-black italic text-7xl uppercase tracking-[1em]">Empty Matrix</div>
                 @endforelse
             </div>
         </div>
