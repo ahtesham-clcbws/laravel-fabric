@@ -4,7 +4,7 @@
 > **🚀 COMING SOON / PRIVATE BETA**
 > This repository is currently in **Hardened Private Beta**. We are finalizing the final 50+ features and performing deep-stress testing. Public access and the final v1.0.0 release are imminent.
 
-Welcome to the official technical documentation for **Laravel Livewire Fabric**. This guide is designed for developers who want to master the art of enterprise-grade ghost scaffolding.
+Welcome to the official technical documentation for **Laravel Livewire Fabric**. This guide is designed for developers who want to master the art of enterprise-grade ghost scaffolding using modern design frameworks like **DaisyUI** and **Preline**.
 
 ## 🗂️ Documentation Sections
 
@@ -23,8 +23,9 @@ Mastering the command-line interface.
 
 ### 🎨 [The Design System](./design-systems)
 Branding and Aesthetics.
-- **[Palette Engine](./design-systems/palette.md)**: Global color synchronization.
-- **[Tailwind Integration](./design-systems/tailwind.md)**: Perfecting the CSS layer.
+- **[Design Overview](./design-systems/overview.md)**: Choosing your design soul.
+- **[DaisyUI Demo](./demo/daisyui.md)**: Real-world reference implementation.
+- **[The Philosophy](./testaments/philosophy.md)**: Forge and Depart.
 
 ### 🧩 [Components](./components)
 Exploring the generated artifacts.

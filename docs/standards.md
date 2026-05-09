@@ -20,7 +20,7 @@ To ensure consistency and maintainability across all projects forged with Fabric
 ## 🛠️ CLI Workflow
 - **fabric:generate**: Use this for all resource CRUD generation.
 - **fabric:settings**: Use this for all global configuration management.
-- **fabric:site**: Use this for generating the multi-page frontend structure.
+- **fabric:component**: Use this for extracting high-fidelity UI sections from framework libraries.
 
 ## 🛡️ Data Governance
 - **Audit Logging**: Always enable activity logging for critical resources.

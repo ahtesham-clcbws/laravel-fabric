@@ -17,7 +17,7 @@ When initializing your project, select the design system that matches your appli
 Every design system listed above supports:
 - **5 Layouts**: Sidebar, Top-Nav, Double-Sidebar, Minimalist, and Bento.
 - **4 Primary Views**: Table, Editor, Show, and Stats.
-- **100+ Atomic Components**: Buttons, Inputs, Modals, etc.
+- **149+ Atomic Components**: Buttons, Inputs, Modals, etc.
 
 ## The Global Palette
 Regardless of the theme you choose, your brand colors are managed centrally.

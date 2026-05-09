@@ -42,11 +42,15 @@
                     <label tabindex="0" class="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow-2xl bg-base-100 rounded-3xl w-64 border border-base-200">
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-1 p-4 shadow-2xl bg-base-100 rounded-3xl w-64 border border-base-200">
                         <li><a href="{{ route('home') }}" class="py-3 font-bold">Home</a></li>
                         <li><a href="{{ route('about') }}" class="py-3 font-bold">About</a></li>
                         <li><a href="{{ route('services.index') }}" class="py-3 font-bold">Services</a></li>
+                        <li><a href="{{ route('portfolio') }}" class="py-3 font-bold">Portfolio</a></li>
+                        <li><a href="{{ route('pricing') }}" class="py-3 font-bold">Pricing</a></li>
+                        <li><a href="{{ route('team') }}" class="py-3 font-bold">Team</a></li>
                         <li><a href="{{ route('blog.index') }}" class="py-3 font-bold">Blog</a></li>
+                        <li><a href="{{ route('faq') }}" class="py-3 font-bold">FAQ</a></li>
                         <li><a href="{{ route('contact') }}" class="py-3 font-bold">Contact</a></li>
                     </ul>
                 </div>
@@ -59,7 +63,11 @@
                     <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Home</a></li>
                     <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">About</a></li>
                     <li><a href="{{ route('services.index') }}" class="{{ request()->routeIs('services.*') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Services</a></li>
+                    <li><a href="{{ route('portfolio') }}" class="{{ request()->routeIs('portfolio') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Portfolio</a></li>
+                    <li><a href="{{ route('pricing') }}" class="{{ request()->routeIs('pricing') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Pricing</a></li>
+                    <li><a href="{{ route('team') }}" class="{{ request()->routeIs('team') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Team</a></li>
                     <li><a href="{{ route('blog.index') }}" class="{{ request()->routeIs('blog.*') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Blog</a></li>
+                    <li><a href="{{ route('faq') }}" class="{{ request()->routeIs('faq') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">FAQ</a></li>
                     <li><a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'text-primary' : 'opacity-50 hover:opacity-100' }}">Contact</a></li>
                 </ul>
             </div>

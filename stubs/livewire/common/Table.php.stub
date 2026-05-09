@@ -102,7 +102,7 @@ class Table extends Component
 
     public function getRowsQuery()
     {
-        return {{ MODEL_NAME }}::query()
+        return {{ MODEL_CLASS_FQN }}::query()
             {{ TABLE_FILTER_LOGIC }}
             ->when($this->search, function ($query) {
                 $query->where(function ($q) {
@@ -159,14 +159,14 @@ class Table extends Component
 
     public function deleteSelected()
     {
-        {{ MODEL_NAME }}::whereIn('id', $this->selected)->delete();
+        {{ MODEL_CLASS_FQN }}::whereIn('id', $this->selected)->delete();
         $this->selected = [];
         $this->dispatch('notify', message: __('Selected records deleted.'));
     }
 
     public function delete(int|string $id)
     {
-        {{ MODEL_NAME }}::find($id)->delete();
+        {{ MODEL_CLASS_FQN }}::find($id)->delete();
         $this->dispatch('notify', message: __('Record deleted successfully.'));
     }
 }

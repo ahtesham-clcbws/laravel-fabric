@@ -15,22 +15,33 @@ class InstallCommand extends Command
 
     public function handle(): void
     {
-        $this->components->info("Initializing Laravel Fabric...");
+        $this->components->info("Initializing Laravel Fabric (v1.0.0-beta)...");
 
         // 1. Publish Config
         $this->call('vendor:publish', ['--tag' => 'fabric-config']);
 
-        // 2. Publish Assets
-        $this->call('fabric:assets');
+        // 2. Publish Core Components & Views
+        $this->components->info("Publishing core components and views...");
+        $this->call('vendor:publish', ['--tag' => 'fabric-components', '--force' => true]);
+        $this->call('vendor:publish', ['--tag' => 'fabric-views', '--force' => true]);
+        $this->call('vendor:publish', ['--tag' => 'fabric-layouts', '--force' => true]);
 
-        // 3. Setup Routes
+        // 3. Adjust Namespaces
+        $this->adjustComponentNamespaces();
+
+        // 4. Publish Common Assets
+        $this->call('vendor:publish', ['--tag' => 'fabric-assets', '--force' => true]);
+        // 3. Register Documentation Routes
+        $this->components->info("Fabric Documentation is now available at: /fabric/docs");
+
+        // 4. Setup Routes
         $prefix = $this->option('prefix') ?? \config('fabric.prefix', 'fabric');
         $this->setupRoutes($prefix);
 
-        // 4. Setup Scripts
-        $this->setupScripts();
+        // 5. DaisyUI Setup (Optional)
+        $this->setupDaisyUI();
 
-        // 5. Seed Admin User
+        // 5. Seed Admin User (Optional)
         if ($this->confirm('Would you like to forge a Seed Admin user?', true)) {
             $this->createAdminUser();
         }
@@ -46,6 +57,7 @@ class InstallCommand extends Command
 
         $this->newLine();
         $this->info("✨ Laravel Fabric has been installed successfully!");
+        $prefix = $this->option('prefix') ?? \config('fabric.prefix', 'fabric');
         $this->info("Dashboard Prefix: /{$prefix}");
     }
 
@@ -57,9 +69,6 @@ class InstallCommand extends Command
 
 
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Fabric\Dashboard;
-use App\Livewire\Fabric\Lab;
-use App\Livewire\Fabric\Omnisearch;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,20 +76,10 @@ use App\Livewire\Fabric\Omnisearch;
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['web', 'auth'])->prefix('{$prefix}')->group(function () {
-    Route::get('/', Dashboard::class)->name('fabric.dashboard');
-    Route::get('/lab', Lab::class)->name('fabric.lab');
+Route::middleware(['web'])->prefix('{$prefix}')->group(function () {
+    Route::get('/', function() { return 'Fabric Dashboard - Run fabric:generate to add resources'; })->name('fabric.dashboard');
     
-    // Auth Profile
-    Route::get('/profile', \\App\\Livewire\\Fabric\\Auth\\Profile::class)->name('fabric.profile');
-
     // [FABRIC-RESOURCE-ROUTES]
-});
-
-// Guest Routes
-Route::middleware(['web', 'guest'])->prefix('{$prefix}')->group(function () {
-    Route::get('/login', \\App\\Livewire\\Fabric\\Auth\\Login::class)->name('login');
-    Route::get('/register', \\App\\Livewire\\Fabric\\Auth\\Register::class)->name('register');
 });
 ";
 
@@ -113,6 +112,56 @@ Route::middleware(['web', 'guest'])->prefix('{$prefix}')->group(function () {
         }
     }
 
+    protected function setupDaisyUI(): void
+    {
+        if ($this->isDaisyInstalled()) {
+            $this->components->info("DaisyUI is already installed.");
+        } else {
+            if ($this->confirm("DaisyUI not detected. Would you like to add it to your project?", true)) {
+                $this->components->task("Installing DaisyUI...", function () {
+                    $this->runProcess(['npm', 'install', '-D', 'daisyui@latest']);
+                });
+            }
+        }
+
+        if ($this->confirm("Would you like to register DaisyUI as a Tailwind v4 plugin?", true)) {
+            $this->registerDaisyPlugin();
+            $this->components->info("DaisyUI plugin registered in app.css.");
+        }
+    }
+
+    protected function isDaisyInstalled(): bool
+    {
+        $packagePath = base_path('package.json');
+        if (!File::exists($packagePath)) return false;
+        $package = json_decode(File::get($packagePath), true);
+        return isset($package['devDependencies']['daisyui']) || isset($package['dependencies']['daisyui']);
+    }
+
+    protected function registerDaisyPlugin(): void
+    {
+        $cssPath = resource_path('css/app.css');
+        if (File::exists($cssPath)) {
+            $content = File::get($cssPath);
+            if (!str_contains($content, '@plugin "daisyui"')) {
+                $newContent = str_replace('@import "tailwindcss";', "@import \"tailwindcss\";\n@plugin \"daisyui\";", $content);
+                File::put($cssPath, $newContent);
+            }
+        }
+    }
+
+    protected function runProcess(array $command): void
+    {
+        $process = new \Symfony\Component\Process\Process($command);
+        $process->setTimeout(300);
+        $process->run();
+
+        if (!$process->isSuccessful()) {
+            $this->error("Failed to run: " . implode(' ', $command));
+            $this->line($process->getErrorOutput());
+        }
+    }
+
     protected function setupScripts(): void
     {
         $path = base_path('composer.json');
@@ -128,5 +177,22 @@ Route::middleware(['web', 'guest'])->prefix('{$prefix}')->group(function () {
 
         File::put($path, json_encode($composer, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
         $this->components->twoColumnDetail("Scripts: composer dev", '<fg=green>Injected</>');
+    }
+
+    protected function adjustComponentNamespaces(): void
+    {
+        $dir = app_path('Livewire/Fabric');
+        if (!File::isDirectory($dir)) return;
+
+        $files = File::allFiles($dir);
+        foreach ($files as $file) {
+            $content = File::get($file->getRealPath());
+            $content = str_replace(
+                'namespace CLCBWS\\Fabric\\Livewire\\Fabric',
+                'namespace App\\Livewire\\Fabric',
+                $content
+            );
+            File::put($file->getRealPath(), $content);
+        }
     }
 }

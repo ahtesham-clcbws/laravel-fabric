@@ -255,7 +255,7 @@ class Loom implements LoomContract
         }
 
         // 2. Detect HasMany (Incoming Foreign Keys from other tables)
-        $allTables = Schema::getTableListing();
+        $allTables = array_map(fn($t) => str_replace('main.', '', $t), Schema::getTableListing());
         foreach ($allTables as $otherTable) {
             if ($otherTable === $table) continue;
 

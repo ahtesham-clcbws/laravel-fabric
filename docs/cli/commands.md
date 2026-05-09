@@ -1,59 +1,70 @@
 # 💻 Commands Reference
 
-Fabric provides a powerful suite of artisan commands to manage your scaffolding ecosystem.
+Fabric provides a comprehensive suite of artisan commands to manage your ghost scaffolding ecosystem.
 
 ## 🔨 Core Generation
 ### `fabric:generate {model}`
-Forges a complete resource suite (Table, Editor, Show, and Test).
-- `--tenant`: Activate the **Multi-Tenant Shield**. Automatically scopes all queries to `team_id`.
-- `--theme=`: Specify a custom theme (daisyui, tailwind, etc).
+Forges a complete resource suite (Table, Editor, Show, and Test) for the given model.
+- `--theme=`: Specify a design framework (daisyui, preline, hyperui, floatui, tailwind).
+- `--runtime=`: Choose the engine (livewire, blade).
+- `--tenant`: Activate the **Multi-Tenant Shield** (scopes to `team_id`).
+- `--force`: Overwrite existing files.
+- `--sort=`: Initial sort column.
+- `--direction=`: Initial sort direction (asc/desc).
 
-### `fabric:heal {model}`
-The **Lazarus Engine**. Surgically patches your existing components when your database schema changes. It injects new fields without touching your custom code.
+### `fabric:component {template:section}`
+Extracts a specific high-fidelity UI section from a Fabric template.
+- `template`: The framework name (e.g., `daisyui`).
+- `section`: The component name (e.g., `hero`, `navbar`).
+- Example: `php artisan fabric:component daisyui:hero`
 
 ### `fabric:wizard`
-The interactive companion. Guides you through the forge process.
+The interactive companion. Guides you through the entire resource forging process step-by-step.
+
+### `fabric:list {template?}`
+Lists all available frameworks and their indexed components.
+- `template`: Optional filter by framework name.
+
+## 🛡️ Identity & Security
+### `fabric:auth`
+Generates a native Identity & Security engine. Includes Profile management, Session control, and standard authentication views without external dependencies.
 
 ### `fabric:api {model}`
-Forges a high-fidelity REST API (Resource + Controller) for the given model. Automatically guides you through Laravel 13's slim skeleton API setup.
+Forges a high-fidelity REST API (Resource + Controller) for the given model. Automatically configures Laravel 13's slim skeleton API.
 
-### `fabric:auth`
-Generates a native Identity & Security engine. Includes Profile management, Session control, and standard authentication views without external dependencies like Breeze.
+### `fabric:guard`
+Enforces license gating and RBAC permissions across your generated resources.
 
-## 🧪 Diagnostics & Assets
+### `fabric:jail`
+Restricts access to specific models based on the Guard's security policies.
+
+## 🩺 Diagnostics & Maintenance
 ### `fabric:doctor`
-Verifies your environment's health. Checks PHP/Laravel versions and detects missing ecosystem packages (Spatie, Scout, etc.).
+The primary diagnostic tool. Verifies environment health, PHP/Laravel versions, and detects missing ecosystem packages.
 
-### `fabric:assets`
-Publishes the atomic UI components and dashboard layouts to your project. Run this after installation or when updating themes.
+### `fabric:heal {model}`
+The **Lazarus Engine**. Surgically patches existing components when your database schema changes, injecting new fields while preserving your custom logic.
 
-## ⚗️ Advanced
+### `fabric:lint`
+Analyzes and normalizes generated code to ensure it adheres to the **Universal Manifesto** standards.
+
+### `fabric:vacuum`
+Performs deep asset cleanup, removing unused styles, scripts, and temporary forge artifacts.
+
+## ⚗️ Advanced Engines
 ### `fabric:alchemy {path}`
-Transmutes a static Blade file into a Fabric stub.
+Transmutes any static Blade file into a reusable Fabric stub.
+
+### `fabric:context`
+Generates a **Neural Context Map** for AI-pairing, helping LLMs understand your project's architecture and relationships.
+
+### `fabric:graph`
+Generates the **Nexus Graph**, a visual representation of your models' relationships and data flow.
+
+### `fabric:anon`
+Anonymizes sensitive data in your database, essential for staging and development environments.
 
 ---
 
-# 🧩 Relational Components
-
-Fabric's true power lies in its ability to handle complex relational data.
-
-## 🔗 BelongsTo (Parent Selection)
-Relationships are automatically forged as **Searchable Select** inputs. The engine identifies the most relevant label column (e.g., `name`, `title`, `email`) using the Loom's label-detection algorithm.
-
-## 🕸️ HasMany (Nested Tables)
-One-to-many relationships are forged as **Livewire Tables** nested within the "Show" view. This allows you to view related records (e.g., a User's Posts) without navigating away from the parent record.
-
-## 🔄 ManyToMany (Pivot Sync)
-Many-to-many relationships are forged as **Multi-Select** inputs. On save, the engine automatically handles the `sync()` logic to persist associations in the pivot table.
-
----
-
-# 🖼️ Media & File Handling
-
-Fabric provides zero-config support for **Spatie Media Library**.
-
-## 📤 Automatic Uploaders
-If the Loom detects a column flagged for media or a `HasMedia` trait, it forges a **File Upload** component in the Editor.
-
-## 🖼️ Gallery Previews
-In the "Show" view, media fields are rendered as **Professional Image Previews** with automatic fallback to file icons for non-image assets.
+### 🚀 Usage Note
+Most commands are designed for local development. Use `fabric:ready` before deploying to ensure all assets are optimized and guards are active.

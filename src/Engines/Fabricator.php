@@ -15,13 +15,20 @@ readonly class Fabricator implements FabricatorContract
     protected ThemeResolver $themeResolver;
     protected ViewCompiler $viewCompiler;
     protected Guard $guard;
+    protected \CLCBWS\Fabric\Services\ModelWeaver $modelWeaver;
 
-    public function __construct(Loom $loom, ThemeResolver $themeResolver, ViewCompiler $viewCompiler, Guard $guard)
-    {
+    public function __construct(
+        Loom $loom, 
+        ThemeResolver $themeResolver, 
+        ViewCompiler $viewCompiler, 
+        Guard $guard,
+        \CLCBWS\Fabric\Services\ModelWeaver $modelWeaver
+    ) {
         $this->loom = $loom;
         $this->themeResolver = $themeResolver;
         $this->viewCompiler = $viewCompiler;
         $this->guard = $guard;
+        $this->modelWeaver = $modelWeaver;
     }
 
     /**
@@ -33,6 +40,10 @@ readonly class Fabricator implements FabricatorContract
 
         $dataContract = $this->loom->introspect($modelClass);
         $dataContract['options'] = $options;
+
+        // Weave missing relationships into the Model file
+        $this->modelWeaver->weave($modelClass, $dataContract['relationships']);
+
         $theme = $options['theme'] ?? \config('fabric.theme', 'tailwind');
         $runtime = $options['runtime'] ?? \config('fabric.runtime', 'livewire');
 

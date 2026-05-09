@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CLCBWS\Fabric\Engines;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use CLCBWS\Fabric\Utils\TailwindCleaner;
 
 
 readonly class Alchemist
@@ -38,6 +39,9 @@ readonly class Alchemist
 
         // Replace Wire:model patterns
         $content = preg_replace('/wire:model(\.blur|\.live)?="[^"]+"/', 'wire:model$1="form.{{ FIELD_NAME }}"', $content);
+
+        // Normalize to Core Tailwind
+        $content = TailwindCleaner::clean($content);
 
         return $content;
     }

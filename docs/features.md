@@ -33,7 +33,7 @@ A plain and simple list of everything Laravel Fabric brings to your project.
 - **Sidebar Layout**: Responsive, collapsable navigation with active state tracking.
 - **Modal Engine**: Powered by Wire-Elements for seamless form entry.
 
-### 🌐 Website Forging
-- **fabric:site**: Generate a 15-page website structure in one command.
-- **Dynamic Layouts**: Website components that sync with system settings.
-- **SEO Optimized**: Automatic title, meta, and semantic HTML generation.
+### 🌐 UI Component Extraction
+- **fabric:component**: Extract high-fidelity UI sections from framework libraries (DaisyUI, Preline).
+- **Universal Layouts**: Pre-configured website and dashboard layouts that sync with system settings.
+- **SEO Optimized**: Automatic title, meta, and semantic HTML generation for all forged views.

@@ -1,11 +1,11 @@
 # 🛠️ Testament I: Installation & Setup
 
-Before you can forge your first resource, you must prepare your environment. Fabric is optimized for **PHP 8.2+** and **Laravel 12+**.
+Before you can forge your first resource, you must prepare your environment. Fabric is optimized for **PHP 8.3+** and **Laravel 13+**.
 
 ## 1. Requirement Checklist
 Fabric requires the following to be present in your project:
-- **Laravel 12.0+**
-- **Livewire 3.x**
+- **Laravel 13.0+**
+- **Livewire 4.x**
 - **Tailwind CSS** (Vite or Standalone)
 - **Alpine.js** (Standard with Livewire)
 

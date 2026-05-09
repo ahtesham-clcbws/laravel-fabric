@@ -2,9 +2,9 @@
     <x-slot name="title">Our Blog</x-slot>
 
     <div class="py-24 px-4 lg:px-10 mx-auto container-1300">
-        <div class="text-center mb-20">
-            <h1 class="text-6xl font-bold tracking-tighter mb-4">The <span class="text-primary italic underline underline-offset-8">Fabric</span> Blog</h1>
-            <p class="text-xl text-base-content/60 max-w-2xl mx-auto">Explore our latest articles, tutorials, and updates from the world of AI-driven development.</p>
+        <div class="text-center mb-20 space-y-4">
+            <h1 class="text-5xl lg:text-7xl font-bold tracking-tighter">The <span class="text-primary italic underline underline-offset-8">Fabric</span> Blog</h1>
+            <p class="text-xl text-base-content/60 font-medium italic max-w-2xl mx-auto">Explore our latest articles, tutorials, and updates from the world of AI-driven development.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -16,7 +16,7 @@
                             <div class="badge badge-primary font-bold shadow-lg py-3">{{ $post->category->name ?? 'Update' }}</div>
                         </div>
                     </figure>
-                    <div class="card-body flex-grow p-8">
+                    <div class="card-body grow p-8">
                         <div class="text-xs font-bold text-base-content/40 uppercase tracking-widest mb-2">{{ $post->created_at->format('F d, Y') }}</div>
                         <h3 class="card-title text-2xl font-bold group-hover:text-primary transition-colors leading-tight mb-4">
                             <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>

@@ -1,55 +1,38 @@
 <?php
 
-declare(strict_types=1);
-
 namespace CLCBWS\Fabric\Commands;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
 
+use CLCBWS\Fabric\Registry\ComponentRegistry;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class ListResourcesCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'fabric:list';
+    protected $signature = 'fabric:list {template? : Filter by template}';
+    protected $description = 'List all available templates and their components';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Lists all generated resources and their sync status';
-
-    /**
-     * Execute the console command.
-     */
-    public function handle(): void
+    public function handle()
     {
-        $this->components->info('Laravel Fabric: Generated Resources');
-        
-        $path = app_path('Livewire/Fabric');
-        
-        if (!File::isDirectory($path)) {
-            $this->info('No resources generated yet. Run fabric:generate {Model} to start.');
-            return;
+        $registry = ComponentRegistry::all();
+        $filter = $this->argument('template');
+
+        if ($filter) {
+            $filter = Str::lower($filter);
+            if (!isset($registry[$filter])) {
+                $this->error("Template [{$filter}] not found.");
+                return;
+            }
+            $registry = [$filter => $registry[$filter]];
         }
 
-        $resources = File::directories($path);
-        
-        if (empty($resources)) {
-            $this->info('No resources generated yet. Run fabric:generate {Model} to start.');
-            return;
+        $this->components->info("Fabric Universal Library: " . count($registry) . " Templates Indexed");
+
+        foreach ($registry as $template => $sections) {
+            $this->line("<fg=blue;options=bold>[" . strtoupper($template) . "]</>");
+            $this->line("<fg=gray>  Sections: " . implode(', ', $sections) . "</>");
+            $this->line("");
         }
 
-        foreach ($resources as $resource) {
-            $name = basename($resource);
-            if ($name === 'Auth') continue;
-            
-            $this->components->twoColumnDetail($name, '<fg=green>Active</>');
-        }
+        $this->info("Usage: php artisan fabric:component {template}:{section}");
     }
 }

@@ -76,12 +76,13 @@ readonly class ViewCompiler
      */
     protected function buildPlaceholders(array $data): array
     {
-        $modelClass = $data['model'];
+        $modelClass = '\\' . ltrim($data['model'], '\\');
         $modelName = \class_basename($modelClass);
         
         return [
             '{{ MODEL_NAME }}' => $modelName,
-            '{{ MODEL_CLASS }}' => $modelClass,
+            '{{ MODEL_CLASS }}' => ltrim($modelClass, '\\'),
+            '{{ MODEL_CLASS_FQN }}' => $modelClass,
             '{{ MODEL_VARIABLE }}' => Str::camel($modelName),
             '{{ MODEL_SNAKE }}' => Str::snake($modelName),
             '{{ MODEL_PLURAL }}' => Str::plural(Str::camel($modelName)),

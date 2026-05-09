@@ -46,6 +46,23 @@ class FabricServiceProvider extends ServiceProvider
 
         \Illuminate\Support\Facades\Blade::anonymousComponentPath(resource_path('views/components/fabric'), 'fabric');
         \Illuminate\Support\Facades\Blade::anonymousComponentPath(resource_path('views/layouts/fabric'), 'fabric');
+
+        $this->registerLivewireComponents();
+        $this->registerRoutes();
+    }
+
+    protected function registerRoutes(): void
+    {
+        \Illuminate\Support\Facades\Route::middleware('web')->group(function () {
+            \Illuminate\Support\Facades\Route::get('fabric/docs', [\CLCBWS\Fabric\Http\Controllers\FabricDocController::class, 'index'])->name('fabric.docs.index');
+            \Illuminate\Support\Facades\Route::get('fabric/docs/{template}', [\CLCBWS\Fabric\Http\Controllers\FabricDocController::class, 'template'])->name('fabric.docs.template');
+            \Illuminate\Support\Facades\Route::get('fabric/docs/{template}/{section}', [\CLCBWS\Fabric\Http\Controllers\FabricDocController::class, 'component'])->name('fabric.docs.component');
+        });
+    }
+
+    protected function registerLivewireComponents(): void
+    {
+        \Livewire\Livewire::component('fabric.components.chart', \CLCBWS\Fabric\Livewire\Components\Chart::class);
     }
 
     /**
@@ -59,7 +76,6 @@ class FabricServiceProvider extends ServiceProvider
             \CLCBWS\Fabric\Commands\PublishStubsCommand::class,
             \CLCBWS\Fabric\Commands\GenerateResourceCommand::class,
             \CLCBWS\Fabric\Commands\GenerateSettingsCommand::class,
-            \CLCBWS\Fabric\Commands\GenerateSiteCommand::class,
             \CLCBWS\Fabric\Commands\SeedCommand::class,
             \CLCBWS\Fabric\Commands\AssetsCommand::class,
             \CLCBWS\Fabric\Commands\WizardCommand::class,
@@ -86,6 +102,7 @@ class FabricServiceProvider extends ServiceProvider
             \CLCBWS\Fabric\Commands\ContextCommand::class,
             \CLCBWS\Fabric\Commands\LogCommand::class,
             \CLCBWS\Fabric\Commands\ReadyCommand::class,
+            \CLCBWS\Fabric\Commands\FabricComponentCommand::class,
         ]);
     }
 
@@ -101,5 +118,22 @@ class FabricServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../stubs' => \base_path('stubs/fabric'),
         ], 'fabric-stubs');
+
+        $this->publishes([
+            __DIR__ . '/../stubs/common/js' => public_path('vendor/fabric/common/js'),
+        ], 'fabric-assets');
+
+        $this->publishes([
+            __DIR__ . '/Livewire/Fabric' => \app_path('Livewire/Fabric'),
+        ], 'fabric-components');
+
+        $this->publishes([
+            __DIR__ . '/../resources/views' => \resource_path('views/vendor/fabric'),
+        ], 'fabric-views');
+
+        // Layouts for slim installs
+        $this->publishes([
+            __DIR__ . '/../resources/views/layouts' => \resource_path('views/layouts/fabric'),
+        ], 'fabric-layouts');
     }
 }

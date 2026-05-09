@@ -1,6 +1,6 @@
 # 🧩 Testament V: Component Lexicon
 
-Fabric ships with over **160+ atomic components**. These are published to your project during the scaffolding process or can be used manually via the `<x-fabric::...>` namespace.
+Fabric ships with over **149 high-fidelity stubs**. These are published to your project during the scaffolding process or can be used manually via the `<x-fabric::...>` namespace.
 
 ## 1. Core Inputs
 The foundation of every CRUD view.

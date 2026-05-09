@@ -1,35 +1,36 @@
 # DaisyUI Demo: Professional Multi-Page Website
 
-This demo showcases the full power of **Laravel Fabric** for building production-grade, dynamic websites and admin panels with zero friction.
+This demo showcases the full power of **Laravel Fabric** for building production-grade, dynamic websites and admin panels with zero friction, powered by the **DaisyUI** ecosystem.
 
 ## 🚀 Walkthrough: How we built this
 
 Everything in this demo was generated using the Fabric CLI. No manual boilerplate was written.
 
 ### 1. The Foundation
-We started by defining our models and migrations. Then we forged the admin panel:
+We started by defining our models and migrations. Then we forged the admin panel resources:
 ```bash
-# Forge CRUD for core resources
-php artisan fabric:generate Post --force
-php artisan fabric:generate Category --force
-php artisan fabric:generate Testimonial --force
-php artisan fabric:generate Faq --force
-php artisan fabric:generate Service --force
-php artisan fabric:generate Inquiry --force
+# Forge CRUD for core resources using DaisyUI theme
+php artisan fabric:generate Post --theme=daisyui
+php artisan fabric:generate Category --theme=daisyui
+php artisan fabric:generate Testimonial --theme=daisyui
+php artisan fabric:generate Faq --theme=daisyui
+php artisan fabric:generate Service --theme=daisyui
 ```
 
 ### 2. Dynamic Settings
 We wanted the website's contact info and social links to be editable by the admin:
 ```bash
 # Forge a Settings Editor
-php artisan fabric:settings GeneralSettings
+php artisan fabric:settings GeneralSettings --theme=daisyui
 ```
 
-### 3. The Website
-Finally, we forged the 15-page frontend structure:
+### 3. Component Extraction
+To build the custom landing page, we extracted specific high-fidelity sections from the DaisyUI framework library:
 ```bash
-# Forge the 15-page website
-php artisan fabric:site --theme=daisyui
+# Extract pre-built UI components
+php artisan fabric:component daisyui:hero
+php artisan fabric:component daisyui:navbar-mega
+php artisan fabric:component daisyui:testimonials
 ```
 
 ## 🛠️ Key Features in this Demo
@@ -48,5 +49,8 @@ php artisan fabric:site --theme=daisyui
 - `app/Livewire/Fabric`: Forged Livewire components for the admin panel.
 - `app/Settings`: Spatie settings classes.
 - `resources/views/livewire/fabric`: Blade views for the forged components.
-- `resources/views/layouts/web.blade.php`: The dynamic website layout.
+- `resources/views/components/fabric/daisyui`: Extracted UI components.
 - `routes/fabric.php`: Automatic resource routing.
+
+### 🚀 Summary
+The DaisyUI demo serves as the primary reference for building high-fidelity interfaces with Fabric. It demonstrates the "Universal Manifesto" standards in a complete, production-ready environment.

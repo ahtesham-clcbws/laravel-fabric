@@ -28,11 +28,11 @@
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-12">
                     <!-- Services -->
                     <div class="space-y-8">
-                        <h6 class="text-xs font-black uppercase tracking-[0.4em] text-primary">Services</h6> 
+                        <h6 class="text-xs font-black uppercase tracking-[0.4em] text-primary">Capabilities</h6> 
                         <ul class="space-y-5">
-                            <li><a href="{{ route('services.index') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Web Forge</a></li>
-                            <li><a href="{{ route('services.index') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">UI Strategy</a></li>
-                            <li><a href="{{ route('services.index') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Cloud Matrix</a></li>
+                            <li><a href="{{ route('services.index') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Services</a></li>
+                            <li><a href="{{ route('portfolio') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Portfolio</a></li>
+                            <li><a href="{{ route('pricing') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Pricing</a></li>
                         </ul>
                     </div>
 
@@ -41,15 +41,17 @@
                         <h6 class="text-xs font-black uppercase tracking-[0.4em] text-primary">Company</h6> 
                         <ul class="space-y-5">
                             <li><a href="{{ route('about') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Our Story</a></li>
+                            <li><a href="{{ route('team') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Architects</a></li>
                             <li><a href="{{ route('contact') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Contact</a></li>
-                            <li><a href="{{ route('blog.index') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Dispatch</a></li>
                         </ul>
                     </div>
 
                     <!-- Legal -->
                     <div class="space-y-8">
-                        <h6 class="text-xs font-black uppercase tracking-[0.4em] text-primary">Security</h6> 
+                        <h6 class="text-xs font-black uppercase tracking-[0.4em] text-primary">Resources</h6> 
                         <ul class="space-y-5">
+                            <li><a href="{{ route('blog.index') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Dispatch</a></li>
+                            <li><a href="{{ route('faq') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">FAQ</a></li>
                             <li><a href="{{ route('terms') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Terms</a></li>
                             <li><a href="{{ route('privacy') }}" class="text-base-content/60 hover:text-primary transition-colors font-bold text-base">Privacy</a></li>
                         </ul>

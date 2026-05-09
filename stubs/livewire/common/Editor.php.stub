@@ -19,7 +19,7 @@ class Editor extends ModalComponent
      * Use $record for the Eloquent model instance.
      */
     public array $form = [];
-    public ?{{ MODEL_NAME }} $record = null;
+    public ?{{ MODEL_CLASS_FQN }} $record = null;
     
     // [FABRIC-RELATIONSHIP-PROPERTIES]
     
@@ -33,9 +33,9 @@ class Editor extends ModalComponent
         return {{ VALIDATION_RULES }};
     }
 
-    public function mount({{ MODEL_NAME }} $record = null)
+    public function mount({{ MODEL_CLASS_FQN }} $record = null)
     {
-        $this->record = $record ?: new {{ MODEL_NAME }};
+        $this->record = $record ?: new {{ MODEL_CLASS_FQN }};
         $this->form = $this->record->toArray();
         
         // [FABRIC-RELATIONSHIP-FETCH]

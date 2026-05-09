@@ -4,7 +4,7 @@ The **Loom** is the cerebral cortex of Fabric. It is responsible for analyzing y
 
 ## 🧠 How it Works
 
-When you run `php artisan fabric:forge`, the Loom:
+When you run `php artisan fabric:generate`, the Loom:
 1. **Introspects the Model**: Reflects on the Eloquent class to find traits (like `SoftDeletes` or `HasApiTokens`).
 2. **Scans the Schema**: Uses the database driver to identify column types, nullability, and default values.
 3. **Weaves Relationships**: Queries the database's foreign key constraints to identify `BelongsTo`, `HasMany`, and `ManyToMany` associations.

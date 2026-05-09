@@ -12,9 +12,9 @@ use {{ MODEL_CLASS }};
  */
 class {{ MODEL_NAME }}Show extends Component
 {
-    public {{ MODEL_NAME }} $record;
+    public {{ MODEL_CLASS_FQN }} $record;
 
-    public function mount({{ MODEL_NAME }} $record)
+    public function mount({{ MODEL_CLASS_FQN }} $record)
     {
         $this->record = $record;
     }
