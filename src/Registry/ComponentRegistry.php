@@ -42,21 +42,32 @@ class ComponentRegistry
                 'usage-metrics'
             ],
             'preline' => [
+                'accordion',
                 'advanced-select',
                 'alert',
+                'auth:login',
+                'auth:register',
                 'avatar-group',
+                'dropdown',
                 'input-group',
+                'input-number',
+                'layout:sidebar',
                 'modal',
                 'pin-input',
                 'progress',
                 'stepper',
                 'switch',
+                'tabs',
                 'timeline'
             ],
             'hyperui' => [
                 'accordion',
                 'badge',
+                'banner',
+                'blog-card',
                 'breadcrumbs',
+                'cart',
+                'details-list',
                 'empty-state',
                 'file-uploader',
                 'input',
@@ -68,9 +79,13 @@ class ComponentRegistry
             ],
             'floatui' => [
                 'alert',
+                'contact-section',
+                'feature-section',
                 'hero-section',
                 'modal',
-                'pagination'
+                'newsletter',
+                'pagination',
+                'pricing-section'
             ]
         ];
     }

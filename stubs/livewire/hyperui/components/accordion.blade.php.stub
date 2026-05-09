@@ -1,22 +1,47 @@
-@props([
-    'title' => ''
-])
+<div x-data="{ active: 1 }" class="space-y-4 w-full">
+    <div class="rounded-3xl border border-neutral-100 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 transition-all duration-300 shadow-sm">
+        <button 
+            @click="active = (active === 1 ? null : 1)"
+            class="flex cursor-pointer items-center justify-between gap-1.5 text-neutral-800 dark:text-white w-full text-start focus:outline-none"
+        >
+            <h2 class="text-lg font-bold">What is the Fabric Core Philosophy?</h2>
+            <span 
+                class="shrink-0 rounded-full bg-neutral-50 p-1.5 text-neutral-800 dark:bg-neutral-800 dark:text-white transition-transform duration-500"
+                :class="active === 1 ? 'rotate-180' : ''"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </span>
+        </button>
 
-<details class="group rounded-lg bg-gray-50 p-6 [&_summary::-webkit-details-marker]:hidden" {{ $attributes }}>
-  <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
-    <h2 class="font-medium"> {{ $title }} </h2>
+        <div x-show="active === 1" x-collapse x-cloak>
+            <p class="mt-4 leading-relaxed text-neutral-600 dark:text-neutral-400">
+                Fabric follows the <span class="font-semibold text-{{ PRIMARY }}">Forge and Depart</span> philosophy. It generates clean, vanilla Laravel and Livewire code that you own entirely. Once the code is forged, you can even uninstall Fabric and your application will remain fully functional.
+            </p>
+        </div>
+    </div>
 
-    <span class="relative size-5 shrink-0">
-      <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 size-5 opacity-100 group-open:opacity-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 size-5 opacity-0 group-open:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    </span>
-  </summary>
+    <div class="rounded-3xl border border-neutral-100 bg-white p-6 dark:border-neutral-800 dark:bg-neutral-900 transition-all duration-300 shadow-sm">
+        <button 
+            @click="active = (active === 2 ? null : 2)"
+            class="flex cursor-pointer items-center justify-between gap-1.5 text-neutral-800 dark:text-white w-full text-start focus:outline-none"
+        >
+            <h2 class="text-lg font-bold">How do I customize the design?</h2>
+            <span 
+                class="shrink-0 rounded-full bg-neutral-50 p-1.5 text-neutral-800 dark:bg-neutral-800 dark:text-white transition-transform duration-500"
+                :class="active === 2 ? 'rotate-180' : ''"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </span>
+        </button>
 
-  <p class="mt-4 leading-relaxed text-gray-700">
-    {{ $slot }}
-  </p>
-</details>
+        <div x-show="active === 2" x-collapse x-cloak>
+            <p class="mt-4 leading-relaxed text-neutral-600 dark:text-neutral-400">
+                You can set your global brand palette in <code>config/fabric.php</code>. Fabric will automatically inject these colors into every component it generates using the <code>{{ PRIMARY }}</code> and <code>{{ SECONDARY }}</code> tokens.
+            </p>
+        </div>
+    </div>
+</div>

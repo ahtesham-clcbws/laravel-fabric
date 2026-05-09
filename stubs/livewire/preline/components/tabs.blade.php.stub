@@ -1,0 +1,54 @@
+<div x-data="{ activeTab: 'home' }" class="w-full">
+    <div class="border-b border-neutral-200 dark:border-neutral-800">
+        <nav class="flex space-x-8" aria-label="Tabs" role="tablist">
+            <button 
+                @click="activeTab = 'home'"
+                type="button" 
+                class="py-4 px-1 inline-flex items-center gap-x-2 border-b-2 font-medium text-sm whitespace-nowrap transition-all duration-300"
+                :class="activeTab === 'home' ? 'border-{{ PRIMARY }} text-{{ PRIMARY }}' : 'border-transparent text-neutral-500 hover:text-{{ PRIMARY }} dark:text-neutral-400'"
+                id="tabs-item-1" 
+                role="tab"
+            >
+                Home
+            </button>
+            <button 
+                @click="activeTab = 'profile'"
+                type="button" 
+                class="py-4 px-1 inline-flex items-center gap-x-2 border-b-2 font-medium text-sm whitespace-nowrap transition-all duration-300"
+                :class="activeTab === 'profile' ? 'border-{{ PRIMARY }} text-{{ PRIMARY }}' : 'border-transparent text-neutral-500 hover:text-{{ PRIMARY }} dark:text-neutral-400'"
+                id="tabs-item-2" 
+                role="tab"
+            >
+                Profile
+            </button>
+            <button 
+                @click="activeTab = 'settings'"
+                type="button" 
+                class="py-4 px-1 inline-flex items-center gap-x-2 border-b-2 font-medium text-sm whitespace-nowrap transition-all duration-300"
+                :class="activeTab === 'settings' ? 'border-{{ PRIMARY }} text-{{ PRIMARY }}' : 'border-transparent text-neutral-500 hover:text-{{ PRIMARY }} dark:text-neutral-400'"
+                id="tabs-item-3" 
+                role="tab"
+            >
+                Settings
+            </button>
+        </nav>
+    </div>
+
+    <div class="mt-6">
+        <div x-show="activeTab === 'home'" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" role="tabpanel" aria-labelledby="tabs-item-1">
+            <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                This is the <span class="font-semibold text-neutral-800 dark:text-neutral-200">home</span> tab body. It represents the primary view for the component. Fabric ensures that all transitions are smooth and performant.
+            </p>
+        </div>
+        <div x-show="activeTab === 'profile'" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" role="tabpanel" aria-labelledby="tabs-item-2">
+            <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                This is the <span class="font-semibold text-neutral-800 dark:text-neutral-200">profile</span> tab body. Managed entirely by Alpine.js for zero-dependency interactivity.
+            </p>
+        </div>
+        <div x-show="activeTab === 'settings'" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" role="tabpanel" aria-labelledby="tabs-item-3">
+            <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                This is the <span class="font-semibold text-neutral-800 dark:text-neutral-200">settings</span> tab body. Everything is pre-styled and ready for production data.
+            </p>
+        </div>
+    </div>
+</div>

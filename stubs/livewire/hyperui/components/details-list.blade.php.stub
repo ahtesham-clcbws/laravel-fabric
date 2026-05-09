@@ -1,0 +1,29 @@
+<div class="flow-root rounded-3xl border border-neutral-100 py-3 shadow-sm dark:border-neutral-800 bg-white dark:bg-neutral-900 overflow-hidden transition-all duration-300">
+    <dl class="-my-3 divide-y divide-neutral-100 text-sm dark:divide-neutral-800">
+        <div class="grid grid-cols-1 gap-1 p-5 even:bg-neutral-50 sm:grid-cols-3 sm:gap-4 dark:even:bg-neutral-800/50">
+            <dt class="font-bold text-neutral-800 dark:text-white uppercase tracking-wider text-xs">Title</dt>
+            <dd class="text-neutral-600 sm:col-span-2 dark:text-neutral-400">Fabric Project Architect</dd>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 p-5 even:bg-neutral-50 sm:grid-cols-3 sm:gap-4 dark:even:bg-neutral-800/50">
+            <dt class="font-bold text-neutral-800 dark:text-white uppercase tracking-wider text-xs">Environment</dt>
+            <dd class="text-neutral-600 sm:col-span-2 dark:text-neutral-400">Laravel 13 / Livewire 4</dd>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 p-5 even:bg-neutral-50 sm:grid-cols-3 sm:gap-4 dark:even:bg-neutral-800/50">
+            <dt class="font-bold text-neutral-800 dark:text-white uppercase tracking-wider text-xs">Status</dt>
+            <dd class="text-neutral-600 sm:col-span-2 dark:text-neutral-400">
+                <span class="inline-flex items-center gap-x-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-500/10 dark:text-teal-500">
+                    Active Forge
+                </span>
+            </dd>
+        </div>
+
+        <div class="grid grid-cols-1 gap-1 p-5 even:bg-neutral-50 sm:grid-cols-3 sm:gap-4 dark:even:bg-neutral-800/50">
+            <dt class="font-bold text-neutral-800 dark:text-white uppercase tracking-wider text-xs">Repository</dt>
+            <dd class="text-neutral-600 sm:col-span-2 dark:text-neutral-400">
+                <a href="#" class="text-{{ PRIMARY }} hover:underline font-semibold">clcbws/laravel-fabric</a>
+            </dd>
+        </div>
+    </dl>
+</div>

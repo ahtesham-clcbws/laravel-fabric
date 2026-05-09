@@ -1,0 +1,58 @@
+<section class="py-24 bg-white dark:bg-neutral-950 transition-all duration-500">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="max-w-xl mx-auto space-y-3 sm:text-center">
+            <h3 class="text-{{ PRIMARY }} font-bold uppercase tracking-widest text-sm">
+                Advanced Capabilities
+            </h3>
+            <p class="text-neutral-800 dark:text-white text-3xl font-bold sm:text-4xl">
+                Everything you need to scale your application
+            </p>
+            <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Fabric provides a comprehensive suite of tools designed to accelerate your development workflow without compromising on quality or performance.
+            </p>
+        </div>
+        <div class="mt-16">
+            <ul class="grid gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+                <li class="space-y-4">
+                    <div class="size-12 rounded-2xl bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} flex items-center justify-center shadow-lg shadow-{{ PRIMARY }}/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-lg text-neutral-800 dark:text-white font-bold">
+                        Ultra High Performance
+                    </h4>
+                    <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                        Zero runtime dependencies mean your application loads instantly and performs flawlessly on any hardware.
+                    </p>
+                </li>
+                <li class="space-y-4">
+                    <div class="size-12 rounded-2xl bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} flex items-center justify-center shadow-lg shadow-{{ PRIMARY }}/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <h4 class="text-lg text-neutral-800 dark:text-white font-bold">
+                        Production Security
+                    </h4>
+                    <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                        Enterprise-grade security patterns are baked into every line of code we forge for your project.
+                    </p>
+                </li>
+                <li class="space-y-4">
+                    <div class="size-12 rounded-2xl bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} flex items-center justify-center shadow-lg shadow-{{ PRIMARY }}/10">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l-5.571 3-5.571-3" />
+                        </svg>
+                    </div>
+                    <h4 class="text-lg text-neutral-800 dark:text-white font-bold">
+                        Infinite Scalability
+                    </h4>
+                    <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                        Our modular architecture grows with your needs, from simple landing pages to complex enterprise portals.
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

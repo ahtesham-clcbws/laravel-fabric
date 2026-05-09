@@ -35,11 +35,16 @@ Fabric provides a vast library of **149 high-fidelity stubs** across multiple de
 
 ## ⚡ Preline UI Framework
 *Location: `stubs/livewire/preline`*
-- **Layouts**: Bento, Minimalist, Sidebar, Top-Nav.
+- **Layouts**: 
+  - `sidebar` (Alpine.js Mobile Toggle), `bento`, `minimalist`, `top-nav`
+- **Authentication**:
+  - `login` (Alpine.js), `register` (Alpine.js)
 - **Components**:
-  - `advanced-select`, `alert`, `avatar-group`, `input-group`
-  - `modal`, `pin-input`, `progress`, `stepper`, `switch`, `timeline`
-- **Views**: Editor, Stats, Table.
+  - `accordion` (Alpine.js), `advanced-select` (Alpine.js), `alert` (Alpine.js), `avatar-group`
+  - `dropdown` (Alpine.js), `input-group`, `input-number` (Alpine.js), `modal` (Alpine.js)
+  - `pin-input` (Alpine.js), `progress`, `stepper`, `switch`, `tabs` (Alpine.js), `timeline`
+- **Views**: 
+  - `table` (Alpine.js Bulk Actions), `editor`, `stats`
 
 ---
 
@@ -48,17 +53,19 @@ Fabric provides a vast library of **149 high-fidelity stubs** across multiple de
 - **Layouts**: Sidebar, Top-Nav.
 - **Components**:
   - `accordion`, `badge`, `breadcrumbs`, `empty-state`
-  - `file-uploader`, `input`, `quantity-input`, `select`
-  - `steps`, `tabs`, `timeline`
-- **Views**: Editor, Stats, Table.
+- **Components**:
+  - `accordion` (Alpine.js), `badge`, `banner` (Alpine.js), `blog-card`
+  - `breadcrumbs`, `cart` (Alpine.js), `details-list`, `empty-state`
+  - `file-uploader`, `input`, `quantity-input` (Alpine.js), `select`
+  - `steps`, `tabs` (Alpine.js), `timeline`
 
 ---
 
-## 🌊 Float UI Minimalist Design
+## 🌊 FloatUI Framework
 *Location: `stubs/livewire/floatui`*
-- **Layouts**: Minimalist, Sidebar, Top-Nav.
 - **Components**:
-  - `alert`, `hero-section`, `modal`, `pagination`
+  - `alert`, `contact-section`, `feature-section`, `hero-section`
+  - `modal` (Alpine.js), `newsletter`, `pagination`, `pricing-section` (Alpine.js)
 - **Views**: Editor, Stats, Table.
 
 ---

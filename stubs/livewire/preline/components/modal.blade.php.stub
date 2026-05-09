@@ -1,28 +1,67 @@
-@props([
-    'title' => 'Modal Title',
-    'id' => 'hs-modal'
-])
+<div x-data="{ open: false }" @keydown.escape.window="open = false" class="relative">
+    <!-- Trigger Button -->
+    <button @click="open = true" type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-2xl border border-transparent bg-{{ PRIMARY }} text-white hover:bg-{{ PRIMARY }}/90 disabled:opacity-50 disabled:pointer-events-none transition-all duration-300 shadow-lg shadow-{{ PRIMARY }}/20">
+        Open Modal
+    </button>
 
-<div id="{{ $id }}" class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
-  <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
-    <div class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
-      <div class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
-        <h3 class="font-bold text-gray-800 dark:text-white">
-          {{ $title }}
-        </h3>
-        <button type="button" class="flex justify-center items-center size-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700" data-hs-overlay="#{{ $id }}">
-          <span class="sr-only">Close</span>
-          <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-        </button>
-      </div>
-      <div class="p-4 overflow-y-auto">
-        {{ $slot }}
-      </div>
-      @if($footer ?? false)
-        <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-gray-700">
-          {{ $footer }}
+    <!-- Modal Backdrop & Container -->
+    <div 
+        x-show="open" 
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        x-cloak
+        class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-7 bg-neutral-900/60 backdrop-blur-md"
+        role="dialog" 
+        aria-modal="true"
+    >
+        <!-- Modal Content -->
+        <div 
+            x-show="open"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+            x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+            x-transition:leave-end="opacity-0 scale-95 translate-y-4"
+            @click.away="open = false"
+            class="w-full max-w-lg bg-white border border-neutral-100 shadow-2xl rounded-3xl dark:bg-neutral-900 dark:border-neutral-800 overflow-hidden"
+        >
+            <!-- Header -->
+            <div class="flex justify-between items-center py-4 px-6 border-b border-neutral-100 dark:border-neutral-800">
+                <h3 class="text-xl font-bold text-neutral-800 dark:text-white">
+                    Modal Header
+                </h3>
+                <button @click="open = false" type="button" class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-neutral-100 text-neutral-800 hover:bg-neutral-200 focus:outline-none focus:bg-neutral-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-700 transition-colors">
+                    <span class="sr-only">Close</span>
+                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Body -->
+            <div class="p-6 overflow-y-auto max-h-[70vh]">
+                <p class="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                    This modal is powered entirely by <span class="font-semibold text-{{ PRIMARY }}">Alpine.js</span>. It features smooth scaling transitions, backdrop blurring, and automatic focus trapping capabilities when extended with Alpine's focus plugin.
+                </p>
+                <div class="mt-4 p-4 bg-neutral-50 dark:bg-neutral-800/50 rounded-2xl border border-dashed border-neutral-200 dark:border-neutral-700">
+                    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+                        Pro Tip: Use <code>x-trap</code> to prevent keyboard navigation from leaving the modal.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="flex justify-end items-center gap-x-3 py-4 px-6 border-t border-neutral-100 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-800/30">
+                <button @click="open = false" type="button" class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-xl border border-neutral-200 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-800 dark:text-white dark:hover:bg-neutral-800 transition-all">
+                    Cancel
+                </button>
+                <button type="button" class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-xl border border-transparent bg-{{ PRIMARY }} text-white hover:bg-{{ PRIMARY }}/90 disabled:opacity-50 disabled:pointer-events-none transition-all">
+                    Confirm Action
+                </button>
+            </div>
         </div>
-      @endif
     </div>
-  </div>
 </div>

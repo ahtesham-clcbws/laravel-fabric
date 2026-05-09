@@ -1,0 +1,45 @@
+<div 
+    x-data="{ 
+        value: 1,
+        min: 0,
+        max: 99,
+        step: 1,
+        increment() {
+            if (this.value < this.max) {
+                this.value = parseInt(this.value) + this.step;
+            }
+        },
+        decrement() {
+            if (this.value > this.min) {
+                this.value = parseInt(this.value) - this.step;
+            }
+        }
+    }" 
+    class="py-2 px-3 inline-block bg-white border border-neutral-200 rounded-2xl dark:bg-neutral-900 dark:border-neutral-800"
+>
+    <div class="flex items-center gap-x-1.5">
+        <button 
+            @click="decrement()" 
+            type="button" 
+            class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-xl border border-neutral-200 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-800 dark:text-white dark:hover:bg-neutral-800 transition-all"
+            :disabled="value <= min"
+        >
+            <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+        </button>
+        
+        <input 
+            type="number" 
+            x-model="value"
+            {{ $attributes->merge(['class' => 'p-0 w-12 bg-transparent border-0 text-neutral-800 text-center focus:ring-0 dark:text-white font-bold text-lg']) }}
+        >
+        
+        <button 
+            @click="increment()" 
+            type="button" 
+            class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-xl border border-neutral-200 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-800 dark:text-white dark:hover:bg-neutral-800 transition-all"
+            :disabled="value >= max"
+        >
+            <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+        </button>
+    </div>
+</div>

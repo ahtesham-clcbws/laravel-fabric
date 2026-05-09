@@ -1,17 +1,22 @@
-@props([
-    'title' => 'No data found',
-    'description' => 'Try adjusting your search or filters.'
-])
+<div class="flex flex-col items-center justify-center rounded-3xl border-2 border-dashed border-neutral-200 p-8 text-center dark:border-neutral-800 bg-white dark:bg-neutral-900 transition-all duration-300">
+    <div class="rounded-full bg-neutral-50 p-4 dark:bg-neutral-800">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-10 text-neutral-400 dark:text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+    </div>
 
-<div class="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 p-12 text-center">
-  <svg class="size-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-  </svg>
+    <h2 class="mt-6 text-xl font-bold text-neutral-800 dark:text-white">
+        No records found here
+    </h2>
 
-  <h2 class="mt-4 text-lg font-bold text-gray-900">{{ $title }}</h2>
-  <p class="mt-1 text-sm text-gray-500">{{ $description }}</p>
-  
-  <div class="mt-6">
-    {{ $slot }}
-  </div>
+    <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-400 max-w-xs mx-auto leading-relaxed">
+        It looks like you haven't created any resources yet. Start by forging your first record.
+    </p>
+
+    <button type="button" class="mt-8 inline-flex items-center gap-x-2 rounded-2xl bg-{{ PRIMARY }} px-6 py-3 text-sm font-bold text-white shadow-lg shadow-{{ PRIMARY }}/20 transition hover:bg-{{ PRIMARY }}/90 focus:outline-none focus:ring-2 focus:ring-{{ PRIMARY }} focus:ring-offset-2 dark:focus:ring-offset-neutral-900">
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+        <span>Forge Resource</span>
+    </button>
 </div>

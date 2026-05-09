@@ -1,0 +1,122 @@
+<section x-data="{ isYearly: false }" class="py-24 bg-neutral-50 dark:bg-neutral-950 transition-all duration-500">
+    <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+        <div class="max-w-xl mx-auto space-y-3 sm:text-center">
+            <h3 class="text-{{ PRIMARY }} font-bold uppercase tracking-widest text-sm">
+                Pricing Plans
+            </h3>
+            <p class="text-neutral-800 dark:text-white text-3xl font-bold sm:text-4xl">
+                Transparent pricing for every scale
+            </p>
+            <div class="mt-6 flex items-center justify-center gap-x-4">
+                <span class="text-sm font-semibold" :class="!isYearly ? 'text-neutral-800 dark:text-white' : 'text-neutral-500'">Monthly</span>
+                <button 
+                    @click="isYearly = !isYearly"
+                    class="relative w-12 h-6 rounded-full transition-colors duration-300 focus:outline-none"
+                    :class="isYearly ? 'bg-{{ PRIMARY }}' : 'bg-neutral-200 dark:bg-neutral-800'"
+                >
+                    <div 
+                        class="absolute top-1 left-1 size-4 bg-white rounded-full transition-transform duration-300"
+                        :class="isYearly ? 'translate-x-6' : ''"
+                    ></div>
+                </button>
+                <span class="text-sm font-semibold" :class="isYearly ? 'text-neutral-800 dark:text-white' : 'text-neutral-500'">Yearly</span>
+                <span class="ml-1 py-1 px-2.5 rounded-full text-[10px] font-bold bg-teal-100 text-teal-800 dark:bg-teal-500/10 dark:text-teal-500 uppercase tracking-wider">
+                    Save 20%
+                </span>
+            </div>
+        </div>
+        
+        <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Basic Plan -->
+            <div class="relative flex-1 flex flex-col p-8 rounded-3xl bg-white border border-neutral-100 dark:bg-neutral-900 dark:border-neutral-800 transition-all duration-300 hover:shadow-2xl">
+                <div class="mb-8">
+                    <span class="text-neutral-600 dark:text-neutral-400 font-bold uppercase tracking-widest text-xs">Starter</span>
+                    <div class="mt-4 flex items-baseline text-neutral-800 dark:text-white">
+                        <span class="text-3xl font-bold">$</span>
+                        <span class="text-5xl font-bold tracking-tight" x-text="isYearly ? '19' : '29'"></span>
+                        <span class="ms-1 text-sm font-semibold text-neutral-500">/mo</span>
+                    </div>
+                    <p class="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+                        Essential features for small teams and startups.
+                    </p>
+                </div>
+                <ul class="space-y-4 mb-8 grow">
+                    <li class="flex items-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+                        <svg class="shrink-0 size-5 text-{{ PRIMARY }}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                        Up to 5 Projects
+                    </li>
+                    <li class="flex items-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+                        <svg class="shrink-0 size-5 text-{{ PRIMARY }}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                        Standard Analytics
+                    </li>
+                </ul>
+                <button class="w-full py-3 px-4 rounded-2xl border-2 border-{{ PRIMARY }} text-{{ PRIMARY }} font-bold hover:bg-{{ PRIMARY }} hover:text-white transition-all duration-300">
+                    Get Started
+                </button>
+            </div>
+
+            <!-- Pro Plan (Featured) -->
+            <div class="relative flex-1 flex flex-col p-8 rounded-3xl bg-white border-2 border-{{ PRIMARY }} dark:bg-neutral-900 shadow-2xl scale-105 z-10">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 py-1 px-3 bg-{{ PRIMARY }} text-white text-[10px] font-bold rounded-full uppercase tracking-widest">
+                    Most Popular
+                </div>
+                <div class="mb-8">
+                    <span class="text-{{ PRIMARY }} font-bold uppercase tracking-widest text-xs">Professional</span>
+                    <div class="mt-4 flex items-baseline text-neutral-800 dark:text-white">
+                        <span class="text-3xl font-bold">$</span>
+                        <span class="text-5xl font-bold tracking-tight" x-text="isYearly ? '79' : '99'"></span>
+                        <span class="ms-1 text-sm font-semibold text-neutral-500">/mo</span>
+                    </div>
+                    <p class="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+                        Perfect for growing businesses and agencies.
+                    </p>
+                </div>
+                <ul class="space-y-4 mb-8 grow">
+                    <li class="flex items-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+                        <svg class="shrink-0 size-5 text-{{ PRIMARY }}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                        Unlimited Projects
+                    </li>
+                    <li class="flex items-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+                        <svg class="shrink-0 size-5 text-{{ PRIMARY }}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                        Advanced Analytics
+                    </li>
+                    <li class="flex items-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+                        <svg class="shrink-0 size-5 text-{{ PRIMARY }}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                        Priority Support
+                    </li>
+                </ul>
+                <button class="w-full py-3 px-4 rounded-2xl bg-{{ PRIMARY }} text-white font-bold shadow-lg shadow-{{ PRIMARY }}/20 hover:bg-{{ PRIMARY }}/90 transition-all duration-300">
+                    Get Pro Now
+                </button>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="relative flex-1 flex flex-col p-8 rounded-3xl bg-white border border-neutral-100 dark:bg-neutral-900 dark:border-neutral-800 transition-all duration-300 hover:shadow-2xl">
+                <div class="mb-8">
+                    <span class="text-neutral-600 dark:text-neutral-400 font-bold uppercase tracking-widest text-xs">Enterprise</span>
+                    <div class="mt-4 flex items-baseline text-neutral-800 dark:text-white">
+                        <span class="text-3xl font-bold">$</span>
+                        <span class="text-5xl font-bold tracking-tight" x-text="isYearly ? '199' : '249'"></span>
+                        <span class="ms-1 text-sm font-semibold text-neutral-500">/mo</span>
+                    </div>
+                    <p class="mt-4 text-sm text-neutral-600 dark:text-neutral-400">
+                        Custom solutions for large-scale operations.
+                    </p>
+                </div>
+                <ul class="space-y-4 mb-8 grow">
+                    <li class="flex items-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+                        <svg class="shrink-0 size-5 text-{{ PRIMARY }}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                        Dedicated Infrastructure
+                    </li>
+                    <li class="flex items-center gap-3 text-sm text-neutral-600 dark:text-neutral-400">
+                        <svg class="shrink-0 size-5 text-{{ PRIMARY }}" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                        24/7 Phone Support
+                    </li>
+                </ul>
+                <button class="w-full py-3 px-4 rounded-2xl border-2 border-neutral-200 text-neutral-800 font-bold hover:bg-neutral-800 hover:text-white dark:border-neutral-700 dark:text-white transition-all duration-300">
+                    Contact Sales
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

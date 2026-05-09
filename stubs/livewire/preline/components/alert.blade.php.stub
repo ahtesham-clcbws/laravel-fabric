@@ -15,24 +15,36 @@
     $classes = "border p-4 rounded-lg " . ($variants[$variant] ?? $variants['info']);
 @endphp
 
-<div {{ $attributes->merge(['class' => $classes]) }} role="alert">
-    <div class="flex">
-        <div class="flex-shrink-0">
+<div 
+    x-data="{ show: true }" 
+    x-show="show" 
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    {{ $attributes->merge(['class' => $classes . " rounded-2xl transition-all duration-300"]) }} 
+    role="alert"
+>
+    <div class="flex items-center">
+        <div class="shrink-0">
             {{ $icon ?? '' }}
         </div>
         <div class="ms-3">
             @if($title)
-                <h3 class="text-sm font-semibold">{{ $title }}</h3>
+                <h3 class="text-sm font-bold">{{ $title }}</h3>
             @endif
-            <div class="mt-1 text-sm opacity-90">
+            <div class="text-sm opacity-90 leading-relaxed">
                 {{ $slot }}
             </div>
         </div>
         @if($dismissible)
             <div class="ps-3 ms-auto">
-                <button type="button" class="inline-flex bg-transparent rounded-lg p-1.5 opacity-50 hover:opacity-100 transition">
+                <button 
+                    @click="show = false"
+                    type="button" 
+                    class="inline-flex justify-center items-center size-8 rounded-full bg-transparent hover:bg-black/5 dark:hover:bg-white/5 opacity-50 hover:opacity-100 transition-all"
+                >
                     <span class="sr-only">Dismiss</span>
-                    <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                 </button>
             </div>
         @endif

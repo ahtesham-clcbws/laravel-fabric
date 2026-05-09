@@ -1,0 +1,41 @@
+<section class="py-14 bg-neutral-900 dark:bg-neutral-950 transition-all duration-500 overflow-hidden">
+    <div class="relative max-w-screen-xl mx-auto px-4 md:px-8">
+        <!-- Decorative Background Gradient -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none overflow-hidden">
+            <div class="absolute -top-24 -left-24 size-96 bg-{{ PRIMARY }} rounded-full blur-[120px]"></div>
+            <div class="absolute -bottom-24 -right-24 size-96 bg-{{ PRIMARY }} rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-2xl mx-auto text-center space-y-4">
+            <h2 class="text-3xl text-white font-bold sm:text-4xl">
+                Stay updated with Fabric Core
+            </h2>
+            <p class="text-neutral-400 leading-relaxed max-w-xl mx-auto">
+                Join our newsletter and be the first to know about new components, architecture patterns, and agentic coding breakthroughs.
+            </p>
+            <div class="pt-4">
+                <form 
+                    onsubmit="event.preventDefault()" 
+                    class="flex items-center gap-x-2 p-1.5 bg-white dark:bg-neutral-900 rounded-2xl border border-neutral-700/50 shadow-2xl max-w-md mx-auto"
+                >
+                    <div class="relative w-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-y-0 left-3 my-auto size-5 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email" 
+                            class="w-full pl-11 pr-3 py-3 text-neutral-800 bg-transparent outline-none border-none focus:ring-0 dark:text-neutral-200"
+                        />
+                    </div>
+                    <button class="px-5 py-3 text-white font-bold bg-{{ PRIMARY }} hover:bg-{{ PRIMARY }}/90 active:bg-{{ PRIMARY }}/80 rounded-xl shadow-lg shadow-{{ PRIMARY }}/20 transition-all duration-300 whitespace-nowrap">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="mt-4 text-xs text-neutral-500">
+                    We care about your data in our <a href="#" class="underline">Privacy Policy</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

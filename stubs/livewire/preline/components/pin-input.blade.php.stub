@@ -1,35 +1,55 @@
-@props([
-    'length' => 6,
-    'label' => 'Enter PIN'
-])
-
-<div x-data="{ 
-    length: {{ $length }}, 
-    handleInput(e, index) {
-        if (e.target.value.length === 1 && index < this.length - 1) {
-            this.$refs['input' + (index + 1)].focus();
+<div 
+    x-data="{ 
+        length: 6,
+        pins: Array(6).fill(''),
+        handleInput(e, index) {
+            const val = e.target.value;
+            // Only allow numbers
+            if (!/^\d*$/.test(val)) {
+                this.pins[index] = '';
+                return;
+            }
+            if (val.length > 1) {
+                this.pins[index] = val.slice(-1);
+            }
+            if (this.pins[index] !== '' && index < this.length - 1) {
+                this.$refs['pin' + (index + 1)].focus();
+            }
+        },
+        handleKeyDown(e, index) {
+            if (e.key === 'Backspace' && this.pins[index] === '' && index > 0) {
+                this.$refs['pin' + (index - 1)].focus();
+            }
+        },
+        handlePaste(e) {
+            e.preventDefault();
+            const data = e.clipboardData.getData('text').slice(0, this.length);
+            if (!/^\d+$/.test(data)) return;
+            
+            data.split('').forEach((char, i) => {
+                this.pins[i] = char;
+            });
+            this.$refs['pin' + (Math.min(data.length, this.length - 1))].focus();
         }
-    },
-    handleKeydown(e, index) {
-        if (e.key === 'Backspace' && e.target.value === '' && index > 0) {
-            this.$refs['input' + (index - 1)].focus();
-        }
-    }
-}">
-    @if($label)
-        <label class="block text-sm font-medium mb-2 dark:text-white">{{ $label }}</label>
-    @endif
+    }" 
+    class="flex gap-x-3"
+>
+    <template x-for="(n, index) in length" :key="index">
+        <input 
+            type="text" 
+            x-model="pins[index]"
+            :x-ref="'pin' + index"
+            @input="handleInput($event, index)"
+            @keydown="handleKeyDown($event, index)"
+            @paste="handlePaste($event)"
+            class="block size-12 sm:size-14 text-center border-neutral-200 rounded-2xl text-lg font-bold bg-white text-neutral-800 focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-800 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-neutral-600 transition-all duration-300 shadow-sm" 
+            placeholder="•"
+            maxlength="1"
+            autocomplete="one-time-code"
+            inputmode="numeric"
+        >
+    </template>
     
-    <div class="flex gap-x-3">
-        @foreach(range(0, $length - 1) as $index)
-            <input 
-                type="text" 
-                x-ref="input{{ $index }}"
-                @input="handleInput($event, {{ $index }})"
-                @keydown="handleKeydown($event, {{ $index }})"
-                class="block w-[38px] h-[38px] text-center border-gray-200 rounded-md text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600" 
-                maxlength="1"
-            >
-        @endforeach
-    </div>
+    <!-- Hidden Input for Livewire Synchronization -->
+    <input type="hidden" {{ $attributes->merge(['name' => 'pin_code']) }} :value="pins.join('')">
 </div>
