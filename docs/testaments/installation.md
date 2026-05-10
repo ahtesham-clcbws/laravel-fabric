@@ -13,7 +13,7 @@ Fabric requires the following to be present in your project:
 Install the package via composer:
 
 ```bash
-composer require ahtesham/fabric --dev
+composer require clcbws/laravel-fabric --dev
 ```
 
 ## 3. Publishing the Config

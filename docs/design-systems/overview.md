@@ -12,6 +12,9 @@ When initializing your project, select the design system that matches your appli
 | **Preline UI** | Enterprise / Clean | Business-to-business and data-heavy applications. |
 | **Float UI** | Airy / Minimalist | SaaS landing pages and focused utility views. |
 | **HyperUI** | Product / Creative | Marketing-focused dashboards and colorful UIs. |
+| **Meraki UI** | Modern / Bold | High-fidelity marketing sections and sleek components. |
+| **Tailgrids** | Professional / Grid | Enterprise-grade dashboards and SaaS layouts. |
+| **Shadcn** | Atomic / Clean | High-end minimalist design with surgical precision. |
 
 ## Feature Parity
 Every design system listed above supports:

@@ -2,6 +2,8 @@
 
 Fabric provides a comprehensive suite of artisan commands to manage your ghost scaffolding ecosystem.
 
+---
+
 ## 🔨 Core Generation
 ### `fabric:generate {model}`
 Forges a complete resource suite (Table, Editor, Show, and Test) for the given model.
@@ -9,37 +11,26 @@ Forges a complete resource suite (Table, Editor, Show, and Test) for the given m
 - `--runtime=`: Choose the engine (livewire, blade).
 - `--tenant`: Activate the **Multi-Tenant Shield** (scopes to `team_id`).
 - `--force`: Overwrite existing files.
-- `--sort=`: Initial sort column.
-- `--direction=`: Initial sort direction (asc/desc).
 
-### `fabric:component {template:section}`
-Extracts a specific high-fidelity UI section from a Fabric template.
-- `template`: The framework name (e.g., `daisyui`, `preline`).
-- `section`: The component name (e.g., `hero-section`, `sidebar-layout`).
-- `--type=`: Specify a variant (solid, soft, outline, ghost).
-- `--size=`: Specify a size (xs, sm, md, lg, xl).
-- `--color=`: Specify a palette color (primary, success, danger).
-- `--icon=`: Specify a Lucide/Heroicon name.
-- `--force`: Overwrite existing forged component.
+### `fabric:component {name}`
+Forges a high-fidelity UI block from the library lexicon.
+- `name`: Framework:Component (e.g., `preline:button`, `daisyui:hero-section`).
+- `--type=`: Variant (solid, soft, outline, ghost).
+- `--size=`: Size (xs, sm, md, lg, xl).
+- `--color=`: Palette color (primary, success, danger).
+- `--icon=`: Lucide/Heroicon name to inject.
 
-**Examples:**
-- `php artisan fabric:component preline:button --type=soft --color=success`
-- `php artisan fabric:component daisyui:hero-section`
-- `php artisan fabric:component floatui:sidebar-layout`
+### `fabric:lexicon`
+The interactive terminal-based explorer for 500+ forgeable blocks. Filter by library and category in real-time.
 
 ### `fabric:wizard`
 The interactive companion. Guides you through the entire resource forging process step-by-step.
 
-### `fabric:list {template?}`
-Lists all available frameworks and their indexed components.
-- `template`: Optional filter by framework name.
+---
 
-## 🛡️ Identity & Security
+## 🛡️ Security & Identity
 ### `fabric:auth`
-Generates a native Identity & Security engine. Includes Profile management, Session control, and standard authentication views without external dependencies.
-
-### `fabric:api {model}`
-Forges a high-fidelity REST API (Resource + Controller) for the given model. Automatically configures Laravel 13's slim skeleton API.
+Generates a native Identity & Security engine including Profile management, Session control, and 2FA.
 
 ### `fabric:guard`
 Enforces license gating and RBAC permissions across your generated resources.
@@ -47,33 +38,65 @@ Enforces license gating and RBAC permissions across your generated resources.
 ### `fabric:jail`
 Restricts access to specific models based on the Guard's security policies.
 
-## 🩺 Diagnostics & Maintenance
-### `fabric:doctor`
-The primary diagnostic tool. Verifies environment health, PHP/Laravel versions, and detects missing ecosystem packages.
-
-### `fabric:heal {model}`
-The **Lazarus Engine**. Surgically patches existing components when your database schema changes, injecting new fields while preserving your custom logic.
-
-### `fabric:lint`
-Analyzes and normalizes generated code to ensure it adheres to the **Universal Manifesto** standards.
-
-### `fabric:vacuum`
-Performs deep asset cleanup, removing unused styles, scripts, and temporary forge artifacts.
-
-## ⚗️ Advanced Engines
-### `fabric:alchemy {path}`
-Transmutes any static Blade file into a reusable Fabric stub.
-
-### `fabric:context`
-Generates a **Neural Context Map** for AI-pairing, helping LLMs understand your project's architecture and relationships.
-
-### `fabric:graph`
-Generates the **Nexus Graph**, a visual representation of your models' relationships and data flow.
-
 ### `fabric:anon`
 Anonymizes sensitive data in your database, essential for staging and development environments.
 
 ---
 
-### 🚀 Usage Note
-Most commands are designed for local development. Use `fabric:ready` before deploying to ensure all assets are optimized and guards are active.
+## 🚀 API & Integration
+### `fabric:api {model}`
+Forges a high-fidelity REST API (Resource + Controller) for the given model.
+
+### `fabric:postman`
+Forges a complete Postman Collection (`postman_collection.json`) mapping every model and action.
+
+### `fabric:import {file}`
+Bulk-imports data into your models from CSV or JSON with validation.
+
+---
+
+## 🩺 Health & Maintenance
+### `fabric:doctor`
+The primary diagnostic tool. Verifies environment health and detects missing ecosystem packages.
+
+### `fabric:heal {model}`
+The **Lazarus Engine**. Surgically patches existing components when database schemas change.
+
+### `fabric:lint`
+Analyzes and normalizes generated code to ensure it adheres to the **Universal Manifesto** standards.
+
+### `fabric:vacuum`
+Performs deep asset cleanup, removing unused styles and temporary forge artifacts.
+
+### `fabric:purge`
+Wipes all temporary and cached assets to force a fresh recompilation.
+
+---
+
+## ⚗️ Advanced Engineering
+### `fabric:alchemy {path}`
+Transmutes any static Blade file into a reusable Fabric stub.
+
+### `fabric:context`
+Generates a **Neural Context Map** for AI-pairing, helping LLMs understand your architecture.
+
+### `fabric:graph`
+Generates the **Nexus Graph**, a visual representation of your models' relationships.
+
+### `fabric:sentry`
+Injects performance guards (N+1 protection) into the application.
+
+### `fabric:ready`
+Comprehensive pre-flight deployment check to ensure all assets and guards are production-ready.
+
+### `fabric:reverse {table}`
+Snapshots an existing database table into a Laravel migration file.
+
+### `fabric:assets`
+Publishes the Fabric theme assets (Tailwind v4 config and CSS) to your project.
+
+### `fabric:settings`
+Forges a UI for managing Spatie-based settings classes.
+
+### `fabric:hydrate`
+Hydrates your database with high-fidelity, relational seed data.
