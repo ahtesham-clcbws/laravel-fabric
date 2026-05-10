@@ -9,7 +9,8 @@
   - [III: The Fabricator](engine/fabrication.md)
   - [IV: Design Systems](design-systems/overview.md)
   - [V: Component Lexicon](components/reference.md)
-  - [VI: Forge and Depart](testaments/philosophy.md)
+  - [VI: Extensibility](testaments/extensibility.md)
+  - [VII: Forge and Depart](testaments/philosophy.md)
 
 - **The Engines**
   - [Loom (Introspection)](engine/introspection.md)
@@ -48,6 +49,7 @@
   - [Lexicon Reference](components/reference.md)
 
 - **Features**
+  - [Overview](features.md)
   - [Global Spotlight](features/spotlight.md)
   - [AI Context](features/ai-context.md)
   - [Nexus Graph](features/nexus-graph.md)

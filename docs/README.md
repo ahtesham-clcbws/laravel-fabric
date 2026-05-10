@@ -11,34 +11,34 @@ Welcome to the official technical documentation for **Laravel Livewire Fabric**.
 
 ## 🗂️ Documentation Sections
 
-### ⚙️ [The Engines](./engine)
+### ⚙️ [The Engines](engine/introspection.md)
 Deep dives into the eight mechanical hearts of Fabric.
-- **[Loom (Introspection)](./engine/introspection.md)**: How we understand your database.
-- **[Fabricator (Generation)](./engine/fabrication.md)**: The weaving process.
-- **[Alchemist (Stubs)](./engine/alchemy.md)**: Transmuting designs into code.
-- **[Guard (Security)](./engine/security.md)**: Licensing and Authorization.
-- **[Lazarus (Soft Deletes)](./engine/lazarus.md)**: Data recovery lifecycle.
+- **[Loom (Introspection)](engine/introspection.md)**: How we understand your database.
+- **[Fabricator (Generation)](engine/fabrication.md)**: The weaving process.
+- **[Alchemist (Stubs)](engine/alchemy.md)**: Transmuting designs into code.
+- **[Guard (Security)](engine/security.md)**: Licensing and Authorization.
+- **[Lazarus (Soft Deletes)](engine/lazarus.md)**: Data recovery lifecycle.
 
-### 💻 [The CLI](./cli)
+### 💻 [The CLI](cli/commands.md)
 Mastering the command-line interface.
-- **[Commands Reference](./cli/commands.md)**: Every `fabric:` command explained.
-- **[The Wizard](./cli/wizard.md)**: Interactive resource forging.
+- **[Commands Reference](cli/commands.md)**: Every `fabric:` command explained.
+- **[The Wizard](cli/wizard.md)**: Interactive resource forging.
 
-### 🎨 [The Design System](./design-systems)
+### 🎨 [The Design System](design-systems/overview.md)
 Branding and Aesthetics.
-- **[Design Overview](./design-systems/overview.md)**: Choosing your design soul.
-- **[DaisyUI Demo](./demo/daisyui.md)**: Real-world reference implementation.
-- **[The Philosophy](./testaments/philosophy.md)**: Forge and Depart.
+- **[Design Overview](design-systems/overview.md)**: Choosing your design soul.
+- **[DaisyUI Demo](demo/daisyui.md)**: Real-world reference implementation.
+- **[The Philosophy](testaments/philosophy.md)**: Forge and Depart.
 
-### 🧩 [Components](./components)
+### 🧩 [Components](components/list.md)
 Exploring the generated artifacts.
-- **[Relational Tables](./components/relationships.md)**: HasMany and ManyToMany.
-- **[Native Auditing](./components/auditing.md)**: Zero-dependency activity logging.
-- **[Lean Media](./components/media.md)**: Fast, disk-based file handling.
-- **[Shield ACL](./components/acl.md)**: Native Role-based access control.
+- **[Relational Tables](components/relationships.md)**: HasMany and ManyToMany.
+- **[Native Auditing](components/auditing.md)**: Zero-dependency activity logging.
+- **[Lean Media](components/media.md)**: Fast, disk-based file handling.
+- **[Shield ACL](components/acl.md)**: Native Role-based access control.
 
-### 🌐 [Headless API](./api)
-- **[API Forge](./api/forge.md)**: Generating RESTful endpoints.
+### 🌐 [Headless API](api/forge.md)
+- **[API Forge](api/forge.md)**: Generating RESTful endpoints.
 
 ---
 

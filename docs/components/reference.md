@@ -36,4 +36,4 @@ Defining the architecture of your views.
 - **`<x-fabric::tabs>`**: Tabbed navigation with mobile-select fallback.
 
 ---
-[Next: The Palette Engine →](./../design-systems/palettes.md)
+[Next: The Palette Engine →](../design-systems/overview.md)

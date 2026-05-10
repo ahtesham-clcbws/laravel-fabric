@@ -44,4 +44,4 @@ Open `config/fabric.php` and set your brand palette. These colors will be inject
 ```
 
 ---
-[Next: The Loom Engine →](./../engine/introspection.md)
+[Next: The Loom Engine →](../engine/introspection.md)

@@ -26,4 +26,4 @@ Regardless of the theme you choose, your brand colors are managed centrally.
 - `{{ NEUTRAL }}`: Applied to borders, backgrounds, and text.
 
 ---
-[Next: DaisyUI (Mary-Inspired) →](./daisyui.md)
+[Next: DaisyUI (Mary-Inspired) →](daisyui.md)
