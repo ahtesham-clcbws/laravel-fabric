@@ -8,7 +8,7 @@
   - [II: The Loom Engine](engine/introspection.md)
   - [III: The Fabricator](engine/fabrication.md)
   - [IV: Design Systems](design-systems/overview.md)
-  - [V: Component Lexicon](components/reference.md)
+  - [V: Library Lexicon](components/list.md)
   - [VI: Extensibility](testaments/extensibility.md)
   - [VII: Forge and Depart](testaments/philosophy.md)
 
@@ -32,6 +32,7 @@
   - [DaisyUI Demo](demo/daisyui.md)
 
 - **Library Lexicon**
+  - [📋 Exhaustive List](components/list.md)
   - [Preline UI (Enterprise)](design-systems/preline.md)
   - [DaisyUI (Semantic)](design-systems/daisyui.md)
   - [Meraki UI (Marketing)](design-systems/merakiui.md)
@@ -41,12 +42,11 @@
   - [Tailgrids (SaaS)](design-systems/tailgrids.md)
 
 - **Components**
-  - [Exhaustive Lexicon](components/list.md)
   - [ACL (Shield)](components/acl.md)
   - [Auditing](components/auditing.md)
   - [Media (Lean)](components/media.md)
   - [Time Machine](components/time-machine.md)
-  - [Lexicon Reference](components/reference.md)
+  - [Reference](components/reference.md)
 
 - **Features**
   - [Overview](features.md)
