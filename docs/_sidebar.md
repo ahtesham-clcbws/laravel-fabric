@@ -63,4 +63,4 @@
 - **Support**
   - [Contact](README.md#support)
   - [FAQ](testaments/faq.md)
-  - [Lexicon](testaments/lexicon.md)
+  - [Glossary (Codenames)](testaments/lexicon.md)
