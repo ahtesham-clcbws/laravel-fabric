@@ -23,7 +23,7 @@ It follows the **"Forge and Depart"** philosophy: Fabric builds the code, inject
 
 ---
 
-## 🔥 The 25+ Killer Features (The Forge Suite)
+## 🔥 The 30+ Native Plugins (The Ghost Suite)
 
 Fabric replaces dozens of external dependencies with high-performance, forged implementations:
 
@@ -32,26 +32,31 @@ Fabric replaces dozens of external dependencies with high-performance, forged im
 3.  🔦 **Global Spotlight**: Ctrl+K native command palette searching across your ecosystem.
 4.  🕸️ **Nexus Graph**: Instant Mermaid.js visualization of your database architecture.
 5.  🧠 **Neural AI-Context**: Generates architectural maps for perfect AI pair-programming.
-6.  🛡️ **Shield ACL**: Unified RBAC visibility integrated directly into UI stubs.
+6.  🛡️ **Security Engine**: Unified RBAC visibility integrated directly into UI stubs.
 7.  ⚗️ **The Alchemist**: Transmute static HTML designs into dynamic, smart Fabric stubs.
 8.  🏥 **Lazarus Engine**: Surgically update existing components when DB schemas change.
 9.  🎭 **Native Impersonation**: One-click administrative control with zero external overhead.
-10. 🧹 **Asset Vacuum**: Deep-cleans orphaned assets and optimizes build sizes.
+10. 🧹 **Vacuum (Vendor Cleanup)**: Deep-cleans orphaned assets and purges vendor bloat.
 11. 🧼 **Data Anonymizer**: Irreversibly scrub PII for safe staging and development.
-12. 🩺 **The Doctor**: Advanced diagnostic suite for environment health and parity.
+12. 🩺 **The Doctor**: Advanced diagnostic suite for environment health and ecosystem parity.
 13. 🧙 **The Wizard**: Interactive, step-by-step guidance for complex resource forging.
-14. 🔄 **Reverse Migration**: Snapshot existing database tables into Laravel migrations.
-15. 🚀 **Postman Forger**: Instant REST API collection generation for every model.
+14. 🔄 **Snapshot Engine**: Capture existing database tables into portable PHP data stubs.
+15. 🚀 **Postman Forge**: Instant REST API collection generation for every model.
 16. 🛰️ **Performance Sentry**: N+1 protection and lazy-loading guards for local dev.
-17. 🌊 **Mass Hydrator**: High-fidelity data seeding and factory population.
+17. 🌊 **Hydrate (Raw SQL)**: High-fidelity, sub-second bulk seeding of relational data.
 18. 🔒 **System Jail**: Instant security lockdown mode for critical maintenance.
-19. 📏 **Manifesto Lint**: Enforces "Universal Manifesto" standards across your codebase.
-20. 🏁 **Ready Pre-flight**: Comprehensive deployment readiness and asset check.
-21. 🎨 **Library Lexicon**: Terminal-first explorer for 500+ forgeable blocks.
-22. 💎 **Smart Atomics**: Real-time flag-based generation (`--type`, `--size`, `--color`).
-23. 🖥️ **Multi-Library Support**: Native integration for Preline, DaisyUI, Meraki, and more.
-24. ⚡ **Headless API**: Instant resource and controller generation for slim APIs.
-25. 🧬 **Shield Guard**: License-bound security and configuration drift protection.
+19. 🧬 **Dynasty (STI)**: Native Single Table Inheritance support without vendor dependencies.
+20. 🌍 **Polyglot (Enums)**: Native multi-language translation support for PHP Enums.
+21. 📊 **Analytics**: Project-level code density metrics and "Forge ROI" measurement.
+22. 🔗 **Sluggable**: Automatic, collision-aware URL slug generation trait.
+23. 🆔 **Identity**: Secure ULID/UUID native identifier trait integration.
+24. 🧠 **Cortex (Smart Cache)**: Relational model caching with tag-based invalidation.
+25. 🌪️ **Vortex (Real-time)**: Event-driven WebSockets and notification engine.
+26. 🗄️ **Time Machine**: Native database and asset backup engine.
+27. 📝 **Audit Trail**: Native tracking of model changes and user activity.
+28. 🖼️ **Lean Media**: Polymorphic media and file attachment handling.
+29. ⚙️ **Deep Settings**: Database-backed application configuration system.
+30. 📄 **OmniDoc**: Native OpenAPI/Swagger documentation generation.
 
 ---
 
