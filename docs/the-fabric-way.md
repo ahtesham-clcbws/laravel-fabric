@@ -79,7 +79,7 @@ Fabric is built for the modern, AI-assisted developer:
 
 ---
 
-## ❓ The Titan FAQ (Everything You Need to Know)
+## ❓ The Forge FAQ (Everything You Need to Know)
 
 **1. Is Fabric a CMS?**
 No. Fabric is a **Scaffolding Engine**. It writes the code for your custom application so you don't have to do it manually.

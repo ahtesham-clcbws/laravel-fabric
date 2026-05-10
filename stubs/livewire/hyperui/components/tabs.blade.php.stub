@@ -1,25 +1,22 @@
-@props([
-    'tabs' => [],
-    'current' => ''
-])
-
-<div>
-  <div class="sm:hidden">
-    <label for="Tab" class="sr-only">Tab</label>
-    <select id="Tab" class="w-full rounded-md border-gray-200">
-      @foreach($tabs as $tab)
-        <option>{{ $tab }}</option>
-      @endforeach
-    </select>
-  </div>
-
-  <div class="hidden sm:block">
-    <nav class="flex gap-6 border-b border-gray-100" aria-label="Tabs">
-      @foreach($tabs as $tab)
-        <a href="#" class="shrink-0 border-b-2 px-1 pb-4 text-sm font-medium {{ $current === $tab ? 'border-sky-500 text-sky-600' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700' }}">
-          {{ $tab }}
-        </a>
-      @endforeach
-    </nav>
-  </div>
+<div x-data="{ active: 'manifest' }" class="max-w-4xl mx-auto py-20 px-10">
+    <div class="flex items-center gap-12 border-b border-neutral-100 dark:border-neutral-800">
+        <template x-for="tab in ['manifest', 'registry', 'clusters', 'security']">
+            <button 
+                @click="active = tab"
+                class="pb-6 text-[10px] font-black uppercase tracking-[0.3em] transition-all relative group italic"
+                :class="active === tab ? 'text-neutral-800 dark:text-white' : 'text-neutral-300 hover:text-neutral-500'"
+            >
+                <span x-text="tab"></span>
+                <div x-show="active === tab" class="absolute bottom-0 left-0 right-0 h-1 bg-{{ PRIMARY }} rounded-t-full" x-transition:enter="transition ease-out duration-300"></div>
+            </button>
+        </template>
+    </div>
+    
+    <div class="mt-12">
+        <template x-for="tab in ['manifest', 'registry', 'clusters', 'security']">
+            <div x-show="active === tab" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0">
+                <p class="text-sm text-neutral-500 font-medium leading-relaxed" x-text="'Orchestration logic for ' + tab + ' cluster synchronization. 100% high-fidelity provisioning.'"></p>
+            </div>
+        </template>
+    </div>
 </div>

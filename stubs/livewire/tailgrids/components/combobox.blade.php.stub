@@ -1,0 +1,39 @@
+<div x-data="{ 
+    open: false, 
+    search: '', 
+    selected: '',
+    items: ['Registry Alpha', 'Nexus Beta', 'Core Cluster', 'Quantum Bridge', 'Protocol Node']
+}" class="max-w-md mx-auto relative">
+    <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1 block mb-3">Orchestration Target</label>
+    <div class="relative">
+        <div class="absolute left-6 top-1/2 -translate-y-1/2 text-neutral-400">
+            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2.5"/></svg>
+        </div>
+        <input 
+            type="text" 
+            x-model="search"
+            @focus="open = true"
+            @click.away="open = false"
+            placeholder="Search nodes..."
+            class="w-full pl-14 pr-6 py-5 rounded-[24px] bg-white border-2 border-neutral-100 focus:border-{{ PRIMARY }} focus:shadow-2xl focus:shadow-{{ PRIMARY }}/10 outline-none text-sm font-bold transition-all dark:bg-neutral-900 dark:border-neutral-800 dark:text-white"
+        >
+        
+        <div 
+            x-show="open" 
+            x-transition
+            class="absolute top-full left-0 right-0 mt-3 p-3 bg-white rounded-[32px] border border-neutral-100 shadow-2xl z-50 dark:bg-neutral-950 dark:border-neutral-900"
+        >
+            <div class="max-h-60 overflow-y-auto custom-scrollbar space-y-1">
+                <template x-for="item in items.filter(i => i.toLowerCase().includes(search.toLowerCase()))">
+                    <button 
+                        @click="selected = item; search = item; open = false"
+                        class="w-full text-left px-6 py-4 rounded-2xl text-xs font-black uppercase tracking-widest text-neutral-400 hover:bg-neutral-50 hover:text-neutral-900 transition-all dark:hover:bg-neutral-900 dark:hover:text-white flex items-center justify-between"
+                    >
+                        <span x-text="item"></span>
+                        <svg x-show="selected === item" class="size-4 text-{{ PRIMARY }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="3"/></svg>
+                    </button>
+                </template>
+            </div>
+        </div>
+    </div>
+</div>

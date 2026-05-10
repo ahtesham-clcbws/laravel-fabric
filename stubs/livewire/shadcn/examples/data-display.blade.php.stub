@@ -1,0 +1,62 @@
+<div class="space-y-24 py-12 px-4 max-w-4xl mx-auto" x-data="{ accordion: null }">
+    <!-- Accordion Section -->
+    <div class="w-full max-w-md mx-auto space-y-2">
+        <div class="border-b border-neutral-200 dark:border-neutral-800">
+            <button 
+                @click="accordion = accordion === 1 ? null : 1"
+                class="flex w-full items-center justify-between py-4 text-sm font-medium transition-all hover:underline"
+            >
+                What is the Master Harvest?
+                <svg :class="accordion === 1 ? 'rotate-180' : ''" class="size-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="m19 9-7 7-7-7"/></svg>
+            </button>
+            <div x-show="accordion === 1" x-collapse x-cloak>
+                <div class="pb-4 text-sm text-neutral-500 dark:text-neutral-400">
+                    The Master Harvest is our mission to unify all major Tailwind CSS ecosystems into a single, high-fidelity library.
+                </div>
+            </div>
+        </div>
+
+        <div class="border-b border-neutral-200 dark:border-neutral-800">
+            <button 
+                @click="accordion = accordion === 2 ? null : 2"
+                class="flex w-full items-center justify-between py-4 text-sm font-medium transition-all hover:underline"
+            >
+                How do I deploy a cluster?
+                <svg :class="accordion === 2 ? 'rotate-180' : ''" class="size-4 shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="m19 9-7 7-7-7"/></svg>
+            </button>
+            <div x-show="accordion === 2" x-collapse x-cloak>
+                <div class="pb-4 text-sm text-neutral-500 dark:text-neutral-400">
+                    Use the `fabric:forge` CLI to orchestrate your first node automatically.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Table / Table -->
+    <div class="rounded-md border border-neutral-200 dark:border-neutral-800">
+        <table class="w-full caption-bottom text-sm">
+            <thead class="bg-neutral-50/50 dark:bg-neutral-900/50 border-b border-neutral-200 dark:border-neutral-800">
+                <tr class="transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                    <th class="h-12 px-4 text-left align-middle font-medium text-neutral-500 dark:text-neutral-400">Status</th>
+                    <th class="h-12 px-4 text-left align-middle font-medium text-neutral-500 dark:text-neutral-400">Node Identifier</th>
+                    <th class="h-12 px-4 text-left align-middle font-medium text-neutral-500 dark:text-neutral-400">Tier</th>
+                    <th class="h-12 px-4 text-right align-middle font-medium text-neutral-500 dark:text-neutral-400">Efficiency</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-200 dark:divide-neutral-800">
+                <tr class="hover:bg-neutral-50/50 dark:hover:bg-neutral-900/50 transition-colors">
+                    <td class="p-4 align-middle font-medium"><div class="size-2 rounded-full bg-teal-500"></div></td>
+                    <td class="p-4 align-middle">Fabric-Alpha-01</td>
+                    <td class="p-4 align-middle">Master</td>
+                    <td class="p-4 align-middle text-right">99.8%</td>
+                </tr>
+                <tr class="hover:bg-neutral-50/50 dark:hover:bg-neutral-900/50 transition-colors">
+                    <td class="p-4 align-middle font-medium"><div class="size-2 rounded-full bg-amber-500"></div></td>
+                    <td class="p-4 align-middle">Fabric-Beta-02</td>
+                    <td class="p-4 align-middle">Worker</td>
+                    <td class="p-4 align-middle text-right">84.2%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

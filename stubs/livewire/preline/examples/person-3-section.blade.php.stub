@@ -1,0 +1,8 @@
+<div class="text-center group">
+            <div class="relative inline-block mb-6">
+                <img class="size-48 rounded-[40px] object-cover transition-all duration-500 group-hover:scale-105 group-hover:rotate-2 shadow-xl" src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=3&w=600&h=600&q=80" alt="Team Member">
+                <div class="absolute inset-0 rounded-[40px] border-4 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 translate-x-2 -translate-y-2"></div>
+            </div>
+            <h4 class="text-xl font-black text-neutral-800 dark:text-white tracking-tight">James Wilson</h4>
+            <p class="text-xs font-black text-amber-600 dark:text-amber-400 uppercase tracking-widest mt-1">UI Designer</p>
+        </div>

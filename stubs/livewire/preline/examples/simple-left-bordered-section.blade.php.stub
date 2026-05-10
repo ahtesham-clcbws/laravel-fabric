@@ -1,0 +1,14 @@
+<blockquote class="p-8 border-s-8 border-{{ PRIMARY }} bg-neutral-50 dark:bg-neutral-900 rounded-e-[40px] shadow-sm">
+        <p class="text-xl font-black text-neutral-800 dark:text-white italic tracking-tight leading-relaxed">
+            "Orchestration is not about complexity; it's about the elegant removal of friction. The Forge is designed to make high-fidelity UI inevitable."
+        </p>
+        <footer class="mt-6">
+            <div class="flex items-center gap-x-4">
+                <img class="size-10 rounded-xl" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80" alt="Author">
+                <div>
+                    <p class="text-sm font-black text-neutral-800 dark:text-white">Ahtesham Khan</p>
+                    <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Architect @ Fabric</p>
+                </div>
+            </div>
+        </footer>
+    </blockquote>

@@ -1,0 +1,49 @@
+<div class="space-y-32 py-12 px-4 max-w-7xl mx-auto">
+    <!-- Gallery (Core Tailwind) -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <template x-for="i in 8">
+            <div class="relative aspect-square rounded-[32px] overflow-hidden group cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500">
+                <img :src="'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80&sig=' + i" class="size-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity"></div>
+                <div class="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
+                    <span class="text-[8px] font-black text-white uppercase tracking-widest">Resource Node <span x-text="i"></span></span>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- Hover 3D Card (Core Tailwind + Alpine) -->
+    <div class="flex justify-center" x-data="{ rotateX: 0, rotateY: 0 }">
+        <div 
+            @mousemove="rotateX = (20 - ($event.clientY - $el.getBoundingClientRect().top) / $el.clientHeight * 40); rotateY = (($event.clientX - $el.getBoundingClientRect().left) / $el.clientWidth * 40 - 20)"
+            @mouseleave="rotateX = 0; rotateY = 0"
+            class="relative w-80 h-96 bg-neutral-900 rounded-[40px] transition-transform duration-200 ease-out preserve-3d shadow-2xl"
+            :style="'transform: perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)'"
+        >
+            <div class="absolute inset-0 p-10 flex flex-col justify-end overflow-hidden rounded-[40px]">
+                <!-- Ambient Glow -->
+                <div class="absolute -top-24 -right-24 size-48 bg-{{ PRIMARY }}/30 rounded-full blur-3xl"></div>
+                
+                <div class="relative z-10">
+                    <h3 class="text-3xl font-black text-white tracking-tighter uppercase italic leading-none">3D Forge</h3>
+                    <p class="text-[10px] font-black text-white/50 uppercase tracking-[0.3em] mt-4">Multi-Axis Orchestration</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button (Core Tailwind) -->
+    <div class="fixed bottom-12 right-12 z-50 group">
+        <div class="absolute bottom-full right-0 mb-4 flex flex-col gap-3 opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0 pointer-events-none group-hover:pointer-events-auto">
+            <button class="size-12 rounded-2xl bg-white border border-neutral-100 shadow-xl flex items-center justify-center text-neutral-500 hover:text-{{ PRIMARY }} transition-all dark:bg-neutral-900 dark:border-neutral-800">
+                <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+            </button>
+            <button class="size-12 rounded-2xl bg-white border border-neutral-100 shadow-xl flex items-center justify-center text-neutral-500 hover:text-teal-500 transition-all dark:bg-neutral-900 dark:border-neutral-800">
+                <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </button>
+        </div>
+        <button class="size-16 rounded-[24px] bg-neutral-900 text-white shadow-2xl shadow-neutral-950/40 flex items-center justify-center hover:bg-{{ PRIMARY }} hover:rotate-90 transition-all duration-500">
+            <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+        </button>
+    </div>
+</div>

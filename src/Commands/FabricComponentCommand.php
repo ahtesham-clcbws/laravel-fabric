@@ -8,8 +8,35 @@ use Illuminate\Support\Str;
 
 class FabricComponentCommand extends Command
 {
-    protected $signature = 'fabric:component {name : The component name (template:section)} {--force}';
-    protected $description = 'Extract a specific section/component from a Fabric template';
+    protected $signature = 'fabric:component {name : The component name (e.g., daisyui:button or preline:hero-section)} 
+                            {--type= : The visual variant (solid, soft, outline, ghost, soft, link)} 
+                            {--size= : The size (xs, sm, md, lg, xl)} 
+                            {--color= : The palette color (primary, secondary, success, warning, error, info)}
+                            {--icon= : Lucide/Heroicon name to inject}
+                            {--force : Overwrite existing file}';
+
+    protected $description = 'Forge a high-fidelity, themed UI component from the Fabric library';
+
+    protected $help = <<<HELP
+The <info>fabric:component</info> command is the heart of the Fabric Design System. 
+It allows you to forge atomic components, compositional sections, and full-page layouts.
+
+<comment>RESOLUTION HIERARCHY:</comment>
+1. User Customization (stubs/fabric/livewire/...)
+2. Atomic Components (stubs/livewire/{library}/components/...)
+3. Marketing Sections (stubs/livewire/{library}/examples/...)
+4. Full Blueprints (stubs/livewire/{library}/layouts/...)
+5. Template Extraction (Extracts from welcome.blade.php.stub via markers)
+
+<comment>SMART FORGING FLAGS:</comment>
+Use flags to override default @props in real-time during the forge process:
+--type=soft --color=success --size=lg
+
+<comment>EXAMPLES:</comment>
+php artisan fabric:component preline:button --type=soft --color=success
+php artisan fabric:component daisyui:hero-section
+php artisan fabric:component floatui:sidebar-layout
+HELP;
 
     public function handle()
     {
@@ -23,24 +50,38 @@ class FabricComponentCommand extends Command
         $template = Str::lower($template);
         $section = Str::lower($section);
 
-        $templateDir = __DIR__ . "/../../stubs/templates/{$template}";
-        if (!File::isDirectory($templateDir)) {
-            $this->error("Template [{$template}] not found.");
-            return;
-        }
+        // Prioritize published stubs for customization
+        $baseStubPath = File::isDirectory(base_path('stubs/fabric/livewire')) 
+            ? base_path('stubs/fabric/livewire') 
+            : __DIR__ . '/../../stubs/livewire';
 
-        $sourceFile = "{$templateDir}/welcome.blade.php.stub";
-        if (!File::exists($sourceFile)) {
-            $sourceFile = "{$templateDir}/index.blade.php.stub";
-        }
+        $templateDir = "{$baseStubPath}/{$template}";
+        $componentPath = "{$templateDir}/components/{$section}.blade.php.stub";
+        $examplePath = "{$templateDir}/examples/{$section}.blade.php.stub";
+        $layoutPath = "{$templateDir}/layouts/{$section}.blade.php.stub";
 
-        if (!File::exists($sourceFile)) {
-            $this->error("Source file for template [{$template}] not found.");
-            return;
-        }
+        $extracted = null;
 
-        $content = File::get($sourceFile);
-        $extracted = $this->extractSection($content, $section);
+        if (File::exists($componentPath)) {
+            $extracted = File::get($componentPath);
+        } elseif (File::exists($examplePath)) {
+            $extracted = File::get($examplePath);
+        } elseif (File::exists($layoutPath)) {
+            $extracted = File::get($layoutPath);
+        } elseif (File::isDirectory($templateDir)) {
+            $sourceFile = "{$templateDir}/welcome.blade.php.stub";
+            if (!File::exists($sourceFile)) {
+                $sourceFile = "{$templateDir}/index.blade.php.stub";
+            }
+
+            if (File::exists($sourceFile)) {
+                $content = File::get($sourceFile);
+                
+                // Smarter extraction: strip suffixes to match template markers
+                $lookupName = str_replace(['-section', '-layout'], '', $section);
+                $extracted = $this->extractSection($content, $lookupName);
+            }
+        }
 
         if (!$extracted) {
             $this->error("Section [{$section}] not found in template [{$template}].");
@@ -52,6 +93,8 @@ class FabricComponentCommand extends Command
             return;
         }
 
+        $this->info("Forging component [{$section}] from [{$template}]...");
+
         // Ensure asset paths are relative to the template's published assets
         $extracted = str_replace(
             ['assets/', '../../assets/'],
@@ -61,6 +104,20 @@ class FabricComponentCommand extends Command
 
         // Normalize to Core Tailwind
         $extracted = \CLCBWS\Fabric\Utils\TailwindCleaner::clean($extracted);
+
+        // Intelligent Compilation based on Flags
+        $compiler = app(\CLCBWS\Fabric\Services\ViewCompiler::class);
+        $options = [
+            'type'    => $this->option('type') ?? $this->option('variant'),
+            'size'    => $this->option('size'),
+            'color'   => $this->option('color'),
+            'icon'    => $this->option('icon'),
+        ];
+
+        $extracted = $compiler->compile($extracted, [
+            'model' => 'App\\Models\\User', // Dummy model for basic compilation
+            'component_options' => array_filter($options),
+        ]);
 
         $targetPath = resource_path("views/components/fabric/{$template}/{$section}.blade.php");
         if (File::exists($targetPath) && !$this->option('force')) {

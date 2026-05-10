@@ -1,0 +1,18 @@
+<section class="py-32 px-10 max-w-7xl mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <template x-for="i in 4">
+        <a href="#" class="group relative block rounded-[48px] overflow-hidden bg-neutral-900 aspect-[4/5]">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 h-full w-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-1000 group-hover:opacity-30" />
+            
+            <div class="relative p-12 h-full flex flex-col justify-end">
+                <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.4em] mb-4 block italic">CLUSTER V2</span>
+                <h3 class="text-3xl font-black text-white uppercase tracking-tighter italic leading-none group-hover:text-{{ PRIMARY }} transition-colors">Quantum Registry</h3>
+                <p class="mt-6 text-xs font-medium text-white/60 leading-relaxed italic">The most advanced node synchronization cluster for high-fidelity orchestration.</p>
+                <div class="mt-10">
+                    <span class="text-[10px] font-black text-white uppercase tracking-widest border-b border-white hover:border-{{ PRIMARY }} hover:text-{{ PRIMARY }} transition-all pb-2">VIEW COLLECTION ➔</span>
+                </div>
+            </div>
+        </a>
+    </template>
+  </div>
+</section>

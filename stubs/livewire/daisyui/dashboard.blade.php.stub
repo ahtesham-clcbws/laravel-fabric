@@ -33,7 +33,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-48 w-48" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
                 <div class="card-body relative z-10">
-                    <h2 class="card-title text-3xl font-black uppercase">Titan Edition v1.0.0</h2>
+                    <h2 class="card-title text-3xl font-black uppercase">Forge Edition v1.0.0</h2>
                     <p class="max-w-md opacity-90 py-4">Fabric has successfully forged your design system. You are now running on a zero-runtime, high-fidelity engine optimized for enterprise performance.</p>
                     <div class="card-actions justify-start">
                         <a href="{{ route('fabric.lab') }}" class="btn btn-secondary border-none">Enter the Lab</a>

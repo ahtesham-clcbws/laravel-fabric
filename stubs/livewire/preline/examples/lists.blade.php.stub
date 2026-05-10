@@ -1,0 +1,46 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <!-- Icon Lists -->
+    <div class="space-y-6">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">Icon Lists</h4>
+        <ul class="space-y-4">
+            <li class="flex gap-x-3 items-center">
+                <div class="shrink-0 size-6 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center dark:bg-teal-500/10 dark:text-teal-400">
+                    <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-neutral-700 dark:text-neutral-300">Automated resource scaffolding</span>
+            </li>
+            <li class="flex gap-x-3 items-center">
+                <div class="shrink-0 size-6 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center dark:bg-teal-500/10 dark:text-teal-400">
+                    <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-neutral-700 dark:text-neutral-300">Real-time status orchestration</span>
+            </li>
+            <li class="flex gap-x-3 items-center">
+                <div class="shrink-0 size-6 bg-neutral-100 text-neutral-400 rounded-lg flex items-center justify-center dark:bg-neutral-800">
+                    <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-neutral-400 line-through">Legacy manual updates</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- List Group (Bordered) -->
+    <div class="space-y-6">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">List Group</h4>
+        <div class="flex flex-col bg-white border border-neutral-200 rounded-3xl dark:bg-neutral-900 dark:border-neutral-800 shadow-sm overflow-hidden">
+            <button type="button" class="w-full flex items-center gap-x-3.5 py-4 px-6 text-sm font-bold text-neutral-800 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-800 transition-all text-start border-b border-neutral-100 dark:border-neutral-800">
+                <svg class="size-4 text-{{ PRIMARY }}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                System Overview
+            </button>
+            <button type="button" class="w-full flex items-center gap-x-3.5 py-4 px-6 text-sm font-bold text-neutral-800 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-800 transition-all text-start border-b border-neutral-100 dark:border-neutral-800">
+                <svg class="size-4 text-{{ PRIMARY }}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Security Audit
+            </button>
+            <button type="button" class="w-full flex items-center gap-x-3.5 py-4 px-6 text-sm font-bold text-neutral-800 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-800 transition-all text-start">
+                <svg class="size-4 text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                Documentation
+                <span class="ms-auto bg-neutral-100 text-neutral-500 text-[10px] py-1 px-2 rounded-lg dark:bg-neutral-800">New</span>
+            </button>
+        </div>
+    </div>
+</div>

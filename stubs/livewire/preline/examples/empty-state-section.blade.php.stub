@@ -1,0 +1,8 @@
+<div 
+        x-show="open && filteredOptions.length === 0" 
+        x-cloak
+        class="absolute z-50 w-full mt-2 bg-white border border-neutral-100 rounded-3xl shadow-2xl p-4 text-center dark:bg-neutral-900 dark:border-neutral-800"
+    >
+        <span class="text-sm font-bold text-neutral-400 uppercase tracking-widest">No results found</span>
+    </div>
+</div>

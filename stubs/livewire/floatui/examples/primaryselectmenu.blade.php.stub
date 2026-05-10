@@ -1,0 +1,27 @@
+<Select.Item
+        class="flex items-center justify-between px-3 cursor-default py-2 duration-150 text-neutral-600 data-[state=checked]:text-{{ PRIMARY_BASE }}-600 data-[state=checked]:bg-{{ PRIMARY_BASE }}-50 data-[highlighted]:text-{{ PRIMARY_BASE }}-600 data-[highlighted]:bg-{{ PRIMARY_BASE }}-50 data-[highlighted]:hover:text-{{ PRIMARY_BASE }}-600 data-[highlighted]:hover:bg-{{ PRIMARY_BASE }}-50 outline-none"
+        value={value}
+        ref={forwardedRef}
+      >
+        <Select.ItemText>
+          <div class="pr-4 line-clamp-1 flex items-center gap-2">
+            {children}
+          </div>
+        </Select.ItemText>
+        <div class="w-6">
+          <Select.ItemIndicator>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 text-{{ PRIMARY_BASE }}-600"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>{" "}
+          </Select.ItemIndicator>
+        </div>
+      </Select.Item>

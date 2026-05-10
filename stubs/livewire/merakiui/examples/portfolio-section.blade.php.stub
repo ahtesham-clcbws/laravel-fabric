@@ -1,0 +1,28 @@
+<section class="bg-white dark:bg-neutral-900 py-32 px-10">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-12">
+            <div class="max-w-xl">
+                <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">CLUSTER GALLERY</span>
+                <h2 class="text-6xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-none">Provisioned Clusters</h2>
+            </div>
+            <div class="flex gap-4">
+                <template x-for="cat in ['All', 'Sync', 'Audit', 'Security']">
+                    <button class="px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all italic" :class="cat === 'All' ? 'bg-neutral-900 text-white shadow-xl' : 'text-neutral-400 hover:text-neutral-900 dark:hover:text-white'" x-text="cat"></button>
+                </template>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+            <template x-for="i in 6">
+                <div class="group relative overflow-hidden rounded-[56px] aspect-square shadow-2xl border border-white/10">
+                    <img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt="Portfolio">
+                    <div class="absolute inset-0 bg-neutral-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col items-center justify-center p-12 text-center">
+                        <h4 class="text-2xl font-black text-white uppercase tracking-tighter italic">ALPHA-07 SYNC</h4>
+                        <p class="mt-4 text-[10px] font-bold text-white/60 uppercase tracking-widest italic">High-Fidelity Provisioning</p>
+                        <button class="mt-10 px-8 py-3 bg-white text-neutral-900 rounded-xl text-[8px] font-black uppercase tracking-widest italic hover:bg-{{ PRIMARY }} hover:text-white transition-all">Audit Node ➔</button>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</section>

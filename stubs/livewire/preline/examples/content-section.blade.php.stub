@@ -1,0 +1,11 @@
+<div 
+            x-show="open"
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="-translate-x-full"
+            x-transition:enter-end="translate-x-0"
+            x-transition:leave="transition ease-in duration-400"
+            x-transition:leave-start="translate-x-0"
+            x-transition:leave-end="-translate-x-full"
+            class="fixed inset-y-0 start-0 z-[81] w-full max-w-xs bg-white shadow-2xl dark:bg-neutral-900 transition-all duration-500"
+        >
+            <div class="flex flex-col h-full">

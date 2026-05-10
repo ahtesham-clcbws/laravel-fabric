@@ -1,0 +1,16 @@
+<footer class="pt-10">
+            <div class="max-w-screen-xl mx-auto px-4 text-neutral-600 md:px-8">
+                <div class="justify-between sm:flex">
+                    <div class="space-y-6">
+                        <img src="https://www.floatui.com/logo.svg" class="w-32" />
+                        <p class="max-w-md">
+                            Nulla auctor metus vitae lectus iaculis, vel euismod massa efficitur.
+                        </p>
+                        <ul class="flex flex-wrap items-center gap-4 text-sm sm:text-base">
+                            {
+                                footerNavs.map((item, idx) => (
+                                    <li class="text-neutral-800 hover:text-neutral-500 duration-150">
+                                        <a key={idx} href={item.href}>
+                                            {item.name}
+                                        </a>
+                                    </li>

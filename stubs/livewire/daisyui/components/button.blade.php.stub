@@ -1,34 +1,38 @@
 @props([
-    'variant' => 'primary',
-    'size' => 'md',
+    'variant' => 'primary', // primary, secondary, accent, ghost, link, outline
     'outline' => false,
-    'type' => 'button'
+    'size' => 'md', // lg, md, sm, xs
+    'loading' => false,
 ])
 
 @php
-    $variants = [
-        'primary' => 'btn-primary',
+    $baseClasses = 'btn rounded-2xl transition-all duration-300';
+    
+    $variantClasses = [
+        'primary' => 'btn-primary bg-{{ PRIMARY }} border-{{ PRIMARY }} text-white hover:bg-{{ PRIMARY }}/90 hover:shadow-lg hover:shadow-{{ PRIMARY }}/30',
         'secondary' => 'btn-secondary',
         'accent' => 'btn-accent',
-        'neutral' => 'btn-neutral',
-        'success' => 'btn-success',
-        'info' => 'btn-info',
-        'warning' => 'btn-warning',
-        'error' => 'btn-error',
         'ghost' => 'btn-ghost',
         'link' => 'btn-link',
-    ];
+    ][$variant] ?? 'btn-primary bg-{{ PRIMARY }} border-{{ PRIMARY }} text-white';
 
-    $sizes = [
-        'xs' => 'btn-xs',
-        'sm' => 'btn-sm',
-        'md' => '', // Default
+    if ($outline) {
+        $variantClasses .= ' btn-outline';
+    }
+
+    $sizeClasses = [
         'lg' => 'btn-lg',
-    ];
+        'md' => '',
+        'sm' => 'btn-sm',
+        'xs' => 'btn-xs',
+    ][$size] ?? '';
 
-    $classes = "btn " . ($variants[$variant] ?? 'btn-primary') . " " . ($sizes[$size] ?? '') . ($outline ? ' btn-outline' : '');
+    $classes = "{$baseClasses} {$variantClasses} {$sizeClasses}";
 @endphp
 
-<button type="{{ $type }}" {{ $attributes->merge(['class' => $classes]) }}>
+<button {{ $attributes->merge(['class' => $classes]) }} @if($loading) disabled @endif>
+    @if($loading)
+        <span class="loading loading-spinner"></span>
+    @endif
     {{ $slot }}
 </button>

@@ -1,0 +1,20 @@
+<nav class="flex" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <li class="inline-flex items-center">
+                <a href="#" class="text-sm font-bold text-neutral-400 hover:text-{{ PRIMARY }} dark:hover:text-white">Admin</a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="size-4 text-neutral-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    <a href="#" class="ms-1 text-sm font-bold text-neutral-400 hover:text-{{ PRIMARY }} md:ms-2 dark:hover:text-white">Settings</a>
+                </div>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="size-4 text-neutral-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    <span class="ms-1 text-sm font-black text-neutral-800 dark:text-white md:ms-2">Profile</span>
+                </div>
+            </li>
+        </ol>
+    </nav>
+</div>

@@ -1,0 +1,23 @@
+<section class="py-14">
+            <div class="max-w-screen-xl mx-auto px-4 text-neutral-600 md:px-8">
+                <div class="max-w-lg mx-auto gap-12 justify-between lg:flex lg:max-w-none">
+                    <div class="max-w-lg space-y-3">
+                        <h3 class="text-{{ PRIMARY_BASE }}-600 font-semibold">
+                            Contact
+                        </h3>
+                        <p class="text-neutral-800 text-3xl font-semibold sm:text-4xl">
+                            Let us know how we can help
+                        </p>
+                        <p>
+                            We’re here to help and answer any question you might have, We look forward to hearing from you! Please fill out the form, or us the contact information bellow .
+                        </p>
+                        <div>
+                            <ul class="mt-6 flex flex-wrap gap-x-10 gap-y-6 items-center">
+                                {
+                                    contactMethods.map((item, idx) => (
+                                        <li key={idx} class="flex items-center gap-x-3">
+                                            <div class="flex-none text-neutral-400">
+                                                {item.icon}
+                                            </div>
+                                            <p>{item.contact}</p>
+                                        </li>

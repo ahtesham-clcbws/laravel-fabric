@@ -1,0 +1,9 @@
+<div class="max-w-xl mx-auto space-y-4">
+    <div class="flex justify-between text-[10px] font-black uppercase tracking-widest text-neutral-400 italic">
+        <span>Provisioning Status</span>
+        <span>82%</span>
+    </div>
+    <div class="h-4 bg-neutral-100 rounded-full dark:bg-neutral-800 overflow-hidden p-1">
+        <div class="h-full bg-{{ PRIMARY }} rounded-full shadow-lg shadow-{{ PRIMARY }}/30 transition-all duration-1000" style="width: 82%"></div>
+    </div>
+</div>

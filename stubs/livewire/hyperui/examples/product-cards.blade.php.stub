@@ -1,0 +1,21 @@
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto py-20 px-10">
+    <template x-for="i in 3">
+        <a href="#" class="group block overflow-hidden rounded-[48px] bg-white border border-neutral-100 shadow-sm hover:shadow-2xl transition-all duration-700 dark:bg-neutral-900 dark:border-neutral-800">
+            <div class="relative h-96 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Node" class="h-full w-full object-cover transition duration-1000 group-hover:scale-110" />
+                <div class="absolute top-6 left-6">
+                    <span class="rounded-full bg-white/90 backdrop-blur-md px-4 py-1.5 text-[8px] font-black uppercase tracking-widest text-neutral-800 shadow-sm italic">PREMIUM SYNC</span>
+                </div>
+            </div>
+
+            <div class="p-10">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic">Quantum Registry Node</h3>
+                    <p class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-widest italic">$199.00</p>
+                </div>
+                <p class="text-xs text-neutral-500 font-medium leading-relaxed line-clamp-2 mb-8 italic">High-fidelity node provisioning for global neural clusters. Optimized for zero-dependency orchestration.</p>
+                <button class="w-full py-5 bg-neutral-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-{{ PRIMARY }} transition-all italic shadow-xl">Add to Cluster</button>
+            </div>
+        </a>
+    </template>
+</div>

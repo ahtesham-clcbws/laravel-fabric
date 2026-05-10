@@ -14,9 +14,18 @@ Forges a complete resource suite (Table, Editor, Show, and Test) for the given m
 
 ### `fabric:component {template:section}`
 Extracts a specific high-fidelity UI section from a Fabric template.
-- `template`: The framework name (e.g., `daisyui`).
-- `section`: The component name (e.g., `hero`, `navbar`).
-- Example: `php artisan fabric:component daisyui:hero`
+- `template`: The framework name (e.g., `daisyui`, `preline`).
+- `section`: The component name (e.g., `hero-section`, `sidebar-layout`).
+- `--type=`: Specify a variant (solid, soft, outline, ghost).
+- `--size=`: Specify a size (xs, sm, md, lg, xl).
+- `--color=`: Specify a palette color (primary, success, danger).
+- `--icon=`: Specify a Lucide/Heroicon name.
+- `--force`: Overwrite existing forged component.
+
+**Examples:**
+- `php artisan fabric:component preline:button --type=soft --color=success`
+- `php artisan fabric:component daisyui:hero-section`
+- `php artisan fabric:component floatui:sidebar-layout`
 
 ### `fabric:wizard`
 The interactive companion. Guides you through the entire resource forging process step-by-step.

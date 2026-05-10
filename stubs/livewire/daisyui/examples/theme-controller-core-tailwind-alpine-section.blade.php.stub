@@ -1,0 +1,19 @@
+<div class="flex justify-center">
+        <div class="p-2 bg-neutral-100 dark:bg-neutral-900 rounded-[24px] border border-neutral-200 dark:border-neutral-800 shadow-inner flex gap-2">
+            <button 
+                @click="theme = 'light'; localStorage.setItem('fabric-theme', 'light')"
+                class="p-4 rounded-[18px] transition-all"
+                :class="theme === 'light' ? 'bg-white text-neutral-900 shadow-xl dark:bg-neutral-800 dark:text-white' : 'text-neutral-400 hover:text-neutral-600'"
+            >
+                <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 9H3m3.343-5.657l.707.707m12.728 12.728l.707.707M6.343 17.657l-.707.707M17.657 6.343l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+            </button>
+            <button 
+                @click="theme = 'dark'; localStorage.setItem('fabric-theme', 'dark')"
+                class="p-4 rounded-[18px] transition-all"
+                :class="theme === 'dark' ? 'bg-white text-neutral-900 shadow-xl dark:bg-neutral-800 dark:text-white' : 'text-neutral-400 hover:text-neutral-600'"
+            >
+                <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+            </button>
+        </div>
+    </div>
+</div>

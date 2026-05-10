@@ -1,0 +1,24 @@
+<div class="space-y-6">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">Radio Groups</h4>
+        <div class="grid grid-cols-2 gap-3" x-data="{ selected: 'pro' }">
+            <label 
+                @click="selected = 'basic'"
+                class="relative flex flex-col items-center gap-y-2 p-6 border-2 rounded-3xl cursor-pointer transition-all duration-300"
+                :class="selected === 'basic' ? 'border-{{ PRIMARY }} bg-{{ PRIMARY }}/5' : 'border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900'"
+            >
+                <input type="radio" name="plan" class="sr-only" :checked="selected === 'basic'">
+                <span class="text-xs font-black uppercase tracking-widest" :class="selected === 'basic' ? 'text-{{ PRIMARY }}' : 'text-neutral-400'">Basic</span>
+                <span class="text-2xl font-black text-neutral-800 dark:text-white">$0</span>
+            </label>
+            <label 
+                @click="selected = 'pro'"
+                class="relative flex flex-col items-center gap-y-2 p-6 border-2 rounded-3xl cursor-pointer transition-all duration-300"
+                :class="selected === 'pro' ? 'border-{{ PRIMARY }} bg-{{ PRIMARY }}/5' : 'border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900'"
+            >
+                <input type="radio" name="plan" class="sr-only" :checked="selected === 'pro'">
+                <span class="text-xs font-black uppercase tracking-widest" :class="selected === 'pro' ? 'text-{{ PRIMARY }}' : 'text-neutral-400'">Pro</span>
+                <span class="text-2xl font-black text-neutral-800 dark:text-white">$29</span>
+            </label>
+        </div>
+    </div>
+</div>

@@ -29,44 +29,50 @@ Fabric provides a vast library of **149 high-fidelity stubs** across multiple de
   - `order-history`, `pricing`, `select`, `slider`, `stat-ring`
   - `stats-v2`, `tall-input`, `testimonials`, `textarea`, `timeline`
   - `toggle`, `usage-metrics`
-- **Views**: Dashboard, Editor, Lab, Settings, Show, Stats, Table, Welcome.
-
----
-
-## ⚡ Preline UI Framework
+## ⚡ Preline UI Framework (Absolute 100% Master Harvest)
 *Location: `stubs/livewire/preline`*
-- **Layouts**: 
-  - `sidebar` (Alpine.js Mobile Toggle), `bento`, `minimalist`, `top-nav`
-- **Authentication**:
-  - `login` (Alpine.js), `register` (Alpine.js)
-- **Components**:
-  - `accordion` (Alpine.js), `advanced-select` (Alpine.js), `alert` (Alpine.js), `avatar-group`
-  - `dropdown` (Alpine.js), `input-group`, `input-number` (Alpine.js), `modal` (Alpine.js)
-  - `pin-input` (Alpine.js), `progress`, `stepper`, `switch`, `tabs` (Alpine.js), `timeline`
-- **Views**: 
-  - `table` (Alpine.js Bulk Actions), `editor`, `stats`
+- **Layouts**: `sidebar`, `bento`, `minimalist`, `top-nav`, `application-layouts`
+- **Pages**: `application-page-admin`, `page-pricing`, `invoice`, `user-profiles`, `settings-page`
+- **Marketing**: `hero-sections`, `hero-forms`, `icon-sections`, `pricing-sections`, `blog-sections`, `blog-articles`, `faq-sections`, `features-sections`, `contact-sections`, `clients-sections`, `galleries`, `card-sections`, `announcement-banners`, `stats-sections`, `team-sections`, `masonry-sections`
+- **Components**: `accordion`, `advanced-select`, `ai-prompt`, `alert`, `avatars`, `badges`, `blockquotes`, `breadcrumbs`, `button-groups`, `buttons`, `cards`, `carousel`, `charts`, `chat-bubbles`, `combobox`, `context-menu`, `cookie-banners`, `copy-markup`, `data-table`, `description-lists`, `devices`, `dropdowns`, `inputs`, `legend-indicators`, `list-group`, `lists`, `mega-menu`, `modals`, `navigations`, `offcanvas`, `pagination`, `pin-input`, `popover`, `product-card`, `product-listings`, `progress`, `ratings`, `scrollspy`, `searchbox`, `selection-controls`, `skeletons`, `sliders-pickers`, `spinners`, `steppers`, `strong-password`, `tabs`, `timeline`, `toasts`, `toggle-count`, `toggle-password`, `tooltip`, `tree-view`
+- **Authentication**: `login`, `register`
 
 ---
 
-## 💎 HyperUI Product Design
-*Location: `stubs/livewire/hyperui`*
-- **Layouts**: Sidebar, Top-Nav.
-- **Components**:
-  - `accordion`, `badge`, `breadcrumbs`, `empty-state`
-- **Components**:
-  - `accordion` (Alpine.js), `badge`, `banner` (Alpine.js), `blog-card`
-  - `breadcrumbs`, `cart` (Alpine.js), `details-list`, `empty-state`
-  - `file-uploader`, `input`, `quantity-input` (Alpine.js), `select`
-  - `steps`, `tabs` (Alpine.js), `timeline`
+## 🌼 DaisyUI (100% Exhaustion - Core Tailwind + Alpine)
+*Location: `stubs/livewire/daisyui`*
+- **Items**: `accordion`, `alert`, `avatar`, `badge`, `breadcrumbs`, `button`, `calendar`, `card`, `cards`, `carousel`, `chat-bubble`, `checkbox`, `collapse`, `contact`, `countdown`, `diff`, `divider`, `dock`, `drawer`, `drawer-editor`, `dropdown`, `fab`, `faq`, `fieldset`, `file-input`, `filter`, `footer`, `gallery`, `hero`, `hover-3d`, `hover-gallery`, `indicator`, `input`, `join`, `kbd`, `label`, `link`, `list`, `loading`, `mask`, `menu`, `mockup-browser`, `mockup-code`, `mockup-phone`, `mockup-window`, `modal`, `navbar`, `navbar-mega`, `omnisearch`, `order-history`, `pagination`, `pricing`, `progress`, `radial-progress`, `radio`, `range`, `rating`, `select`, `skeleton`, `slider`, `stack`, `stat`, `stat-ring`, `status`, `stats-v2`, `steps`, `swap`, `tab`, `table`, `tall-input`, `testimonials`, `text-rotate`, `textarea`, `theme-controller`, `timeline`, `toast`, `toggle`, `tooltip`, `usage-metrics`, `validator`
 
 ---
 
-## 🌊 FloatUI Framework
-*Location: `stubs/livewire/floatui`*
-- **Components**:
-  - `alert`, `contact-section`, `feature-section`, `hero-section`
-  - `modal` (Alpine.js), `newsletter`, `pagination`, `pricing-section` (Alpine.js)
-- **Views**: Editor, Stats, Table.
+## 🖤 Shadcn UI (Aesthetic Translation - Core Tailwind + Alpine)
+*Location: `stubs/livewire/shadcn`*
+- **Items**: `accordion`, `alert`, `alert-dialog`, `aspect-ratio`, `avatar`, `badge`, `breadcrumb`, `button`, `calendar`, `card`, `carousel`, `checkbox`, `collapsible`, `combobox`, `command`, `context-menu`, `data-table`, `date-picker`, `dialog`, `drawer`, `dropdown-menu`, `form`, `hover-card`, `input`, `input-otp`, `label`, `menubar`, `navigation-menu`, `pagination`, `popover`, `progress`, `radio-group`, `resizable`, `scroll-area`, `select`, `separator`, `sheet`, `skeleton`, `slider`, `sonner`, `switch`, `table`, `tabs`, `textarea`, `toast`, `toggle`, `toggle-group`, `tooltip`
+
+---
+
+## 🧱 Tailgrids UI
+*Location: `stubs/livewire/tailgrids`*
+- **Sections**: `cart-sections`, `checkout-forms`, `ecommerce-sections`, `marketing-sections`, `product-listings`
+
+---
+
+## 💎 Meraki UI
+*Location: `stubs/livewire/merakiui`*
+- **Marketing**: `contact-sections`, `feature-sections`, `hero-sections`
+
+---
+
+## 🎨 Tailwind UI (Standard)
+*Location: `stubs/livewire/tailwind`*
+- **Atoms**: `accordion`, `alert`, `avatar`, `badge`, `breadcrumbs`, `button`, `card`, `card-image`, `carousel`, `checkbox`, `drawer`, `dropdown`, `input`, `modal`, `popover`, `progress`, `rating`, `select`, `stat-card`, `steps`, `tags-input`, `textarea`, `toast`, `toast-container`, `toggle`, `tooltip`
+
+---
+
+## 🌊 Hyper UI & FloatUI
+*Location: `stubs/livewire/hyperui` | `stubs/livewire/floatui`*
+- **Curated**: `accordion`, `badge`, `banner`, `blog-card`, `breadcrumbs`, `cart`, `details-list`, `empty-state`, `file-uploader`, `input`, `quantity-input`, `select`, `steps`, `tabs`, `timeline`
+- **Marketing**: `alert`, `contact-section`, `feature-section`, `hero-section`, `modal`, `newsletter`, `pagination`, `pricing-section`
 
 ---
 

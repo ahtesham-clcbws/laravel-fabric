@@ -46,7 +46,33 @@ readonly class ViewCompiler
             $stubContent
         );
 
+        // Handle Component Props Overrides
+        if (isset($data['component_options'])) {
+            $content = $this->compileComponentProps($content, $data['component_options']);
+        }
+
         return $this->compileThemeColors($content);
+    }
+
+    /**
+     * Dynamically override default values in @props based on CLI flags.
+     */
+    public function compileComponentProps(string $content, array $options): string
+    {
+        foreach ($options as $key => $value) {
+            if ($value === null) continue;
+            
+            // Normalize 'type' flag to 'variant' prop for consistency
+            $propKey = ($key === 'type') ? 'variant' : $key;
+
+            // Match 'variant' => 'solid' and replace value
+            $pattern = "/'{$propKey}'\s*=>\s*['\"]([^'\"]*)['\"]/";
+            $replacement = "'{$propKey}' => '{$value}'";
+            
+            $content = preg_replace($pattern, $replacement, $content);
+        }
+        
+        return $content;
     }
 
     /**
@@ -61,12 +87,15 @@ readonly class ViewCompiler
             'neutral' => 'gray-100',
         ]);
         
-        $replacements = [
-            '{{ PRIMARY }}'   => $palette['primary'],
-            '{{ SECONDARY }}' => $palette['secondary'],
-            '{{ ACCENT }}'    => $palette['accent'],
-            '{{ NEUTRAL }}'   => $palette['neutral'],
-        ];
+        $replacements = [];
+        foreach ($palette as $key => $value) {
+            $upperKey = \strtoupper($key);
+            $replacements["{{ {$upperKey} }}"] = $value;
+            
+            // Extract base color (e.g. 'indigo' from 'indigo-600')
+            $base = \explode('-', (string) $value)[0] ?? $value;
+            $replacements["{{ {$upperKey}_BASE }}"] = $base;
+        }
 
         return str_replace(array_keys($replacements), array_values($replacements), $content);
     }

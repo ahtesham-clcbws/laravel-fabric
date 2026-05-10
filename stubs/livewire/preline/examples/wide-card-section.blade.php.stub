@@ -1,0 +1,8 @@
+<div class="col-span-2 relative group overflow-hidden rounded-[32px] shadow-xl h-48">
+            <img class="size-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Gallery Image">
+            <div class="absolute inset-0 bg-neutral-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                <span class="text-sm font-black text-white uppercase tracking-[0.2em]">View Mobile Suite</span>
+            </div>
+        </div>
+    </div>
+</div>

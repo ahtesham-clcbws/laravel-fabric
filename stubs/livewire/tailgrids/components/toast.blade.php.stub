@@ -1,0 +1,14 @@
+<div x-data="{ open: true }" x-show="open" x-transition class="fixed bottom-12 right-12 z-[100] max-w-md">
+    <div class="p-8 bg-neutral-900 rounded-[32px] border border-white/10 shadow-2xl flex items-center gap-6">
+        <div class="size-14 bg-emerald-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-emerald-500/40 shrink-0">
+            <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="3"/></svg>
+        </div>
+        <div class="grow">
+            <h5 class="text-sm font-black text-white uppercase tracking-widest italic">Sync Complete</h5>
+            <p class="text-xs text-neutral-400 font-medium mt-1">Global registry successfully updated.</p>
+        </div>
+        <button @click="open = false" class="size-10 rounded-xl hover:bg-white/10 flex items-center justify-center text-neutral-400 transition-colors">
+            <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="2.5"/></svg>
+        </button>
+    </div>
+</div>

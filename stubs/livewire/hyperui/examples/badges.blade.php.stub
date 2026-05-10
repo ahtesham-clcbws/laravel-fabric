@@ -1,0 +1,9 @@
+<div class="flex flex-wrap gap-6 max-w-2xl mx-auto py-20 px-10 items-center justify-center">
+  <template x-for="color in ['neutral-900', '{{ PRIMARY }}', 'emerald-500', 'rose-500', 'amber-500']">
+    <span 
+        class="whitespace-nowrap rounded-full px-5 py-2 text-[8px] font-black uppercase tracking-widest italic shadow-xl shadow-{{ PRIMARY }}/10"
+        :class="color === 'neutral-900' ? 'bg-neutral-900 text-white' : 'bg-' + color + '/10 text-' + color"
+        x-text="'SYNC NODE ' + (color.includes('PRIMARY') ? 'V2' : 'ACTIVE')"
+    ></span>
+  </template>
+</div>

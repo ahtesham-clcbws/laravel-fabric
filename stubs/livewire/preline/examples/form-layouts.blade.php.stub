@@ -1,0 +1,83 @@
+<div class="max-w-4xl px-4 py-24 sm:px-6 lg:px-8 mx-auto">
+    <!-- Card Section -->
+    <div class="bg-white border border-neutral-100 rounded-[40px] shadow-sm p-8 sm:p-12 dark:bg-neutral-900 dark:border-neutral-800">
+        <div class="mb-12">
+            <h2 class="text-3xl font-black text-neutral-800 dark:text-white tracking-tight">Resource Profile</h2>
+            <p class="text-sm text-neutral-500 font-medium mt-2">Manage your core orchestration settings and metadata.</p>
+        </div>
+
+        <form class="space-y-10">
+            <!-- Grid -->
+            <div class="grid sm:grid-cols-12 gap-6 sm:gap-10 items-center">
+                <div class="sm:col-span-3">
+                    <label class="inline-block text-sm font-black text-neutral-800 dark:text-neutral-200 uppercase tracking-widest">
+                        Cluster Name
+                    </label>
+                </div>
+                <div class="sm:col-span-9">
+                    <input type="text" class="p-4 block w-full bg-neutral-50 border-transparent rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-800 dark:border-transparent dark:text-neutral-400 transition-all shadow-sm" placeholder="Alpha-Forge-01">
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-12 gap-6 sm:gap-10">
+                <div class="sm:col-span-3">
+                    <label class="inline-block text-sm font-black text-neutral-800 dark:text-neutral-200 uppercase tracking-widest pt-4">
+                        Resource Tag
+                    </label>
+                </div>
+                <div class="sm:col-span-9">
+                    <div class="space-y-3">
+                        <input type="text" class="p-4 block w-full bg-neutral-50 border-transparent rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-800 dark:border-transparent dark:text-neutral-400 transition-all shadow-sm" placeholder="Production-Stub">
+                        <p class="text-xs text-neutral-500 font-medium px-1">Tags are used to categorize resources within the global cluster.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-12 gap-6 sm:gap-10">
+                <div class="sm:col-span-3">
+                    <label class="inline-block text-sm font-black text-neutral-800 dark:text-neutral-200 uppercase tracking-widest pt-4">
+                        Metadata
+                    </label>
+                </div>
+                <div class="sm:col-span-9">
+                    <textarea rows="6" class="p-4 block w-full bg-neutral-50 border-transparent rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-800 dark:border-transparent dark:text-neutral-400 transition-all shadow-sm" placeholder="Detailed resource description..."></textarea>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-12 gap-6 sm:gap-10 items-center">
+                <div class="sm:col-span-3">
+                    <label class="inline-block text-sm font-black text-neutral-800 dark:text-neutral-200 uppercase tracking-widest">
+                        Forge Tier
+                    </label>
+                </div>
+                <div class="sm:col-span-9">
+                    <div class="flex gap-4">
+                        <label class="flex-1 cursor-pointer">
+                            <input type="radio" name="tier" class="peer sr-only" checked>
+                            <div class="p-4 bg-neutral-50 border-2 border-transparent rounded-2xl text-center peer-checked:border-{{ PRIMARY }} peer-checked:bg-{{ PRIMARY }}/5 transition-all dark:bg-neutral-800">
+                                <p class="text-sm font-black text-neutral-800 dark:text-white">Pro</p>
+                                <p class="text-[10px] font-bold text-neutral-500 uppercase">Standard</p>
+                            </div>
+                        </label>
+                        <label class="flex-1 cursor-pointer">
+                            <input type="radio" name="tier" class="peer sr-only">
+                            <div class="p-4 bg-neutral-50 border-2 border-transparent rounded-2xl text-center peer-checked:border-{{ PRIMARY }} peer-checked:bg-{{ PRIMARY }}/5 transition-all dark:bg-neutral-800">
+                                <p class="text-sm font-black text-neutral-800 dark:text-white">Elite</p>
+                                <p class="text-[10px] font-bold text-neutral-400 uppercase">High-Speed</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-10 border-t border-neutral-100 dark:border-neutral-800 flex justify-end gap-x-4">
+                <button type="button" class="py-4 px-8 bg-neutral-100 text-neutral-800 rounded-2xl font-black hover:bg-neutral-200 transition-all dark:bg-neutral-800 dark:text-white">
+                    Reset
+                </button>
+                <button type="button" class="py-4 px-8 bg-{{ PRIMARY }} text-white rounded-2xl font-black shadow-xl shadow-{{ PRIMARY }}/20 hover:bg-{{ PRIMARY }}/90 transition-all">
+                    Forge Changes
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

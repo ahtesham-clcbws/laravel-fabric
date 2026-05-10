@@ -1,0 +1,15 @@
+<div class="flex flex-wrap items-center justify-center gap-6">
+    <!-- Primary -->
+    <button class="px-12 py-5 bg-neutral-900 text-white rounded-[24px] text-xs font-black uppercase tracking-widest shadow-2xl hover:bg-{{ PRIMARY }} transition-all transform active:scale-95">Execute Protocol</button>
+    
+    <!-- Ghost -->
+    <button class="px-12 py-5 border-2 border-neutral-100 text-neutral-800 rounded-[24px] text-xs font-black uppercase tracking-widest hover:border-{{ PRIMARY }} transition-all dark:border-neutral-800 dark:text-white group">
+        Registry Audit
+        <svg class="size-4 ml-3 inline text-neutral-300 group-hover:text-{{ PRIMARY }} transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2.5"/></svg>
+    </button>
+
+    <!-- Icon FAB -->
+    <button class="size-16 bg-{{ PRIMARY }} text-white rounded-[20px] flex items-center justify-center shadow-2xl shadow-{{ PRIMARY }}/30 hover:scale-110 transition-transform">
+        <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-width="3"/></svg>
+    </button>
+</div>

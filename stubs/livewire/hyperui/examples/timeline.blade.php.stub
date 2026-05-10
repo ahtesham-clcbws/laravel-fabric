@@ -1,0 +1,14 @@
+<div class="max-w-2xl mx-auto py-20 px-10">
+    <div class="space-y-12">
+        <template x-for="i in [1, 2, 3]">
+            <div class="relative pl-12 border-l-4 border-neutral-50 dark:border-neutral-900 pb-12 last:pb-0">
+                <div class="absolute -left-3 top-0 size-5 rounded-full bg-white dark:bg-neutral-950 border-4 border-{{ PRIMARY }} shadow-xl"></div>
+                <div class="space-y-4">
+                    <span class="text-[8px] font-black text-neutral-300 uppercase tracking-widest italic" x-text="'MAY 10, 2026 12:4' + i + ':00'"></span>
+                    <h3 class="text-xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic" x-text="'Registry Provisioned ALPHA-0' + i"></h3>
+                    <p class="text-sm text-neutral-500 font-medium leading-relaxed italic">High-fidelity node synchronization established with zero-dependency architecture.</p>
+                </div>
+            </div>
+        </template>
+    </div>
+</div>

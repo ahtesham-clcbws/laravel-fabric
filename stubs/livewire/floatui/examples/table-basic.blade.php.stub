@@ -1,0 +1,26 @@
+<div class="max-w-6xl mx-auto overflow-hidden bg-white border border-neutral-100 rounded-[48px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+    <table class="w-full text-left">
+        <thead class="bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-100 dark:border-neutral-800">
+            <tr>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Node ID</th>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Tier</th>
+                <th class="px-10 py-8 text-right text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Sync Time</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-50 dark:divide-neutral-800">
+            <template x-for="i in 5">
+                <tr class="group hover:bg-neutral-50/50 dark:hover:bg-neutral-950/50 transition-colors">
+                    <td class="px-10 py-6">
+                        <span class="text-sm font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic" x-text="'ALPHA-SYNC-0' + i"></span>
+                    </td>
+                    <td class="px-10 py-6">
+                        <span class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Quantum Core</span>
+                    </td>
+                    <td class="px-10 py-6 text-right">
+                        <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">12:42:09</span>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</div>

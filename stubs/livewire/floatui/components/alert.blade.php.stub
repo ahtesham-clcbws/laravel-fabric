@@ -1,25 +1,18 @@
 @props([
-    'variant' => 'info',
-    'title' => null
+    'variant' => 'info', // info, success, warning, error
 ])
 
 @php
-    $variants = [
-        'info'    => 'bg-blue-50 text-{{ PRIMARY }}',
-        'success' => 'bg-green-50 text-green-600',
-        'warning' => 'bg-yellow-50 text-yellow-600',
-        'danger'  => 'bg-red-50 text-red-600',
-    ];
-
-    $classes = "flex items-center px-4 py-3 rounded-lg " . ($variants[$variant] ?? $variants['info']);
+    $styles = [
+        'info' => 'text-blue-600 bg-blue-50 border-blue-200',
+        'success' => 'text-green-600 bg-green-50 border-green-200',
+        'warning' => 'text-yellow-600 bg-yellow-50 border-yellow-200',
+        'error' => 'text-red-600 bg-red-50 border-red-200',
+    ][$variant] ?? 'text-blue-600 bg-blue-50 border-blue-200';
 @endphp
 
-<div {{ $attributes->merge(['class' => $classes]) }} role="alert">
-    <div class="flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-        <div class="text-sm font-medium">
-            @if($title) <span class="font-bold mr-1">{{ $title }}</span> @endif
-            {{ $slot }}
-        </div>
+<div {{ $attributes->merge(['class' => 'flex items-center p-4 border rounded-xl ' . $styles]) }}>
+    <div class="text-sm font-medium">
+        {{ $slot }}
     </div>
 </div>

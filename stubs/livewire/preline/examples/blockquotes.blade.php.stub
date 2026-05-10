@@ -1,0 +1,30 @@
+<div class="max-w-4xl px-4 py-24 sm:px-6 lg:px-8 mx-auto space-y-16">
+    <!-- Simple Left Bordered -->
+    <blockquote class="p-8 border-s-8 border-{{ PRIMARY }} bg-neutral-50 dark:bg-neutral-900 rounded-e-[40px] shadow-sm">
+        <p class="text-xl font-black text-neutral-800 dark:text-white italic tracking-tight leading-relaxed">
+            "Orchestration is not about complexity; it's about the elegant removal of friction. The Forge is designed to make high-fidelity UI inevitable."
+        </p>
+        <footer class="mt-6">
+            <div class="flex items-center gap-x-4">
+                <img class="size-10 rounded-xl" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=100&h=100&q=80" alt="Author">
+                <div>
+                    <p class="text-sm font-black text-neutral-800 dark:text-white">Ahtesham Khan</p>
+                    <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Architect @ Fabric</p>
+                </div>
+            </div>
+        </footer>
+    </blockquote>
+
+    <!-- Big Centered with Background Icon -->
+    <div class="relative text-center py-12">
+        <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] dark:opacity-[0.1] -z-10">
+            <svg class="size-64 text-{{ PRIMARY }}" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3L14.017 3C14.017 1.89543 14.9124 1 16.017 1H19.017C21.7784 1 24.017 3.23858 24.017 6V15C24.017 18.3137 21.3307 21 18.017 21H14.017ZM0 21L0 18C0 16.8954 0.89543 16 2 16H5C5.55228 16 6 15.5523 6 15V9C6 8.44772 5.55228 8 5 8H2C0.89543 8 0 7.10457 0 6V3L0 3C0 1.89543 0.89543 1 2 1H5C7.76142 1 10 3.23858 10 6V15C10 18.3137 7.31371 21 4 21H0Z"/></svg>
+        </div>
+        <blockquote class="max-w-2xl mx-auto">
+            <p class="text-3xl font-black text-neutral-800 dark:text-white tracking-tighter leading-tight mb-8">
+                The future of the web is agentic, and the tools we build today must reflect that autonomy.
+            </p>
+            <p class="text-sm font-black text-{{ PRIMARY }} uppercase tracking-[0.2em]">Manifesto Cluster V1</p>
+        </blockquote>
+    </div>
+</div>

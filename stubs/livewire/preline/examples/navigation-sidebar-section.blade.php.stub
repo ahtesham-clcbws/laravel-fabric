@@ -1,0 +1,12 @@
+<nav class="hidden md:block sticky top-24 h-fit space-y-2">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-6 px-4">On this page</h4>
+        <template x-for="id in sections" :key="id">
+            <a 
+                :href="'#' + id" 
+                class="flex items-center gap-x-3 py-3 px-4 rounded-xl text-sm font-bold transition-all duration-300"
+                :class="active === id ? 'bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} border-s-4 border-{{ PRIMARY }}' : 'text-neutral-500 hover:text-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800 dark:hover:text-white'"
+            >
+                <span class="capitalize" x-text="id.replace('-', ' ')"></span>
+            </a>
+        </template>
+    </nav>

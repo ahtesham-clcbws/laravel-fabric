@@ -1,0 +1,81 @@
+<div class="bg-white dark:bg-neutral-950">
+    <!-- Hero -->
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div class="max-w-2xl mx-auto text-center">
+            <h1 class="text-4xl font-black text-neutral-800 sm:text-6xl dark:text-white tracking-tight">
+                Simple, <span class="text-{{ PRIMARY }}">Transparent</span> Pricing
+            </h1>
+            <p class="mt-6 text-lg text-neutral-600 dark:text-neutral-400 font-medium">
+                No hidden fees. No complicated tiers. Just pure orchestration power.
+            </p>
+        </div>
+    </div>
+
+    <!-- Pricing Grid -->
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <!-- Professional -->
+            <div class="p-12 bg-white border-2 border-{{ PRIMARY }} rounded-[40px] shadow-2xl dark:bg-neutral-900 relative">
+                <div class="absolute top-0 end-0 -translate-y-1/2 translate-x-4">
+                    <span class="py-2 px-6 rounded-full bg-{{ PRIMARY }} text-white text-xs font-black uppercase tracking-widest shadow-xl shadow-{{ PRIMARY }}/40">Recommended</span>
+                </div>
+                <h3 class="text-2xl font-black text-neutral-800 dark:text-white tracking-tight mb-4">Professional Forge</h3>
+                <div class="flex items-baseline gap-x-2 mb-8">
+                    <span class="text-6xl font-black text-neutral-800 dark:text-white tracking-tighter">$29</span>
+                    <span class="text-neutral-400 font-bold uppercase tracking-widest text-xs">/ month</span>
+                </div>
+                <ul class="space-y-6 mb-12">
+                    <li class="flex items-center gap-x-4">
+                        <div class="size-6 rounded-full bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} flex items-center justify-center">
+                            <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span class="text-sm font-bold text-neutral-800 dark:text-white">Unlimited Resource Forging</span>
+                    </li>
+                    <li class="flex items-center gap-x-4">
+                        <div class="size-6 rounded-full bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} flex items-center justify-center">
+                            <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span class="text-sm font-bold text-neutral-800 dark:text-white">Real-time Cluster Sync</span>
+                    </li>
+                    <li class="flex items-center gap-x-4">
+                        <div class="size-6 rounded-full bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} flex items-center justify-center">
+                            <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span class="text-sm font-bold text-neutral-800 dark:text-white">Priority Agent Support</span>
+                    </li>
+                </ul>
+                <button class="w-full py-5 bg-{{ PRIMARY }} text-white rounded-[32px] font-black text-lg shadow-2xl shadow-{{ PRIMARY }}/20 hover:bg-{{ PRIMARY }}/90 transition-all">
+                    Start Pro Trial
+                </button>
+            </div>
+
+            <!-- Free -->
+            <div class="p-12 bg-neutral-50 border border-neutral-100 rounded-[40px] dark:bg-neutral-800/50 dark:border-neutral-800">
+                <h3 class="text-2xl font-black text-neutral-800 dark:text-white tracking-tight mb-4">Starter Lab</h3>
+                <div class="flex items-baseline gap-x-2 mb-8">
+                    <span class="text-6xl font-black text-neutral-800 dark:text-white tracking-tighter">$0</span>
+                    <span class="text-neutral-400 font-bold uppercase tracking-widest text-xs">/ forever</span>
+                </div>
+                <p class="text-sm text-neutral-500 font-medium mb-12">Essential tools for independent developers beginning their orchestration journey.</p>
+                <button class="w-full py-5 bg-white text-neutral-800 border-2 border-neutral-200 rounded-[32px] font-black text-lg hover:bg-neutral-50 transition-all dark:bg-neutral-900 dark:border-neutral-700 dark:text-white">
+                    Deploy Free
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section Integrated -->
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-neutral-100 dark:border-neutral-900">
+        <h3 class="text-2xl font-black text-neutral-800 dark:text-white tracking-tight mb-12">Pricing FAQ</h3>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h4 class="text-lg font-black text-neutral-800 dark:text-white tracking-tight mb-3">Can I cancel anytime?</h4>
+                <p class="text-sm text-neutral-500 font-medium leading-relaxed">Yes. Your orchestration contract is monthly, and you can terminate the cluster sync at any time without penalties.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-black text-neutral-800 dark:text-white tracking-tight mb-3">Is there an enterprise tier?</h4>
+                <p class="text-sm text-neutral-500 font-medium leading-relaxed">For massive forge clusters and custom security manifests, please contact our sales architects for a tailored proposal.</p>
+            </div>
+        </div>
+    </div>
+</div>

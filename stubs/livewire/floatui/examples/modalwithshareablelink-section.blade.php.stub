@@ -1,0 +1,35 @@
+<div style={{height: '550px'}}>
+            {
+        state ? (
+            <div class="fixed inset-0 z-10 overflow-y-auto">
+                <div class="fixed inset-0 w-full h-full bg-black opacity-40" @click={() => setState(false)}></div>
+                <div class="flex items-center min-h-screen px-4 py-8">
+                    <div class="relative w-full max-w-lg p-4 mx-auto bg-white rounded-md shadow-lg">
+                        <div class="py-3 space-y-4">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <h4 class="text-lg font-medium text-neutral-800">
+                                        Get a shareable link
+                                    </h4>
+                                    <p class="text-[15px] text-neutral-600 mt-4">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.                                    </p>
+                                </div>
+                                <button class="p-2 text-neutral-400 rounded-md hover:bg-neutral-100"
+                                    @click={() => setState(false)}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="p-2 border rounded-2xl flex items-center justify-between">
+                                <p class="text-sm text-neutral-600 overflow-hidden">{URLLink}</p>
+                                <button class="relative text-neutral-500 hover:text-neutral-800 duration-150 ${copyState ? "text-{{ PRIMARY_BASE }}-600 pointer-events-none" : ""}"
+                                    @click={handleCopy}
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                    </svg>
+                                    {
+                                        copyState ? (
+                                            <div class="absolute -top-12 -left-3 px-2 py-1.5 rounded-xl bg-{{ PRIMARY_BASE }}-600 font-semibold text-white text-[10px] after:absolute after:inset-x-0 after:mx-auto after:top-[22px] after:w-2 after:h-2 after:bg-{{ PRIMARY_BASE }}-600 after:rotate-45">Copied</div>

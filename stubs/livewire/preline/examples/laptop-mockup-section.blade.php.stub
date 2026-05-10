@@ -1,0 +1,10 @@
+<div class="max-w-4xl mx-auto">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em] mb-8 text-center">Workstation Perspective</h4>
+        <div class="relative mx-auto border-neutral-800 dark:border-neutral-800 bg-neutral-800 border-[8px] rounded-t-[2.5rem] h-[250px] sm:h-[450px] w-full shadow-2xl">
+            <div class="rounded-[2rem] overflow-hidden size-full bg-white dark:bg-neutral-900">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" class="size-full object-cover" alt="">
+            </div>
+        </div>
+        <div class="relative mx-auto bg-neutral-900 dark:bg-neutral-700 rounded-b-xl rounded-t-sm h-[17px] sm:h-[21px] w-full"></div>
+        <div class="relative mx-auto bg-neutral-800 dark:bg-neutral-600 rounded-b-xl h-[5px] sm:h-[8px] w-[80%] sm:w-[90%]"></div>
+    </div>

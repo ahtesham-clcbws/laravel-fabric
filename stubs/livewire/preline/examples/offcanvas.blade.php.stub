@@ -1,0 +1,82 @@
+<div x-data="{ open: false }">
+    <button 
+        @click="open = true"
+        type="button" 
+        class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-bold rounded-2xl bg-{{ PRIMARY }} text-white hover:bg-{{ PRIMARY }}/90 shadow-lg shadow-{{ PRIMARY }}/20 transition-all"
+    >
+        Launch Drawer
+    </button>
+
+    <div 
+        x-show="open" 
+        class="fixed inset-0 z-[80] overflow-y-auto"
+        x-cloak
+    >
+        <!-- Backdrop -->
+        <div 
+            x-show="open"
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            @click="open = false"
+            class="fixed inset-0 bg-neutral-900/50 backdrop-blur-sm dark:bg-neutral-950/80"
+        ></div>
+
+        <!-- Content -->
+        <div 
+            x-show="open"
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="-translate-x-full"
+            x-transition:enter-end="translate-x-0"
+            x-transition:leave="transition ease-in duration-400"
+            x-transition:leave-start="translate-x-0"
+            x-transition:leave-end="-translate-x-full"
+            class="fixed inset-y-0 start-0 z-[81] w-full max-w-xs bg-white shadow-2xl dark:bg-neutral-900 transition-all duration-500"
+        >
+            <div class="flex flex-col h-full">
+                <!-- Header -->
+                <div class="flex justify-between items-center py-6 px-8 border-b border-neutral-100 dark:border-neutral-800">
+                    <h3 class="text-xl font-black text-neutral-800 dark:text-white tracking-tight">Fabric <span class="text-{{ PRIMARY }}">Forge</span></h3>
+                    <button 
+                        @click="open = false"
+                        type="button" 
+                        class="size-8 inline-flex justify-center items-center rounded-xl border border-transparent text-neutral-800 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-800 transition-colors"
+                    >
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    </button>
+                </div>
+
+                <!-- Body -->
+                <div class="flex-1 overflow-y-auto p-8">
+                    <div class="space-y-6">
+                        <div class="p-6 bg-neutral-50 dark:bg-neutral-800/50 rounded-3xl border border-neutral-100 dark:border-neutral-800">
+                            <h4 class="font-bold text-neutral-800 dark:text-white mb-2">Resource Status</h4>
+                            <p class="text-xs text-neutral-500 leading-relaxed">Your current forge instance is ready for deployment.</p>
+                        </div>
+                        
+                        <nav class="space-y-2">
+                            <a href="#" class="flex items-center gap-x-3.5 py-3 px-4 rounded-xl text-sm font-bold text-neutral-800 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white transition-all">
+                                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                Dashboard
+                            </a>
+                            <a href="#" class="flex items-center gap-x-3.5 py-3 px-4 rounded-xl text-sm font-bold text-neutral-800 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white transition-all">
+                                <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                                System Logs
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="p-8 border-t border-neutral-100 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-800/30">
+                    <button type="button" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-bold rounded-2xl bg-neutral-800 text-white hover:bg-neutral-900 shadow-xl transition-all">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

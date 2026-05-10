@@ -1,0 +1,43 @@
+<section class="bg-white dark:bg-neutral-950 min-h-screen flex items-center justify-center p-10">
+  <div class="max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-[80px] shadow-2xl relative overflow-hidden">
+    <div class="absolute -top-64 -right-64 size-128 bg-{{ PRIMARY }}/10 rounded-full blur-[100px]"></div>
+    
+    <div class="mx-auto max-w-lg text-center relative z-10 p-12">
+      <div class="size-20 bg-neutral-900 text-white rounded-[32px] flex items-center justify-center font-black text-3xl italic mx-auto mb-12 shadow-2xl">F</div>
+      <h1 class="text-4xl font-black uppercase tracking-tighter italic text-neutral-800 dark:text-white leading-none">Access Registry</h1>
+
+      <p class="mt-6 text-neutral-500 font-medium italic">
+        Sync your orchestrator credentials to establish a high-fidelity bridge.
+      </p>
+
+      <form action="#" class="mt-12 space-y-6 text-left">
+        <div class="space-y-2">
+          <label class="text-[8px] font-black text-neutral-400 uppercase tracking-widest px-1">Registry Email</label>
+          <div class="relative">
+            <input type="email" class="w-full rounded-2xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} p-5 pr-12 text-sm font-black uppercase tracking-widest italic outline-none dark:bg-neutral-950 transition-all" placeholder="orchestrator@fabric.io" />
+            <span class="absolute inset-y-0 right-4 flex items-center text-neutral-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" /></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-[8px] font-black text-neutral-400 uppercase tracking-widest px-1">Security Key</label>
+          <div class="relative">
+            <input type="password" class="w-full rounded-2xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} p-5 pr-12 text-sm font-black uppercase tracking-widest italic outline-none dark:bg-neutral-950 transition-all" placeholder="••••••••" />
+            <span class="absolute inset-y-0 right-4 flex items-center text-neutral-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-6">
+          <p class="text-[8px] font-black text-neutral-300 uppercase tracking-widest">Forgot <a class="text-{{ PRIMARY }} hover:underline" href="#">Security Key?</a></p>
+          <button type="submit" class="inline-block rounded-2xl bg-neutral-900 px-10 py-5 text-[10px] font-black uppercase tracking-widest text-white shadow-2xl hover:bg-{{ PRIMARY }} transition-all italic">
+            Initialize Sync ➔
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -30,6 +30,15 @@
   - [Overview](design-systems/overview.md)
   - [DaisyUI Demo](demo/daisyui.md)
 
+- **Library Lexicon**
+  - [Preline UI (Enterprise)](design-systems/preline.md)
+  - [DaisyUI (Semantic)](design-systems/daisyui.md)
+  - [Meraki UI (Marketing)](design-systems/merakiui.md)
+  - [FloatUI (Minimalist)](design-systems/floatui.md)
+  - [HyperUI (Product)](design-systems/hyperui.md)
+  - [Shadcn (Atomic)](design-systems/shadcn.md)
+  - [Tailgrids (SaaS)](design-systems/tailgrids.md)
+
 - **Components**
   - [ACL (Shield)](components/acl.md)
   - [Auditing](components/auditing.md)

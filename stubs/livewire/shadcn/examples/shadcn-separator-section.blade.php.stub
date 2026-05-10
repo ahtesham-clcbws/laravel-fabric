@@ -1,0 +1,14 @@
+<div class="w-full space-y-4">
+        <div class="space-y-1">
+            <h4 class="text-sm font-black text-neutral-900 dark:text-white uppercase tracking-widest leading-none">Registry API</h4>
+            <p class="text-xs text-neutral-500">The orchestration engine for Fabric UI.</p>
+        </div>
+        <div class="h-px bg-neutral-200 dark:bg-neutral-800"></div>
+        <div class="flex h-5 items-center space-x-4 text-xs font-medium text-neutral-500">
+            <div>Docs</div>
+            <div class="w-px h-full bg-neutral-200 dark:bg-neutral-800"></div>
+            <div>Source</div>
+            <div class="w-px h-full bg-neutral-200 dark:bg-neutral-800"></div>
+            <div>Changelog</div>
+        </div>
+    </div>

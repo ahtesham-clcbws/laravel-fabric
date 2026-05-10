@@ -1,0 +1,27 @@
+<section class="py-32 px-10 max-w-7xl mx-auto">
+    <div class="space-y-32">
+        <template x-for="i in 3">
+            <div class="grid md:grid-cols-2 gap-20 items-center" :class="i % 2 === 0 ? 'md:flex-row-reverse' : ''">
+                <div class="relative" :class="i % 2 === 0 ? 'order-2' : ''">
+                    <div class="absolute -inset-10 bg-{{ PRIMARY }}/5 rounded-full blur-3xl"></div>
+                    <img :src="`https://i.pravatar.cc/800?u=team-detail-${i}`" class="relative rounded-[64px] shadow-2xl border border-white/10 aspect-[4/5] object-cover">
+                </div>
+                <div :class="i % 2 === 0 ? 'order-1' : ''">
+                    <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">LEAD ARCHITECT</span>
+                    <h2 class="text-5xl font-black text-neutral-800 dark:text-white tracking-tight uppercase italic leading-tight">Ahtesham Khan</h2>
+                    <p class="mt-8 text-lg text-neutral-500 font-medium leading-relaxed">Pioneering high-fidelity orchestration systems with a focus on zero-dependency architecture and global registry synchronization.</p>
+                    <div class="mt-12 pt-12 border-t border-neutral-100 dark:border-neutral-800 grid grid-cols-2 gap-10">
+                        <div>
+                            <span class="block text-2xl font-black text-neutral-800 dark:text-white tracking-tighter italic">14+</span>
+                            <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest mt-1">Clusters Managed</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-black text-neutral-800 dark:text-white tracking-tighter italic">99.9%</span>
+                            <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest mt-1">Registry Uptime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</section>

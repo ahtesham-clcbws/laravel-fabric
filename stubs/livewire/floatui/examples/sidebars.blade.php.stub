@@ -1,0 +1,29 @@
+<div class="h-[600px] w-72 bg-white border-r border-neutral-100 flex flex-col p-8 dark:bg-neutral-950 dark:border-neutral-900 shadow-xl rounded-r-[48px]">
+    <div class="flex items-center gap-3 mb-16">
+        <div class="size-10 bg-neutral-900 text-white rounded-xl flex items-center justify-center font-black italic">F</div>
+        <h2 class="text-xl font-black text-neutral-800 dark:text-white tracking-tighter italic uppercase">Fabric</h2>
+    </div>
+    
+    <nav class="grow space-y-2">
+        <template x-for="item in [
+            { n: 'Dashboard', i: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', a: true },
+            { n: 'Registry', i: 'M4 6h16M4 12h16M4 18h7', a: false },
+            { n: 'Clusters', i: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10', a: false }
+        ]">
+            <a href="#" class="flex items-center gap-5 px-6 py-4 rounded-2xl transition-all group" :class="item.a ? 'bg-neutral-50 text-neutral-900 dark:bg-neutral-900 dark:text-white font-bold' : 'text-neutral-400 hover:text-neutral-800 dark:hover:text-white'">
+                <svg class="size-5 transition-transform group-hover:scale-110" :class="item.a ? 'text-{{ PRIMARY }}' : 'text-neutral-300'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path :d="item.i" stroke-width="2.5"/></svg>
+                <span class="text-[10px] font-black uppercase tracking-widest italic" x-text="item.n"></span>
+            </a>
+        </template>
+    </nav>
+    
+    <div class="mt-auto pt-8 border-t border-neutral-50 dark:border-neutral-900">
+        <div class="flex items-center gap-4">
+            <div class="size-10 bg-neutral-100 rounded-xl dark:bg-neutral-900"></div>
+            <div>
+                <p class="text-[10px] font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic">Ahtesham</p>
+                <p class="text-[8px] font-bold text-neutral-400 uppercase tracking-widest">Master Admin</p>
+            </div>
+        </div>
+    </div>
+</div>

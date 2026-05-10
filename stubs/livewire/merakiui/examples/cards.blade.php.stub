@@ -1,0 +1,23 @@
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto py-20 px-10">
+    <template x-for="i in 3">
+        <div class="overflow-hidden bg-white border border-neutral-100 rounded-[56px] shadow-sm hover:shadow-2xl transition-all duration-700 dark:bg-neutral-900 dark:border-neutral-800 group">
+            <div class="p-10">
+                <div class="flex items-center justify-between mb-8">
+                    <span class="text-[8px] font-black text-neutral-300 uppercase tracking-widest italic">MAR 10, 2026</span>
+                    <span class="px-4 py-1.5 bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} rounded-full text-[8px] font-black uppercase tracking-widest italic">REGISTRY</span>
+                </div>
+                
+                <h3 class="text-2xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic group-hover:text-{{ PRIMARY }} transition-colors">Neural Sync Bridge</h3>
+                <p class="mt-6 text-sm text-neutral-500 font-medium leading-relaxed italic line-clamp-3">High-fidelity orchestration for modern node clusters. Built with zero-dependency logic and premium visual standards.</p>
+                
+                <div class="mt-12 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/100?u=meraki-card" class="size-10 rounded-xl object-cover shadow-sm">
+                        <span class="text-[10px] font-black text-neutral-800 dark:text-white uppercase italic">Ahtesham Khan</span>
+                    </div>
+                    <button class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-widest hover:underline italic">Read ➔</button>
+                </div>
+            </div>
+        </div>
+    </template>
+</div>

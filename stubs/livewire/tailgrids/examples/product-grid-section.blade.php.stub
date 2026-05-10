@@ -1,0 +1,10 @@
+<div class="mb-24">
+        <div class="flex items-end justify-between mb-12">
+            <div>
+                <h2 class="text-3xl font-black text-neutral-800 dark:text-white tracking-tight">Curated Clusters</h2>
+                <p class="text-sm text-neutral-500 font-medium mt-2">Ready-to-deploy orchestration nodes.</p>
+            </div>
+            <button class="text-xs font-black text-{{ PRIMARY }} uppercase tracking-widest hover:underline">Browse All</button>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">

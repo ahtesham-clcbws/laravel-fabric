@@ -1,0 +1,40 @@
+<section class="py-32 px-10 max-w-7xl mx-auto">
+    <div class="text-center mb-24">
+        <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">PRICING TIERS</span>
+        <h2 class="text-6xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-none">Registry Capacity</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12">
+        <template x-for="tier in [
+            { n: 'EDGE', p: '0', d: 'Standard cluster orchestration for early-stage nodes.', f: ['3 Clusters', '10 Nodes', 'Basic Audit'] },
+            { n: 'CORE', p: '49', d: 'High-fidelity sync for production-grade registries.', f: ['Unlimited Clusters', '100 Nodes', 'Advanced Audit', 'Priority Sync'] },
+            { n: 'QUANTUM', p: '199', d: 'Full-scale neural orchestration for global clusters.', f: ['Unlimited Everything', 'WSS Dedicated Bridge', 'Immutable Logging', '24/7 Overseer'] }
+        ]">
+            <div class="p-12 bg-white border border-neutral-100 rounded-[56px] shadow-sm hover:shadow-2xl transition-all duration-700 dark:bg-neutral-900 dark:border-neutral-800 flex flex-col relative overflow-hidden group">
+                <div x-show="tier.n === 'CORE'" class="absolute top-8 right-8">
+                    <span class="px-5 py-2 bg-{{ PRIMARY }} text-white rounded-full text-[8px] font-black uppercase tracking-widest italic shadow-xl">MOST SYNCED</span>
+                </div>
+                <h4 class="text-sm font-black text-neutral-400 uppercase tracking-widest mb-4 italic" x-text="tier.n"></h4>
+                <div class="flex items-baseline gap-2 mb-8">
+                    <span class="text-5xl font-black text-neutral-800 dark:text-white tracking-tighter" x-text="'$' + tier.p"></span>
+                    <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest">/MO</span>
+                </div>
+                <p class="text-sm text-neutral-500 font-medium leading-relaxed mb-12" x-text="tier.d"></p>
+                
+                <ul class="space-y-6 mb-16 grow">
+                    <template x-for="feat in tier.f">
+                        <li class="flex items-center gap-4 text-xs font-bold text-neutral-600 dark:text-neutral-400">
+                            <svg class="size-4 text-{{ PRIMARY }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="3"/></svg>
+                            <span x-text="feat"></span>
+                        </li>
+                    </template>
+                </ul>
+                
+                <button 
+                    class="w-full py-5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all"
+                    :class="tier.n === 'CORE' ? 'bg-neutral-900 text-white shadow-2xl hover:bg-{{ PRIMARY }}' : 'bg-neutral-50 text-neutral-400 hover:bg-neutral-900 hover:text-white dark:bg-neutral-950'"
+                >Provision Tier</button>
+            </div>
+        </template>
+    </div>
+</section>

@@ -1,0 +1,9 @@
+<div class="w-full space-y-2">
+        <div class="flex justify-between text-xs font-medium text-neutral-500">
+            <span>Sync Progress</span>
+            <span>65%</span>
+        </div>
+        <div class="relative w-full h-2 bg-neutral-100 rounded-full overflow-hidden dark:bg-neutral-800">
+            <div class="h-full bg-neutral-900 transition-all duration-500 dark:bg-white" style="width: 65%"></div>
+        </div>
+    </div>

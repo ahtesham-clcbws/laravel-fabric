@@ -1,0 +1,10 @@
+<div class="col-span-2 h-[600px] border-4 border-dashed border-neutral-200 rounded-[40px] dark:border-neutral-800 flex items-center justify-center">
+                    <p class="text-sm font-black text-neutral-400 uppercase tracking-widest">Main Cluster View</p>
+                </div>
+                <div class="h-[600px] border-4 border-dashed border-neutral-200 rounded-[40px] dark:border-neutral-800 flex items-center justify-center">
+                    <p class="text-sm font-black text-neutral-400 uppercase tracking-widest">System Metrics</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

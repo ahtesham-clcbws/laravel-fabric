@@ -1,0 +1,16 @@
+<div class="grid md:grid-cols-4 gap-8">
+        <template x-for="stat in [
+            { label: 'Network Pulse', val: '98.2%', delta: '+1.2%', color: '{{ PRIMARY }}' },
+            { label: 'Active Nodes', val: '1,429', delta: '+24', color: 'emerald-500' },
+            { label: 'Security Gate', val: 'Locked', delta: '0 Breaches', color: 'blue-500' },
+            { label: 'Latency', val: '12ms', delta: '-2ms', color: 'rose-500' }
+        ]">
+            <div class="p-8 bg-white border border-neutral-100 rounded-[40px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest" x-text="stat.label"></span>
+                    <span class="text-[8px] font-black text-emerald-500 uppercase tracking-widest bg-emerald-50 px-2 py-1 rounded-full" x-text="stat.delta"></span>
+                </div>
+                <div class="text-3xl font-black text-neutral-800 dark:text-white tracking-tighter" :class="`text-${stat.color}`" x-text="stat.val"></div>
+            </div>
+        </template>
+    </div>

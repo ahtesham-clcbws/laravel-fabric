@@ -1,126 +1,114 @@
 <div align="center">
-  <img src=".agent/assets/fabric_logo_primary.png" width="200" alt="Fabric Logo">
+  <img src="art/logo_square.png" width="200" alt="Fabric Logo">
   <br>
-  <img src=".agent/assets/fabric_hero_banner.png" width="100%" alt="Fabric Hero Banner">
+  <h1>🧬 Laravel Fabric</h1>
+  <p><b>The High-Performance Orchestration Engine for the Modern Web.</b></p>
+  
+  [![Latest Version](https://img.shields.io/badge/version-1.0.0--beta-gold)](https://clcbws.com)
+  [![PHP Version](https://img.shields.io/badge/PHP-8.3+-777BB4)](https://php.net)
+  [![Laravel Version](https://img.shields.io/badge/Laravel-13.0+-FF2D20)](https://laravel.com)
+  [![Tailwind Version](https://img.shields.io/badge/Tailwind-v4.0-38B2AC)](https://tailwindcss.com)
+  [![License](https://img.shields.io/badge/License-Proprietary-gold)](LICENSE)
 </div>
-
-# 🧬 Laravel Fabric
-
-**The Enterprise-Grade Scaffolding Engine for the Modern Web.**
-
-[![Latest Version](https://img.shields.io/badge/version-1.0.0--beta.1-gold)](https://clcbws.com)
-[![PHP Version](https://img.shields.io/badge/PHP-8.2+-777BB4)](https://php.net)
-[![Laravel Version](https://img.shields.io/badge/Laravel-13.0+-FF2D20)](https://laravel.com)
-[![License](https://img.shields.io/badge/License-Proprietary-gold)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Public_Beta-green)](https://clcbws.com)
-
-> [!IMPORTANT]
-> **🚀 PUBLIC BETA**: Laravel Fabric has entered Public Beta. All core engines are operational. We are now finalizing the documentation and premium theme stubs.
 
 ---
 
 ## 🌟 What is Fabric?
 
-Fabric is the world's most advanced **"Ghost Scaffolding" Framework**. It is not just another CRUD generator; it is a high-performance **Application Operating System** that cannibalizes external dependencies by forging high-fidelity, native implementations of core enterprise features.
+Fabric is a **Ghost Scaffolding Engine** designed for enterprise-grade productivity. Unlike traditional CRUD generators, Fabric forges **high-fidelity, themed UI ecosystems** that are 100% native and framework-agnostic. 
 
-### 🛡️ The Philosophy of Zero (Zero Runtime Dependency)
-Fabric follows a strictly decoupled **"Forge and Depart"** architecture. Once your features are forged, you can uninstall Fabric and **nothing breaks.** We give you the code; you own the future.
-
----
-
-## 🔥 The Titan Ecosystem (50+ Features)
-
-Fabric replaces over 15+ common third-party packages with native, forged code:
-
-- 🎭 **Native Impersonation**: One-click admin login with God-Mode UI banners.
-- 🔐 **Zero-Dependency Auth**: OTP via Email, Magic Links, and 2FA (TOTP) built natively.
-- 🕒 **The Time-Machine**: Full record versioning with surgical rollback and visual diffing.
-- 🏥 **Drift Guardian**: Auto-heals your application when the database schema changes.
-- 🧠 **Neural AI-Context**: Generates a perfect cognitive map for AI-pair programming.
-- 🔦 **Global Spotlight**: Ctrl+K command palette searching across every resource.
-- 🧪 **The Lab**: Real-time component previewer with SQL Profiling and SQL Explain.
-- 🕸️ **Nexus Graph**: Generates professional Mermaid.js ER diagrams of your architecture.
-- 🧹 **Vacuum & Purge**: Auto-cleans orphaned assets and enforces data retention policies.
-- 🚀 **Headless API**: Instant REST Controllers and Postman Collection generation.
+It follows the **"Forge and Depart"** philosophy: Fabric builds the code, injects the logic, and then steps away. You own the code; we just accelerate the creation.
 
 ---
 
-## 🏗️ The Engines of Power
+## 🔥 The 25+ Killer Features (The Forge Suite)
 
-- 🧶 **The Loom**: Deep schema introspection and relationship mapping.
-- 🔨 **The Fabricator**: The master forge for models, controllers, and views.
-- ⚗️ **The Alchemist**: Transmutes static designs into dynamic Fabric stubs.
-- 🛡️ **The Guard**: Iron-clad security for Licensing and RBAC gating.
-- 🏥 **The Lazarus**: High-fidelity Soft-Delete recovery and lifecycle management.
-- 🤖 **Neural Context**: Summarizes business logic and middleware for AI assistants.
+Fabric replaces dozens of external dependencies with high-performance, forged implementations:
 
-Fabric is pre-wired to detect and weave the following professional packages into your UI with **Zero-Config**:
-- 🖼️ **Spatie Media Library**: Automatic file uploaders, gallery previews, and conversion handling.
-- 🔐 **Spatie Permission**: Role-based access control woven directly into the UI actions.
-- 📜 **Spatie Activity Log**: Automatic activity feed in the "Show" detail view.
-- 🏷️ **Spatie Tags**: Multi-select tag inputs forged automatically for many-to-many associations.
-- 🔍 **Laravel Scout**: Real-time global search across all resources.
-- 📊 **Laravel Excel**: Professional `.xlsx` exports with one click.
-- 👤 **Impersonate**: Quick-switch user logic for administrative debugging.
+1.  🧶 **The Loom Engine**: Deep schema introspection & relationship mapping.
+2.  🔨 **The Fabricator**: Master forge for Models, Controllers, and Livewire Views.
+3.  🔦 **Global Spotlight**: Ctrl+K native command palette searching across your ecosystem.
+4.  🕸️ **Nexus Graph**: Instant Mermaid.js visualization of your database architecture.
+5.  🧠 **Neural AI-Context**: Generates architectural maps for perfect AI pair-programming.
+6.  🛡️ **Shield ACL**: Unified RBAC visibility integrated directly into UI stubs.
+7.  ⚗️ **The Alchemist**: Transmute static HTML designs into dynamic, smart Fabric stubs.
+8.  🏥 **Lazarus Engine**: Surgically update existing components when DB schemas change.
+9.  🎭 **Native Impersonation**: One-click administrative control with zero external overhead.
+10. 🧹 **Asset Vacuum**: Deep-cleans orphaned assets and optimizes build sizes.
+11. 🧼 **Data Anonymizer**: Irreversibly scrub PII for safe staging and development.
+12. 🩺 **The Doctor**: Advanced diagnostic suite for environment health and parity.
+13. 🧙 **The Wizard**: Interactive, step-by-step guidance for complex resource forging.
+14. 🔄 **Reverse Migration**: Snapshot existing database tables into Laravel migrations.
+15. 🚀 **Postman Forger**: Instant REST API collection generation for every model.
+16. 🛰️ **Performance Sentry**: N+1 protection and lazy-loading guards for local dev.
+17. 🌊 **Mass Hydrator**: High-fidelity data seeding and factory population.
+18. 🔒 **System Jail**: Instant security lockdown mode for critical maintenance.
+19. 📏 **Manifesto Lint**: Enforces "Universal Manifesto" standards across your codebase.
+20. 🏁 **Ready Pre-flight**: Comprehensive deployment readiness and asset check.
+21. 🎨 **Library Lexicon**: Terminal-first explorer for 500+ forgeable blocks.
+22. 💎 **Smart Atomics**: Real-time flag-based generation (`--type`, `--size`, `--color`).
+23. 🖥️ **Multi-Library Support**: Native integration for Preline, DaisyUI, Meraki, and more.
+24. ⚡ **Headless API**: Instant resource and controller generation for slim APIs.
+25. 🧬 **Shield Guard**: License-bound security and configuration drift protection.
 
 ---
 
-## 🏗️ The Lazarus Engine (Advanced Data Recovery)
+## 🏗️ Design System Support
 
-If your model uses the `SoftDeletes` trait, Fabric automatically forges a professional lifecycle management suite:
-- **Tri-State Trash Filter**: Toggle between Active Records, Archived Records, or the Total Dataset.
-- **Restore & Force Delete**: Professional UI actions to recover accidental losses or wipe data permanently.
-- **Strict Authorization**: All recovery actions are gated by Laravel Policies.
+Fabric is the only engine that supports multiple design systems in a single project:
+
+- **Preline UI**: The Enterprise standard.
+- **DaisyUI**: The Mary UI-inspired semantic framework.
+- **Meraki UI**: High-fidelity marketing blocks.
+- **FloatUI**: Minimalist, clean SaaS aesthetics.
+- **HyperUI**: Product-focused, high-contrast layouts.
+- **Tailgrids**: Modern dashboard and SaaS blueprints.
+- **Shadcn**: Atomic, utility-first components.
 
 ---
 
 ## 🛠️ Installation & Setup
 
 ### 1. Requirements
-- **PHP**: 8.2 or higher
-- **Laravel**: 12.0 or higher (Fully supports Laravel 13, 14, and the Slim Skeleton)
-- **Livewire**: 3.0 or higher
+- **PHP**: 8.3 or higher
+- **Laravel**: 13.0 or higher
+- **Livewire**: 4.x
+- **Tailwind CSS**: v4.0
 
 ### 2. Quick Install
 ```bash
 composer require clcbws/laravel-fabric --dev
 ```
 
-### 3. Initialize & Diagnostics
+### 3. Initialize the Forge
 ```bash
+php artisan fabric:install
 php artisan fabric:doctor
-php artisan fabric:assets
-```
-*Note: The assets command will help you update your `tailwind.config.js` to ensure the components render with Broadway Web Service precision.*
-
-### 4. Commercial License
-Set your unique project-bound license key in your `.env`:
-```env
-FABRIC_LICENSE_KEY=FAB-XXXX-XXXX-XXXX
 ```
 
----
-
+### 4. Forge Your First Resource
 ```bash
-php artisan fabric:forge User
+php artisan fabric:generate User
 ```
 
 ---
 
-## 🎨 Premium Demos
+## 📖 Documentation
 
-Check out our production-grade demos forged entirely with the Fabric CLI:
-- **[DaisyUI Premium Demo](docs/demo/daisyui.md)**: 15+ pages, 1300px locked content, dynamic settings, and high-fidelity aesthetics.
+Explore the full testament of the Fabric way at our live documentation site:
+**[https://laravel-fabric.netlify.app/](https://laravel-fabric.netlify.app/)**
+
+- **[Quick Start Guide](https://laravel-fabric.netlify.app/#/testaments/installation)**
+- **[CLI Commands Reference](https://laravel-fabric.netlify.app/#/cli/commands)**
+- **[Design System Lexicon](https://laravel-fabric.netlify.app/#/design-systems/overview)**
+- **[The Loom Philosophy](https://laravel-fabric.netlify.app/#/the-fabric-way)**
 
 ---
 
 ## 📝 Commercial Licensing & Support
 
-This is a **Proprietary Commercial Software** developed by Broadway Web Service. 
-- **Developer License**: 1 Project / Infinite Resources.
-- **Agency License**: Unlimited Projects.
+Laravel Fabric is **Proprietary Commercial Software** developed by Broadway Web Service. 
 
-For support, custom stubs, or enterprise integrations, contact:
 - **Email**: [support@clcbws.com](mailto:support@clcbws.com)
 - **Web**: [clcbws.com](https://clcbws.com)
 

@@ -1,0 +1,4 @@
+<div class="relative group">
+        <img class="size-20 rounded-[28px] object-cover shadow-2xl border-4 border-white dark:border-neutral-900 group-hover:scale-110 transition-transform duration-500" src="https://i.pravatar.cc/200?u=fabric-node" alt="Avatar">
+        <span class="absolute -bottom-2 -right-2 size-6 bg-emerald-500 border-4 border-white dark:border-neutral-900 rounded-full shadow-lg"></span>
+    </div>

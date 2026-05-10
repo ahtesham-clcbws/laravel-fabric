@@ -13,23 +13,28 @@ class ListResourcesCommand extends Command
 
     public function handle()
     {
-        $registry = ComponentRegistry::all();
+        $templates = ComponentRegistry::getTemplates();
         $filter = $this->argument('template');
 
         if ($filter) {
             $filter = Str::lower($filter);
-            if (!isset($registry[$filter])) {
+            if (!in_array($filter, $templates)) {
                 $this->error("Template [{$filter}] not found.");
                 return;
             }
-            $registry = [$filter => $registry[$filter]];
+            $templates = [$filter];
         }
 
-        $this->components->info("Fabric Universal Library: " . count($registry) . " Templates Indexed");
+        $this->components->info("Fabric Universal Library: " . count($templates) . " Libraries Indexed");
 
-        foreach ($registry as $template => $sections) {
+        foreach ($templates as $template) {
+            $sections = ComponentRegistry::getSections($template);
             $this->line("<fg=blue;options=bold>[" . strtoupper($template) . "]</>");
-            $this->line("<fg=gray>  Sections: " . implode(', ', $sections) . "</>");
+            $this->line("<fg=gray>  Total Sections: " . count($sections) . "</>");
+            
+            // Show first 10 and count remaining for brevity
+            $preview = array_slice($sections, 0, 15);
+            $this->line("  Available: " . implode(', ', $preview) . (count($sections) > 15 ? " ... and " . (count($sections) - 15) . " more" : ""));
             $this->line("");
         }
 

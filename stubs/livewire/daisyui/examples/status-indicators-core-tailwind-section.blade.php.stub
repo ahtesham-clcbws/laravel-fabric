@@ -1,0 +1,16 @@
+<div class="flex flex-wrap justify-center gap-12">
+        <div class="flex items-center gap-3 px-6 py-3 bg-teal-500/10 rounded-full border border-teal-500/20">
+            <div class="size-2 rounded-full bg-teal-500 animate-pulse shadow-[0_0_8px_rgba(20,184,166,0.5)]"></div>
+            <span class="text-[10px] font-black text-teal-600 uppercase tracking-widest">Node Active</span>
+        </div>
+        
+        <div class="flex items-center gap-3 px-6 py-3 bg-amber-500/10 rounded-full border border-amber-500/20">
+            <div class="size-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]"></div>
+            <span class="text-[10px] font-black text-amber-600 uppercase tracking-widest">Syncing Registry</span>
+        </div>
+
+        <div class="flex items-center gap-3 px-6 py-3 bg-neutral-100 rounded-full border border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700">
+            <div class="size-2 rounded-full bg-neutral-400"></div>
+            <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest">Idle Tier</span>
+        </div>
+    </div>

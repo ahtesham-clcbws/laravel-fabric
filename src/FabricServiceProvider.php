@@ -40,6 +40,8 @@ class FabricServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'fabric');
+
         if ($this->app->runningInConsole()) {
             $this->publishResources();
         }
@@ -53,16 +55,19 @@ class FabricServiceProvider extends ServiceProvider
 
     protected function registerRoutes(): void
     {
-        \Illuminate\Support\Facades\Route::middleware('web')->group(function () {
-            \Illuminate\Support\Facades\Route::get('fabric/docs', [\CLCBWS\Fabric\Http\Controllers\FabricDocController::class, 'index'])->name('fabric.docs.index');
-            \Illuminate\Support\Facades\Route::get('fabric/docs/{template}', [\CLCBWS\Fabric\Http\Controllers\FabricDocController::class, 'template'])->name('fabric.docs.template');
-            \Illuminate\Support\Facades\Route::get('fabric/docs/{template}/{section}', [\CLCBWS\Fabric\Http\Controllers\FabricDocController::class, 'component'])->name('fabric.docs.component');
+        $prefix = \config('fabric.prefix', 'admin');
+
+        \Illuminate\Support\Facades\Route::middleware(\config('fabric.middleware', ['web']))->group(function () use ($prefix) {
+            \Illuminate\Support\Facades\Route::get($prefix . '/fabric/docs', [\CLCBWS\Fabric\Http\Controllers\FabricDocController::class, 'index'])->name('fabric.docs.index');
+            \Illuminate\Support\Facades\Route::get($prefix . '/fabric/docs/{template}', [\CLCBWS\Fabric\Http\Controllers\FabricDocController::class, 'template'])->name('fabric.docs.template');
+            \Illuminate\Support\Facades\Route::get($prefix . '/fabric/docs/{template}/{section}', [\CLCBWS\Fabric\Http\Controllers\FabricDocController::class, 'component'])->name('fabric.docs.component');
         });
     }
 
     protected function registerLivewireComponents(): void
     {
         \Livewire\Livewire::component('fabric.components.chart', \CLCBWS\Fabric\Livewire\Components\Chart::class);
+        \Livewire\Livewire::component('fabric.components.spotlight', \CLCBWS\Fabric\Livewire\Components\Spotlight::class);
     }
 
     /**
@@ -103,6 +108,7 @@ class FabricServiceProvider extends ServiceProvider
             \CLCBWS\Fabric\Commands\LogCommand::class,
             \CLCBWS\Fabric\Commands\ReadyCommand::class,
             \CLCBWS\Fabric\Commands\FabricComponentCommand::class,
+            \CLCBWS\Fabric\Commands\LexiconCommand::class,
         ]);
     }
 

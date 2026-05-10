@@ -1,0 +1,31 @@
+<div class="flex flex-wrap items-center gap-6 py-12 px-4 justify-center">
+    <!-- Simple Circle -->
+    <div class="flex items-center gap-x-2.5">
+        <span class="size-2.5 rounded-full bg-{{ PRIMARY }}"></span>
+        <span class="text-xs font-black text-neutral-800 dark:text-neutral-200 uppercase tracking-widest">Orchestration</span>
+    </div>
+
+    <!-- Pulsing Active -->
+    <div class="flex items-center gap-x-2.5 px-4 py-2 bg-teal-500/10 rounded-xl border border-teal-500/20">
+        <span class="relative flex size-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full size-2.5 bg-teal-500"></span>
+        </span>
+        <span class="text-xs font-black text-teal-600 dark:text-teal-400 uppercase tracking-widest">Active Node</span>
+    </div>
+
+    <!-- Outline Variant -->
+    <div class="flex items-center gap-x-2.5">
+        <span class="size-3 rounded-full border-2 border-amber-500"></span>
+        <span class="text-xs font-black text-neutral-800 dark:text-neutral-200 uppercase tracking-widest">Syncing</span>
+    </div>
+
+    <!-- Progress Style -->
+    <div class="flex items-center gap-x-3 px-5 py-2.5 bg-white border border-neutral-100 rounded-2xl shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+        <div class="size-2 rounded-full bg-rose-500"></div>
+        <div class="flex flex-col">
+            <span class="text-[10px] font-black text-neutral-800 dark:text-white uppercase tracking-widest">System Load</span>
+            <span class="text-[8px] font-bold text-neutral-400 uppercase tracking-widest">Critical Tier</span>
+        </div>
+    </div>
+</div>
