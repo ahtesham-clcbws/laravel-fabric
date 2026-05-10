@@ -1,6 +1,6 @@
 {
     "name": "clcbws/laravel-fabric",
-    "version": "1.0.0-beta.1",
+    "version": "1.2.0-beta",
     "description": "High-fidelity, zero-dependency administrative scaffolding engine for the modern web.",
     "type": "library",
     "license": "MIT",
