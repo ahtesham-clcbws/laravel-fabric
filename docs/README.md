@@ -30,8 +30,8 @@ Branding and Aesthetics.
 - **[DaisyUI Demo](demo/daisyui.md)**: Real-world reference implementation.
 - **[The Philosophy](testaments/philosophy.md)**: Forge and Depart.
 
-### 🧩 [Components](components/list.md)
-Exploring the generated artifacts.
+### 🧩 [The Library Lexicon](components/list.md)
+Exploring the exhaustive list of 500+ forgeable artifacts.
 - **[Relational Tables](components/relationships.md)**: HasMany and ManyToMany.
 - **[Native Auditing](components/auditing.md)**: Zero-dependency activity logging.
 - **[Lean Media](components/media.md)**: Fast, disk-based file handling.

@@ -41,11 +41,11 @@
   - [Tailgrids (SaaS)](design-systems/tailgrids.md)
 
 - **Components**
+  - [Exhaustive Lexicon](components/list.md)
   - [ACL (Shield)](components/acl.md)
   - [Auditing](components/auditing.md)
   - [Media (Lean)](components/media.md)
   - [Time Machine](components/time-machine.md)
-  - [Exhaustive List](components/list.md)
   - [Lexicon Reference](components/reference.md)
 
 - **Features**
