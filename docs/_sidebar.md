@@ -1,7 +1,7 @@
 - [🧬 Introduction](README.md)
+- [🕯️ Philosophy](testaments/philosophy.md)
 - [🧵 The Fabric Way](the-fabric-way.md)
 - [🛡️ Standards](standards.md)
-- [🕯️ Philosophy](testaments/philosophy.md)
 
 - **The Testaments**
   - [I: Installation](testaments/installation.md)
