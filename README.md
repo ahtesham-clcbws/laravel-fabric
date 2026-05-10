@@ -4,7 +4,7 @@
   <h1>🧬 Laravel Fabric</h1>
   <p><b>The High-Performance Orchestration Engine for the Modern Web.</b></p>
   
-  [![Latest Version](https://img.shields.io/badge/version-1.0.0--beta-gold)](https://clcbws.com)
+  [![Latest Version](https://img.shields.io/badge/version-1.2.0--beta-gold)](https://clcbws.com)
   [![Total Downloads](https://img.shields.io/packagist/dt/clcbws/laravel-fabric.svg?style=flat-square)](https://packagist.org/packages/clcbws/laravel-fabric)
   [![Stars](https://img.shields.io/github/stars/ahtesham-clcbws/laravel-fabric.svg?style=flat-square)](https://github.com/ahtesham-clcbws/laravel-fabric/stargazers)
   [![PHP Version](https://img.shields.io/badge/PHP-8.3+-777BB4)](https://php.net)

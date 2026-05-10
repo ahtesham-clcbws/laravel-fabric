@@ -4,8 +4,8 @@
 [![Stars](https://img.shields.io/github/stars/ahtesham-clcbws/laravel-fabric.svg?style=flat-square)](https://github.com/ahtesham-clcbws/laravel-fabric/stargazers)
 
 > [!IMPORTANT]
-> **🚀 PUBLIC BETA (v1.0.0-beta)**
-> This repository is now in **Public Beta Testing**. All core Forge engines (25+ Features) are operational. We are now accepting feedback and stress-testing the library lexicon across diverse design systems.
+> **🚀 PUBLIC BETA (v1.2.0-beta)**
+> This repository is now in **Public Beta Testing**. All core Forge engines (30+ Features) are operational. We are now accepting feedback and stress-testing the library lexicon across diverse design systems.
 
 Welcome to the official technical documentation for **Laravel Livewire Fabric**. Built on the **[Philosophy of Zero](testaments/philosophy.md)**, this guide is designed for developers who want to master the art of enterprise-grade ghost scaffolding using modern design frameworks like **DaisyUI** and **Preline**.
 

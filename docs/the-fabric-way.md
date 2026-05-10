@@ -1,4 +1,4 @@
-# 🧵 The Fabric Manifesto: Scaffolding the Future (v1.0.0)
+# 🧵 The Fabric Manifesto: Scaffolding the Future (v1.2.0)
 
 Laravel Fabric is not just a tool; it's a **New Way of Building.** It replaces the messy, "Package-Heavy" world of traditional development with a sleek, high-performance **Engine of Creation.**
 
@@ -158,4 +158,4 @@ Yes. Stubs are stored in the `stubs/` directory and can be shared across your te
 
 ---
 
-**Laravel Fabric v1.0.0: Stop installing the future. Forge it.**
+**Laravel Fabric v1.2.0-beta: Stop installing the future. Forge it.**
