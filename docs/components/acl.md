@@ -1,6 +1,6 @@
-# 🛡️ Shield ACL (Native Roles)
+# 🛡️ Permissions ACL (Native Roles)
 
-Fabric's **Shield ACL** is a lightweight alternative to `spatie/laravel-permission`. It provides a clean, native way to handle authorization using Laravel's built-in Gates and Policies.
+Fabric's **Permissions ACL** is a lightweight alternative to `spatie/laravel-permission`. It provides a clean, native way to handle authorization using Laravel's built-in Gates and Policies.
 
 ## 🚀 Setup
 The engine scaffolds a `HasRoles` trait. Simply add it to your `User` model:

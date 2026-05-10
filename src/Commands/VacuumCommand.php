@@ -26,7 +26,21 @@ class VacuumCommand extends Command
             $this->optimizeDb();
         }
 
+        $this->purgeVendor();
+
         $this->info("✨ Vacuum complete. Your system is lean and fast.");
+    }
+
+    protected function purgeVendor()
+    {
+        $class = 'App\\Services\\Vacuum\\VendorCleaner';
+        if (class_exists($class)) {
+            $this->components->task("Purging Vendor Footprint", function() use ($class) {
+                $cleaner = new $class();
+                $count = $cleaner->cleanup(base_path());
+                return "Removed {$count} non-essential vendor files.";
+            });
+        }
     }
 
     protected function purgeAssets()

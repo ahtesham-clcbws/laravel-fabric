@@ -1,0 +1,36 @@
+<?php
+
+namespace {{ NAMESPACE }}\Traits\Media;
+
+use {{ NAMESPACE }}\Models\Media\Media;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Database\Eloquent\Model;
+
+trait InteractsWithMedia
+{
+    public function media(): MorphMany
+    {
+        return $this->morphMany(Media::class, 'model');
+    }
+
+    public function addMedia(UploadedFile $file, string $collection = 'default'): Media
+    {
+        $path = $file->store("media/{$this->getTable()}/{$this->id}", 'public');
+
+        return $this->media()->create([
+            'disk' => 'public',
+            'path' => $path,
+            'name' => $file->getClientOriginalName(),
+            'file_name' => basename($path),
+            'mime_type' => $file->getMimeType(),
+            'size' => $file->getSize(),
+            'collection' => $collection,
+        ]);
+    }
+
+    public function getMedia(string $collection = 'default')
+    {
+        return $this->media()->where('collection', $collection)->get();
+    }
+}

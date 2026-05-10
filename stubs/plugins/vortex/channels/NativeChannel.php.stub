@@ -1,0 +1,20 @@
+<?php
+
+namespace {{ NAMESPACE }}\Channels\Vortex;
+
+use Illuminate\Notifications\Notification;
+
+class NativeChannel
+{
+    public function send($notifiable, Notification $notification): void
+    {
+        $data = $notification->toNativeVortex($notifiable);
+        
+        $notifiable->routeNotificationFor('database')->create([
+            'id' => $notification->id,
+            'type' => get_class($notification),
+            'data' => $data,
+            'read_at' => null,
+        ]);
+    }
+}

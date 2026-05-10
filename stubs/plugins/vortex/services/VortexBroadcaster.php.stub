@@ -1,0 +1,17 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Vortex;
+
+use Illuminate\Database\Eloquent\Model;
+
+class VortexBroadcaster
+{
+    public function broadcast(string $channel, array $data): void
+    {
+        // Native event dispatching logic
+        event(new \Illuminate\Notifications\Events\BroadcastNotificationCreated(
+            auth()->user(),
+            ['channel' => $channel, 'data' => $data]
+        ));
+    }
+}

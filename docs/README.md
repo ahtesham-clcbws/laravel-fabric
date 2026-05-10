@@ -35,7 +35,7 @@ Exploring the exhaustive list of 500+ forgeable artifacts.
 - **[Relational Tables](components/relationships.md)**: HasMany and ManyToMany.
 - **[Native Auditing](components/auditing.md)**: Zero-dependency activity logging.
 - **[Lean Media](components/media.md)**: Fast, disk-based file handling.
-- **[Shield ACL](components/acl.md)**: Native Role-based access control.
+- **[Permissions ACL](components/acl.md)**: Native Role-based access control.
 
 ### 🌐 [Headless API](api/forge.md)
 - **[API Forge](api/forge.md)**: Generating RESTful endpoints.

@@ -92,7 +92,7 @@ class FabricServiceProvider extends ServiceProvider
             \CLCBWS\Fabric\Commands\InstallCommand::class,
             \CLCBWS\Fabric\Commands\VerifyCommand::class,
             \CLCBWS\Fabric\Commands\GuardCommand::class,
-            \CLCBWS\Fabric\Commands\EnvShieldCommand::class,
+            \CLCBWS\Fabric\Commands\EnvSecurityCommand::class,
             \CLCBWS\Fabric\Commands\SentryCommand::class,
             \CLCBWS\Fabric\Commands\ImportCommand::class,
             \CLCBWS\Fabric\Commands\LintCommand::class,
@@ -108,7 +108,10 @@ class FabricServiceProvider extends ServiceProvider
             \CLCBWS\Fabric\Commands\LogCommand::class,
             \CLCBWS\Fabric\Commands\ReadyCommand::class,
             \CLCBWS\Fabric\Commands\FabricComponentCommand::class,
+            \CLCBWS\Fabric\Commands\FabricPluginCommand::class,
             \CLCBWS\Fabric\Commands\LexiconCommand::class,
+            \CLCBWS\Fabric\Commands\AnalyticsCommand::class,
+            \CLCBWS\Fabric\Commands\SnapshotCommand::class,
         ]);
     }
 

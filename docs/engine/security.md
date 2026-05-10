@@ -17,7 +17,7 @@ The `fabric:guard` command audits your models and controllers to ensure they fol
 
 ### Features
 - **Data Masking**: Automatically replaces PII (Personally Identifiable Information) with faked data during cloning or synchronization.
-- **Environment Shielding**: Prevents accidental execution of destructive commands (like `db:wipe`) in production environments.
+- **Environment Securitying**: Prevents accidental execution of destructive commands (like `db:wipe`) in production environments.
 - **Integrity Checks**: Validates that all cross-table foreign keys are consistent before any data manipulation.
 
 ## Authorization Patterns

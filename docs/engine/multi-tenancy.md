@@ -1,6 +1,6 @@
-# 🛡️ The Multi-Tenant Shield
+# 🛡️ The Multi-Tenant Security
 
-Building SaaS applications requires strict data isolation. Fabric's **Tenant Shield** allows you to scaffold entire resources that are "Tenant-Aware" by default.
+Building SaaS applications requires strict data isolation. Fabric's **Tenant Security** allows you to scaffold entire resources that are "Tenant-Aware" by default.
 
 ## 🚀 Activation
 To forge a tenant-scoped resource, use the `--tenant` flag:
@@ -27,4 +27,4 @@ You can customize the tenant key in `config/fabric.php`:
 ```
 
 ## 🔒 Security
-The Tenant Shield relies on Laravel's standard `auth()->user()` to retrieve the tenant ID. Ensure that your application has a robust authentication system (like the one provided by `fabric:auth`) and that your User model has the corresponding tenant key.
+The Tenant Security relies on Laravel's standard `auth()->user()` to retrieve the tenant ID. Ensure that your application has a robust authentication system (like the one provided by `fabric:auth`) and that your User model has the corresponding tenant key.

@@ -1,0 +1,25 @@
+<?php
+
+namespace {{ NAMESPACE }}\Traits\Dynasty;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
+
+trait HasParent
+{
+    public static function bootHasParent(): void
+    {
+        static::addGlobalScope('type', function (Builder $builder) {
+            $builder->where('type', static::class);
+        });
+
+        static::creating(function ($model) {
+            $model->type = static::class;
+        });
+    }
+
+    public function getTable(): string
+    {
+        return (new (get_parent_class($this)))->getTable();
+    }
+}

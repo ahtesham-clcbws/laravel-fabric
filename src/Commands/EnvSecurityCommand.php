@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\File;
 
 use Illuminate\Console\Command;
 
-class EnvShieldCommand extends Command
+class EnvSecurityCommand extends Command
 {
-    protected $signature = 'fabric:shield';
+    protected $signature = 'fabric:env-security';
     protected $description = 'Ensure parity between .env and .env.example to prevent configuration drift';
 
     public function handle()

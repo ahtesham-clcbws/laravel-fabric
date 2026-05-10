@@ -16,7 +16,7 @@ The engine scans your `composer.json` and matches it against Fabric's "Replaceme
 | `spatie/laravel-activitylog` | **Light-Audit (Auditable Trait)** |
 | `maatwebsite/excel` | **Atomic CSV Export/Import** |
 | `lab404/laravel-impersonate` | **Native Impersonation Engine** |
-| `spatie/laravel-permission` | **Shield ACL (HasRoles Trait)** |
+| `spatie/laravel-permission` | **Permissions ACL (HasRoles Trait)** |
 | `spatie/laravel-medialibrary` | **Lean-Media (HasFiles Trait)** |
 | `spatie/laravel-health` | **Native Health Dashboard** |
 

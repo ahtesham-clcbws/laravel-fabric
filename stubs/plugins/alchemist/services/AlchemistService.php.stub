@@ -1,0 +1,15 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Alchemist;
+
+use Illuminate\Support\Facades\File;
+
+class AlchemistService
+{
+    public function transmute(string $html, string $target): void
+    {
+        // Native transmutation logic: wrap HTML in a dynamic stub
+        $stub = "<div>\n    {$html}\n</div>";
+        File::put(resource_path("stubs/fabric/{$target}.stub"), $stub);
+    }
+}

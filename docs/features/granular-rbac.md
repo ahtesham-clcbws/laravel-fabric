@@ -1,6 +1,6 @@
-# 🛡️ Resource-Specific RBAC (Granular Shield)
+# 🛡️ Resource-Specific RBAC (Granular Security)
 
-The Granular Shield extension to our ACL system allows you to define per-resource permissions that are automatically enforced by the forged Fabric components.
+The Granular Security extension to our ACL system allows you to define per-resource permissions that are automatically enforced by the forged Fabric components.
 
 ## 🚀 How it Works
 When you register a resource in the `SearchRegistry`, you can now define an optional `permissions` array:

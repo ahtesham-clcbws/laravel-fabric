@@ -17,7 +17,7 @@ class JailCommand extends Command
         'spatie/laravel-activitylog' => 'Light-Audit',
         'maatwebsite/excel'           => 'Atomic CSV',
         'lab404/laravel-impersonate'  => 'Native Impersonation',
-        'spatie/laravel-permission'   => 'Shield ACL',
+        'spatie/laravel-permission'   => 'Permissions ACL',
         'spatie/laravel-medialibrary' => 'Lean-Media',
         'spatie/laravel-health'       => 'Health Dashboard',
         'spatie/laravel-backup'       => 'Native Backup (Coming Soon)',

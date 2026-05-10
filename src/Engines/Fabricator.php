@@ -40,6 +40,7 @@ readonly class Fabricator implements FabricatorContract
 
         $dataContract = $this->loom->introspect($modelClass);
         $dataContract['options'] = $options;
+        $dataContract['ecosystem'] = $this->detectEcosystem();
 
         // Weave missing relationships into the Model file
         $this->modelWeaver->weave($modelClass, $dataContract['relationships']);
@@ -151,5 +152,19 @@ readonly class Fabricator implements FabricatorContract
 
         $viewPath = \resource_path('views/' . \str_replace('.', '/', $this->viewCompiler->getViewPath($data)));
         return "{$viewPath}/{$filename}";
+    }
+
+    /**
+     * Intelligently detect the installed packages and native plugins.
+     */
+    protected function detectEcosystem(): array
+    {
+        return [
+            'permissions' => \class_exists('Spatie\Permission\Models\Role') ? 'spatie' : (\class_exists('App\Models\Permissions\Role') ? 'native' : 'none'),
+            'media'       => \class_exists('Spatie\MediaLibrary\MediaCollections\Models\Media') ? 'spatie' : (\class_exists('App\Models\Media\Media') ? 'native' : 'none'),
+            'audit'       => \class_exists('Spatie\Activitylog\Models\Activity') ? 'spatie' : (\class_exists('App\Models\Audit\Audit') ? 'native' : 'none'),
+            'tenancy'     => \class_exists('Stancl\Tenancy\Tenancy') ? 'spatie' : (\class_exists('App\Models\Tenancy\Tenant') ? 'native' : 'none'),
+            'settings'    => \class_exists('Spatie\LaravelSettings\Settings') ? 'spatie' : (\class_exists('App\Models\Settings\Setting') ? 'native' : 'none'),
+        ];
     }
 }

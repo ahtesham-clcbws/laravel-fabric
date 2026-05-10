@@ -103,7 +103,7 @@ Route::middleware(['web'])->prefix('{$prefix}')->group(function () {
                 'name' => $name,
                 'email' => $email,
                 'password' => \Illuminate\Support\Facades\Hash::make($password),
-                'role' => 'admin', // Shield ACL compatibility
+                'role' => 'admin', // Permissions ACL compatibility
             ]);
 
             $this->components->twoColumnDetail("User: {$email}", '<fg=green>Created</>');

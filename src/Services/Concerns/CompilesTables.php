@@ -221,7 +221,7 @@ trait CompilesTables
     {
         $output = "";
         
-        // Multi-Tenant Shield
+        // Multi-Tenant Security
         if ($data['tenant'] ?? false) {
             $tenantKey = \config('fabric.tenant_key', 'team_id');
             $output .= "            ->where('{$tenantKey}', auth()->user()->{$tenantKey})\n";

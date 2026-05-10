@@ -9,7 +9,7 @@ Fabric provides a comprehensive suite of artisan commands to manage your ghost s
 Forges a complete resource suite (Table, Editor, Show, and Test) for the given model.
 - `--theme=`: Specify a design framework (daisyui, preline, hyperui, floatui, tailwind).
 - `--runtime=`: Choose the engine (livewire, blade).
-- `--tenant`: Activate the **Multi-Tenant Shield** (scopes to `team_id`).
+- `--tenant`: Activate the **Multi-Tenant Security** (scopes to `team_id`).
 - `--force`: Overwrite existing files.
 
 ### `fabric:component {name}`

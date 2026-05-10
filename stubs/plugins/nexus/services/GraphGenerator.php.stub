@@ -1,0 +1,19 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Nexus;
+
+use Illuminate\Database\Eloquent\Model;
+
+class GraphGenerator
+{
+    public function toMermaid(array $models): string
+    {
+        $graph = "erDiagram\n";
+        
+        foreach ($models as $model) {
+            $graph .= "    {$model} ||--o{ RelatedModel : \"has\"\n";
+        }
+
+        return $graph;
+    }
+}

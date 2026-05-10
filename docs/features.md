@@ -18,8 +18,8 @@ A plain and simple list of everything Laravel Fabric brings to your project.
 ### ⚙️ System & Config
 - **Settings Forge**: Automatic UI generation for Spatie Settings classes.
 - **Spotlight Search**: Global command palette (Ctrl+K) to find anything instantly.
-- **Env Shield**: Visual indicators for local vs production environments.
-- **Multi-Tenant Shield**: Automatic data isolation via a single tenant key.
+- **Env Security**: Visual indicators for local vs production environments.
+- **Multi-Tenant Security**: Automatic data isolation via a single tenant key.
 
 ### 🛡️ Security & Governance
 - **Role Management**: Pre-integrated Spatie Permissions support.

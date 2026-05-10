@@ -321,15 +321,15 @@ Welcome to the exhaustive Fabric Knowledge Base. This section contains over 200+
 
 ---
 
-## 🛡️ 6. Security & Shield
+## 🛡️ 6. Permissions & Security
 
-### Q: What is "Shield ACL"?
+### Q: What is "Permissions ACL"?
 **A:** A native Role-Based Access Control system generated for your project.
 
 ### Q: Does it use Spatie Permissions?
 **A:** It can integrate with it, or use its own zero-dependency gate logic.
 
-### Q: What is the "Multi-Tenant Shield"?
+### Q: What is "Multi-Tenant Security"?
 **A:** An engine that automatically scopes all data to a `team_id` or `tenant_id`.
 
 ### Q: How do I enable multi-tenancy?
@@ -343,6 +343,21 @@ Welcome to the exhaustive Fabric Knowledge Base. This section contains over 200+
 
 ### Q: How do I restrict a model?
 **A:** Use `php artisan fabric:jail ModelName`.
+
+### Q: What is "Dynasty"?
+**A:** Fabric's native **Single Table Inheritance (STI)** engine. It allows multiple models to share a single database table while maintaining type safety.
+
+### Q: What is "Polyglot"?
+**A:** A native internationalization engine for PHP Enums, allowing you to translate enum labels into multiple languages without external packages.
+
+### Q: How fast is the "Hydrate" engine?
+**A:** Extremely fast. By using raw SQL bulk-inserts, it can hydrate 100,000+ records in sub-second time.
+
+### Q: What is "Snapshot"?
+**A:** A utility that captures your current database table data and reverse-engineers it into a portable PHP data stub for seeding other environments.
+
+### Q: What is "Analytics"?
+**A:** A built-in tool (`fabric:analytics`) to measure code density, project volume, and your "Forge ROI".
 
 ### Q: Is the generated code secure?
 **A:** Yes. We use standard Laravel best practices (CSRF, SQL Injection protection, etc.).

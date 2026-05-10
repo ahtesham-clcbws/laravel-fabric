@@ -3,7 +3,7 @@
 namespace {{ NAMESPACE }}\Traits;
 
 /**
- * 🧬 FORGED BY FABRIC (Shield ACL)
+ * 🧬 FORGED BY FABRIC (Permissions ACL)
  * A simple, zero-dependency role-based access control system.
  * Uses a single 'role' string column on the user table.
  */

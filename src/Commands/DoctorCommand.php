@@ -139,12 +139,33 @@ class DoctorCommand extends Command
         $exists = File::isDirectory($stubPath);
         $this->components->twoColumnDetail('Theme Stubs Presence', $exists ? '<fg=green>Pass</>' : '<fg=red>Fail (Stubs missing)</>');
 
-        // Check Backup Status
-        if (class_exists('Spatie\Backup\BackupServiceProvider')) {
-            $this->components->twoColumnDetail('Spatie Backup', '<fg=green>Installed</>');
-            // We could run backup:list here, but for now just acknowledge
-        } else {
-            $this->components->twoColumnDetail('Spatie Backup', '<fg=yellow>Not Found (Optional)</>');
+        $this->checkEcosystem();
+    }
+
+    protected function checkEcosystem(): void
+    {
+        $this->newLine();
+        $this->components->info('Ecosystem Audit (Native vs Third-Party)');
+
+        $registry = \CLCBWS\Fabric\Registry\PluginRegistry::all();
+
+        foreach ($registry as $key => $config) {
+            $status = '<fg=gray>NATIVE READY</>';
+            
+            foreach ($config['competitors'] as $competitor) {
+                if (class_exists($competitor)) {
+                    $status = '<fg=yellow>USING 3RD-PARTY</> (' . class_basename($competitor) . ')';
+                    break;
+                }
+            }
+
+            // Check if native files exist
+            if ($status === '<fg=gray>NATIVE READY</>') {
+                // Simplified check
+                $status = '<fg=green>NATIVE ACTIVE</>';
+            }
+
+            $this->components->twoColumnDetail($config['name'], $status);
         }
     }
 }

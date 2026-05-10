@@ -21,7 +21,7 @@
   - [Anonymizer](engine/anonymizer.md)
   - [Neural Context](engine/context.md)
   - [Prison (Jail)](engine/jail.md)
-  - [Shield (Multi-Tenancy)](engine/multi-tenancy.md)
+  - [Security (Multi-Tenancy)](engine/multi-tenancy.md)
 
 - **The CLI**
   - [Commands Reference](cli/commands.md)
@@ -42,7 +42,7 @@
   - [Tailgrids (SaaS)](design-systems/tailgrids.md)
 
 - **Components**
-  - [ACL (Shield)](components/acl.md)
+  - [ACL (Security)](components/acl.md)
   - [Auditing](components/auditing.md)
   - [Media (Lean)](components/media.md)
   - [Time Machine](components/time-machine.md)
@@ -63,4 +63,6 @@
 - **Support**
   - [Contact](README.md#support)
   - [FAQ](testaments/faq.md)
-  - [Glossary (Codenames)](testaments/lexicon.md)
+  - [Native Power (Philosophy)](plugins/native-power.md)
+  - [Native Plugin Usage](plugins/usage.md)
+  - [The Fabric Lexicon](testaments/lexicon.md)

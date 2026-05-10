@@ -144,8 +144,8 @@ readonly class ViewCompiler
             '{{ SORT_DIRECTION }}' => $data['options']['direction'] ?? 'desc',
             '{{ VERSION }}' => (string) time(),
             '{{ VIEW_PATH_PREFIX }}' => 'livewire.fabric',
-            '{{ PERMISSION_WRAPPER_START }}' => ($data['ecosystem']['permission'] ?? false) ? "@can('" . Str::snake($modelName) . ":manage')" : "",
-            '{{ ACCESS_DENIED_UI }}' => ($data['ecosystem']['permission'] ?? false) ? "
+            '{{ PERMISSION_WRAPPER_START }}' => ($data['ecosystem']['permissions'] !== 'none') ? "@can('" . Str::snake($modelName) . ":manage')" : "",
+            '{{ ACCESS_DENIED_UI }}' => ($data['ecosystem']['permissions'] !== 'none') ? "
     @else
     <div class=\"py-10 text-center\">
         <div class=\"opacity-50 mb-2\">🛡️</div>
@@ -153,7 +153,7 @@ readonly class ViewCompiler
         <p class=\"text-xs opacity-40 mt-1\">You do not have permission to manage this resource.</p>
         <button type=\"button\" wire:click=\"\$dispatch('closeModal')\" class=\"btn btn-ghost btn-sm mt-4\">Close</button>
     </div>" : "",
-            '{{ PERMISSION_WRAPPER_END }}' => ($data['ecosystem']['permission'] ?? false) ? "@endcan" : "",
+            '{{ PERMISSION_WRAPPER_END }}' => ($data['ecosystem']['permissions'] !== 'none') ? "@endcan" : "",
         ];
     }
 
