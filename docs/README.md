@@ -1,5 +1,8 @@
 # 📚 Fabric Technical Documentation
 
+[![Total Downloads](https://img.shields.io/packagist/dt/clcbws/laravel-fabric.svg?style=flat-square)](https://packagist.org/packages/clcbws/laravel-fabric)
+[![Stars](https://img.shields.io/github/stars/ahtesham-clcbws/laravel-fabric.svg?style=flat-square)](https://github.com/ahtesham-clcbws/laravel-fabric/stargazers)
+
 > [!IMPORTANT]
 > **🚀 PUBLIC BETA (v1.0.0-beta)**
 > This repository is now in **Public Beta Testing**. All core Forge engines (25+ Features) are operational. We are now accepting feedback and stress-testing the library lexicon across diverse design systems.
