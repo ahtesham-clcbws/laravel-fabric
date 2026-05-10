@@ -1,8 +1,8 @@
 # 📚 Fabric Technical Documentation
 
 > [!IMPORTANT]
-> **🚀 COMING SOON / PRIVATE BETA**
-> This repository is currently in **Hardened Private Beta**. We are finalizing the final 50+ features and performing deep-stress testing. Public access and the final v1.0.0 release are imminent.
+> **🚀 PUBLIC BETA (v1.0.0-beta)**
+> This repository is now in **Public Beta Testing**. All core Forge engines (25+ Features) are operational. We are now accepting feedback and stress-testing the library lexicon across diverse design systems.
 
 Welcome to the official technical documentation for **Laravel Livewire Fabric**. This guide is designed for developers who want to master the art of enterprise-grade ghost scaffolding using modern design frameworks like **DaisyUI** and **Preline**.
 
