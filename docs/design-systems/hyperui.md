@@ -1,21 +1,27 @@
-# 🚀 SaaS Libraries (FloatUI, HyperUI, Tailgrids)
+# 🎯 HyperUI (Product & Marketing)
 
-Fabric includes specialized libraries for SaaS and product-focused applications.
+HyperUI is a high-fidelity collection of free Tailwind CSS components. It is designed for fast-paced product development and high-converting marketing landing pages.
 
-## 🧵 Forging
-- `php artisan fabric:component floatui:{section}`
-- `php artisan fabric:component hyperui:{section}`
-- `php artisan fabric:component tailgrids:{section}`
+## 🧵 Forging HyperUI
+```bash
+php artisan fabric:component hyperui:{section}
+```
 
-## 💎 Common Atoms
-- `button`
-- `input`
-- `alert`
+## 💎 Smart Components
+- `button` (Strong, bold variants)
+- `alert` (Floating, high-visibility)
 - `badge`
+- `toggle`
+- `breadcrumbs`
+- `cart` (E-commerce ready)
+- `steps`
 
-## 🧱 Sections
-Each library provides specialized `hero-section`, `feature-section`, and `pricing-section` variants.
+## 🧱 Sections & Layouts
+- `hero-section` (Split, visual-heavy)
+- `feature-section` (Bento-inspired grids)
+- `blog-card-section`
+- `testimonial-section`
 
 ---
-> [!TIP]
-> Use `fabric:list` to compare the aesthetic differences between these libraries before forging.
+> [!NOTE]
+> HyperUI components in Fabric are 100% accessible and keyboard-friendly.

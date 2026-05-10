@@ -1,21 +1,27 @@
-# 🚀 SaaS Libraries (FloatUI, HyperUI, Tailgrids)
+# 🚀 FloatUI (Minimalist SaaS)
 
-Fabric includes specialized libraries for SaaS and product-focused applications.
+FloatUI is a collection of beautiful, interactive, and responsive UI components. It is optimized for clean, minimalist SaaS applications that prioritize speed and clarity.
 
-## 🧵 Forging
-- `php artisan fabric:component floatui:{section}`
-- `php artisan fabric:component hyperui:{section}`
-- `php artisan fabric:component tailgrids:{section}`
+## 🧵 Forging FloatUI
+```bash
+php artisan fabric:component floatui:{section}
+```
 
-## 💎 Common Atoms
-- `button`
-- `input`
-- `alert`
+## 💎 Smart Components
+- `button` (Minimalist, subtle transitions)
+- `input` (Clean, understated borders)
 - `badge`
+- `alert`
+- `pagination`
+- `tabs`
+- `dropdown`
 
-## 🧱 Sections
-Each library provides specialized `hero-section`, `feature-section`, and `pricing-section` variants.
+## 🧱 Key Sections
+- `hero-section` (Centered, conversion-focused)
+- `feature-section` (Grid-based, icon-rich)
+- `pricing-section` (Understated, clean typography)
+- `newsletter-section`
 
 ---
 > [!TIP]
-> Use `fabric:list` to compare the aesthetic differences between these libraries before forging.
+> FloatUI is the perfect choice for **Developer Tools** and **API Dashboards**.

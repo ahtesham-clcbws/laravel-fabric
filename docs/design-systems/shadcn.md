@@ -1,21 +1,24 @@
-# 🚀 SaaS Libraries (FloatUI, HyperUI, Tailgrids)
+# 🛡️ Shadcn (Atomic & Custom)
 
-Fabric includes specialized libraries for SaaS and product-focused applications.
+Shadcn is a set of beautifully designed components that you can copy and paste into your apps. In Fabric, we've automated this process, providing atomic building blocks that are easy to customize and theme.
 
-## 🧵 Forging
-- `php artisan fabric:component floatui:{section}`
-- `php artisan fabric:component hyperui:{section}`
-- `php artisan fabric:component tailgrids:{section}`
+## 🧵 Forging Shadcn
+```bash
+php artisan fabric:component shadcn:{section}
+```
 
-## 💎 Common Atoms
-- `button`
-- `input`
-- `alert`
-- `badge`
+## 💎 Smart Components
+- `button` (The standard-bearer)
+- `input` (Modern, focus-optimized)
+- `alert` (Clean, understated)
+- `badge` (Rounded, minimal)
+- `dialog` (Fluid, high-performance)
+- `popover`
 
-## 🧱 Sections
-Each library provides specialized `hero-section`, `feature-section`, and `pricing-section` variants.
+## 🧱 Layouts
+- `sidebar-layout` (The classic vertical nav)
+- `bento-layout` (Modern grid geometry)
 
 ---
 > [!TIP]
-> Use `fabric:list` to compare the aesthetic differences between these libraries before forging.
+> Shadcn is the go-to choice for developers who want a **"Custom-Built"** feel without the manual effort.

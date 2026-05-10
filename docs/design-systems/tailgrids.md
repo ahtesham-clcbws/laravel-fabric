@@ -1,21 +1,25 @@
-# 🚀 SaaS Libraries (FloatUI, HyperUI, Tailgrids)
+# 🏢 Tailgrids (Enterprise & Dashboard)
 
-Fabric includes specialized libraries for SaaS and product-focused applications.
+Tailgrids provides high-quality UI components and templates for Tailwind CSS. It is the powerhouse for building data-heavy dashboards and complex enterprise web applications.
 
-## 🧵 Forging
-- `php artisan fabric:component floatui:{section}`
-- `php artisan fabric:component hyperui:{section}`
-- `php artisan fabric:component tailgrids:{section}`
+## 🧵 Forging Tailgrids
+```bash
+php artisan fabric:component tailgrids:{section}
+```
 
-## 💎 Common Atoms
-- `button`
-- `input`
-- `alert`
-- `badge`
+## 💎 Smart Components
+- `button` (Industrial-grade, stable)
+- `input` (Validation-ready, sturdy)
+- `stat` (Metric-focused)
+- `progress`
+- `modal` (Heavyweight, feature-rich)
 
-## 🧱 Sections
-Each library provides specialized `hero-section`, `feature-section`, and `pricing-section` variants.
+## 🧱 Key Sections
+- `hero-section` (Professional, trustworthy)
+- `stats-section` (Grid-based data displays)
+- `table-section` (Sortable, filterable rows)
+- `team-section`
 
 ---
-> [!TIP]
-> Use `fabric:list` to compare the aesthetic differences between these libraries before forging.
+> [!IMPORTANT]
+> Tailgrids components are optimized for **Internal Tools** and **B2B Platforms**.
