@@ -136,6 +136,7 @@ class FabricServiceProvider extends ServiceProvider
             \CLCBWS\Fabric\Commands\RegisterCommand::class,
             \CLCBWS\Fabric\Commands\LoginCommand::class,
             \CLCBWS\Fabric\Commands\ForgeCommand::class,
+            \CLCBWS\Fabric\Commands\CheckCommand::class,
         ]);
     }
 
