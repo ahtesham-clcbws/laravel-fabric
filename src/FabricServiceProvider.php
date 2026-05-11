@@ -15,10 +15,12 @@ class FabricServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // 🧬 Context-Aware Path Resolution
-        $packagePath = \str_starts_with(__DIR__, 'phar://') 
-            ? \dirname(\dirname(\dirname(__DIR__))) . '/clcbws/laravel-fabric' // Inside vendor
-            : \dirname(__DIR__);
+        // 🧬 Bulletproof Path Resolution
+        $packagePath = \str_replace('\\', '/', \dirname(__DIR__));
+        if (\str_starts_with($packagePath, 'phar://')) {
+            // Strip the internal phar path and the 'bin/fabric.phar' part to get to the vendor root
+            $packagePath = \str_replace(['phar://', '/bin/fabric.phar', '/src'], '', $packagePath);
+        }
 
         $this->mountPharEngine();
 
@@ -55,9 +57,10 @@ class FabricServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $packagePath = \str_starts_with(__DIR__, 'phar://') 
-            ? \dirname(\dirname(\dirname(__DIR__))) . '/clcbws/laravel-fabric' 
-            : \dirname(__DIR__);
+        $packagePath = \str_replace('\\', '/', \dirname(__DIR__));
+        if (\str_starts_with($packagePath, 'phar://')) {
+            $packagePath = \str_replace(['phar://', '/bin/fabric.phar', '/src'], '', $packagePath);
+        }
 
         $this->loadViewsFrom($packagePath . '/resources/views', 'fabric');
 
