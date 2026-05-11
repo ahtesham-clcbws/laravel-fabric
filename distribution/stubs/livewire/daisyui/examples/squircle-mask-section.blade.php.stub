@@ -1,3 +1,0 @@
-<div class="size-32 bg-{{ PRIMARY }} rounded-[40px] shadow-2xl flex items-center justify-center text-white">
-            <svg class="size-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>

@@ -1,7 +1,0 @@
-<div class="space-y-4">
-        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">Outline Variants</h4>
-        <div class="flex flex-wrap gap-4 items-center">
-            <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-bold rounded-2xl border-2 border-{{ PRIMARY }} text-{{ PRIMARY }} hover:bg-{{ PRIMARY }} hover:text-white transition-all">Primary</button>
-            <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-bold rounded-2xl border-2 border-neutral-200 text-neutral-800 hover:bg-neutral-50 dark:border-neutral-800 dark:text-white transition-all">Neutral</button>
-        </div>
-    </div>

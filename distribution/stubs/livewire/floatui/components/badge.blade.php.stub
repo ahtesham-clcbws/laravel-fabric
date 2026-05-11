@@ -1,7 +1,0 @@
-@props([
-    'variant' => 'primary',
-])
-
-<span {{ $attributes->merge(['class' => 'px-3 py-1 text-sm font-medium rounded-full bg-{{ PRIMARY }}/10 text-{{ PRIMARY }}']) }}>
-    {{ $slot }}
-</span>

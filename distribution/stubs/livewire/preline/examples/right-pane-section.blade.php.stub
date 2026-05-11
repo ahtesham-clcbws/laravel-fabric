@@ -1,9 +1,0 @@
-<div class="h-full overflow-y-auto p-8" :style="`width: ${100 - width}%` transition-all duration-75">
-            <h4 class="text-xs font-black text-teal-500 uppercase tracking-widest mb-4">Worker Node</h4>
-            <div class="space-y-4">
-                <div class="h-4 w-full bg-neutral-100 dark:bg-neutral-800/50 rounded-lg"></div>
-                <div class="h-4 w-3/4 bg-neutral-100 dark:bg-neutral-800/50 rounded-lg"></div>
-            </div>
-        </div>
-    </div>
-</div>

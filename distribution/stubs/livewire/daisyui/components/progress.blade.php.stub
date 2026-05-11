@@ -1,7 +1,0 @@
-@props([
-    'variant' => 'primary', // primary, secondary, accent, info, success, warning, error
-    'value' => 0,
-    'max' => 100,
-])
-
-<progress {{ $attributes->merge(['class' => 'progress progress-' . $variant . ' w-full h-3 rounded-full']) }} value="{{ $value }}" max="{{ $max }}"></progress>

@@ -1,8 +1,0 @@
-<div class="w-full max-w-md mx-auto animate-pulse p-9">
-        <h1 class="h-2 bg-neutral-300 rounded-2xl w-52 dark:bg-neutral-600"></h1>
-
-        <p class="w-48 h-2 mt-6 bg-neutral-200 rounded-2xl dark:bg-neutral-700"></p>
-        <p class="w-full h-2 mt-4 bg-neutral-200 rounded-2xl dark:bg-neutral-700"></p>
-        <p class="w-64 h-2 mt-4 bg-neutral-200 rounded-2xl dark:bg-neutral-700"></p>
-        <p class="w-4/5 h-2 mt-4 bg-neutral-200 rounded-2xl dark:bg-neutral-700"></p>
-    </div>

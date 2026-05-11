@@ -1,9 +1,0 @@
-<div class="max-w-screen-xl mx-auto mt-16 px-4 text-neutral-600 md:px-8">
-            <div class="flex items-center justify-between text-sm text-neutral-600 font-medium">
-                <a href="javascript:void(0)" class="px-4 py-2 border rounded-2xl duration-150 hover:bg-neutral-50">Previous</a>
-                <div>
-                    Page {currentPage} of {pages.length}
-                </div>
-                <a href="javascript:void(0)" class="px-4 py-2 border rounded-2xl duration-150 hover:bg-neutral-50">Next</a>
-            </div>
-        </div>

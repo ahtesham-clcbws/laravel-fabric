@@ -1,7 +1,0 @@
-<div class="w-full flex items-center space-x-4 animate-pulse">
-        <div class="size-12 bg-neutral-100 rounded-full dark:bg-neutral-800"></div>
-        <div class="space-y-2 flex-1">
-            <div class="h-4 bg-neutral-100 rounded-md w-3/4 dark:bg-neutral-800"></div>
-            <div class="h-3 bg-neutral-100 rounded-md w-1/2 dark:bg-neutral-800"></div>
-        </div>
-    </div>

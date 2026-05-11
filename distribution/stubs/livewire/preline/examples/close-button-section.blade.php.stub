@@ -1,6 +1,0 @@
-<button 
-                    @click="open = false"
-                    class="absolute top-6 right-6 size-10 flex items-center justify-center rounded-2xl bg-neutral-50 text-neutral-400 hover:bg-neutral-100 dark:bg-neutral-800 dark:hover:bg-neutral-700 transition-colors z-10"
-                >
-                    <svg class="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-                </button>

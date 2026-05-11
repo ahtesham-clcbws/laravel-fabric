@@ -1,8 +1,0 @@
-<div class="artboard artboard-horizontal phone-1 bg-neutral-900 rounded-[40px] shadow-2xl flex items-center justify-center overflow-hidden relative group">
-        <div class="absolute inset-0 bg-gradient-to-tr from-{{ PRIMARY }}/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        <div class="text-center z-10">
-            <span class="block text-[10px] font-black text-white/50 uppercase tracking-[0.5em] mb-2">Artboard Node</span>
-            <span class="text-4xl font-black text-white tracking-tighter uppercase italic">320 × 568</span>
-        </div>
-    </div>
-</div>

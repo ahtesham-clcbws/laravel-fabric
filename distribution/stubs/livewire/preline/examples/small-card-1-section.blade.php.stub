@@ -1,6 +1,0 @@
-<div class="relative group overflow-hidden rounded-[32px] shadow-xl aspect-square">
-            <img class="size-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gallery Image">
-            <div class="absolute inset-0 bg-{{ PRIMARY }}/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                <svg class="size-8 text-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
-            </div>
-        </div>

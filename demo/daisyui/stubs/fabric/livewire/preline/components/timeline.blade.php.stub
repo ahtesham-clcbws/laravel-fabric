@@ -1,3 +1,0 @@
-<div class="relative pl-8 sm:pl-32 py-5 group">
-    {{ $slot }}
-</div>

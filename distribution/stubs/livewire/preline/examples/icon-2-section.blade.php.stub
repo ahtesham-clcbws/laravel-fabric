@@ -1,9 +1,0 @@
-<div class="text-center group">
-            <div class="size-16 bg-neutral-100 rounded-3xl flex items-center justify-center mx-auto mb-6 dark:bg-neutral-800 transition-all duration-500 group-hover:bg-teal-100 group-hover:text-teal-600 group-hover:scale-110">
-                <svg class="size-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
-            </div>
-            <h3 class="text-lg font-black text-neutral-800 dark:text-white tracking-tight mb-2">Community Driven</h3>
-            <p class="text-sm text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">
-                Collaborative development cycles fueled by a global community of agentic engineers.
-            </p>
-        </div>

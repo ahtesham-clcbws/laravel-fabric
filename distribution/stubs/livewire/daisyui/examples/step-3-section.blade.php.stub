@@ -1,6 +1,0 @@
-<div class="relative z-10 flex flex-col items-center gap-3">
-                <div class="size-12 rounded-full bg-neutral-100 text-neutral-400 flex items-center justify-center font-black dark:bg-neutral-800 dark:text-neutral-600">3</div>
-                <span class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Purify</span>
-            </div>
-        </div>
-    </div>

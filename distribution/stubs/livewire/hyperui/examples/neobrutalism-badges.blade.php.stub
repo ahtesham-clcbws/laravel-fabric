@@ -1,7 +1,0 @@
-<div class="flex flex-wrap gap-8 max-w-2xl mx-auto py-20 px-10 items-center justify-center">
-    <template x-for="color in ['bg-emerald-400', 'bg-{{ PRIMARY }}', 'bg-amber-400', 'bg-rose-400', 'bg-cyan-400']">
-        <span class="border-4 border-neutral-900 px-6 py-2 text-[10px] font-black uppercase tracking-widest italic shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.1)]" :class="color">
-            SYNC NODE V4
-        </span>
-    </template>
-</div>

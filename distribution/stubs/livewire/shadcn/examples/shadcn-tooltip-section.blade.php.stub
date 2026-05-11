@@ -1,7 +1,0 @@
-<div class="relative group cursor-help">
-        <span class="text-sm font-bold border-b border-dashed border-neutral-300 pb-0.5">Hover for Info</span>
-        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-neutral-900 text-white text-[10px] font-medium rounded-md opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap shadow-xl dark:bg-white dark:text-neutral-900">
-            Registry Auth Level: Master
-            <div class="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-neutral-900 dark:border-t-white"></div>
-        </div>
-    </div>

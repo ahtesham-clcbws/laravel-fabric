@@ -1,7 +1,0 @@
-<div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto py-20 px-10">
-  <template x-for="i in 4">
-    <div class="h-64 rounded-[48px] bg-neutral-50 dark:bg-neutral-900 border-2 border-dashed border-neutral-100 dark:border-neutral-800 flex items-center justify-center group hover:border-{{ PRIMARY }} transition-all cursor-pointer">
-        <span class="text-[10px] font-black text-neutral-300 uppercase tracking-widest group-hover:text-{{ PRIMARY }}" x-text="'NODE CLUSTER 0' + i"></span>
-    </div>
-  </template>
-</div>

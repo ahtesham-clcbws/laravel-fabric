@@ -1,8 +1,0 @@
-<div class="break-inside-avoid group">
-            <div class="p-10 bg-white border border-neutral-100 rounded-[40px] dark:bg-neutral-900 dark:border-neutral-800 shadow-sm transition-all duration-500 hover:shadow-xl">
-                <h4 class="text-xl font-black text-neutral-800 dark:text-white tracking-tight mb-4 group-hover:text-{{ PRIMARY }} transition-colors">Manifesto</h4>
-                <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium">
-                    The Fabric manifesto outlines our commitment to zero-dependency UI and automated code purity.
-                </p>
-            </div>
-        </div>

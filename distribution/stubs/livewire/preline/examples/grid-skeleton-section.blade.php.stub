@@ -1,6 +1,0 @@
-<div class="grid grid-cols-3 gap-6 animate-pulse">
-        <div class="h-32 bg-neutral-200 dark:bg-neutral-800 rounded-[32px]"></div>
-        <div class="h-32 bg-neutral-200 dark:bg-neutral-800 rounded-[32px]"></div>
-        <div class="h-32 bg-neutral-200 dark:bg-neutral-800 rounded-[32px]"></div>
-    </div>
-</div>

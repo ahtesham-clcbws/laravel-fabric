@@ -1,6 +1,0 @@
-<div class="size-32 bg-neutral-900 rounded-full shadow-2xl flex items-center justify-center text-white ring-8 ring-neutral-50 dark:ring-neutral-800 overflow-hidden">
-            <img class="size-full object-cover opacity-50" src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80">
-            <span class="absolute text-[10px] font-black uppercase tracking-widest">Masked</span>
-        </div>
-    </div>
-</div>

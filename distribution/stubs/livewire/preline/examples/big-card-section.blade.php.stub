@@ -1,7 +1,0 @@
-<div class="col-span-2 row-span-2 relative group overflow-hidden rounded-[40px] shadow-2xl">
-            <img class="size-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Gallery Image">
-            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                <h4 class="text-xl font-black text-white tracking-tight">Enterprise Orchestration</h4>
-                <p class="text-xs font-bold text-white/70 uppercase tracking-widest mt-1">High-Fidelity Dashboard</p>
-            </div>
-        </div>

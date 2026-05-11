@@ -1,7 +1,0 @@
-<nav class="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-neutral-400">
-        <a href="#" class="hover:text-{{ PRIMARY }} transition-colors">Cluster</a>
-        <svg class="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-        <a href="#" class="hover:text-{{ PRIMARY }} transition-colors">Registry</a>
-        <svg class="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-        <span class="text-neutral-800 dark:text-white">Active Node</span>
-    </nav>

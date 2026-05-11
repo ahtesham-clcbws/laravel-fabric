@@ -1,7 +1,0 @@
-<Avatar.Root
-          key={idx}
-          class="bg-white border-2 border-white h-10 w-10 flex items-center justify-center overflow-hidden rounded-full"
-        >
-          <Avatar.Image src={item.imgURL} class="object-cover" />
-          <Avatar.Fallback delayMs={600}>{item.name}</Avatar.Fallback>
-        </Avatar.Root>

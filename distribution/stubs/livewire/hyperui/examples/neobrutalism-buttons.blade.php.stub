@@ -1,5 +1,0 @@
-<div class="flex flex-wrap gap-12 max-w-4xl mx-auto py-20 px-10 items-center justify-center">
-    <button class="border-4 border-neutral-900 bg-white px-12 py-5 text-xs font-black uppercase tracking-widest italic shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">Provision Node</button>
-    <button class="border-4 border-neutral-900 bg-{{ PRIMARY }} px-12 py-5 text-xs font-black uppercase tracking-widest italic shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all text-white">Registry Sync</button>
-    <button class="border-4 border-neutral-900 bg-neutral-900 text-white px-12 py-5 text-xs font-black uppercase tracking-widest italic shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)] hover:bg-{{ PRIMARY }} transition-all">Audit Bridge</button>
-</div>

@@ -1,9 +1,0 @@
-<div class="p-8 border-t border-neutral-100 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-800/30">
-                    <button type="button" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-bold rounded-2xl bg-neutral-800 text-white hover:bg-neutral-900 shadow-xl transition-all">
-                        Logout
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

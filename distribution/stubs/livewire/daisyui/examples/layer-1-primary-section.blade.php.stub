@@ -1,5 +1,0 @@
-<div class="relative p-12 bg-white border border-neutral-100 rounded-[40px] shadow-2xl dark:bg-neutral-900 dark:border-neutral-800 text-center transition-all duration-500 group-hover:-translate-y-2">
-            <h4 class="text-lg font-black text-neutral-800 dark:text-white tracking-tight leading-none">Node Alpha</h4>
-            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest mt-3">Primary Tier</p>
-        </div>
-    </div>

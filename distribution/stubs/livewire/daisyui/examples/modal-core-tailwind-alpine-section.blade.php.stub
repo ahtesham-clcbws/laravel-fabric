@@ -1,7 +1,0 @@
-<div x-data="{ modal: false }">
-        <button 
-            @click="modal = true"
-            class="px-10 py-5 bg-neutral-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-2xl hover:bg-{{ PRIMARY }} transition-all"
-        >
-            Execute Modal
-        </button>

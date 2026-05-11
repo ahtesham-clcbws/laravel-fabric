@@ -1,7 +1,0 @@
-<div class="flex -space-x-4">
-        <template x-for="i in [1, 2, 3]">
-            <img class="size-12 rounded-xl border-2 border-white dark:border-neutral-900 object-cover shadow-lg" :src="`https://i.pravatar.cc/100?u=${i+20}`">
-        </template>
-        <div class="size-12 rounded-xl border-2 border-white dark:border-neutral-900 bg-neutral-900 flex items-center justify-center text-[8px] font-black text-white shadow-lg">+5</div>
-    </div>
-</div>

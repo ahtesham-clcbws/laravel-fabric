@@ -1,9 +1,0 @@
-@import "tailwindcss";
-
-@source "../**/*.blade.php";
-@source "../**/*.js";
-@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
-@source "../../storage/framework/views/*.php";
-
-@import "../../node_modules/daisyui/daisyui.css";
-@import "../../node_modules/daisyui/themes.css";

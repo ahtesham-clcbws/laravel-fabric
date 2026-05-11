@@ -1,7 +1,0 @@
-<div class="rounded-xl border border-neutral-200 bg-white text-neutral-950 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50 p-6">
-        <div class="flex flex-col space-y-1.5 mb-6">
-            <h3 class="text-base font-semibold leading-none tracking-tight">Resource Utilization</h3>
-            <p class="text-xs text-neutral-500">October 2024 - Cluster Sync Data</p>
-        </div>
-        
-        <div class="h-[300px] w-full relative">

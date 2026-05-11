@@ -1,9 +1,0 @@
-<div class="space-y-4">
-        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">Solid Variants</h4>
-        <div class="flex flex-wrap gap-4 items-center">
-            <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-bold rounded-2xl bg-{{ PRIMARY }} text-white hover:bg-{{ PRIMARY }}/90 shadow-lg shadow-{{ PRIMARY }}/20 transition-all">Primary</button>
-            <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-bold rounded-2xl bg-neutral-800 text-white hover:bg-neutral-900 shadow-xl transition-all">Neutral</button>
-            <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-bold rounded-2xl bg-teal-500 text-white hover:bg-teal-600 shadow-lg shadow-teal-500/20 transition-all">Success</button>
-            <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-bold rounded-2xl bg-rose-500 text-white hover:bg-rose-600 shadow-lg shadow-rose-500/20 transition-all">Danger</button>
-        </div>
-    </div>

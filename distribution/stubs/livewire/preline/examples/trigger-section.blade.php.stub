@@ -1,7 +1,0 @@
-<button 
-        @click="open = true"
-        type="button" 
-        class="py-3 px-6 inline-flex items-center gap-x-2 text-sm font-black rounded-2xl bg-{{ PRIMARY }} text-white hover:bg-{{ PRIMARY }}/90 shadow-xl shadow-{{ PRIMARY }}/20 transition-all"
-    >
-        Initiate Sync
-    </button>

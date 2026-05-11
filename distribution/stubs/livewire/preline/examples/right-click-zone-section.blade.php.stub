@@ -1,4 +1,0 @@
-<div class="p-24 border-4 border-dashed border-neutral-100 rounded-[40px] dark:border-neutral-800 transition-all hover:bg-neutral-50 dark:hover:bg-neutral-900/50 group cursor-context-menu">
-        <svg class="size-16 text-neutral-200 dark:text-neutral-800 mx-auto mb-6 transition-colors group-hover:text-{{ PRIMARY }}/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
-        <p class="text-sm font-black text-neutral-400 uppercase tracking-widest">Right-click anywhere in this zone to orchestrate</p>
-    </div>
