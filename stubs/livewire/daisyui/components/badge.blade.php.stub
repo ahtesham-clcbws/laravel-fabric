@@ -1,0 +1,8 @@
+@props([
+    'variant' => 'primary', // primary, secondary, accent, ghost, info, success, warning, error
+    'outline' => false,
+])
+
+<div {{ $attributes->merge(['class' => 'badge badge-' . $variant . ($outline ? ' badge-outline' : '') . ' rounded-lg px-3 py-3 font-bold uppercase text-[10px] tracking-widest']) }}>
+  {{ $slot }}
+</div>

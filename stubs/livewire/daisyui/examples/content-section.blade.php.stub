@@ -1,0 +1,7 @@
+<div class="p-16 flex justify-center">
+            <div class="text-center">
+                <h4 class="text-2xl font-black text-neutral-800 dark:text-white tracking-tight">Fabric Orchestrator</h4>
+                <p class="text-sm text-neutral-500 font-medium mt-2">Forging high-fidelity UI in the browser.</p>
+            </div>
+        </div>
+    </div>

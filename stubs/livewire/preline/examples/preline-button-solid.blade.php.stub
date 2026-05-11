@@ -1,0 +1,1 @@
+<button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-bold rounded-2xl bg-{{ PRIMARY }} text-white hover:bg-{{ PRIMARY }}/90 shadow-lg shadow-{{ PRIMARY }}/20 transition-all">Primary</button>

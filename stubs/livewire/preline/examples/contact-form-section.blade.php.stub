@@ -1,0 +1,25 @@
+<div class="p-10 bg-white border border-neutral-100 rounded-[40px] dark:bg-neutral-900 dark:border-neutral-800 shadow-2xl">
+            <form class="space-y-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label class="block text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">First Name</label>
+                        <input type="text" class="p-4 block w-full bg-neutral-50 border-transparent rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-800 dark:border-transparent dark:text-neutral-400 transition-all">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">Last Name</label>
+                        <input type="text" class="p-4 block w-full bg-neutral-50 border-transparent rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-800 dark:border-transparent dark:text-neutral-400 transition-all">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">Email Address</label>
+                    <input type="email" class="p-4 block w-full bg-neutral-50 border-transparent rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-800 dark:border-transparent dark:text-neutral-400 transition-all">
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">Project Brief</label>
+                    <textarea rows="4" class="p-4 block w-full bg-neutral-50 border-transparent rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-800 dark:border-transparent dark:text-neutral-400 transition-all"></textarea>
+                </div>
+                <button type="button" class="w-full py-4 px-6 bg-{{ PRIMARY }} text-white rounded-2xl font-black shadow-xl shadow-{{ PRIMARY }}/20 hover:bg-{{ PRIMARY }}/90 transition-all">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>

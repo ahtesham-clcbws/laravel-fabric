@@ -1,0 +1,5 @@
+<div>
+        <label for="username" class="block text-sm text-neutral-500 dark:text-neutral-300">Username</label>
+
+        <input type="text" placeholder="John Doe" class="block  mt-2 w-full placeholder-neutral-400/70 dark:placeholder-neutral-500 rounded-2xl border border-neutral-200 bg-white px-5 py-2.5 text-neutral-700 focus:border-{{ PRIMARY_BASE }}-400 focus:outline-none focus:ring focus:ring-{{ PRIMARY_BASE }}-300 focus:ring-opacity-40 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-300 dark:focus:border-{{ PRIMARY_BASE }}-300" />
+    </div>

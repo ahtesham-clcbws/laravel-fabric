@@ -1,0 +1,32 @@
+<div class="max-w-6xl mx-auto overflow-hidden bg-white border border-neutral-100 rounded-[48px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800 my-20">
+    <table class="w-full text-left">
+        <thead class="bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-100 dark:border-neutral-800">
+            <tr>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Node Cluster</th>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Sync Velocity</th>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic text-right">Status</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-50 dark:divide-neutral-800">
+            <template x-for="i in 5">
+                <tr class="group hover:bg-neutral-50/50 dark:hover:bg-neutral-950/50 transition-colors">
+                    <td class="px-10 py-6">
+                        <span class="block text-sm font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic" x-text="'SYNC-ALPHA-0' + i"></span>
+                        <span class="text-[8px] font-bold text-neutral-300 uppercase mt-1">Registry Provisioned</span>
+                    </td>
+                    <td class="px-10 py-6">
+                        <div class="flex items-center gap-4">
+                            <div class="grow h-1 bg-neutral-100 dark:bg-neutral-800 rounded-full max-w-[120px] overflow-hidden">
+                                <div class="h-full bg-{{ PRIMARY }} rounded-full" style="width: 82%"></div>
+                            </div>
+                            <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">82%</span>
+                        </div>
+                    </td>
+                    <td class="px-10 py-6 text-right">
+                        <span class="px-4 py-1.5 bg-emerald-500/10 text-emerald-500 rounded-full text-[8px] font-black uppercase tracking-widest italic">OPTIMAL SYNC</span>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</div>

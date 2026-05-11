@@ -1,0 +1,8 @@
+<div 
+            class="w-1.5 h-full bg-neutral-200 dark:bg-neutral-800 cursor-col-resize hover:bg-{{ PRIMARY }} transition-colors relative group"
+            @mousedown="startResize($event)"
+        >
+            <div class="absolute top-1/2 -left-3 -translate-y-1/2 size-8 bg-white border border-neutral-100 rounded-full shadow-lg flex items-center justify-center dark:bg-neutral-900 dark:border-neutral-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                <svg class="size-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 9l-3 3 3 3m8-6l3 3-3 3"/></svg>
+            </div>
+        </div>

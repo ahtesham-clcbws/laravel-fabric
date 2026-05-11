@@ -1,0 +1,14 @@
+<div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 border-t border-neutral-100 dark:border-neutral-900">
+        <h3 class="text-2xl font-black text-neutral-800 dark:text-white tracking-tight mb-12">Pricing FAQ</h3>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h4 class="text-lg font-black text-neutral-800 dark:text-white tracking-tight mb-3">Can I cancel anytime?</h4>
+                <p class="text-sm text-neutral-500 font-medium leading-relaxed">Yes. Your orchestration contract is monthly, and you can terminate the cluster sync at any time without penalties.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-black text-neutral-800 dark:text-white tracking-tight mb-3">Is there an enterprise tier?</h4>
+                <p class="text-sm text-neutral-500 font-medium leading-relaxed">For massive forge clusters and custom security manifests, please contact our sales architects for a tailored proposal.</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+@props([
+    'label' => null,
+    'id' => null
+])
+
+@php
+    $id = $id ?? $attributes->whereStartsWith('wire:model')->first() ?? Str::random(8);
+@endphp
+
+<div class="form-control w-full">
+    @if($label)
+        <label for="{{ $id }}" class="label">
+            <span class="label-text">{{ $label }}</span>
+        </label>
+    @endif
+    
+    <textarea 
+        id="{{ $id }}" 
+        {{ $attributes->merge(['class' => 'textarea textarea-bordered h-24 w-full']) }}
+    ></textarea>
+    
+    @error($attributes->whereStartsWith('wire:model')->first())
+        <p class="mt-2 text-sm text-error">{{ $message }}</p>
+    @enderror
+</div>

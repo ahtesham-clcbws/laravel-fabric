@@ -1,0 +1,17 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Snapshot;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+
+class SnapshotService
+{
+    public function take(string $table): void
+    {
+        $data = DB::table($table)->get();
+        $stub = "<?php\n\nreturn " . var_export($data->toArray(), true) . ";";
+        
+        File::put(base_path("stubs/fabric/snapshots/{$table}.php"), $stub);
+    }
+}

@@ -1,0 +1,15 @@
+<?php
+
+namespace {{ NAMESPACE }}\Models\Backups;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Backup extends Model
+{
+    protected $fillable = ['disk', 'path', 'filename', 'size', 'status', 'type'];
+
+    public function getFullPath(): string
+    {
+        return storage_path("app/{$this->path}");
+    }
+}

@@ -1,0 +1,20 @@
+<div x-data="{ val: 50 }" class="max-w-md mx-auto space-y-6">
+    <div class="flex justify-between items-end px-1">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Sync Intensity</h4>
+        <span class="text-3xl font-black text-{{ PRIMARY }} tracking-tighter" x-text="val + '%'"></span>
+    </div>
+    <div class="relative h-4 flex items-center group">
+        <input 
+            type="range" 
+            x-model="val"
+            min="0" max="100"
+            class="w-full h-1.5 bg-neutral-100 rounded-full appearance-none cursor-pointer accent-{{ PRIMARY }} dark:bg-neutral-800"
+        >
+        <!-- Custom thumb styling via accent-color is standard, but we could do more complex if needed -->
+    </div>
+    <div class="flex justify-between text-[8px] font-bold text-neutral-300 uppercase tracking-widest px-1">
+        <span>Silent</span>
+        <span>Standard</span>
+        <span>Quantum</span>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="space-y-16 py-12 px-4 max-w-[85rem] mx-auto">
+    <!-- Tailgrids Dashboard Stats -->
+    <div class="grid md:grid-cols-4 gap-8">
+        <template x-for="stat in [
+            { label: 'Network Pulse', val: '98.2%', delta: '+1.2%', color: '{{ PRIMARY }}' },
+            { label: 'Active Nodes', val: '1,429', delta: '+24', color: 'emerald-500' },
+            { label: 'Security Gate', val: 'Locked', delta: '0 Breaches', color: 'blue-500' },
+            { label: 'Latency', val: '12ms', delta: '-2ms', color: 'rose-500' }
+        ]">
+            <div class="p-8 bg-white border border-neutral-100 rounded-[40px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest" x-text="stat.label"></span>
+                    <span class="text-[8px] font-black text-emerald-500 uppercase tracking-widest bg-emerald-50 px-2 py-1 rounded-full" x-text="stat.delta"></span>
+                </div>
+                <div class="text-3xl font-black text-neutral-800 dark:text-white tracking-tighter" :class="`text-${stat.color}`" x-text="stat.val"></div>
+            </div>
+        </template>
+    </div>
+
+    <!-- Tailgrids Settings Panel -->
+    <div class="grid lg:grid-cols-3 gap-12">
+        <div class="lg:col-span-2 p-12 bg-white border border-neutral-100 rounded-[40px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+            <h3 class="text-xl font-black text-neutral-800 dark:text-white tracking-tight uppercase italic mb-10">Node Configuration</h3>
+            <form class="space-y-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">Node Identifier</label>
+                        <input type="text" value="FABRIC-CORE-001" class="w-full px-6 py-4 rounded-2xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} focus:bg-white transition-all outline-none text-sm font-bold dark:bg-neutral-800 dark:focus:bg-neutral-700">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">Sync Protocol</label>
+                        <select class="w-full px-6 py-4 rounded-2xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} focus:bg-white transition-all outline-none text-sm font-bold appearance-none dark:bg-neutral-800 dark:focus:bg-neutral-700">
+                            <option>WebSocket/WSS</option>
+                            <option>HTTP Polling</option>
+                            <option>Quantum Bridge</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="px-10 py-4 bg-neutral-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-xl hover:bg-{{ PRIMARY }} transition-all">Save Config</button>
+                    <button class="px-10 py-4 border-2 border-neutral-100 text-neutral-400 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-neutral-50 transition-all dark:border-neutral-800">Reset</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- System Health -->
+        <div class="p-10 bg-neutral-900 rounded-[40px] shadow-2xl relative overflow-hidden">
+            <div class="absolute -bottom-10 -right-10 size-48 bg-{{ PRIMARY }}/20 rounded-full blur-3xl"></div>
+            <h4 class="text-[10px] font-black text-white/50 uppercase tracking-[0.3em] mb-12">Core Diagnostics</h4>
+            <div class="space-y-8">
+                <template x-for="item in [{ l: 'CPU Load', v: 45, c: '{{ PRIMARY }}' }, { l: 'Memory', v: 72, c: 'emerald-500' }, { l: 'Disk Ops', v: 18, c: 'blue-500' }]">
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-[10px] font-bold text-white uppercase tracking-widest">
+                            <span x-text="item.l"></span>
+                            <span x-text="item.v + '%'"></span>
+                        </div>
+                        <div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                            <div class="h-full rounded-full transition-all duration-1000" :style="`width: ${item.v}%; background-color: ${item.c === '{{ PRIMARY }}' ? 'var(--primary)' : item.c}`" :class="item.c === '{{ PRIMARY }}' ? 'bg-{{ PRIMARY }}' : ''"></div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</div>

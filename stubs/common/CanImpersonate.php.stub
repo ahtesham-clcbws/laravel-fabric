@@ -1,0 +1,35 @@
+<?php
+
+namespace {{ NAMESPACE }}\Traits;
+
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+
+/**
+ * 🧬 FORGED BY FABRIC (Native Impersonation)
+ * This trait allows administrators to securely log in as any user.
+ * No external packages required.
+ */
+trait CanImpersonate
+{
+    public function impersonate($user)
+    {
+        Session::put('fabric_impersonator_id', Auth::id());
+        Auth::login($user);
+    }
+
+    public function leaveImpersonation()
+    {
+        if (!Session::has('fabric_impersonator_id')) {
+            return;
+        }
+
+        Auth::loginUsingId(Session::get('fabric_impersonator_id'));
+        Session::forget('fabric_impersonator_id');
+    }
+
+    public function isImpersonated(): bool
+    {
+        return Session::has('fabric_impersonator_id');
+    }
+}

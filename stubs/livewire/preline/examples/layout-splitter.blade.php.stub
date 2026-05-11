@@ -1,0 +1,48 @@
+<div class="max-w-4xl mx-auto py-12 px-4" x-data="{ 
+    width: 50,
+    startResize(e) {
+        const startX = e.clientX;
+        const startWidth = this.width;
+        const onMouseMove = (moveEvent) => {
+            const diff = ((moveEvent.clientX - startX) / $el.parentElement.offsetWidth) * 100;
+            this.width = Math.min(Math.max(startWidth + diff, 20), 80);
+        };
+        const onMouseUp = () => {
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        };
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    }
+}">
+    <div class="relative flex h-[400px] border border-neutral-100 rounded-[40px] overflow-hidden dark:border-neutral-800 shadow-2xl bg-white dark:bg-neutral-950">
+        <!-- Left Pane -->
+        <div class="h-full overflow-y-auto bg-neutral-50/50 dark:bg-neutral-900/30 p-8" :style="`width: ${width}%` transition-all duration-75">
+            <h4 class="text-xs font-black text-{{ PRIMARY }} uppercase tracking-widest mb-4">Master Node</h4>
+            <div class="space-y-4">
+                <div class="h-4 w-3/4 bg-neutral-200 dark:bg-neutral-800 rounded-lg"></div>
+                <div class="h-4 w-full bg-neutral-100 dark:bg-neutral-800/50 rounded-lg"></div>
+                <div class="h-4 w-1/2 bg-neutral-100 dark:bg-neutral-800/50 rounded-lg"></div>
+            </div>
+        </div>
+
+        <!-- Splitter Handle -->
+        <div 
+            class="w-1.5 h-full bg-neutral-200 dark:bg-neutral-800 cursor-col-resize hover:bg-{{ PRIMARY }} transition-colors relative group"
+            @mousedown="startResize($event)"
+        >
+            <div class="absolute top-1/2 -left-3 -translate-y-1/2 size-8 bg-white border border-neutral-100 rounded-full shadow-lg flex items-center justify-center dark:bg-neutral-900 dark:border-neutral-800 opacity-0 group-hover:opacity-100 transition-opacity">
+                <svg class="size-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 9l-3 3 3 3m8-6l3 3-3 3"/></svg>
+            </div>
+        </div>
+
+        <!-- Right Pane -->
+        <div class="h-full overflow-y-auto p-8" :style="`width: ${100 - width}%` transition-all duration-75">
+            <h4 class="text-xs font-black text-teal-500 uppercase tracking-widest mb-4">Worker Node</h4>
+            <div class="space-y-4">
+                <div class="h-4 w-full bg-neutral-100 dark:bg-neutral-800/50 rounded-lg"></div>
+                <div class="h-4 w-3/4 bg-neutral-100 dark:bg-neutral-800/50 rounded-lg"></div>
+            </div>
+        </div>
+    </div>
+</div>

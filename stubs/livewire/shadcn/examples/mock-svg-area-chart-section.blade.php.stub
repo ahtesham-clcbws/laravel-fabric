@@ -1,0 +1,9 @@
+<svg class="w-full h-full" viewBox="0 0 1000 300" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="{{ PRIMARY }}" stop-opacity="0.3" />
+                        <stop offset="100%" stop-color="{{ PRIMARY }}" stop-opacity="0" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,250 L100,220 L200,240 L300,180 L400,200 L500,150 L600,170 L700,120 L800,140 L900,80 L1000,100 L1000,300 L0,300 Z" fill="url(#chartGradient)" />
+                <path d="M0,250 L100,220 L200,240 L300,180 L400,200 L500,150 L600,170 L700,120 L800,140 L900,80 L1000,100" fill="none" stroke="{{ PRIMARY }}" stroke-width="2" />

@@ -1,0 +1,6 @@
+<div class="flex flex-wrap items-center justify-center gap-6">
+    <span class="px-6 py-2 bg-neutral-900 text-white rounded-xl text-[10px] font-black uppercase tracking-[0.2em] shadow-2xl shadow-neutral-900/20">Master Node</span>
+    <span class="px-6 py-2 bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} border border-{{ PRIMARY }}/20 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] italic">Orchestrator</span>
+    <span class="px-6 py-2 bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 rounded-xl text-[10px] font-black uppercase tracking-[0.2em]">Synchronized</span>
+    <span class="px-6 py-2 bg-rose-500/10 text-rose-500 border border-rose-500/20 rounded-xl text-[10px] font-black uppercase tracking-[0.2em]">High Priority</span>
+</div>

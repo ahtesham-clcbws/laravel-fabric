@@ -1,0 +1,34 @@
+<section class="overflow-hidden rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 transition-all duration-500 shadow-sm sm:grid sm:grid-cols-2">
+    <div class="p-8 md:p-12 lg:px-16 lg:py-24 flex flex-col justify-center">
+        <div class="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+            <h2 class="text-2xl font-black text-neutral-800 dark:text-white md:text-3xl tracking-tight">
+                Ready to forge your next big idea?
+            </h2>
+
+            <p class="hidden text-neutral-500 dark:text-neutral-400 md:mt-4 md:block leading-relaxed">
+                Join thousands of developers using Fabric to build production-grade Laravel applications in record time. Zero bloat, maximum performance.
+            </p>
+
+            <div class="mt-4 md:mt-8 flex flex-wrap gap-4 justify-center sm:justify-start">
+                <a
+                    href="#"
+                    class="inline-block rounded-2xl bg-{{ PRIMARY }} px-12 py-4 text-sm font-bold text-white transition hover:bg-{{ PRIMARY }}/90 focus:outline-none shadow-lg shadow-{{ PRIMARY }}/20"
+                >
+                    Get Started Today
+                </a>
+                <a
+                    href="#"
+                    class="inline-block rounded-2xl border-2 border-{{ PRIMARY }} px-12 py-4 text-sm font-bold text-{{ PRIMARY }} transition hover:bg-{{ PRIMARY }} hover:text-white focus:outline-none"
+                >
+                    View Source
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <img
+        alt=""
+        src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2074&q=80"
+        class="h-56 w-full object-cover sm:h-full transition-transform duration-700 hover:scale-105"
+    />
+</section>

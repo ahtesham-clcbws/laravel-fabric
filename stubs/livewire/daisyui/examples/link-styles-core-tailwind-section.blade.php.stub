@@ -1,0 +1,8 @@
+<div class="flex flex-wrap justify-center gap-12">
+        <a href="#" class="text-sm font-black text-{{ PRIMARY }} uppercase tracking-widest hover:tracking-[0.2em] transition-all duration-500">Fabric Link</a>
+        <a href="#" class="text-sm font-black text-neutral-400 uppercase tracking-widest relative group">
+            Manifest Link
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-{{ PRIMARY }} transition-all duration-500 group-hover:w-full"></span>
+        </a>
+    </div>
+</div>

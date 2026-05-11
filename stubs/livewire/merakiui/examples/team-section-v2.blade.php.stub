@@ -1,0 +1,24 @@
+<section class="bg-white dark:bg-neutral-900 py-32 px-10">
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 gap-32 lg:grid-cols-2 lg:items-center">
+            <div>
+                <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">REGISTRY ARCHITECTS</span>
+                <h2 class="text-7xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-[0.9]">Meet the <span class="text-{{ PRIMARY }}">Orchestrators</span></h2>
+                <p class="mt-8 text-lg text-neutral-500 font-medium leading-relaxed italic">Our team of high-fidelity sync specialists are dedicated to maintaining zero-dependency node clusters across the global registry.</p>
+                <button class="mt-12 px-12 py-5 bg-neutral-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-2xl hover:bg-{{ PRIMARY }} transition-all italic">Join the Cluster ➔</button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                <template x-for="i in 4">
+                    <div class="group text-center">
+                        <div class="relative overflow-hidden rounded-[48px] aspect-square mb-8 shadow-2xl border border-white/10">
+                            <img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" src="https://i.pravatar.cc/400?u=meraki-team-v2" alt="Architect">
+                        </div>
+                        <h4 class="text-xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic">Ahtesham Khan</h4>
+                        <p class="mt-2 text-[10px] font-bold text-neutral-400 uppercase tracking-widest italic">Registry Specialist</p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</section>

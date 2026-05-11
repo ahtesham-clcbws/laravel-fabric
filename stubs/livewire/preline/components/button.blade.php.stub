@@ -1,0 +1,71 @@
+@props([
+    'variant' => 'solid', // solid, soft, outline, ghost, link
+    'color' => 'primary', // primary, neutral, success, danger, warning, info
+    'size' => 'md',      // xs, sm, md, lg, xl
+    'icon' => null,
+    'iconRight' => null,
+    'loading' => false,
+])
+
+@php
+    $baseClasses = 'inline-flex items-center justify-center gap-x-2 font-bold transition-all duration-300 disabled:opacity-50 disabled:pointer-events-none';
+    
+    $sizeClasses = [
+        'xs' => 'py-1.5 px-2.5 text-xs rounded-xl',
+        'sm' => 'py-2 px-3 text-sm rounded-xl',
+        'md' => 'py-3 px-4 text-sm rounded-2xl',
+        'lg' => 'py-3.5 px-5 text-base rounded-2xl',
+        'xl' => 'py-4 px-6 text-lg rounded-3xl',
+    ][$size] ?? 'py-3 px-4 text-sm rounded-2xl';
+
+    $variants = [
+        'solid' => [
+            'primary' => 'bg-{{ PRIMARY }} text-white hover:bg-{{ PRIMARY }}/90 shadow-lg shadow-{{ PRIMARY }}/20',
+            'neutral' => 'bg-neutral-800 text-white hover:bg-neutral-900 shadow-xl',
+            'success' => 'bg-teal-500 text-white hover:bg-teal-600 shadow-lg shadow-teal-500/20',
+            'danger'  => 'bg-rose-500 text-white hover:bg-rose-600 shadow-lg shadow-rose-500/20',
+            'warning' => 'bg-amber-500 text-white hover:bg-amber-600 shadow-lg shadow-amber-500/20',
+            'info'    => 'bg-blue-500 text-white hover:bg-blue-600 shadow-lg shadow-blue-500/20',
+        ],
+        'soft' => [
+            'primary' => 'bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} hover:bg-{{ PRIMARY }}/20',
+            'neutral' => 'bg-neutral-100 text-neutral-800 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-200',
+            'success' => 'bg-teal-100 text-teal-600 hover:bg-teal-200 dark:bg-teal-500/10 dark:text-teal-400',
+            'danger'  => 'bg-rose-100 text-rose-600 hover:bg-rose-200 dark:bg-rose-500/10 dark:text-rose-400',
+            'warning' => 'bg-amber-100 text-amber-600 hover:bg-amber-200 dark:bg-amber-500/10 dark:text-amber-400',
+            'info'    => 'bg-blue-100 text-blue-600 hover:bg-blue-200 dark:bg-blue-500/10 dark:text-blue-400',
+        ],
+        'outline' => [
+            'primary' => 'border-2 border-{{ PRIMARY }} text-{{ PRIMARY }} hover:bg-{{ PRIMARY }} hover:text-white',
+            'neutral' => 'border-2 border-neutral-200 text-neutral-800 hover:bg-neutral-50 dark:border-neutral-800 dark:text-white',
+            'success' => 'border-2 border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white',
+            'danger'  => 'border-2 border-rose-500 text-rose-500 hover:bg-rose-500 hover:text-white',
+        ],
+        'ghost' => [
+            'primary' => 'text-{{ PRIMARY }} hover:bg-{{ PRIMARY }}/10',
+            'neutral' => 'text-neutral-800 hover:bg-neutral-100 dark:text-white dark:hover:bg-neutral-800',
+        ],
+        'link' => [
+            'primary' => 'text-{{ PRIMARY }} underline-offset-4 hover:underline',
+            'neutral' => 'text-neutral-800 underline-offset-4 hover:underline dark:text-white',
+        ]
+    ];
+
+    $variantClasses = $variants[$variant][$color] ?? ($variants['solid'][$color] ?? $variants['solid']['primary']);
+    
+    $classes = $baseClasses . ' ' . $sizeClasses . ' ' . $variantClasses;
+@endphp
+
+<button {{ $attributes->merge(['type' => 'button', 'class' => $classes]) }} @if($loading) disabled @endif>
+    @if($loading)
+        <svg class="animate-spin size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+    @elseif($icon)
+        {{ $icon }}
+    @endif
+
+    {{ $slot }}
+
+    @if($iconRight && !$loading)
+        {{ $iconRight }}
+    @endif
+</button>

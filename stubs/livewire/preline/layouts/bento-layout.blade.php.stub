@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config('app.name', 'Laravel') }} - Preline Bento</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
+</head>
+<body class="bg-neutral-50 dark:bg-neutral-950 min-h-screen p-4 sm:p-6 lg:p-12 font-sans">
+    <header class="mb-12 bg-white/80 backdrop-blur-md border border-neutral-200 rounded-3xl p-8 dark:bg-neutral-900/80 dark:border-neutral-800 transition-all duration-500 shadow-xl shadow-neutral-200/50 dark:shadow-none">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+            <div class="space-y-1">
+                <h1 class="text-3xl font-black text-neutral-800 dark:text-white tracking-tight">Fabric Intelligence</h1>
+                <p class="text-neutral-500 dark:text-neutral-400 font-medium">Real-time system orchestration & resource forge status.</p>
+            </div>
+            <div class="flex items-center gap-4 bg-neutral-100 dark:bg-neutral-800 p-2 rounded-2xl">
+                <div class="text-right hidden sm:block px-2">
+                    <p class="text-sm font-bold text-neutral-800 dark:text-white">Ahtesham Khan</p>
+                    <p class="text-[10px] font-bold text-{{ PRIMARY }} uppercase tracking-widest">Architect</p>
+                </div>
+                <div class="size-12 rounded-xl bg-{{ PRIMARY }} flex items-center justify-center text-white font-black text-xl shadow-lg shadow-{{ PRIMARY }}/20">A</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <!-- Main Content Area -->
+        <div class="md:col-span-2 lg:col-span-4 space-y-8">
+            {{ $slot }}
+        </div>
+
+        <!-- Sidebar / Stats Area -->
+        <div class="md:col-span-1 lg:col-span-2 space-y-8">
+            <div class="bg-white border border-neutral-200 rounded-3xl p-8 dark:bg-neutral-900 dark:border-neutral-800 shadow-sm">
+                <h3 class="font-bold text-neutral-800 dark:text-white mb-4">Quick Stats</h3>
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-neutral-500">Resources Forged</span>
+                        <span class="text-sm font-bold text-{{ PRIMARY }}">1,284</span>
+                    </div>
+                    <div class="w-full bg-neutral-100 dark:bg-neutral-800 h-2 rounded-full overflow-hidden">
+                        <div class="bg-{{ PRIMARY }} h-full w-[75%]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    @livewireScripts
+</body>
+</html>

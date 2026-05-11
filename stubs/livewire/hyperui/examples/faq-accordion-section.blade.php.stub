@@ -1,0 +1,21 @@
+<div class="space-y-4 max-w-4xl mx-auto py-20 px-10">
+  <template x-for="i in [1, 2, 3]">
+    <details class="group rounded-[32px] bg-white border border-neutral-100 p-8 dark:bg-neutral-900 dark:border-neutral-800 [&_summary::-webkit-details-marker]:hidden" :open="i === 1">
+      <summary class="flex cursor-pointer items-center justify-between gap-1.5 text-neutral-800 dark:text-white">
+        <h2 class="text-sm font-black uppercase tracking-widest italic">
+          How is high-fidelity orchestration provisioned?
+        </h2>
+
+        <div class="size-10 rounded-xl bg-neutral-50 dark:bg-neutral-950 flex items-center justify-center text-neutral-400 group-open:bg-{{ PRIMARY }} group-open:text-white transition-all">
+          <svg class="size-5 shrink-0 transition duration-300 group-open:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+      </summary>
+
+      <p class="mt-6 leading-relaxed text-neutral-500 font-medium text-sm">
+        Fabric's orchestration nodes are provisioned using 100% Core Tailwind CSS logic and Alpine.js for lightweight state management. This ensures zero-dependency performance across all global registries.
+      </p>
+    </details>
+  </template>
+</div>

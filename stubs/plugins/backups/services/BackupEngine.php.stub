@@ -1,0 +1,31 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Backups;
+
+use {{ NAMESPACE }}\Models\Backups\Backup;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
+class BackupEngine
+{
+    public function run(): Backup
+    {
+        $filename = "backup-" . now()->format('Y-m-d-H-i-s') . ".sql";
+        $path = "backups/{$filename}";
+
+        // Native MySQL Dump logic (Simplified for stub)
+        $config = config('database.connections.' . config('database.default'));
+        
+        // This would use a native command or library-agnostic logic
+        // For the stub, we represent the result
+        
+        return Backup::create([
+            'disk' => 'local',
+            'path' => $path,
+            'filename' => $filename,
+            'size' => 0, // Calculated after dump
+            'status' => 'completed',
+            'type' => 'database'
+        ]);
+    }
+}

@@ -1,0 +1,9 @@
+<section class="max-w-4xl mx-auto py-32 px-10 text-center">
+    <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-8 block italic">PROVISIONING CLUSTER V2</span>
+    <h1 class="text-7xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-[0.9]">Orchestrate Your Neural Registry</h1>
+    <p class="mt-10 text-lg text-neutral-500 font-medium leading-relaxed max-w-2xl mx-auto">High-fidelity provisioning engine for global node clusters. 100% dependency-free architecture built for scale.</p>
+    <div class="mt-12 flex flex-wrap justify-center gap-6">
+        <button class="px-12 py-5 bg-neutral-900 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-2xl hover:bg-{{ PRIMARY }} transition-all">Start Provisioning</button>
+        <button class="px-12 py-5 border-2 border-neutral-100 text-neutral-800 rounded-2xl text-xs font-black uppercase tracking-widest hover:border-{{ PRIMARY }} transition-all dark:text-white dark:border-neutral-800">Documentation</button>
+    </div>
+</section>

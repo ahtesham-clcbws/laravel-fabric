@@ -1,0 +1,39 @@
+<div x-data="{ show: true }">
+    <!-- Center Fixed Overlay -->
+    <div 
+        x-show="show" 
+        x-transition:enter="transition ease-out duration-500"
+        x-transition:enter-start="opacity-0 translate-y-12"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-cloak
+        class="fixed bottom-8 inset-x-4 md:inset-x-auto md:end-8 z-[100] max-w-sm w-full"
+    >
+        <div class="p-8 bg-white border border-neutral-100 rounded-[40px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] dark:bg-neutral-950 dark:border-neutral-900 transition-all">
+            <div class="flex items-center gap-x-3 mb-6">
+                <div class="size-12 rounded-2xl bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} flex items-center justify-center">
+                    <svg class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></svg>
+                </div>
+                <h4 class="text-xl font-black text-neutral-800 dark:text-white tracking-tight">Privacy Center</h4>
+            </div>
+
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium mb-8">
+                We use high-fidelity cookies to orchestrate your experience and ensure the purity of our agentic algorithms.
+            </p>
+
+            <div class="flex flex-col gap-3">
+                <button @click="show = false" class="w-full py-4 px-6 bg-{{ PRIMARY }} text-white rounded-2xl font-black shadow-xl shadow-{{ PRIMARY }}/20 hover:bg-{{ PRIMARY }}/90 transition-all">
+                    Orchestrate All
+                </button>
+                <button @click="show = false" class="w-full py-4 px-6 bg-neutral-50 text-neutral-800 rounded-2xl font-black hover:bg-neutral-100 transition-all dark:bg-neutral-900 dark:text-white">
+                    Essential Only
+                </button>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-neutral-100 dark:border-neutral-900 text-center">
+                <a class="text-[10px] font-black text-neutral-400 uppercase tracking-widest hover:text-{{ PRIMARY }} transition-colors" href="#">
+                    Privacy Manifest
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

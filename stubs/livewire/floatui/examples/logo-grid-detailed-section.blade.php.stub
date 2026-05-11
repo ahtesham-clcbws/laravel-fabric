@@ -1,0 +1,16 @@
+<section class="py-32 px-10 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div class="max-w-md">
+            <h3 class="text-4xl font-black text-neutral-800 dark:text-white tracking-tight uppercase italic leading-none mb-6">Trusted by the Global Neural Registry</h3>
+            <p class="text-sm text-neutral-500 font-medium leading-relaxed">Fabric orchestrates node synchronization for the world's most high-fidelity clusters.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-10 opacity-40 grayscale dark:invert">
+            <template x-for="i in 4">
+                <div class="flex items-center gap-4 p-8 bg-neutral-50 dark:bg-neutral-950 rounded-[32px] border border-neutral-100 dark:border-neutral-800">
+                    <div class="size-10 bg-neutral-900 rounded-lg"></div>
+                    <span class="text-sm font-black tracking-tighter uppercase italic text-neutral-800">ORCHESTRATOR</span>
+                </div>
+            </template>
+        </div>
+    </div>
+</section>

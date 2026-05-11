@@ -1,0 +1,5 @@
+<div class="overflow-hidden relative h-[400px] rounded-3xl shadow-2xl">
+        <div 
+            class="flex h-full transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            :style="`transform: translateX(-${active * 100}%)`"
+        >

@@ -1,0 +1,64 @@
+<div class="max-w-4xl mx-auto py-12 px-4 space-y-24">
+    <!-- Indicators (Core Tailwind) -->
+    <div class="flex flex-wrap justify-center gap-16">
+        <div class="relative">
+            <span class="absolute -top-2 -right-2 px-2 py-1 bg-{{ PRIMARY }} text-white text-[8px] font-black rounded-full shadow-lg shadow-{{ PRIMARY }}/30 z-10">99+</span>
+            <div class="size-20 bg-neutral-100 dark:bg-neutral-800 rounded-[32px] flex items-center justify-center shadow-inner">
+                <svg class="size-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            </div>
+        </div>
+
+        <div class="relative">
+            <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-teal-500 text-white text-[8px] font-black rounded-full shadow-lg shadow-teal-500/30 z-10">ONLINE</span>
+            <div class="size-20 rounded-[32px] overflow-hidden ring-4 ring-neutral-50 dark:ring-neutral-900 shadow-2xl">
+                <img class="size-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Swap (Core Tailwind + Alpine) -->
+    <div class="flex flex-col items-center gap-8" x-data="{ state: false }">
+        <p class="text-[10px] font-black text-neutral-400 uppercase tracking-widest">Toggle Orchestration State</p>
+        <button 
+            @click="state = !state"
+            class="text-{{ PRIMARY }} transition-transform duration-500 hover:scale-110 active:scale-90"
+            :class="state ? 'rotate-90' : ''"
+        >
+            <svg x-show="state" class="size-16 fill-current" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <svg x-show="!state" class="size-16 fill-current opacity-30" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </button>
+    </div>
+
+    <!-- Stack (Core Tailwind) -->
+    <div class="relative mx-auto max-w-xs group cursor-pointer">
+        <!-- Layer 3 -->
+        <div class="absolute inset-0 bg-neutral-200 dark:bg-neutral-800 rounded-[40px] translate-y-8 scale-90 opacity-20 group-hover:translate-y-10 transition-all duration-500"></div>
+        <!-- Layer 2 -->
+        <div class="absolute inset-0 bg-neutral-100 dark:bg-neutral-800 rounded-[40px] translate-y-4 scale-95 opacity-50 group-hover:translate-y-5 transition-all duration-500"></div>
+        <!-- Layer 1 (Primary) -->
+        <div class="relative p-12 bg-white border border-neutral-100 rounded-[40px] shadow-2xl dark:bg-neutral-900 dark:border-neutral-800 text-center transition-all duration-500 group-hover:-translate-y-2">
+            <h4 class="text-lg font-black text-neutral-800 dark:text-white tracking-tight leading-none">Node Alpha</h4>
+            <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest mt-3">Primary Tier</p>
+        </div>
+    </div>
+
+    <!-- Theme Controller (Core Tailwind + Alpine) -->
+    <div class="flex justify-center">
+        <div class="p-2 bg-neutral-100 dark:bg-neutral-900 rounded-[24px] border border-neutral-200 dark:border-neutral-800 shadow-inner flex gap-2">
+            <button 
+                @click="theme = 'light'; localStorage.setItem('fabric-theme', 'light')"
+                class="p-4 rounded-[18px] transition-all"
+                :class="theme === 'light' ? 'bg-white text-neutral-900 shadow-xl dark:bg-neutral-800 dark:text-white' : 'text-neutral-400 hover:text-neutral-600'"
+            >
+                <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 9H3m3.343-5.657l.707.707m12.728 12.728l.707.707M6.343 17.657l-.707.707M17.657 6.343l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+            </button>
+            <button 
+                @click="theme = 'dark'; localStorage.setItem('fabric-theme', 'dark')"
+                class="p-4 rounded-[18px] transition-all"
+                :class="theme === 'dark' ? 'bg-white text-neutral-900 shadow-xl dark:bg-neutral-800 dark:text-white' : 'text-neutral-400 hover:text-neutral-600'"
+            >
+                <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+            </button>
+        </div>
+    </div>
+</div>

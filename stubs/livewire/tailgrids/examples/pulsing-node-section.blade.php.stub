@@ -1,0 +1,5 @@
+<div class="relative size-16 flex items-center justify-center">
+        <div class="absolute inset-0 bg-{{ PRIMARY }}/20 rounded-2xl animate-ping"></div>
+        <div class="relative size-8 bg-{{ PRIMARY }} rounded-xl shadow-2xl shadow-{{ PRIMARY }}/40"></div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="max-w-2xl mx-auto py-12 px-4 space-y-24">
+    <!-- Fieldset with Custom Validator (Core Tailwind) -->
+    <div class="p-10 bg-white border border-neutral-100 rounded-[40px] shadow-2xl dark:bg-neutral-950 dark:border-neutral-900" x-data="{ clusterName: '', isValid: true }">
+        <div class="space-y-8">
+            <div>
+                <h3 class="text-xl font-black text-neutral-800 dark:text-white tracking-tight">Cluster Parameters</h3>
+                <p class="text-sm text-neutral-500 font-medium mt-1">Configure your orchestration node.</p>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Input Group -->
+                <div class="space-y-3">
+                    <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">Node Identifier</label>
+                    <input 
+                        type="text" 
+                        x-model="clusterName"
+                        placeholder="Fabric-Alpha-01"
+                        class="w-full px-6 py-4 rounded-2xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} focus:bg-white transition-all outline-none text-sm font-bold dark:bg-neutral-900 dark:focus:bg-neutral-800"
+                        :class="clusterName.length > 0 && clusterName.length < 5 ? 'border-rose-500 bg-rose-50' : ''"
+                    >
+                    <div class="flex items-center gap-2 px-1" x-show="clusterName.length > 0 && clusterName.length < 5">
+                        <svg class="size-3 text-rose-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"/></svg>
+                        <span class="text-[8px] font-black text-rose-500 uppercase tracking-widest">Identifier too short</span>
+                    </div>
+                </div>
+
+                <!-- Range Slider -->
+                <div class="space-y-3" x-data="{ power: 75 }">
+                    <div class="flex justify-between px-1">
+                        <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest">Resource Power</label>
+                        <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-widest" x-text="power + '%'"></span>
+                    </div>
+                    <input 
+                        type="range" 
+                        x-model="power"
+                        class="w-full h-2 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-{{ PRIMARY }} dark:bg-neutral-800"
+                    >
+                </div>
+
+                <!-- Rating -->
+                <div class="space-y-3" x-data="{ rating: 4 }">
+                    <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">Security Tier</label>
+                    <div class="flex gap-2">
+                        <template x-for="i in 5">
+                            <button 
+                                @click="rating = i"
+                                class="size-10 rounded-xl flex items-center justify-center transition-all"
+                                :class="i <= rating ? 'text-amber-400' : 'text-neutral-200 dark:text-neutral-800'"
+                            >
+                                <svg class="size-6 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            </button>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter (Core Tailwind) -->
+    <div class="flex flex-col items-center gap-6" x-data="{ active: 'ALL' }">
+        <p class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.3em]">Registry Filter</p>
+        <div class="inline-flex p-1.5 bg-neutral-100 rounded-[24px] dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-inner">
+            <template x-for="item in ['ALL', 'PRELINE', 'DAISYUI', 'SHADCN']">
+                <button 
+                    @click="active = item"
+                    class="px-6 py-2.5 rounded-[18px] text-[10px] font-black uppercase tracking-widest transition-all"
+                    :class="active === item ? 'bg-white text-neutral-900 shadow-xl dark:bg-neutral-800 dark:text-white' : 'text-neutral-400 hover:text-neutral-600'"
+                    x-text="item"
+                ></button>
+            </template>
+        </div>
+    </div>
+
+    <!-- File Input (Core Tailwind) -->
+    <div class="max-w-sm mx-auto p-8 bg-neutral-900 border border-neutral-800 rounded-[32px] shadow-2xl">
+        <label class="block text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-6">Upload Manifest</label>
+        <div class="relative">
+            <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+            <div class="w-full px-6 py-10 border-2 border-dashed border-neutral-800 rounded-2xl flex flex-col items-center gap-4 hover:border-{{ PRIMARY }} transition-colors">
+                <svg class="size-8 text-neutral-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+                <span class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Select Resource YAML</span>
+            </div>
+        </div>
+    </div>
+</div>

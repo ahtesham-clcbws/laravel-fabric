@@ -1,0 +1,31 @@
+<div class="max-w-6xl mx-auto overflow-hidden bg-white border border-neutral-100 rounded-[48px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+    <table class="w-full text-left">
+        <thead class="bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-100 dark:border-neutral-800">
+            <tr>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Orchestrator</th>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Sync Status</th>
+                <th class="px-10 py-8 text-right text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Operations</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-50 dark:divide-neutral-800">
+            <template x-for="i in 5">
+                <tr class="group hover:bg-neutral-50/50 dark:hover:bg-neutral-950/50 transition-colors">
+                    <td class="px-10 py-6 flex items-center gap-6">
+                        <img :src="`https://i.pravatar.cc/100?u=edit-av-${i}`" class="size-12 rounded-xl object-cover shadow-sm">
+                        <div>
+                            <span class="block text-sm font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic">Ahtesham Khan</span>
+                            <span class="text-[8px] font-bold text-neutral-300 uppercase italic">ahtesham@fabric.io</span>
+                        </div>
+                    </td>
+                    <td class="px-10 py-6">
+                        <span class="px-4 py-1.5 bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} rounded-full text-[8px] font-black uppercase tracking-widest italic">ACTIVE SYNC</span>
+                    </td>
+                    <td class="px-10 py-6 text-right space-x-6">
+                        <button class="text-[10px] font-black text-neutral-400 uppercase tracking-widest hover:text-{{ PRIMARY }} transition-colors">Edit</button>
+                        <button class="text-[10px] font-black text-rose-500 uppercase tracking-widest hover:text-rose-600 transition-colors">Delete</button>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,34 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Hydrate;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
+
+class NativeHydrator extends Seeder
+{
+    public function run(string $table, array $data): void
+    {
+        // High-performance raw SQL hydration
+        \Illuminate\Support\Facades\DB::table($table)->insert($data);
+    }
+
+    public function bulk(string $table, int $count, callable $generator): void
+    {
+        $batchSize = 1000;
+        $records = [];
+
+        for ($i = 0; $i < $count; $i++) {
+            $records[] = $generator($i);
+
+            if (count($records) >= $batchSize) {
+                DB::table($table)->insert($records);
+                $records = [];
+            }
+        }
+
+        if (!empty($records)) {
+            DB::table($table)->insert($records);
+        }
+    }
+}

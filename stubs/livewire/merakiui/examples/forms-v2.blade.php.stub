@@ -1,0 +1,34 @@
+<div class="max-w-4xl mx-auto py-20 px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 p-16 bg-white border border-neutral-100 rounded-[80px] shadow-2xl dark:bg-neutral-950 dark:border-neutral-800 relative overflow-hidden">
+        <div class="absolute -top-32 -left-32 size-64 bg-{{ PRIMARY }}/10 rounded-full blur-3xl"></div>
+        
+        <div>
+            <h3 class="text-4xl font-black text-neutral-800 dark:text-white uppercase tracking-tight italic mb-6">Cluster Manifest</h3>
+            <p class="text-sm text-neutral-500 font-medium italic mb-12">Register your high-fidelity orchestration node to the global registry cluster.</p>
+            
+            <div class="space-y-8">
+                <template x-for="item in ['Zero Latency Sync', 'Global Node Registry', 'Quantum Security']">
+                    <div class="flex items-center gap-4">
+                        <svg class="size-5 text-{{ PRIMARY }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="3"/></svg>
+                        <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest italic" x-text="item"></span>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <form class="space-y-8 relative z-10">
+            <div class="space-y-3">
+                <label class="text-[8px] font-black text-neutral-400 uppercase tracking-widest px-1 italic">Registry Node</label>
+                <input type="text" placeholder="ALPHA-07" class="w-full px-8 py-5 rounded-3xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} outline-none text-sm font-black uppercase italic dark:bg-neutral-900 transition-all">
+            </div>
+            <div class="space-y-3">
+                <label class="text-[8px] font-black text-neutral-400 uppercase tracking-widest px-1 italic">Security Protocol</label>
+                <select class="w-full px-8 py-5 rounded-3xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} outline-none text-sm font-black uppercase italic dark:bg-neutral-900 transition-all appearance-none">
+                    <option>High-Fidelity WSS</option>
+                    <option>Neural Sync Bridge</option>
+                </select>
+            </div>
+            <button class="w-full py-6 bg-neutral-900 text-white rounded-[32px] text-[10px] font-black uppercase tracking-widest hover:bg-{{ PRIMARY }} transition-all shadow-2xl italic">Initialize Manifest ➔</button>
+        </form>
+    </div>
+</div>

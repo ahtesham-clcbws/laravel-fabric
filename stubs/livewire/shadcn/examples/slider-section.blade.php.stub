@@ -1,0 +1,11 @@
+<div class="space-y-6" x-data="{ val: 50 }">
+        <div class="flex justify-between items-center">
+            <label class="text-sm font-medium">Node Power</label>
+            <span class="text-xs font-bold text-neutral-400" x-text="val + '%'"></span>
+        </div>
+        <input 
+            type="range" 
+            x-model="val"
+            class="w-full h-1.5 bg-neutral-200 rounded-lg appearance-none cursor-pointer accent-neutral-900 dark:bg-neutral-800 dark:accent-neutral-50"
+        >
+    </div>

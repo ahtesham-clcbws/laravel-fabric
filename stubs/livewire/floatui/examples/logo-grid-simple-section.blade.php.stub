@@ -1,0 +1,10 @@
+<section class="py-20 px-10 max-w-7xl mx-auto">
+    <div class="flex flex-wrap items-center justify-center gap-20 opacity-30 grayscale dark:invert">
+        <template x-for="i in 6">
+            <div class="flex items-center gap-3">
+                <div class="size-10 bg-neutral-900 rounded-lg"></div>
+                <span class="text-xl font-black tracking-tighter uppercase italic text-neutral-800">CLUSTER-01</span>
+            </div>
+        </template>
+    </div>
+</section>

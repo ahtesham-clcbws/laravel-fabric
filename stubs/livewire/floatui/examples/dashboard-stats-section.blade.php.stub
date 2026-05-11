@@ -1,0 +1,19 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <template x-for="stat in [
+        { l: 'TOTAL CLUSTERS', v: '1,492', p: '+12%', i: 'M13 10V3L4 14h7v7l9-11h-7z' },
+        { l: 'ACTIVE NODES', v: '92,102', p: '+8%', i: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z' },
+        { l: 'REGISTRY SYNC', v: '99.9%', p: 'OPTIMAL', i: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' },
+        { l: 'LATENCY', v: '12ms', p: '-4ms', i: 'M13 10V3L4 14h7v7l9-11h-7z' }
+    ]">
+        <div class="p-10 bg-white border border-neutral-100 rounded-[48px] shadow-sm hover:shadow-2xl transition-all duration-500 dark:bg-neutral-900 dark:border-neutral-800 group">
+            <div class="flex items-center justify-between mb-8">
+                <div class="size-12 bg-neutral-50 dark:bg-neutral-950 rounded-2xl flex items-center justify-center text-{{ PRIMARY }} group-hover:bg-{{ PRIMARY }} group-hover:text-white transition-all shadow-sm">
+                    <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path :d="stat.i" stroke-width="2.5"/></svg>
+                </div>
+                <span class="text-[8px] font-black uppercase tracking-widest" :class="stat.p.includes('+') ? 'text-emerald-500' : 'text-neutral-300'" x-text="stat.p"></span>
+            </div>
+            <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.3em] mb-2 italic" x-text="stat.l"></h4>
+            <span class="text-3xl font-black text-neutral-800 dark:text-white tracking-tighter" x-text="stat.v"></span>
+        </div>
+    </template>
+</div>

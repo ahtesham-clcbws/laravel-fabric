@@ -1,0 +1,29 @@
+<div class="max-w-6xl mx-auto overflow-hidden bg-white border border-neutral-100 rounded-[48px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+    <table class="w-full text-left border-collapse">
+        <thead class="bg-neutral-50 dark:bg-neutral-950">
+            <tr>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic border-r border-neutral-100 dark:border-neutral-800">Registry Path</th>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic border-r border-neutral-100 dark:border-neutral-800">Protocol</th>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic border-r border-neutral-100 dark:border-neutral-800">Security Tier</th>
+                <th class="px-10 py-8 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Status</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-50 dark:divide-neutral-800">
+            <template x-for="i in 5">
+                <tr class="group hover:bg-neutral-50/50 dark:hover:bg-neutral-950/50 transition-colors">
+                    <td class="px-10 py-6 text-sm font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic border-r border-neutral-100 dark:border-neutral-800">SYNC/ALPHA/07</td>
+                    <td class="px-10 py-6 text-xs font-bold text-neutral-500 border-r border-neutral-100 dark:border-neutral-800">High-Fidelity WSS</td>
+                    <td class="px-10 py-6 border-r border-neutral-100 dark:border-neutral-800">
+                        <span class="px-4 py-1.5 bg-neutral-900 text-white rounded-xl text-[8px] font-black uppercase tracking-widest italic">QUANTUM</span>
+                    </td>
+                    <td class="px-10 py-6">
+                        <div class="flex items-center gap-2">
+                            <div class="size-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                            <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">OPTIMAL</span>
+                        </div>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</div>

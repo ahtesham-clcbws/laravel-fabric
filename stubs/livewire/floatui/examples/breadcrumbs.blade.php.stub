@@ -1,0 +1,7 @@
+<nav class="flex items-center justify-center gap-4 text-[10px] font-black uppercase tracking-widest">
+    <a href="#" class="text-neutral-400 hover:text-{{ PRIMARY }} transition-colors">Manifest</a>
+    <span class="text-neutral-200">/</span>
+    <a href="#" class="text-neutral-400 hover:text-{{ PRIMARY }} transition-colors">Nodes</a>
+    <span class="text-neutral-200">/</span>
+    <span class="text-neutral-800 dark:text-white italic">Alpha Sync</span>
+</nav>

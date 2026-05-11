@@ -1,0 +1,8 @@
+<div class="text-center group">
+            <div class="relative inline-block mb-6">
+                <img class="size-48 rounded-[40px] object-cover transition-all duration-500 group-hover:scale-105 group-hover:rotate-2 shadow-xl" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=3&w=600&h=600&q=80" alt="Team Member">
+                <div class="absolute inset-0 rounded-[40px] border-4 border-{{ PRIMARY }} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 translate-x-2 translate-y-2"></div>
+            </div>
+            <h4 class="text-xl font-black text-neutral-800 dark:text-white tracking-tight">Ahtesham Khan</h4>
+            <p class="text-xs font-black text-{{ PRIMARY }} uppercase tracking-widest mt-1">Founder / Architect</p>
+        </div>

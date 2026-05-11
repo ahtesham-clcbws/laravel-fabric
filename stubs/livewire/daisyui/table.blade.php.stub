@@ -1,0 +1,97 @@
+<div class="space-y-12 py-12 px-4 max-w-6xl mx-auto">
+    <!-- Premium Table (Core Tailwind) -->
+    <div class="bg-white border border-neutral-100 rounded-[40px] shadow-2xl overflow-hidden dark:bg-neutral-950 dark:border-neutral-900">
+        <!-- Table Header/Toolbar -->
+        <div class="px-10 py-8 border-b border-neutral-100 dark:border-neutral-900 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            <div>
+                <h3 class="text-2xl font-black text-neutral-800 dark:text-white tracking-tight leading-none uppercase italic">Node Registry</h3>
+                <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest mt-2">Active orchestration clusters</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search nodes..." class="pl-12 pr-6 py-3 bg-neutral-50 rounded-2xl border-2 border-transparent focus:border-{{ PRIMARY }} focus:bg-white transition-all outline-none text-xs font-bold dark:bg-neutral-900 dark:focus:bg-neutral-800">
+                    <svg class="absolute left-4 top-1/2 -translate-y-1/2 size-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </div>
+                <button class="p-3 bg-neutral-900 text-white rounded-2xl hover:bg-{{ PRIMARY }} transition-all shadow-xl shadow-{{ PRIMARY }}/20">
+                    <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Table Content -->
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-neutral-50 dark:bg-neutral-900">
+                        <th class="px-10 py-5 text-[10px] font-black uppercase tracking-widest text-neutral-400">Node / Cluster</th>
+                        <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-neutral-400">Status</th>
+                        <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-neutral-400">Load</th>
+                        <th class="px-8 py-5 text-[10px] font-black uppercase tracking-widest text-neutral-400">Auth Tier</th>
+                        <th class="px-10 py-5 text-[10px] font-black uppercase tracking-widest text-neutral-400 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-neutral-100 dark:divide-neutral-900">
+                    <template x-for="(node, i) in [
+                        {n: 'Fabric-Alpha-01', c: 'Frankfurt Cluster', s: 'Online', l: '45%', t: 'Master'},
+                        {n: 'Fabric-Beta-09', c: 'Tokyo Cluster', s: 'Syncing', l: '12%', t: 'Worker'},
+                        {n: 'Fabric-Delta-04', c: 'New York Cluster', s: 'Offline', l: '0%', t: 'Edge'}
+                    ]">
+                        <tr class="hover:bg-neutral-50/50 dark:hover:bg-neutral-900/50 transition-colors group">
+                            <td class="px-10 py-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="size-10 rounded-xl bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} flex items-center justify-center font-black text-sm" x-text="node.n.charAt(7)"></div>
+                                    <div>
+                                        <div class="text-sm font-black text-neutral-800 dark:text-white uppercase tracking-tight" x-text="node.n"></div>
+                                        <div class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest" x-text="node.c"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-8 py-6">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest"
+                                     :class="{
+                                         'bg-teal-500/10 text-teal-500': node.s === 'Online',
+                                         'bg-amber-500/10 text-amber-500': node.s === 'Syncing',
+                                         'bg-rose-500/10 text-rose-500': node.s === 'Offline'
+                                     }">
+                                    <div class="size-1.5 rounded-full" :class="{'bg-teal-500 animate-pulse': node.s === 'Online', 'bg-amber-500': node.s === 'Syncing', 'bg-rose-500': node.s === 'Offline'}"></div>
+                                    <span x-text="node.s"></span>
+                                </div>
+                            </td>
+                            <td class="px-8 py-6">
+                                <div class="w-24">
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-[8px] font-black text-neutral-400" x-text="node.l"></span>
+                                    </div>
+                                    <div class="w-full h-1 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+                                        <div class="h-full bg-{{ PRIMARY }} rounded-full" :style="'width: ' + node.l"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-8 py-6">
+                                <span class="text-[10px] font-black text-neutral-500 uppercase tracking-widest" x-text="node.t"></span>
+                            </td>
+                            <td class="px-10 py-6 text-right">
+                                <button class="p-2.5 rounded-xl hover:bg-white hover:shadow-lg dark:hover:bg-neutral-800 transition-all text-neutral-400 hover:text-{{ PRIMARY }}">
+                                    <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/></svg>
+                                </button>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table Footer/Pagination -->
+        <div class="px-10 py-6 bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-100 dark:border-neutral-900 flex items-center justify-between">
+            <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Node Cluster Alpha-Z</span>
+            <div class="flex gap-2">
+                <button class="p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 text-neutral-400 hover:bg-white dark:hover:bg-neutral-800 transition-all disabled:opacity-30" disabled>
+                    <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button class="p-2.5 rounded-xl border border-neutral-200 dark:border-neutral-800 text-neutral-400 hover:bg-white dark:hover:bg-neutral-800 transition-all">
+                    <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

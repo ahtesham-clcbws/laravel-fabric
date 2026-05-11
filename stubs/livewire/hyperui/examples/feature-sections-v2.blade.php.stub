@@ -1,0 +1,33 @@
+<section class="bg-white dark:bg-neutral-900 py-32 px-10">
+  <div class="mx-auto max-w-screen-xl">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div>
+            <h2 class="text-6xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-[0.9]">Orchestrate Every <span class="text-{{ PRIMARY }}">Cluster Node</span></h2>
+            <p class="mt-8 text-lg text-neutral-500 font-medium leading-relaxed italic">High-fidelity provisioning engine for global node synchronization. Optimized for zero-dependency orchestration.</p>
+            
+            <div class="mt-16 grid sm:grid-cols-2 gap-12">
+                <template x-for="i in 4">
+                    <div class="group">
+                        <div class="size-14 bg-neutral-50 dark:bg-neutral-950 rounded-2xl flex items-center justify-center text-{{ PRIMARY }} mb-6 shadow-sm group-hover:bg-{{ PRIMARY }} group-hover:text-white transition-all">
+                            <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2.5"/></svg>
+                        </div>
+                        <h4 class="text-lg font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic">Neural Sync Bridge</h4>
+                        <p class="mt-2 text-xs font-medium text-neutral-400 italic">Establish zero-latency node bridges across the registry.</p>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8">
+            <div class="space-y-8">
+                <img class="rounded-[48px] shadow-2xl border border-white/10 aspect-[4/5] object-cover" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Node 1">
+                <img class="rounded-[48px] shadow-2xl border border-white/10 aspect-square object-cover" src="https://images.unsplash.com/photo-1484950763426-56b5bf172dbb?auto=format&fit=crop&w=600&q=80" alt="Node 2">
+            </div>
+            <div class="space-y-8 pt-16">
+                <img class="rounded-[48px] shadow-2xl border border-white/10 aspect-square object-cover" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Node 3">
+                <img class="rounded-[48px] shadow-2xl border border-white/10 aspect-[4/5] object-cover" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Node 4">
+            </div>
+        </div>
+    </div>
+  </div>
+</section>

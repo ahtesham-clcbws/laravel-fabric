@@ -1,0 +1,22 @@
+<section class="py-32 px-10 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-32 items-center">
+        <div>
+            <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">REGISTRY PERFORMANCE</span>
+            <h2 class="text-6xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-none">Unrivaled Sync Velocity</h2>
+            <p class="mt-8 text-lg text-neutral-500 font-medium leading-relaxed">High-fidelity provisioning engine for global node clusters. Optimized for zero-dependency orchestration.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-10">
+            <template x-for="stat in [
+                { l: 'CLUSTERS', v: '1,492', c: 'bg-neutral-50' },
+                { l: 'NODES', v: '92k+', c: 'bg-neutral-900 text-white' },
+                { l: 'UPTIME', v: '99.9%', c: 'bg-neutral-50' },
+                { l: 'LATENCY', v: '12ms', c: 'bg-neutral-50' }
+            ]">
+                <div class="p-10 rounded-[48px] shadow-sm transition-all hover:scale-105" :class="stat.c">
+                    <span class="block text-4xl font-black tracking-tighter italic mb-4" x-text="stat.v"></span>
+                    <h4 class="text-[10px] font-black uppercase tracking-widest italic" :class="stat.c.includes('900') ? 'text-{{ PRIMARY }}' : 'text-neutral-400'" x-text="stat.l"></h4>
+                </div>
+            </template>
+        </div>
+    </div>
+</section>

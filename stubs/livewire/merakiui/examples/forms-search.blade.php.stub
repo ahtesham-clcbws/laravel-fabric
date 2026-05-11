@@ -1,0 +1,18 @@
+<section class="relative w-full max-w-md px-5 py-4 mx-auto rounded-xl">
+        <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg class="w-5 h-5 text-neutral-400" viewBox="0 0 24 24" fill="none">
+                <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            </span>
+
+            <input type="text" class="w-full py-3 pl-10 pr-4 text-neutral-700 bg-white border rounded-xl dark:bg-neutral-900 dark:text-neutral-300 dark:border-neutral-600 focus:border-{{ PRIMARY_BASE }}-400 dark:focus:border-{{ PRIMARY_BASE }}-300 focus:outline-none focus:ring focus:ring-{{ PRIMARY_BASE }}-300 focus:ring-opacity-40" placeholder="Search">
+        </div>
+
+        <div class="absolute inset-x-0 px-6 py-3 mx-5 mt-4 overflow-y-auto bg-white border rounded-xl max-h-72 dark:bg-neutral-900 dark:border-neutral-700">
+            <a href="#" class="block py-1">
+                <h3 class="font-medium text-neutral-700 dark:text-neutral-100 hover:underline">Software engineer</h3>
+                <p class="mt-2 text-sm text-neutral-500 dark:text-neutral-400">02/04/2020</p>
+            </a>
+        </div>
+    </section>

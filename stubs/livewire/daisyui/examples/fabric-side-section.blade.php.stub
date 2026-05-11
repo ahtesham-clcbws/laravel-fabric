@@ -1,0 +1,3 @@
+<div class="absolute inset-0 bg-{{ PRIMARY }} flex items-center justify-center" :style="'clip-path: inset(0 ' + (100 - pos) + '% 0 0)'">
+            <span class="text-5xl font-black text-white tracking-tighter uppercase">Fabric UI</span>
+        </div>

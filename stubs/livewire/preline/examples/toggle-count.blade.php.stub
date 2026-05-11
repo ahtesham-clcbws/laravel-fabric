@@ -1,0 +1,39 @@
+<div class="max-w-2xl mx-auto py-12 px-4 text-center" x-data="{ annual: false }">
+    <div class="inline-flex items-center gap-x-4 bg-neutral-100 p-1.5 rounded-full dark:bg-neutral-800 mb-12">
+        <button 
+            @click="annual = false"
+            class="py-2.5 px-6 rounded-full text-xs font-black transition-all"
+            :class="!annual ? 'bg-white text-{{ PRIMARY }} shadow-sm dark:bg-neutral-900' : 'text-neutral-500'"
+        >
+            Monthly
+        </button>
+        <button 
+            @click="annual = true"
+            class="py-2.5 px-6 rounded-full text-xs font-black transition-all"
+            :class="annual ? 'bg-white text-{{ PRIMARY }} shadow-sm dark:bg-neutral-900' : 'text-neutral-500'"
+        >
+            Annual
+        </button>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-8">
+        <!-- Monthly Card Example -->
+        <div class="p-10 bg-white border border-neutral-100 rounded-[40px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+            <h4 class="text-xl font-black text-neutral-800 dark:text-white tracking-tight mb-4">Forge Core</h4>
+            <div class="flex items-baseline justify-center gap-x-2">
+                <span class="text-5xl font-black text-neutral-800 dark:text-white tracking-tighter" x-text="annual ? '$290' : '$29'">$29</span>
+                <span class="text-neutral-400 font-bold uppercase tracking-widest text-[10px]" x-text="annual ? '/yr' : '/mo'">/mo</span>
+            </div>
+            <p class="mt-4 text-xs font-bold text-teal-500 uppercase tracking-widest" x-show="annual" x-cloak>Save $58 annually</p>
+        </div>
+
+        <div class="p-10 bg-{{ PRIMARY }} rounded-[40px] shadow-2xl relative overflow-hidden">
+            <h4 class="text-xl font-black text-white tracking-tight mb-4">Elite Cluster</h4>
+            <div class="flex items-baseline justify-center gap-x-2 text-white">
+                <span class="text-5xl font-black tracking-tighter" x-text="annual ? '$990' : '$99'">$99</span>
+                <span class="text-white/60 font-bold uppercase tracking-widest text-[10px]" x-text="annual ? '/yr' : '/mo'">/mo</span>
+            </div>
+            <div class="absolute -top-4 -right-4 size-24 bg-white/10 rounded-full blur-2xl"></div>
+        </div>
+    </div>
+</div>

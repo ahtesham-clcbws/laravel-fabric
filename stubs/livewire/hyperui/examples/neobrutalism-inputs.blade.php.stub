@@ -1,0 +1,20 @@
+<div class="space-y-12 max-w-xl mx-auto py-20 px-10">
+    <div class="space-y-4">
+        <label class="text-[10px] font-black text-neutral-900 uppercase tracking-widest px-1 italic">Registry Node Name</label>
+        <input type="text" placeholder="ALPHA-CLUSTER" class="w-full border-4 border-neutral-900 bg-white px-8 py-5 text-sm font-black uppercase tracking-widest italic outline-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] focus:translate-x-1 focus:translate-y-1 focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+    </div>
+    
+    <div class="space-y-4">
+        <label class="text-[10px] font-black text-neutral-900 uppercase tracking-widest px-1 italic">Orchestrator Email</label>
+        <div class="relative">
+            <input type="email" placeholder="orchestrator@fabric.io" class="w-full pl-16 pr-8 py-5 border-4 border-neutral-900 bg-white text-sm font-black uppercase tracking-widest italic outline-none shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] focus:translate-x-1 focus:translate-y-1 focus:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-all">
+            <div class="absolute left-6 top-1/2 -translate-y-1/2 text-neutral-900">
+                <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" stroke-width="3"/></svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="pt-8 text-center">
+        <button class="border-4 border-neutral-900 bg-neutral-900 text-white px-12 py-5 text-xs font-black uppercase tracking-widest italic shadow-[8px_8px_0px_0px_rgba(0,0,0,0.1)] hover:bg-{{ PRIMARY }} transition-all">Initialize Sync ➔</button>
+    </div>
+</div>

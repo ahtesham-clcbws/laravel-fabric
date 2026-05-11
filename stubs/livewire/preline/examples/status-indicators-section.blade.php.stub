@@ -1,0 +1,14 @@
+<div class="space-y-4">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">Status Indicators</h4>
+        <div class="flex flex-wrap gap-6 items-center">
+            <div class="relative inline-block">
+                <img class="inline-block size-12 rounded-xl" src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80" alt="Avatar">
+                <span class="absolute top-0 end-0 block size-3.5 rounded-full ring-2 ring-white bg-teal-500 dark:ring-neutral-900 translate-x-1/2 -translate-y-1/2"></span>
+            </div>
+            <div class="relative inline-block">
+                <div class="inline-flex items-center justify-center size-12 rounded-xl bg-neutral-100 dark:bg-neutral-800 font-bold text-neutral-500">JK</div>
+                <span class="absolute bottom-0 end-0 block size-3.5 rounded-full ring-2 ring-white bg-amber-500 dark:ring-neutral-900 translate-x-1/2 translate-y-1/2"></span>
+            </div>
+        </div>
+    </div>
+</div>

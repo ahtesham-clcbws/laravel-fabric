@@ -1,0 +1,16 @@
+<div class="flex items-center justify-center gap-3">
+    <button class="size-12 rounded-2xl bg-white border border-neutral-100 flex items-center justify-center text-neutral-400 hover:text-{{ PRIMARY }} hover:shadow-lg transition-all dark:bg-neutral-900 dark:border-neutral-800">
+        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="3"/></svg>
+    </button>
+    <template x-for="i in [1, 2, 3]">
+        <button 
+            class="size-12 rounded-2xl text-[10px] font-black flex items-center justify-center transition-all"
+            :class="i === 1 ? 'bg-neutral-900 text-white shadow-2xl' : 'bg-white border border-neutral-100 text-neutral-400 hover:text-neutral-900 dark:bg-neutral-900 dark:border-neutral-800'"
+            x-text="i"
+        ></button>
+    </template>
+    <span class="text-neutral-300 font-black px-2">...</span>
+    <button class="size-12 rounded-2xl bg-white border border-neutral-100 flex items-center justify-center text-neutral-400 hover:text-{{ PRIMARY }} transition-all dark:bg-neutral-900 dark:border-neutral-800">
+        <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="3"/></svg>
+    </button>
+</div>

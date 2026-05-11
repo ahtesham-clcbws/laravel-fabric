@@ -1,0 +1,17 @@
+<div x-show="show" x-transition.opacity class="bg-neutral-900 dark:bg-black">
+        <div class="max-w-[85rem] px-4 py-3 sm:px-6 lg:px-8 mx-auto">
+            <div class="flex items-center justify-center gap-x-3">
+                <p class="text-xs font-black text-white uppercase tracking-widest">
+                    Fabric Forge v1.2 is here
+                    <span class="ms-2 py-0.5 px-2 rounded-lg bg-{{ PRIMARY }} text-[10px] font-black animate-pulse">Alpha</span>
+                </p>
+                <a class="py-1 px-3 inline-flex items-center gap-x-2 text-[10px] font-black rounded-lg bg-white/10 text-white hover:bg-white/20 transition-all" href="#">
+                    Release Notes
+                    <svg class="size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <button @click="show = false" class="ms-auto text-white/50 hover:text-white transition-colors">
+                    <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>

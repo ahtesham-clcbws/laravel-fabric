@@ -1,0 +1,24 @@
+<div class="space-y-12">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em] text-center">Horizontal Progression</h4>
+        
+        <div class="flex items-center justify-center w-full">
+            <ol class="flex items-center w-full max-w-2xl">
+                <li class="flex w-full items-center text-{{ PRIMARY }} after:content-[''] after:w-full after:h-1 after:border-b after:border-neutral-100 after:border-4 after:inline-block dark:after:border-neutral-800" :class="step > 1 ? 'after:border-{{ PRIMARY }}' : ''">
+                    <span class="flex items-center justify-center size-10 bg-{{ PRIMARY }} text-white rounded-xl shrink-0 font-black shadow-lg shadow-{{ PRIMARY }}/20">
+                        <svg x-show="step > 1" class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span x-show="step <= 1">1</span>
+                    </span>
+                </li>
+                <li class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-neutral-100 after:border-4 after:inline-block dark:after:border-neutral-800" :class="step > 2 ? 'after:border-{{ PRIMARY }}' : ''">
+                    <span class="flex items-center justify-center size-10 rounded-xl shrink-0 font-black transition-all duration-500" :class="step >= 2 ? 'bg-{{ PRIMARY }} text-white shadow-lg shadow-{{ PRIMARY }}/20' : 'bg-neutral-100 text-neutral-400 dark:bg-neutral-800'">
+                        <svg x-show="step > 2" class="size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span x-show="step <= 2">2</span>
+                    </span>
+                </li>
+                <li class="flex items-center">
+                    <span class="flex items-center justify-center size-10 rounded-xl shrink-0 font-black transition-all duration-500" :class="step >= 3 ? 'bg-{{ PRIMARY }} text-white shadow-lg shadow-{{ PRIMARY }}/20' : 'bg-neutral-100 text-neutral-400 dark:bg-neutral-800'">
+                        <span>3</span>
+                    </span>
+                </li>
+            </ol>
+        </div>

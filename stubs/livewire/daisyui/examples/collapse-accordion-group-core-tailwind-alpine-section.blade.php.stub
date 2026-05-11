@@ -1,0 +1,41 @@
+<div class="space-y-4">
+        <template x-for="i in 3">
+            <div 
+                class="border border-neutral-100 rounded-[32px] overflow-hidden transition-all duration-500 bg-white dark:bg-neutral-900 dark:border-neutral-800 shadow-sm"
+                :class="activeCollapse === i ? 'shadow-2xl ring-1 ring-{{ PRIMARY }}/10' : ''"
+            >
+                <button 
+                    @click="activeCollapse = (activeCollapse === i ? null : i)"
+                    class="w-full flex items-center justify-between p-8 text-left hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors"
+                >
+                    <div class="flex items-center gap-4">
+                        <div 
+                            class="size-10 rounded-xl flex items-center justify-center font-black transition-all duration-500"
+                            :class="activeCollapse === i ? 'bg-{{ PRIMARY }} text-white' : 'bg-neutral-100 text-neutral-400 dark:bg-neutral-800'"
+                            x-text="i"
+                        ></div>
+                        <span 
+                            class="text-sm font-black uppercase tracking-widest transition-colors"
+                            :class="activeCollapse === i ? 'text-neutral-800 dark:text-white' : 'text-neutral-500'"
+                        >Node Protocol Expansion #<span x-text="i"></span></span>
+                    </div>
+                    <svg 
+                        class="size-5 transition-transform duration-500" 
+                        :class="activeCollapse === i ? 'rotate-180 text-{{ PRIMARY }}' : 'text-neutral-300'" 
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                        <path d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div 
+                    x-show="activeCollapse === i" 
+                    x-collapse 
+                    x-cloak
+                >
+                    <div class="p-8 pt-0 text-sm text-neutral-500 font-medium leading-relaxed">
+                        Establishing secure orchestration protocols for node expansion. This phase ensures all sub-millisecond latency requirements are met across the global cluster network. Detailed manifest logs are available in the registry dashboard.
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>

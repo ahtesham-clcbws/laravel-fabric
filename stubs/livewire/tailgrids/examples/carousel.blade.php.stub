@@ -1,0 +1,38 @@
+<div x-data="{ active: 0, total: 3 }" class="relative max-w-4xl mx-auto overflow-hidden rounded-[60px] shadow-2xl group">
+    <!-- Slides -->
+    <div class="relative h-[500px] bg-neutral-900">
+        <template x-for="i in total">
+            <div 
+                x-show="active === i-1" 
+                x-transition:enter="transition ease-out duration-1000" 
+                x-transition:enter-start="opacity-0 scale-110" 
+                x-transition:enter-end="opacity-100 scale-100"
+                class="absolute inset-0"
+            >
+                <img :src="`https://images.unsplash.com/photo-${[1551434678-e076c223a692, 1460925895917-afdab827c52f, 1581091226825-a6a2a5aee158][i-1]}?auto=format&fit=crop&w=1200&q=80`" class="object-cover w-full h-full opacity-60">
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-12">
+                    <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 animate-bounce italic" x-text="'NODE ' + (i < 10 ? '0'+i : i)"></span>
+                    <h3 class="text-6xl font-black text-white tracking-tighter uppercase italic leading-none max-w-2xl" x-text="['FORGE YOUR FUTURE', 'NEURAL NETWORK', 'CORE CLUSTER'][i-1]"></h3>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- Controls -->
+    <div class="absolute inset-x-0 bottom-12 flex justify-center gap-4 z-10">
+        <template x-for="i in total">
+            <button 
+                @click="active = i-1"
+                class="h-1.5 transition-all duration-500 rounded-full"
+                :class="active === i-1 ? 'w-12 bg-{{ PRIMARY }} shadow-lg shadow-{{ PRIMARY }}/40' : 'w-4 bg-white/30'"
+            ></button>
+        </template>
+    </div>
+
+    <button @click="active = (active - 1 + total) % total" class="absolute left-8 top-1/2 -translate-y-1/2 size-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-{{ PRIMARY }} shadow-2xl">
+        <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="3"/></svg>
+    </button>
+    <button @click="active = (active + 1) % total" class="absolute right-8 top-1/2 -translate-y-1/2 size-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-{{ PRIMARY }} shadow-2xl">
+        <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="3"/></svg>
+    </button>
+</div>

@@ -1,0 +1,54 @@
+<div class="space-y-16 py-12 px-4 max-w-lg mx-auto flex flex-col items-center">
+    <!-- Shadcn Progress -->
+    <div class="w-full space-y-2">
+        <div class="flex justify-between text-xs font-medium text-neutral-500">
+            <span>Sync Progress</span>
+            <span>65%</span>
+        </div>
+        <div class="relative w-full h-2 bg-neutral-100 rounded-full overflow-hidden dark:bg-neutral-800">
+            <div class="h-full bg-neutral-900 transition-all duration-500 dark:bg-white" style="width: 65%"></div>
+        </div>
+    </div>
+
+    <!-- Shadcn Skeleton -->
+    <div class="w-full flex items-center space-x-4 animate-pulse">
+        <div class="size-12 bg-neutral-100 rounded-full dark:bg-neutral-800"></div>
+        <div class="space-y-2 flex-1">
+            <div class="h-4 bg-neutral-100 rounded-md w-3/4 dark:bg-neutral-800"></div>
+            <div class="h-3 bg-neutral-100 rounded-md w-1/2 dark:bg-neutral-800"></div>
+        </div>
+    </div>
+
+    <!-- Shadcn Tooltip -->
+    <div class="relative group cursor-help">
+        <span class="text-sm font-bold border-b border-dashed border-neutral-300 pb-0.5">Hover for Info</span>
+        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-neutral-900 text-white text-[10px] font-medium rounded-md opacity-0 group-hover:opacity-100 transition-all pointer-events-none whitespace-nowrap shadow-xl dark:bg-white dark:text-neutral-900">
+            Registry Auth Level: Master
+            <div class="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-neutral-900 dark:border-t-white"></div>
+        </div>
+    </div>
+
+    <!-- Shadcn Toast / Sonner Mockup -->
+    <div x-data="{ toasts: [] }" class="fixed bottom-8 right-8 z-50 flex flex-col gap-2 items-end">
+        <button 
+            @click="toasts.push({id: Date.now(), title: 'Event Scheduled', desc: 'Friday, February 10, 2026 at 5:57 PM'})"
+            class="px-4 py-2 border border-neutral-200 rounded-md text-xs font-bold hover:bg-neutral-50 transition-all dark:border-neutral-800 dark:hover:bg-neutral-900"
+        >
+            Show Toast
+        </button>
+
+        <template x-for="toast in toasts" :key="toast.id">
+            <div 
+                x-init="setTimeout(() => toasts = toasts.filter(t => t.id !== toast.id), 5000)"
+                x-transition
+                class="w-80 p-5 bg-white border border-neutral-200 rounded-lg shadow-2xl dark:bg-neutral-950 dark:border-neutral-800 flex flex-col gap-1"
+            >
+                <div class="text-sm font-bold text-neutral-900 dark:text-white" x-text="toast.title"></div>
+                <div class="text-xs text-neutral-500 font-medium" x-text="toast.desc"></div>
+                <button @click="toasts = toasts.filter(t => t.id !== toast.id)" class="absolute top-2 right-2 text-neutral-300 hover:text-neutral-500">
+                    <svg class="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+        </template>
+    </div>
+</div>

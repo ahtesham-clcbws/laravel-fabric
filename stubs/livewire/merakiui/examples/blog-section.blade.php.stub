@@ -1,0 +1,37 @@
+<section class="bg-white dark:bg-neutral-900 py-32 px-10">
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-12">
+            <div class="max-w-xl">
+                <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">REGISTRY LOGS</span>
+                <h2 class="text-6xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-none">Orchestration Pulse</h2>
+            </div>
+            <button class="px-12 py-5 bg-neutral-900 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-2xl hover:bg-{{ PRIMARY }} transition-all italic">View All Logs ➔</button>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+            <template x-for="i in 3">
+                <div class="overflow-hidden bg-white border border-neutral-100 rounded-[64px] shadow-sm hover:shadow-2xl transition-all duration-700 dark:bg-neutral-900 dark:border-neutral-800 group">
+                    <div class="relative h-72 overflow-hidden">
+                        <img class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-1000" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt="Blog">
+                        <div class="absolute top-8 left-8">
+                            <span class="px-5 py-2 bg-white/90 backdrop-blur-md text-[8px] font-black text-neutral-800 uppercase tracking-widest rounded-full italic shadow-sm">PROTOCOL SYNC</span>
+                        </div>
+                    </div>
+                    
+                    <div class="p-12">
+                        <h4 class="text-2xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic group-hover:text-{{ PRIMARY }} transition-colors">Establishing High-Fidelity Node Bridges</h4>
+                        <p class="mt-6 text-sm text-neutral-500 font-medium leading-relaxed italic line-clamp-2">Learn how to optimize your global neural registry sync velocity with zero-dependency architecture.</p>
+                        
+                        <div class="mt-12 flex items-center justify-between pt-10 border-t border-neutral-50 dark:border-neutral-800">
+                            <div class="flex items-center gap-4">
+                                <div class="size-8 rounded-lg bg-neutral-900"></div>
+                                <span class="text-[8px] font-black text-neutral-400 uppercase tracking-widest italic">Ahtesham Khan</span>
+                            </div>
+                            <span class="text-[8px] font-bold text-neutral-300 uppercase tracking-widest">MAR 10, 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</section>

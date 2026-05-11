@@ -1,0 +1,14 @@
+<div class="p-10 bg-neutral-50 rounded-[40px] border border-neutral-100 dark:bg-neutral-950 dark:border-neutral-900">
+                <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.3em] mb-8">Secure Transaction Bridge</h4>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <button class="p-8 bg-white border-2 border-{{ PRIMARY }} rounded-3xl flex flex-col items-center gap-4 dark:bg-neutral-900 transition-all shadow-xl shadow-{{ PRIMARY }}/10">
+                        <svg class="size-8 text-{{ PRIMARY }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+                        <span class="text-[10px] font-black uppercase tracking-widest">Master Logic Card</span>
+                    </button>
+                    <button class="p-8 bg-white border-2 border-transparent rounded-3xl flex flex-col items-center gap-4 dark:bg-neutral-900 hover:border-neutral-200 transition-all">
+                        <svg class="size-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-neutral-400">Digital Wallet</span>
+                    </button>
+                </div>
+            </div>
+        </div>

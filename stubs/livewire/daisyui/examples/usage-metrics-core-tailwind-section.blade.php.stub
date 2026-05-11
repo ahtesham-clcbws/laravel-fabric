@@ -1,0 +1,17 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="p-10 bg-white border border-neutral-100 rounded-[40px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+            <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.3em] mb-10">Resource Allocation</h4>
+            <div class="space-y-8">
+                <template x-for="metric in [{l: 'CPU Cluster', v: '75%', c: '{{ PRIMARY }}'}, {l: 'RAM Cluster', v: '42%', c: 'teal-500'}, {l: 'Storage Cluster', v: '91%', c: 'rose-500'}]">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-black text-neutral-800 dark:text-white uppercase tracking-widest" x-text="metric.l"></span>
+                            <span class="text-xs font-black" :class="'text-' + metric.c" x-text="metric.v"></span>
+                        </div>
+                        <div class="w-full h-2 bg-neutral-50 rounded-full dark:bg-neutral-800 overflow-hidden">
+                            <div class="h-full rounded-full transition-all duration-1000" :class="'bg-' + metric.c" :style="'width: ' + metric.v"></div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>

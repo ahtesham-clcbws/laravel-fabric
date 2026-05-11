@@ -1,0 +1,16 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Doctor;
+
+class DiagnosticDoctor
+{
+    public function check(): array
+    {
+        return [
+            'php' => PHP_VERSION,
+            'laravel' => app()->version(),
+            'storage' => is_writable(storage_path()),
+            'database' => \Illuminate\Support\Facades\DB::connection()->getPdo() ? 'Connected' : 'Failed',
+        ];
+    }
+}

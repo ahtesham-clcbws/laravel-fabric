@@ -1,0 +1,17 @@
+<div class="absolute -left-[11px] top-0 size-5 rounded-full bg-white border-4 border-{{ PRIMARY }} dark:bg-neutral-900 shadow-lg shadow-{{ PRIMARY }}/20"></div>
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-x-3">
+                    <span class="inline-flex items-center py-1 px-3 rounded-xl text-[10px] font-black bg-indigo-100 text-indigo-600 dark:bg-indigo-500/10 dark:text-indigo-400 uppercase tracking-widest">Phase 03</span>
+                    <span class="text-xs font-bold text-neutral-400">In Progress</span>
+                </div>
+                <div class="p-6 bg-{{ PRIMARY }}/5 border border-{{ PRIMARY }}/20 rounded-3xl dark:bg-{{ PRIMARY }}/10 dark:border-{{ PRIMARY }}/30 shadow-sm">
+                    <h3 class="text-lg font-black text-neutral-800 dark:text-white tracking-tight mb-2">Template Orchestration</h3>
+                    <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                        Currently developing high-level page blueprints for rapid application deployment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

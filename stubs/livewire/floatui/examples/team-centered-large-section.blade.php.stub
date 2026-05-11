@@ -1,0 +1,18 @@
+<section class="py-32 px-10 max-w-7xl mx-auto text-center">
+    <div class="mb-24">
+        <h2 class="text-5xl font-black text-neutral-800 dark:text-white tracking-tight uppercase italic leading-none">Registry Overlords</h2>
+        <p class="mt-6 text-neutral-500 font-medium italic">The visionaries behind the high-fidelity orchestration engine.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-20">
+        <template x-for="i in 2">
+            <div class="group">
+                <div class="relative mb-12 overflow-hidden rounded-[80px] aspect-square bg-neutral-50 dark:bg-neutral-950">
+                    <img :src="`https://i.pravatar.cc/800?u=team-large-${i}`" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105">
+                </div>
+                <h4 class="text-4xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic">Ahtesham Khan</h4>
+                <p class="text-sm font-black text-{{ PRIMARY }} uppercase tracking-widest mt-4">Chief Orchestrator</p>
+            </div>
+        </template>
+    </div>
+</section>

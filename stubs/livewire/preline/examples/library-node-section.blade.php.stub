@@ -1,0 +1,13 @@
+<div class="space-y-2">
+                <button 
+                    @click="expanded.includes('libs') ? expanded = expanded.filter(v => v !== 'libs') : expanded.push('libs')"
+                    class="w-full flex items-center gap-3 px-4 py-2 rounded-xl hover:bg-neutral-50 transition-colors dark:hover:bg-neutral-800 group"
+                >
+                    <svg class="size-4 text-neutral-400 transition-transform" :class="expanded.includes('libs') ? 'rotate-90' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                    <svg class="size-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
+                    <span class="text-sm font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic">Libraries</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

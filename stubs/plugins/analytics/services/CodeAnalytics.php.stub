@@ -1,0 +1,25 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Analytics;
+
+use Illuminate\Support\Facades\File;
+
+class CodeAnalytics
+{
+    public function measure(string $directory): array
+    {
+        $files = File::allFiles($directory);
+        $totalLines = 0;
+
+        foreach ($files as $file) {
+            if (in_array($file->getExtension(), ['php', 'js', 'css'])) {
+                $totalLines += count(file($file->getPathname()));
+            }
+        }
+
+        return [
+            'total_files' => count($files),
+            'total_lines' => $totalLines,
+        ];
+    }
+}

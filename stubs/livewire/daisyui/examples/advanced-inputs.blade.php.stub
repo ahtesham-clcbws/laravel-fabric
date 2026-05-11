@@ -1,0 +1,76 @@
+<div class="space-y-24 py-12 px-4 max-w-4xl mx-auto">
+    <!-- Select & Textarea (Core Tailwind) -->
+    <div class="p-10 bg-white border border-neutral-100 rounded-[40px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800 space-y-10">
+        <div class="space-y-3">
+            <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">Registry Node Select</label>
+            <div class="relative" x-data="{ open: false, selected: 'Master Cluster Alpha' }">
+                <button 
+                    @click="open = !open"
+                    class="w-full flex items-center justify-between px-6 py-4 rounded-2xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} transition-all text-sm font-bold dark:bg-neutral-800"
+                >
+                    <span x-text="selected"></span>
+                    <svg class="size-4 text-neutral-400 transition-transform" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div 
+                    x-show="open" 
+                    @click.away="open = false"
+                    x-transition
+                    x-cloak
+                    class="absolute top-full left-0 right-0 mt-3 p-2 bg-white rounded-[24px] border border-neutral-100 shadow-2xl z-20 dark:bg-neutral-900 dark:border-neutral-800"
+                >
+                    <template x-for="opt in ['Master Cluster Alpha', 'Worker Cluster Beta', 'Edge Cluster Delta']">
+                        <button 
+                            @click="selected = opt; open = false"
+                            class="w-full text-left px-5 py-3 rounded-xl hover:bg-neutral-50 text-sm font-medium dark:hover:bg-neutral-800 transition-colors"
+                            x-text="opt"
+                        ></button>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-3">
+            <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">Orchestration Manifest</label>
+            <textarea 
+                rows="4"
+                class="w-full px-6 py-4 rounded-2xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} focus:bg-white transition-all outline-none text-sm font-bold dark:bg-neutral-800 dark:focus:bg-neutral-700"
+                placeholder="Enter YAML manifest here..."
+            ></textarea>
+        </div>
+    </div>
+
+    <!-- Tall Input (Core Tailwind) -->
+    <div class="relative group">
+        <label class="absolute left-6 top-3 text-[8px] font-black text-{{ PRIMARY }} uppercase tracking-widest z-10">Advanced Identifier</label>
+        <input 
+            type="text" 
+            placeholder="Fabric-Node-X"
+            class="w-full px-6 pt-8 pb-4 rounded-[28px] bg-white border-2 border-neutral-100 focus:border-{{ PRIMARY }} shadow-sm transition-all outline-none text-lg font-black tracking-tight dark:bg-neutral-900 dark:border-neutral-800"
+        >
+        <div class="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-2">
+            <div class="size-2 rounded-full bg-teal-500 animate-pulse"></div>
+            <span class="text-[8px] font-black text-teal-500 uppercase tracking-widest">Valid</span>
+        </div>
+    </div>
+
+    <!-- Toggle Advanced (Core Tailwind) -->
+    <div class="flex items-center justify-between p-8 bg-neutral-100 rounded-[32px] dark:bg-neutral-900">
+        <div class="flex items-center gap-4">
+            <div class="size-10 rounded-xl bg-white flex items-center justify-center text-{{ PRIMARY }} shadow-sm dark:bg-neutral-800">
+                <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div>
+                <span class="block text-[10px] font-black uppercase tracking-widest text-neutral-800 dark:text-white">Turbo Orchestration</span>
+                <span class="block text-[8px] font-bold text-neutral-400 uppercase">Allocates +50% CPU resources</span>
+            </div>
+        </div>
+        <button 
+            x-data="{ on: false }" 
+            @click="on = !on"
+            class="relative w-16 h-10 bg-neutral-200 rounded-full transition-colors dark:bg-neutral-800"
+            :class="on ? 'bg-teal-500' : ''"
+        >
+            <div class="absolute top-1.5 left-1.5 size-7 bg-white rounded-full transition-transform shadow-md" :class="on ? 'translate-x-6' : ''"></div>
+        </button>
+    </div>
+</div>

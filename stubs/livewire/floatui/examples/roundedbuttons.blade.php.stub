@@ -1,0 +1,33 @@
+<div class="btns-container">
+
+        <button
+            class="px-3 py-1.5 text-sm text-white duration-150 bg-{{ PRIMARY_BASE }}-600 rounded-full hover:bg-{{ PRIMARY_BASE }}-500 active:bg-{{ PRIMARY_BASE }}-700"
+        >
+            Button
+        </button>
+
+        <button
+            class="px-4 py-2 text-white bg-{{ PRIMARY_BASE }}-600 rounded-full duration-150 hover:bg-{{ PRIMARY_BASE }}-500 active:bg-{{ PRIMARY_BASE }}-700"
+        >
+            Button
+        </button>
+
+        <button
+            class="px-5 py-3 text-white duration-150 bg-{{ PRIMARY_BASE }}-600 rounded-full hover:bg-{{ PRIMARY_BASE }}-500 active:bg-{{ PRIMARY_BASE }}-700"
+        >
+            Button
+        </button>
+
+        <button
+            class="px-6 py-3.5 text-white bg-{{ PRIMARY_BASE }}-600 rounded-full duration-150 hover:bg-{{ PRIMARY_BASE }}-500 active:bg-{{ PRIMARY_BASE }}-700"
+        >
+            Button
+        </button>
+
+        <button
+            class="px-7 py-4 text-white duration-150 bg-{{ PRIMARY_BASE }}-600 rounded-full hover:bg-{{ PRIMARY_BASE }}-500 active:bg-{{ PRIMARY_BASE }}-700"
+        >
+            Button
+        </button>
+
+    </div>

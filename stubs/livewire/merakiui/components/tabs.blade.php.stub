@@ -1,0 +1,17 @@
+<div x-data="{ active: 'registry' }" class="max-w-4xl mx-auto py-20 px-10">
+    <div class="flex p-3 bg-neutral-50 dark:bg-neutral-900 rounded-[32px] border border-neutral-100 dark:border-neutral-800">
+        <template x-for="tab in ['manifest', 'registry', 'clusters']">
+            <button 
+                @click="active = tab"
+                class="flex-1 py-5 rounded-[24px] text-[10px] font-black uppercase tracking-widest transition-all duration-500 italic"
+                :class="active === tab ? 'bg-white text-neutral-800 shadow-2xl dark:bg-neutral-800 dark:text-white' : 'text-neutral-400 hover:text-neutral-600'"
+                x-text="tab"
+            ></button>
+        </template>
+    </div>
+    
+    <div class="mt-16 p-12 bg-white border border-neutral-100 rounded-[56px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-y-4" x-transition:enter-end="opacity-100 translate-y-0">
+        <h4 class="text-2xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic mb-6" x-text="active + ' sync cluster'"></h4>
+        <p class="text-sm text-neutral-500 font-medium leading-relaxed italic">High-fidelity node synchronization established with zero-dependency architecture. Every registry query is provisioned through the neural orchestration cluster.</p>
+    </div>
+</div>

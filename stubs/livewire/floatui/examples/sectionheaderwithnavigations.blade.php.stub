@@ -1,0 +1,27 @@
+<div class="max-w-screen-xl mx-auto px-4 pt-4 md:px-8">
+            <div class="max-w-lg">
+                <h3 class="text-neutral-800 text-2xl font-bold">
+                    Team members
+                </h3>
+                <p class="text-neutral-600 mt-2">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                </p>
+            </div>
+            <div class="mt-6">
+                <ul class="w-full border-b flex items-center gap-x-3 overflow-x-auto">
+                    {
+                        navigation.map((item, idx) => (
+                            // Replace [idx == 0] with [window.location.pathname == item.path] or create your own logic
+                            <li key={idx} class="py-2 border-b-2 ${idx == 0 ? "border-{{ PRIMARY_BASE }}-600 text-{{ PRIMARY_BASE }}-600" : "border-white text-neutral-500"}">
+                                <a
+                                    href={item.href}
+                                    class="py-2.5 px-4 rounded-2xl duration-150 text-sm hover:text-{{ PRIMARY_BASE }}-600 hover:bg-neutral-100 active:bg-neutral-200 font-medium"
+                                >
+                                    {item.name}
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+        </div>

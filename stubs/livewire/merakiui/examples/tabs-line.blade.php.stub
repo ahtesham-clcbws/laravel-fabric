@@ -1,0 +1,13 @@
+<div class="flex overflow-x-auto overflow-y-hidden border-b border-neutral-200 whitespace-nowrap dark:border-neutral-700">
+        <button class="inline-flex items-center h-10 px-4 -mb-px text-sm text-center text-{{ PRIMARY_BASE }}-600 bg-transparent border-b-2 border-{{ PRIMARY_BASE }}-500 sm:text-base dark:border-{{ PRIMARY_BASE }}-400 dark:text-{{ PRIMARY_BASE }}-300 whitespace-nowrap focus:outline-none">
+            Profile
+        </button>
+
+        <button class="inline-flex items-center h-10 px-4 -mb-px text-sm text-center text-neutral-700 bg-transparent border-b-2 border-transparent sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none hover:border-neutral-400">
+            Account
+        </button>
+
+        <button class="inline-flex items-center h-10 px-4 -mb-px text-sm text-center text-neutral-700 bg-transparent border-b-2 border-transparent sm:text-base dark:text-white whitespace-nowrap cursor-base focus:outline-none hover:border-neutral-400">
+            Notification
+        </button>
+    </div>

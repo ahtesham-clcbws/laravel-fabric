@@ -1,0 +1,65 @@
+<div x-data="{ showPassword: false }" class="w-full max-w-md mx-auto p-6">
+    <div class="mt-7 bg-white border border-neutral-200 rounded-3xl shadow-2xl dark:bg-neutral-900 dark:border-neutral-800 overflow-hidden">
+        <div class="p-4 sm:p-10">
+            <div class="text-center">
+                <h1 class="block text-3xl font-bold text-neutral-800 dark:text-white">Sign in</h1>
+                <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    Don't have an account yet?
+                    <a class="text-{{ PRIMARY }} decoration-2 hover:underline font-semibold transition-all" href="#">
+                        Sign up here
+                    </a>
+                </p>
+            </div>
+
+            <div class="mt-8">
+                <!-- Social Login -->
+                <button type="button" class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-2xl border border-neutral-200 bg-white text-neutral-800 shadow-sm hover:bg-neutral-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-800 dark:text-white dark:hover:bg-neutral-800 transition-all duration-300">
+                    <svg class="w-4 h-auto" viewBox="0 0 46 47" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M46 24.0287C46 22.09 45.8251 20.2133 45.5015 18.4062H23.4687V28.1136H36.1044C35.5562 31.0664 33.8895 33.571 31.3912 35.243V41.5306H39.6387C44.4594 37.0911 47.2187 30.5516 47.2187 24.0287" fill="#4285F4"/><path d="M23.4687 47.1999C29.7424 47.1999 35.0003 45.1147 38.8315 41.5306L30.584 35.243C28.293 36.7766 25.3853 37.6833 22.4687 37.6833C16.4172 37.6833 11.29 33.5937 9.46274 28.0931H1.00293V34.654C4.84752 42.2858 12.723 47.1999 22.4687 47.1999" fill="#34A853"/><path d="M9.46274 28.0931C8.97424 26.6341 8.6974 25.0747 8.6974 23.4687C8.6974 21.8627 8.97424 20.3033 9.46274 18.8443V12.2834H1.00293C0.362945 14.5447 0 16.9634 0 19.4687C0 21.974 0.362945 24.3927 1.00293 26.654L9.46274 28.0931" fill="#FBBC05"/><path d="M23.4687 9.2552C26.8837 9.2552 29.9463 10.4293 32.3592 12.7479L39.001 6.10615C35.0003 2.3787 29.7424 0 23.4687 0C12.723 0 4.84752 4.9141 1.00293 12.5459L9.46274 18.8443C11.29 13.3437 16.4172 9.2552 22.4687 9.2552" fill="#EA4335"/></svg>
+                    Sign in with Google
+                </button>
+
+                <div class="py-6 flex items-center text-xs text-neutral-400 uppercase before:flex-1 before:border-t before:border-neutral-200 before:me-6 after:flex-1 after:border-t after:border-neutral-200 after:ms-6 dark:before:border-neutral-800 dark:after:border-neutral-800">Or</div>
+
+                <!-- Form -->
+                <form>
+                    <div class="grid gap-y-5">
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block text-sm mb-2 font-semibold dark:text-white">Email address</label>
+                            <input type="email" id="email" name="email" class="py-3 px-4 block w-full border-neutral-200 rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-800 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 transition-all duration-300" required>
+                        </div>
+
+                        <!-- Password -->
+                        <div>
+                            <div class="flex justify-between items-center">
+                                <label for="password" class="block text-sm mb-2 font-semibold dark:text-white">Password</label>
+                                <a class="text-sm text-{{ PRIMARY }} decoration-2 hover:underline font-semibold transition-all" href="#">Forgot password?</a>
+                            </div>
+                            <div class="relative">
+                                <input :type="showPassword ? 'text' : 'password'" id="password" name="password" class="py-3 px-4 block w-full border-neutral-200 rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-800 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 transition-all duration-300" required>
+                                <button @click="showPassword = !showPassword" type="button" class="absolute top-0 end-0 p-3.5 rounded-e-2xl focus:outline-none">
+                                    <svg x-show="!showPassword" class="shrink-0 size-4 text-neutral-400 dark:text-neutral-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    <svg x-show="showPassword" x-cloak class="shrink-0 size-4 text-neutral-400 dark:text-neutral-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88 1.5 1.5"/><path d="M2 12s3-7 10-7a9.06 9.06 0 0 1 4.7 1.3"/><path d="M21.81 12.81A10.58 10.58 0 0 1 22 12s-3-7-10-7a13 13 0 0 0-2 0"/><path d="M14.5 14.5c-1.5 1.5-3.7 1.5-5.2 0"/><path d="M2 2l19.8 19.8"/><path d="M15.47 15.47A4.88 4.88 0 0 1 12 17c-2.6 0-4.8-2.1-4.8-4.7 0-1.3.5-2.6 1.4-3.5"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Remember Me -->
+                        <div class="flex items-center">
+                            <div class="flex">
+                                <input id="remember-me" name="remember-me" type="checkbox" class="shrink-0 mt-0.5 border-neutral-200 rounded text-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-900 dark:border-neutral-800 dark:checked:bg-{{ PRIMARY }} dark:checked:border-{{ PRIMARY }} dark:focus:ring-offset-neutral-800 transition-all duration-300">
+                            </div>
+                            <div class="ms-3">
+                                <label for="remember-me" class="text-sm dark:text-white">Remember me</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-bold rounded-2xl border border-transparent bg-{{ PRIMARY }} text-white hover:bg-{{ PRIMARY }}/90 focus:outline-none focus:bg-{{ PRIMARY }}/90 disabled:opacity-50 disabled:pointer-events-none transition-all duration-300 shadow-lg shadow-{{ PRIMARY }}/20">
+                            Sign in
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

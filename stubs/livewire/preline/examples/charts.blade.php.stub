@@ -1,0 +1,89 @@
+<div 
+    x-data="{ 
+        init() {
+            // Load ApexCharts if not available
+            if (typeof ApexCharts === 'undefined') {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/apexcharts';
+                script.onload = () => this.renderChart();
+                document.head.appendChild(script);
+            } else {
+                this.renderChart();
+            }
+        },
+        renderChart() {
+            const options = {
+                chart: {
+                    type: 'area',
+                    height: 300,
+                    toolbar: { show: false },
+                    zoom: { enabled: false },
+                    fontFamily: 'Inter, sans-serif'
+                },
+                series: [{
+                    name: 'Efficiency',
+                    data: [31, 40, 28, 51, 42, 109, 100]
+                }],
+                colors: ['#6366f1'],
+                fill: {
+                    type: 'gradient',
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.3,
+                        opacityTo: 0.1,
+                        stops: [0, 90, 100]
+                    }
+                },
+                dataLabels: { enabled: false },
+                stroke: { curve: 'smooth', width: 4 },
+                grid: {
+                    borderColor: '#f1f1f1',
+                    strokeDashArray: 4,
+                    xaxis: { lines: { show: true } }
+                },
+                xaxis: {
+                    categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    axisBorder: { show: false },
+                    axisTicks: { show: false },
+                    labels: {
+                        style: { colors: '#94a3b8', fontWeight: 600 }
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: { colors: '#94a3b8', fontWeight: 600 }
+                    }
+                },
+                tooltip: {
+                    theme: 'dark',
+                    custom: function({series, seriesIndex, dataPointIndex, w}) {
+                        return '<div class=&quot;bg-neutral-900 text-white p-3 rounded-xl border border-neutral-800 shadow-2xl&quot;>' +
+                            '<span class=&quot;text-[10px] font-black uppercase tracking-widest opacity-50&quot;>' + w.globals.labels[dataPointIndex] + '</span>' +
+                            '<div class=&quot;flex items-center gap-2 mt-1&quot;>' +
+                            '<span class=&quot;size-2 rounded-full bg-indigo-500&quot;></span>' +
+                            '<span class=&quot;text-sm font-black&quot;>' + series[seriesIndex][dataPointIndex] + '% Efficiency</span>' +
+                            '</div>' +
+                            '</div>'
+                    }
+                }
+            };
+
+            const chart = new ApexCharts(this.$refs.chart, options);
+            chart.render();
+        }
+    }" 
+    class="w-full bg-white border border-neutral-200 rounded-[40px] p-8 dark:bg-neutral-900 dark:border-neutral-800 shadow-sm transition-all duration-500 hover:shadow-2xl"
+>
+    <div class="flex justify-between items-start mb-8">
+        <div>
+            <h3 class="text-xl font-black text-neutral-800 dark:text-white tracking-tight">System Pulse</h3>
+            <p class="text-xs font-bold text-neutral-400 uppercase tracking-widest mt-1">Real-time performance metrics</p>
+        </div>
+        <div class="flex items-center gap-x-2">
+            <span class="size-2 rounded-full bg-teal-500 animate-pulse"></span>
+            <span class="text-[10px] font-black text-teal-600 uppercase tracking-widest">Live</span>
+        </div>
+    </div>
+
+    <div x-ref="chart" class="w-full h-[300px]"></div>
+</div>

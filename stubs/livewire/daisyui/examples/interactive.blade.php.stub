@@ -1,0 +1,53 @@
+<div class="max-w-4xl mx-auto py-12 px-4 space-y-24">
+    <!-- Text Rotate Section -->
+    <div class="text-center">
+        <h2 class="text-4xl font-black text-neutral-800 dark:text-white tracking-tight">
+            Forge 
+            <span class="text-{{ PRIMARY }} inline-grid grid-cols-1 overflow-hidden h-[1.2em]">
+                <span class="animate-text-rotate">Interfaces</span>
+                <span class="animate-text-rotate">Dashboards</span>
+                <span class="animate-text-rotate">Portals</span>
+                <span class="animate-text-rotate">Clusters</span>
+            </span>
+            Automatically
+        </h2>
+        <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-[0.3em] mt-6">Powered by DaisyUI V5 Text-Rotate</p>
+    </div>
+
+    <!-- Calendar Section (Conceptual Implementation with Grid) -->
+    <div class="p-10 bg-white border border-neutral-100 rounded-[40px] shadow-2xl dark:bg-neutral-900 dark:border-neutral-800 max-w-sm mx-auto">
+        <div class="flex items-center justify-between mb-8">
+            <h3 class="text-sm font-black text-neutral-800 dark:text-white uppercase tracking-widest">October 2024</h3>
+            <div class="flex gap-2">
+                <button class="btn btn-circle btn-xs bg-neutral-50 border-none hover:bg-neutral-100 dark:bg-neutral-800"><svg class="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg></button>
+                <button class="btn btn-circle btn-xs bg-neutral-50 border-none hover:bg-neutral-100 dark:bg-neutral-800"><svg class="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+        </div>
+        <div class="grid grid-cols-7 gap-2 text-center text-[10px] font-black text-neutral-400 uppercase mb-4">
+            <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+        </div>
+        <div class="grid grid-cols-7 gap-2">
+            <template x-for="i in 31">
+                <button 
+                    class="size-10 rounded-xl flex items-center justify-center text-xs font-bold transition-all"
+                    :class="i === 13 ? 'bg-{{ PRIMARY }} text-white shadow-lg shadow-{{ PRIMARY }}/20' : 'hover:bg-neutral-50 dark:hover:bg-neutral-800 text-neutral-600 dark:text-neutral-400'"
+                    x-text="i"
+                ></button>
+            </template>
+        </div>
+        <button class="w-full mt-8 py-3 bg-neutral-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest">View All Events</button>
+    </div>
+</div>
+
+<style>
+@keyframes text-rotate {
+    0%, 20% { transform: translateY(0); }
+    25%, 45% { transform: translateY(-1.2em); }
+    50%, 70% { transform: translateY(-2.4em); }
+    75%, 95% { transform: translateY(-3.6em); }
+    100% { transform: translateY(0); }
+}
+.animate-text-rotate {
+    animation: text-rotate 12s infinite cubic-bezier(0.76, 0, 0.24, 1);
+}
+</style>

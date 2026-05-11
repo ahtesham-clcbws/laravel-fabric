@@ -1,0 +1,32 @@
+<div x-data="{ open: false, selected: 'Standard Edge' }" class="max-w-md mx-auto relative">
+    <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1 block mb-3">Protocol Tier</label>
+    <div class="relative">
+        <button 
+            @click="open = !open"
+            class="w-full flex items-center justify-between px-8 py-5 rounded-[24px] bg-white border-2 border-neutral-100 focus:border-{{ PRIMARY }} transition-all dark:bg-neutral-900 dark:border-neutral-800"
+        >
+            <span class="text-sm font-black text-neutral-800 dark:text-white uppercase tracking-widest italic" x-text="selected"></span>
+            <svg class="size-5 text-neutral-400 transition-transform duration-500" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3"/></svg>
+        </button>
+        
+        <div 
+            x-show="open" 
+            @click.away="open = false"
+            x-transition
+            x-cloak
+            class="absolute top-full left-0 right-0 mt-4 p-4 bg-white rounded-[32px] border border-neutral-100 shadow-2xl z-50 dark:bg-neutral-950 dark:border-neutral-900"
+        >
+            <div class="space-y-1">
+                <template x-for="opt in ['Standard Edge', 'High-Fidelity Core', 'Quantum Manifest', 'Neural Bridge']">
+                    <button 
+                        @click="selected = opt; open = false"
+                        class="w-full text-left px-6 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest text-neutral-400 hover:bg-neutral-50 hover:text-neutral-900 transition-all dark:hover:bg-neutral-900 dark:hover:text-white flex items-center justify-between"
+                    >
+                        <span x-text="opt"></span>
+                        <svg x-show="selected === opt" class="size-4 text-{{ PRIMARY }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-width="3"/></svg>
+                    </button>
+                </template>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="space-y-12 max-w-md mx-auto">
+    <!-- Range Slider -->
+    <div x-data="{ value: 50 }" class="space-y-6">
+        <div class="flex justify-between items-center">
+            <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">Resource Allocation</h4>
+            <span class="text-xl font-black text-{{ PRIMARY }}" x-text="value + '%'"></span>
+        </div>
+        <div class="relative w-full h-12 flex items-center">
+            <input 
+                type="range" 
+                x-model="value" 
+                min="0" max="100" 
+                class="w-full h-2 bg-neutral-100 rounded-full appearance-none cursor-pointer accent-{{ PRIMARY }} dark:bg-neutral-800"
+            >
+        </div>
+        <div class="flex justify-between text-[10px] font-bold text-neutral-400 uppercase tracking-widest">
+            <span>Minimum</span>
+            <span>Optimal</span>
+            <span>Maximum</span>
+        </div>
+    </div>
+
+    <!-- Color Picker -->
+    <div x-data="{ color: '#6366f1' }" class="space-y-6">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">Primary Branding Token</h4>
+        <div class="flex items-center gap-x-6 p-6 bg-white border border-neutral-100 rounded-3xl dark:bg-neutral-900 dark:border-neutral-800 shadow-sm transition-all duration-500">
+            <div class="relative size-16 rounded-2xl overflow-hidden shadow-lg" :style="`background-color: ${color}`">
+                <input 
+                    type="color" 
+                    x-model="color" 
+                    class="absolute inset-0 size-full opacity-0 cursor-pointer"
+                >
+            </div>
+            <div class="space-y-1">
+                <p class="text-sm font-black text-neutral-800 dark:text-white uppercase tracking-widest" x-text="color"></p>
+                <p class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Click to update color</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="flex gap-x-3 justify-end">
+        <div class="grow space-y-3 text-right">
+            <div class="inline-block bg-{{ PRIMARY }} rounded-2xl p-4 text-white shadow-lg shadow-{{ PRIMARY }}/20">
+                <p class="text-sm leading-relaxed">
+                    I need to generate a high-fidelity dashboard with real-time stats and a bento-style layout. Can you help?
+                </p>
+            </div>
+            <div class="flex items-center justify-end gap-x-2 text-[10px] font-bold text-neutral-400 uppercase tracking-widest pe-1">
+                <svg class="size-3 text-{{ PRIMARY }}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                <span>Sent</span>
+                <span>•</span>
+                <span>10:25 AM</span>
+            </div>
+        </div>
+        <div class="shrink-0 size-9 rounded-xl bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} flex items-center justify-center font-bold">
+            U
+        </div>
+    </div>

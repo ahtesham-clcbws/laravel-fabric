@@ -1,0 +1,19 @@
+<Tabs.Root
+      class="max-w-screen-xl mx-auto px-4 md:px-8"
+      defaultValue="Overview"
+    >
+      <Tabs.List
+        class="w-full border-b flex items-center gap-x-3 overflow-x-auto text-sm"
+        aria-label="Manage your account"
+      >
+        {tabItems.map((item, idx) => (
+          <Tabs.Trigger
+            key={idx}
+            class="group outline-none py-1.5 border-b-2 border-white text-neutral-500 data-[state=active]:border-{{ PRIMARY_BASE }}-600 data-[state=active]:text-{{ PRIMARY_BASE }}-600"
+            value={item.name}
+          >
+            <div class="flex items-center gap-x-2 py-1.5 px-3 rounded-2xl duration-150 group-hover:text-{{ PRIMARY_BASE }}-600 group-hover:bg-neutral-50 group-active:bg-neutral-100 font-medium">
+              {item.icon}
+              {item.name}
+            </div>
+          </Tabs.Trigger>

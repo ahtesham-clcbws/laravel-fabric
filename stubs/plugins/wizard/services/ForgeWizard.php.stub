@@ -1,0 +1,17 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Wizard;
+
+class ForgeWizard
+{
+    public function steps(): array
+    {
+        return [
+            'Model Discovery',
+            'Theme Selection',
+            'Relationship Mapping',
+            'Security Configuration',
+            'Final Weaving'
+        ];
+    }
+}

@@ -1,0 +1,11 @@
+<div class="text-center group">
+            <div class="size-16 bg-neutral-100 rounded-3xl flex items-center justify-center mx-auto mb-6 dark:bg-neutral-800 transition-all duration-500 group-hover:bg-rose-100 group-hover:text-rose-600 group-hover:scale-110">
+                <svg class="size-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="text-lg font-black text-neutral-800 dark:text-white tracking-tight mb-2">Secure Scaffolding</h3>
+            <p class="text-sm text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">
+                Architecture designed with extreme focus on security and dependency isolation.
+            </p>
+        </div>
+    </div>
+</div>

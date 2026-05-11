@@ -1,0 +1,17 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-8 bg-white rounded-[40px] border border-neutral-100 shadow-sm dark:bg-neutral-900 dark:border-neutral-800 transition-all hover:shadow-xl">
+                    <p class="text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-4">Total Revenue</p>
+                    <h3 class="text-3xl font-black text-neutral-800 dark:text-white tracking-tighter mb-2">$84,254.00</h3>
+                    <div class="flex items-center gap-x-2">
+                        <span class="text-[10px] font-black text-teal-500">+12.5%</span>
+                        <span class="text-[10px] font-bold text-neutral-400">vs last month</span>
+                    </div>
+                </div>
+                <div class="p-8 bg-white rounded-[40px] border border-neutral-100 shadow-sm dark:bg-neutral-900 dark:border-neutral-800 transition-all hover:shadow-xl">
+                    <p class="text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-4">Active Sessions</p>
+                    <h3 class="text-3xl font-black text-neutral-800 dark:text-white tracking-tighter mb-2">1,204</h3>
+                    <div class="flex items-center gap-x-2">
+                        <span class="text-[10px] font-black text-rose-500">-2.4%</span>
+                        <span class="text-[10px] font-bold text-neutral-400">vs last month</span>
+                    </div>
+                </div>
