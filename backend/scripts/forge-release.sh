@@ -49,6 +49,7 @@ cp "$BUILD_DIR/$PHAR_NAME" "$DIST_DIR/bin/$PHAR_NAME"
 cp -r "$PRIVATE_REPO_DIR/distribution/stubs" "$DIST_DIR/"
 cp -r "$PRIVATE_REPO_DIR/distribution/config" "$DIST_DIR/"
 cp -r "$PRIVATE_REPO_DIR/distribution/resources" "$DIST_DIR/"
+cp "$PRIVATE_REPO_DIR/composer.json" "$DIST_DIR/composer.json"
 
 rm -rf "$DIST_DIR/src"
 mkdir -p "$DIST_DIR/src"
