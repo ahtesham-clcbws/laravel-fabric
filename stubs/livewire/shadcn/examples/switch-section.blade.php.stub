@@ -1,0 +1,15 @@
+<div class="flex items-center space-x-2">
+        <button 
+            @click="enabled = !enabled"
+            role="switch"
+            :aria-checked="enabled"
+            :class="enabled ? 'bg-neutral-900 dark:bg-neutral-50' : 'bg-neutral-200 dark:bg-neutral-800'"
+            class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2"
+        >
+            <span 
+                :class="enabled ? 'translate-x-6' : 'translate-x-1'"
+                class="pointer-events-none block h-4 w-4 rounded-full bg-white shadow-lg ring-0 transition-transform dark:bg-neutral-950"
+            ></span>
+        </button>
+        <label class="text-sm font-medium leading-none">Enable Master Sync</label>
+    </div>

@@ -1,0 +1,33 @@
+<div class="max-w-4xl mx-auto overflow-hidden bg-white border border-neutral-100 rounded-[48px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+    <table class="w-full text-left">
+        <thead class="bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-100 dark:border-neutral-800">
+            <tr>
+                <th class="px-8 py-6 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Node Identifier</th>
+                <th class="px-8 py-6 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Tier</th>
+                <th class="px-8 py-6 text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Status</th>
+                <th class="px-8 py-6 text-right text-[10px] font-black text-neutral-400 uppercase tracking-widest italic">Operations</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-neutral-50 dark:divide-neutral-800">
+            <template x-for="i in [1, 2, 3, 4]">
+                <tr class="group hover:bg-neutral-50/50 dark:hover:bg-neutral-950/50 transition-colors">
+                    <td class="px-8 py-6">
+                        <span class="text-sm font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic" x-text="'NODE-0' + i + '-ALPHA'"></span>
+                    </td>
+                    <td class="px-8 py-6">
+                        <span class="px-4 py-1.5 bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} rounded-full text-[8px] font-black uppercase tracking-widest">QUANTUM</span>
+                    </td>
+                    <td class="px-8 py-6">
+                        <div class="flex items-center gap-2">
+                            <div class="size-2 bg-emerald-500 rounded-full"></div>
+                            <span class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Active</span>
+                        </div>
+                    </td>
+                    <td class="px-8 py-6 text-right">
+                        <button class="text-[10px] font-black text-neutral-400 uppercase tracking-widest hover:text-{{ PRIMARY }} transition-colors">Audit</button>
+                    </td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</div>

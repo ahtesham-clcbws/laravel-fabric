@@ -1,0 +1,30 @@
+<div 
+            class="space-y-3 mt-5 overflow-hidden border-b"
+            key={idx}
+            @click={handleOpenAnswer}
+        >
+            <h4 class="cursor-pointer pb-5 flex items-center justify-between text-lg text-neutral-700 font-medium">
+                {faqsList.q}
+                {
+                    state ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-500 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                        </svg>
+                    ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-neutral-500 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                        </svg>
+                    )
+                }
+            </h4>
+            <div
+                ref={answerElRef} class="duration-300"
+                style={state ? {height: answerH } : {height: '0px'}}
+            >
+                <div>
+                    <p class="text-neutral-500 duration-300">
+                        {faqsList.a}
+                    </p>
+                </div>
+            </div>
+        </div>

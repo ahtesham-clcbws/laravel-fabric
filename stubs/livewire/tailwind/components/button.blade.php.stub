@@ -1,0 +1,36 @@
+@props([
+    'variant' => 'primary',
+    'size' => 'md',
+    'type' => 'button'
+])
+
+@php
+    $baseClasses = 'inline-flex items-center border font-semibold rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150';
+    
+    $variants = [
+        'primary'   => 'border-transparent text-white bg-{{ PRIMARY }} hover:bg-{{ PRIMARY }} focus:ring-{{ PRIMARY }}',
+        'secondary' => 'border-transparent text-white bg-{{ SECONDARY }} hover:bg-{{ SECONDARY }} focus:ring-{{ SECONDARY }}',
+        'neutral'   => 'border-transparent text-white bg-{{ NEUTRAL }} hover:bg-{{ NEUTRAL }} focus:ring-{{ NEUTRAL }}',
+        'accent'    => 'border-transparent text-white bg-{{ ACCENT }} hover:bg-{{ ACCENT }} focus:ring-{{ ACCENT }}',
+        'success'   => 'border-transparent text-white bg-green-600 hover:bg-green-700 focus:ring-green-500',
+        'info'      => 'border-transparent text-white bg-{{ PRIMARY }} hover:bg-{{ PRIMARY }} focus:ring-{{ PRIMARY }}',
+        'warning'   => 'border-transparent text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-yellow-400',
+        'error'     => 'border-transparent text-white bg-red-600 hover:bg-red-700 focus:ring-red-500',
+        'ghost'     => 'border-transparent text-gray-600 bg-transparent hover:bg-gray-100 focus:ring-gray-200',
+        'outline'   => 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-{{ PRIMARY }}',
+    ];
+
+    $sizes = [
+        'xs' => 'px-2 py-1 text-xs',
+        'sm' => 'px-3 py-1.5 text-sm',
+        'md' => 'px-4 py-2 text-sm',
+        'lg' => 'px-5 py-2.5 text-base',
+        'xl' => 'px-6 py-3 text-lg',
+    ];
+
+    $classes = $baseClasses . ' ' . $variants[$variant] . ' ' . $sizes[$size];
+@endphp
+
+<button type="{{ $type }}" {{ $attributes->merge(['class' => $classes]) }}>
+    {{ $slot }}
+</button>

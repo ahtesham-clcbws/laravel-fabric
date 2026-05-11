@@ -1,0 +1,19 @@
+<div class="flex flex-col items-center" x-data="{ active: 'OVERVIEW' }">
+        <div class="inline-flex p-2 bg-neutral-100 rounded-[28px] dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-inner">
+            <template x-for="tab in ['OVERVIEW', 'REGISTRY', 'METRICS', 'AUTH']">
+                <button 
+                    @click="active = tab"
+                    class="px-8 py-3 rounded-[20px] text-[10px] font-black uppercase tracking-widest transition-all duration-300"
+                    :class="active === tab ? 'bg-white text-neutral-900 shadow-xl dark:bg-neutral-800 dark:text-white' : 'text-neutral-400 hover:text-neutral-600'"
+                    x-text="tab"
+                ></button>
+            </template>
+        </div>
+
+        <div class="mt-12 w-full max-w-3xl">
+            <div x-show="active === 'OVERVIEW'" x-transition class="p-10 bg-white border border-neutral-100 rounded-[40px] shadow-2xl dark:bg-neutral-950 dark:border-neutral-900">
+                <h4 class="text-2xl font-black text-neutral-800 dark:text-white tracking-tight uppercase italic mb-4">Cluster Overview</h4>
+                <p class="text-sm text-neutral-500 font-medium leading-relaxed">
+                    Primary orchestration node is active and reporting nominal status. All 2,4k stubs are synchronized across the global registry.
+                </p>
+            </div>

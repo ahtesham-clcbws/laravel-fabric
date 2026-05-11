@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Livewire\Fabric;
+
+use Livewire\Component;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+
+/**
+ * 🧬 FORGED BY FABRIC (Auto-Breadcrumbs)
+ * Automatically generates a semantic breadcrumb trail based on the current route.
+ */
+class Breadcrumbs extends Component
+{
+    public array $crumbs = [];
+
+    public function mount()
+    {
+        $routeName = Route::currentRouteName();
+        if (!$routeName) return;
+
+        $segments = explode('.', $routeName);
+        $url = "";
+
+        foreach ($segments as $segment) {
+            if ($segment === 'fabric') continue;
+            
+            $url .= "/{$segment}";
+            $this->crumbs[] = [
+                'label' => Str::headline($segment),
+                'url' => $url,
+            ];
+        }
+    }
+
+    public function render()
+    {
+        return <<<'HTML'
+            <nav class="text-sm breadcrumbs mb-4 opacity-60">
+                <ul>
+                    <li><a href="{{ route('fabric.dashboard') }}">{{ __('Home') }}</a></li>
+                    @foreach($crumbs as $crumb)
+                        <li>{{ $crumb['label'] }}</li>
+                    @endforeach
+                </ul>
+            </nav>
+        HTML;
+    }
+}

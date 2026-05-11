@@ -1,0 +1,52 @@
+<div class="max-w-screen-xl mx-auto mt-16 px-4 text-neutral-600 md:px-8">
+            <div class="hidden justify-center sm:flex" aria-label="Pagination">
+                <ul class="flex items-center">
+                    <li>
+                        <a href="javascript:void(0)" class="px-3 h-11 flex hover:text-{{ PRIMARY_BASE }}-600 hover:bg-neutral-50 border border-r-0 rounded-tl-lg rounded-bl-lg">
+                            <span class="inline-flex items-center gap-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                    <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
+                                </svg>
+                                Previous
+                            </span>
+                        </a>
+                    </li>
+                    {
+                        pages.map((item, idx) => (
+                            <li key={item} class="">
+                                {
+                                    item == "..." ? (
+                                        <span class="px-4 py-3 border border-l-0">
+                                            {item}
+                                        </span>
+                                    ) : (
+
+                                        <a href="javascript:void(0)" aria-current={currentPage == item ? "page" : false} class="h-10 px-4 py-3 border border-l-0 duration-150 hover:text-{{ PRIMARY_BASE }}-600 hover:bg-{{ PRIMARY_BASE }}-50 ${currentPage == item ? "bg-{{ PRIMARY_BASE }}-50 text-{{ PRIMARY_BASE }}-600 font-medium" : ""}">
+                                            {item}
+                                        </a>
+                                    )
+                                }
+                            </li>
+                        ))
+                    }
+                    <li>
+                        <a href="javascript:void(0)" class="px-3 h-11 flex hover:text-{{ PRIMARY_BASE }}-600 hover:bg-neutral-50 border border-l-0 rounded-tr-lg rounded-br-lg">
+                            <span class="inline-flex items-center gap-x-2">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                                    <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            {/* On mobile version */}
+            <div class="flex items-center justify-between text-sm text-neutral-600 font-medium sm:hidden">
+                <a href="javascript:void(0)" class="px-4 py-2 border rounded-2xl duration-150 hover:bg-neutral-50">Previous</a>
+                <div class="font-medium">
+                    Page {currentPage} of {pages.length}
+                </div>
+                <a href="javascript:void(0)" class="px-4 py-2 border rounded-2xl duration-150 hover:bg-neutral-50">Next</a>
+            </div>
+        </div>

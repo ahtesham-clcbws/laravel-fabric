@@ -1,0 +1,11 @@
+<div class="max-w-sm mx-auto p-10 bg-white border border-neutral-100 rounded-[48px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800 animate-pulse">
+    <div class="h-64 bg-neutral-50 dark:bg-neutral-950 rounded-[40px] mb-10"></div>
+    <div class="space-y-4">
+        <div class="h-6 bg-neutral-50 dark:bg-neutral-950 rounded-full w-3/4"></div>
+        <div class="h-4 bg-neutral-50 dark:bg-neutral-950 rounded-full w-1/2"></div>
+        <div class="pt-8 flex items-center justify-between">
+            <div class="h-8 bg-neutral-50 dark:bg-neutral-950 rounded-2xl w-24"></div>
+            <div class="size-12 bg-neutral-50 dark:bg-neutral-950 rounded-2xl"></div>
+        </div>
+    </div>
+</div>

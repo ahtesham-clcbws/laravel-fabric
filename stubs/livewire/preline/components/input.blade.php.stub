@@ -1,0 +1,49 @@
+@props([
+    'label' => null,
+    'type' => 'text',
+    'placeholder' => null,
+    'error' => null,
+    'icon' => null,
+    'helper' => null,
+])
+
+@php
+    $baseClasses = 'py-3 px-4 block w-full border-2 border-neutral-200 rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 transition-all duration-300';
+    
+    if ($error) {
+        $baseClasses .= ' border-rose-500 focus:border-rose-500 focus:ring-rose-500';
+    }
+
+    $paddingLeft = $icon ? 'ps-11' : '';
+    $classes = "{$baseClasses} {$paddingLeft}";
+@endphp
+
+<div class="space-y-2">
+    @if($label)
+        <label for="{{ $attributes->get('id') }}" class="block text-sm font-black text-neutral-800 dark:text-white uppercase tracking-tighter">
+            {{ $label }}
+        </label>
+    @endif
+
+    <div class="relative">
+        @if($icon)
+            <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none ps-4">
+                {{ $icon }}
+            </div>
+        @endif
+
+        <input {{ $attributes->merge(['type' => $type, 'class' => $classes, 'placeholder' => $placeholder]) }}>
+        
+        @if($error)
+            <div class="absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3">
+                <svg class="size-4 text-rose-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+            </div>
+        @endif
+    </div>
+
+    @if($error)
+        <p class="text-xs text-rose-600 mt-2">{{ $error }}</p>
+    @elseif($helper)
+        <p class="text-xs text-neutral-500 mt-2">{{ $helper }}</p>
+    @endif
+</div>

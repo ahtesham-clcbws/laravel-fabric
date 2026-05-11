@@ -1,0 +1,13 @@
+<section class="py-32 px-10 max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <template x-for="i in 8">
+            <div class="group">
+                <div class="size-16 bg-neutral-50 dark:bg-neutral-950 rounded-2xl flex items-center justify-center text-neutral-400 group-hover:bg-{{ PRIMARY }} group-hover:text-white transition-all shadow-sm mb-8">
+                    <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2"/></svg>
+                </div>
+                <h4 class="text-[10px] font-black text-neutral-800 dark:text-white uppercase tracking-widest italic mb-2">PROVISIONING</h4>
+                <p class="text-xs text-neutral-500 font-medium leading-relaxed">Establish high-fidelity node bridges across the neural registry.</p>
+            </div>
+        </template>
+    </div>
+</section>

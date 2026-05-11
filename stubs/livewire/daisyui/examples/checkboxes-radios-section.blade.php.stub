@@ -1,0 +1,24 @@
+<div class="space-y-8 p-10 bg-white border border-neutral-100 rounded-[40px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+            <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.3em] mb-6">Selection Control</h4>
+            
+            <div class="space-y-4">
+                <label class="flex items-center gap-4 cursor-pointer group">
+                    <div class="relative flex items-center">
+                        <input type="checkbox" checked class="peer h-6 w-6 opacity-0 absolute cursor-pointer" />
+                        <div class="h-6 w-6 bg-neutral-100 rounded-lg border-2 border-neutral-200 peer-checked:bg-{{ PRIMARY }} peer-checked:border-{{ PRIMARY }} transition-all"></div>
+                        <svg class="absolute size-4 text-white left-1 opacity-0 peer-checked:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <span class="text-sm font-bold text-neutral-500 group-hover:text-neutral-800 dark:group-hover:text-white transition-colors">Orchestration Enabled</span>
+                </label>
+
+                <label class="flex items-center gap-4 cursor-pointer group">
+                    <div class="relative flex items-center">
+                        <input type="radio" name="node-type" checked class="peer h-6 w-6 opacity-0 absolute cursor-pointer" />
+                        <div class="h-6 w-6 bg-neutral-100 rounded-full border-2 border-neutral-200 peer-checked:border-{{ PRIMARY }} transition-all flex items-center justify-center">
+                            <div class="size-2.5 bg-{{ PRIMARY }} rounded-full opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm font-bold text-neutral-500 group-hover:text-neutral-800 dark:group-hover:text-white transition-colors">Master Node</span>
+                </label>
+            </div>
+        </div>

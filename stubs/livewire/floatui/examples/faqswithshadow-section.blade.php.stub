@@ -1,0 +1,21 @@
+<div class="leading-relaxed py-12 mx-4 md:mx-8">
+            <div class="text-center space-y-3">
+                <h1 class="block text-neutral-800 text-3xl font-semibold">
+                    Frequently Asked Questions
+                </h1>
+                <p class="text-neutral-500 max-w-lg mx-auto">
+                    Answered all frequently asked questions. Can’t find the answer you’re looking for? feel free to contact us.
+                </p>
+            </div>
+            <div class="relative bg-white rounded-md mt-10 md:max-w-3xl lg:max-w-4xl xl:max-w-5xl sm:mx-auto" style={{boxShadow: '0px 7px 20px 7px #F1F1F1'}}>
+                <div class="grid gap-4 py-8 md:grid-cols-2">
+                    {
+                        faqsList.map((item, idx) => (
+                            <div class="space-y-3 mt-6 px-8" key={idx}>
+                                <h4 class="text-neutral-800 text-xl font-semibold ">
+                                    {item.q}
+                                </h4>
+                                <p class="text-neutral-500">
+                                    {item.a}
+                                </p>
+                            </div>

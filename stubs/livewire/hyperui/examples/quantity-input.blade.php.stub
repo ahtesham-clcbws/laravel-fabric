@@ -1,0 +1,11 @@
+<div class="flex items-center justify-center py-20 px-10">
+    <div class="flex items-center gap-4 bg-neutral-50 dark:bg-neutral-900 p-3 rounded-2xl border border-neutral-100 dark:border-neutral-800" x-data="{ count: 1 }">
+        <button @click="count--" class="size-10 rounded-xl bg-white dark:bg-neutral-950 flex items-center justify-center text-neutral-400 hover:text-rose-500 transition-all shadow-sm">
+            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 12H4" stroke-width="4"/></svg>
+        </button>
+        <input type="number" x-model="count" class="w-12 text-center bg-transparent border-none outline-none font-black text-sm italic text-neutral-800 dark:text-white [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
+        <button @click="count++" class="size-10 rounded-xl bg-white dark:bg-neutral-950 flex items-center justify-center text-neutral-400 hover:text-emerald-500 transition-all shadow-sm">
+            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-width="4"/></svg>
+        </button>
+    </div>
+</div>

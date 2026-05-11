@@ -1,0 +1,27 @@
+<?php
+
+namespace {{ NAMESPACE }}\Livewire\Pulse;
+
+use Livewire\Component;
+use Illuminate\Support\Facades\DB;
+
+class InstitutionalPulse extends Component
+{
+    public function render()
+    {
+        return <<<'HTML'
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-neutral-100">
+                    <h3 class="text-sm font-medium text-neutral-500 uppercase">Total Transactions</h3>
+                    <p class="text-3xl font-bold mt-2">{{ number_format($this->getTransactionCount()) }}</p>
+                </div>
+                <!-- More pulse widgets -->
+            </div>
+        HTML;
+    }
+
+    protected function getTransactionCount(): int
+    {
+        return DB::table('audits')->count();
+    }
+}

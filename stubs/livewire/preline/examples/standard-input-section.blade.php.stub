@@ -1,0 +1,4 @@
+<div class="space-y-3">
+        <label class="block text-sm font-black text-neutral-800 dark:text-white uppercase tracking-widest ps-1">Operative Name</label>
+        <input type="text" class="p-4 block w-full bg-white border-neutral-200 rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-900 dark:border-neutral-800 dark:text-neutral-400 dark:placeholder-neutral-600 transition-all shadow-sm" placeholder="Enter full name">
+    </div>

@@ -1,0 +1,5 @@
+<div class="flex items-center gap-x-2">
+        <span class="size-2 rounded-full bg-{{ PRIMARY }} animate-bounce"></span>
+        <span class="size-2 rounded-full bg-{{ PRIMARY }} animate-bounce [animation-delay:0.2s]"></span>
+        <span class="size-2 rounded-full bg-{{ PRIMARY }} animate-bounce [animation-delay:0.4s]"></span>
+    </div>

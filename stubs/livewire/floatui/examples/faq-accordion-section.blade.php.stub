@@ -1,0 +1,24 @@
+<section class="py-32 px-10 max-w-4xl mx-auto">
+    <div class="text-center mb-24">
+        <h2 class="text-5xl font-black text-neutral-800 dark:text-white tracking-tight uppercase italic leading-none">Global Registry FAQ</h2>
+        <p class="mt-6 text-neutral-500 font-medium italic">Everything you need to know about high-fidelity orchestration.</p>
+    </div>
+
+    <div x-data="{ active: 1 }" class="space-y-6">
+        <template x-for="i in [1, 2, 3, 4, 5]">
+            <div class="bg-white border border-neutral-100 rounded-[32px] dark:bg-neutral-900 dark:border-neutral-800 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
+                <button @click="active = active === i ? null : i" class="w-full p-10 text-left flex items-center justify-between group">
+                    <span class="text-sm font-black text-neutral-800 dark:text-white uppercase tracking-widest italic group-hover:text-{{ PRIMARY }} transition-colors" x-text="'Orchestration Protocol Sync Question ' + i"></span>
+                    <div class="size-12 rounded-2xl bg-neutral-50 dark:bg-neutral-950 flex items-center justify-center text-neutral-400 group-hover:bg-{{ PRIMARY }} group-hover:text-white transition-all">
+                        <svg class="size-6 transition-transform duration-500" :class="active === i ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3"/></svg>
+                    </div>
+                </button>
+                <div x-show="active === i" x-collapse>
+                    <div class="px-10 pb-10 text-sm text-neutral-500 font-medium leading-relaxed max-w-2xl">
+                        Fabric's high-fidelity orchestration nodes are provisioned with 100% Core Tailwind logic, ensuring zero-dependency performance across all global registries. Each sync event is logged immutably to the neural cluster.
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</section>

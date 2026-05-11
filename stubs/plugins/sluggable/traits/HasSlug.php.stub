@@ -1,0 +1,41 @@
+<?php
+
+namespace {{ NAMESPACE }}\Traits\Sluggable;
+
+use Illuminate\Support\Str;
+
+trait HasSlug
+{
+    public static function bootHasSlug(): void
+    {
+        static::creating(function ($model) {
+            $model->generateSlug();
+        });
+
+        static::updating(function ($model) {
+            if ($model->isDirty($model->slugSource())) {
+                $model->generateSlug();
+            }
+        });
+    }
+
+    protected function generateSlug(): void
+    {
+        $source = $this->slugSource();
+        $this->slug = Str::slug($this->{$source});
+
+        // Ensure uniqueness
+        $count = static::where('slug', 'like', "{$this->slug}%")
+            ->where('id', '<>', $this->id)
+            ->count();
+
+        if ($count > 0) {
+            $this->slug .= '-' . ($count + 1);
+        }
+    }
+
+    protected function slugSource(): string
+    {
+        return 'name'; // Default source field
+    }
+}

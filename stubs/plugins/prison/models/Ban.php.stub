@@ -1,0 +1,19 @@
+<?php
+
+namespace {{ NAMESPACE }}\Models\Prison;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Ban extends Model
+{
+    protected $fillable = ['ip_address', 'reason', 'expires_at', 'user_id'];
+
+    protected $casts = [
+        'expires_at' => 'datetime',
+    ];
+
+    public function isExpired(): bool
+    {
+        return $this->expires_at && $this->expires_at->isPast();
+    }
+}

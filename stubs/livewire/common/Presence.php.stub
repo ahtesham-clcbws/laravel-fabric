@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Livewire\Fabric;
+
+use Livewire\Component;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Auth;
+
+/**
+ * 🧬 FORGED BY FABRIC (Presence Indicator)
+ * Lightweight polling component to show who is currently viewing a record.
+ * Uses Laravel Cache for zero-dependency real-time indicators.
+ */
+class Presence extends Component
+{
+    public string $resourceId;
+    public string $resourceType;
+    public array $users = [];
+
+    public function mount(string $resourceId, string $resourceType)
+    {
+        $this->resourceId = $resourceId;
+        $this->resourceType = $resourceType;
+    }
+
+    public function updatePresence()
+    {
+        $key = "fabric_presence_{$this->resourceType}_{$this->resourceId}";
+        $presence = Cache::get($key, []);
+        
+        $presence[Auth::id()] = [
+            'name' => Auth::user()->name,
+            'avatar' => Auth::user()->avatar_url ?? null,
+            'last_seen' => now(),
+        ];
+
+        // Clean up stale users (older than 30 seconds)
+        $presence = collect($presence)->filter(fn($u) => now()->parse($u['last_seen'])->diffInSeconds() < 30)->toArray();
+        
+        Cache::put($key, $presence, 60);
+        $this->users = $presence;
+    }
+
+    public function render()
+    {
+        return <<<'HTML'
+            <div wire:poll.10s="updatePresence" class="flex -space-x-2 overflow-hidden">
+                @foreach($users as $id => $user)
+                    @if($id != auth()->id())
+                        <div class="inline-block h-6 w-6 rounded-full ring-2 ring-white bg-primary text-white text-[10px] flex items-center justify-center uppercase font-bold" title="{{ $user['name'] }} is viewing this">
+                            {{ substr($user['name'], 0, 1) }}
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        HTML;
+    }
+}

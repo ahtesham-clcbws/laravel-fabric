@@ -1,0 +1,27 @@
+<div class="space-y-8">
+            <div class="p-10 bg-white border border-neutral-100 rounded-[40px] shadow-2xl dark:bg-neutral-900 dark:border-neutral-800">
+                <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.3em] mb-10">Sync Manifest</h4>
+                <div class="space-y-6">
+                    <div class="flex justify-between text-sm font-bold text-neutral-600 dark:text-neutral-400">
+                        <span>Base Nodes</span>
+                        <span>$2,498.00</span>
+                    </div>
+                    <div class="flex justify-between text-sm font-bold text-neutral-600 dark:text-neutral-400">
+                        <span>Secure Shipping</span>
+                        <span>$45.00</span>
+                    </div>
+                    <div class="pt-6 border-t border-neutral-100 dark:border-neutral-800 flex justify-between items-end">
+                        <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest">Total Valuation</span>
+                        <span class="text-3xl font-black text-neutral-800 dark:text-white tracking-tighter">$2,543.00</span>
+                    </div>
+                </div>
+                <button class="w-full mt-10 py-5 bg-{{ PRIMARY }} text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-2xl shadow-{{ PRIMARY }}/30 hover:scale-[1.02] active:scale-[0.98] transition-all">Execute Purchase</button>
+            </div>
+            
+            <div class="p-8 bg-teal-500/5 border border-teal-500/10 rounded-3xl flex items-start gap-4">
+                <svg class="size-6 text-teal-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <p class="text-[10px] font-bold text-teal-600/70 uppercase leading-relaxed tracking-widest">Your orchestration is protected by Fabric's Quantum-Safe security protocol.</p>
+            </div>
+        </div>
+    </div>
+</div>

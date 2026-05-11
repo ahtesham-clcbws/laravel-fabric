@@ -1,0 +1,36 @@
+<section class="py-32 px-10 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-12">
+        <div class="max-w-2xl">
+            <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">REGISTRY INSIGHTS</span>
+            <h2 class="text-6xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-none">Orchestration Journal</h2>
+            <p class="mt-8 text-lg text-neutral-500 font-medium leading-relaxed">Stay updated with the latest advancements in high-fidelity neural clusters and registry provisioning.</p>
+        </div>
+        <button class="px-12 py-5 bg-neutral-900 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-2xl hover:bg-{{ PRIMARY }} transition-all shrink-0">View All Updates</button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <template x-for="i in [1, 2, 3]">
+            <div class="group bg-white border border-neutral-100 rounded-[56px] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-700 dark:bg-neutral-900 dark:border-neutral-800 flex flex-col">
+                <div class="relative h-72 overflow-hidden">
+                    <img :src="`https://images.unsplash.com/photo-${[1551434678-e076c223a692, 1460925895917-afdab827c52f, 1581091226825-a6a2a5aee158][i-1]}?auto=format&fit=crop&w=800&q=80`" class="object-cover w-full h-full group-hover:scale-110 transition-transform duration-1000">
+                </div>
+                <div class="p-12 grow flex flex-col">
+                    <div class="flex gap-4 mb-8">
+                        <span class="px-4 py-1.5 bg-neutral-50 dark:bg-neutral-950 rounded-full text-[8px] font-black uppercase tracking-widest text-neutral-400 italic">REGISTRY</span>
+                        <span class="px-4 py-1.5 bg-{{ PRIMARY }}/10 text-{{ PRIMARY }} rounded-full text-[8px] font-black uppercase tracking-widest italic">SYNC</span>
+                    </div>
+                    <h3 class="text-2xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic group-hover:text-{{ PRIMARY }} transition-colors">Orchestrating High-Fidelity Clusters</h3>
+                    <p class="mt-4 text-sm text-neutral-500 font-medium leading-relaxed mb-10 line-clamp-3">Deep dive into the architecture of neural registry nodes and the future of zero-dependency orchestration.</p>
+                    
+                    <div class="mt-auto pt-10 border-t border-neutral-50 dark:border-neutral-800 flex items-center gap-6">
+                        <div class="size-10 rounded-xl bg-neutral-100 dark:bg-neutral-950"></div>
+                        <div>
+                            <p class="text-[10px] font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic">Ahtesham Khan</p>
+                            <p class="text-[8px] font-bold text-neutral-400 uppercase tracking-widest">Master Orchestrator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</section>

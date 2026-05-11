@@ -1,0 +1,45 @@
+<section class="bg-white dark:bg-neutral-900 py-32 px-10">
+    <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div>
+            <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">SUPPORT BRIDGE</span>
+            <h2 class="text-7xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-[0.9]">Registry Assistance</h2>
+            <p class="mt-8 text-lg text-neutral-500 font-medium leading-relaxed">Establish a high-fidelity connection with our orchestration engineers for cluster support.</p>
+            
+            <div class="mt-16 space-y-12">
+                <template x-for="item in [
+                    { l: 'REGISTRY NODE', v: 'ALPHA-07 CLUSTER', i: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' },
+                    { l: 'SYNC PROTOCOL', v: 'support@fabric.io', i: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' }
+                ]">
+                    <div class="flex items-center gap-8 group">
+                        <div class="size-16 bg-neutral-900 text-{{ PRIMARY }} rounded-[24px] flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                            <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path :d="item.i" stroke-width="2"/></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-widest italic" x-text="item.l"></h4>
+                            <p class="text-xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic" x-text="item.v"></p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <div class="p-16 bg-white border border-neutral-100 rounded-[80px] shadow-2xl dark:bg-neutral-950 dark:border-neutral-800 relative overflow-hidden">
+            <div class="absolute -top-32 -right-32 size-64 bg-{{ PRIMARY }}/10 rounded-full blur-3xl"></div>
+            <form class="space-y-10 relative z-10">
+                <div class="space-y-4">
+                    <label class="text-[8px] font-black text-neutral-400 uppercase tracking-widest px-1 italic">Full Name</label>
+                    <input type="text" placeholder="Orchestrator Name" class="w-full px-8 py-5 rounded-3xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} outline-none text-sm font-black uppercase italic dark:bg-neutral-900 transition-all">
+                </div>
+                <div class="space-y-4">
+                    <label class="text-[8px] font-black text-neutral-400 uppercase tracking-widest px-1 italic">Registry Email</label>
+                    <input type="email" placeholder="orchestrator@fabric.io" class="w-full px-8 py-5 rounded-3xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} outline-none text-sm font-black uppercase italic dark:bg-neutral-900 transition-all">
+                </div>
+                <div class="space-y-4">
+                    <label class="text-[8px] font-black text-neutral-400 uppercase tracking-widest px-1 italic">Manifest Details</label>
+                    <textarea rows="4" placeholder="How can we assist your cluster sync?" class="w-full px-8 py-5 rounded-3xl bg-neutral-50 border-2 border-transparent focus:border-{{ PRIMARY }} outline-none text-sm font-black uppercase italic dark:bg-neutral-900 transition-all resize-none"></textarea>
+                </div>
+                <button class="w-full py-6 bg-neutral-900 text-white rounded-3xl text-[10px] font-black uppercase tracking-widest hover:bg-{{ PRIMARY }} transition-all shadow-2xl italic">Send Sync Request ➔</button>
+            </form>
+        </div>
+    </div>
+</section>

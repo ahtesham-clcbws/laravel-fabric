@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ NAMESPACE }};
+
+use Livewire\Component;
+use {{ MODEL_CLASS }};
+use Illuminate\Contracts\View\View;
+
+/**
+ * [FABRIC-METADATA]
+ * Model: {{ MODEL_NAME }}
+ * Type: Detail/Show
+ */
+class {{ MODEL_NAME }}Show extends Component
+{
+    public {{ MODEL_CLASS_FQN }} $record;
+
+    public function mount({{ MODEL_CLASS_FQN }} $record): void
+    {
+        $this->record = $record;
+    }
+
+    public function render(): View
+    {
+        return view('{{ VIEW_PATH }}.show');
+    }
+}

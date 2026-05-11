@@ -1,0 +1,24 @@
+<div class="max-w-2xl mx-auto bg-white border border-neutral-100 rounded-[32px] shadow-2xl overflow-hidden dark:bg-neutral-950 dark:border-neutral-900">
+    <div class="p-6 border-b border-neutral-50 dark:border-neutral-900 flex items-center gap-4">
+        <svg class="size-5 text-neutral-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-width="2.5"/></svg>
+        <input type="text" placeholder="Type a protocol command..." class="grow bg-transparent outline-none text-sm font-bold text-neutral-800 dark:text-white placeholder:text-neutral-300">
+        <span class="px-3 py-1 bg-neutral-50 rounded-lg text-[8px] font-black text-neutral-400 uppercase tracking-widest dark:bg-neutral-900">ESC</span>
+    </div>
+    <div class="p-3 space-y-1">
+        <template x-for="cmd in [
+            { n: 'Provision Node', s: 'Deploy a new orchestration unit.', i: 'M12 4v16m8-8H4' },
+            { n: 'Sync Registry', s: 'Force a global protocol update.', i: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15' }
+        ]">
+            <button class="w-full flex items-center gap-6 px-6 py-5 rounded-2xl hover:bg-neutral-50 dark:hover:bg-neutral-900 group transition-all">
+                <div class="size-10 bg-neutral-50 rounded-xl flex items-center justify-center dark:bg-neutral-900 group-hover:bg-{{ PRIMARY }}/10">
+                    <svg class="size-5 text-neutral-400 group-hover:text-{{ PRIMARY }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path :d="cmd.i" stroke-width="2"/></svg>
+                </div>
+                <div class="text-left grow">
+                    <span class="block text-xs font-black text-neutral-800 dark:text-white uppercase tracking-widest" x-text="cmd.n"></span>
+                    <span class="block text-[10px] text-neutral-400 font-medium" x-text="cmd.s"></span>
+                </div>
+                <span class="text-[8px] font-black text-neutral-300 uppercase opacity-0 group-hover:opacity-100 transition-opacity italic">Execute ➔</span>
+            </button>
+        </template>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div x-data="{ on: true }" class="flex flex-col items-center gap-12 py-20 px-10">
+    <div class="flex items-center gap-6">
+        <span class="text-[10px] font-black uppercase tracking-widest italic" :class="on ? 'text-neutral-300' : 'text-neutral-800 dark:text-white'">SYNC DISABLED</span>
+        <button 
+            @click="on = !on"
+            class="relative inline-flex h-10 w-20 shrink-0 cursor-pointer rounded-full border-4 border-transparent transition-colors duration-500 focus:outline-none shadow-sm"
+            :class="on ? 'bg-{{ PRIMARY }}' : 'bg-neutral-100 dark:bg-neutral-800'"
+        >
+            <span 
+                class="pointer-events-none inline-block size-8 transform rounded-full bg-white shadow-xl ring-0 transition duration-500 ease-in-out"
+                :class="on ? 'translate-x-10' : 'translate-x-0'"
+            ></span>
+        </button>
+        <span class="text-[10px] font-black uppercase tracking-widest italic" :class="on ? 'text-neutral-800 dark:text-white' : 'text-neutral-300'">SYNC ACTIVE</span>
+    </div>
+    
+    <div class="p-8 bg-neutral-50 dark:bg-neutral-900 rounded-[32px] border border-neutral-100 dark:border-neutral-800">
+        <p class="text-[8px] font-black text-neutral-400 uppercase tracking-widest text-center" x-text="on ? 'REGISTRY PROTOCOL IS CURRENTLY SYNCHRONIZING' : 'ORCHESTRATION BRIDGE IS DISCONNECTED'"></p>
+    </div>
+</div>

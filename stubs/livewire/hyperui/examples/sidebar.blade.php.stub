@@ -1,0 +1,34 @@
+<aside class="flex h-screen w-80 flex-col justify-between border-e border-neutral-100 bg-white px-8 py-10 dark:border-neutral-800 dark:bg-neutral-950">
+  <div>
+    <div class="flex items-center gap-3 px-2 mb-16">
+        <div class="size-10 bg-neutral-900 text-white rounded-xl flex items-center justify-center font-black italic">F</div>
+        <span class="text-xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic">Fabric</span>
+    </div>
+
+    <nav aria-label="Main Nav" class="space-y-4">
+      <template x-for="item in [
+        { l: 'Dashboard', i: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
+        { l: 'Registry', i: 'M13 10V3L4 14h7v7l9-11h-7z' },
+        { l: 'Clusters', i: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10' },
+        { l: 'Security', i: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' }
+      ]">
+        <a href="#" class="flex items-center gap-6 rounded-2xl px-6 py-4 text-[10px] font-black uppercase tracking-widest text-neutral-400 transition-all hover:bg-neutral-50 hover:text-neutral-900 dark:hover:bg-neutral-900 dark:hover:text-white italic group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-5 transition-colors group-hover:text-{{ PRIMARY }}" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" :d="item.i" />
+          </svg>
+          <span x-text="item.l"></span>
+        </a>
+      </template>
+    </nav>
+  </div>
+
+  <div class="sticky inset-x-0 bottom-0 border-t border-neutral-50 dark:border-neutral-900 pt-8">
+    <a href="#" class="flex items-center gap-4 group">
+      <img alt="User" src="https://i.pravatar.cc/100?u=hyper-side" class="size-12 rounded-xl object-cover shadow-sm group-hover:scale-110 transition-transform" />
+      <div>
+        <p class="text-[10px] font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic">Ahtesham Khan</p>
+        <p class="text-[8px] font-bold text-neutral-300 uppercase">Master Orchestrator</p>
+      </div>
+    </a>
+  </div>
+</aside>

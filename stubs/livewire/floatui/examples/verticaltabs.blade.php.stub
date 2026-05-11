@@ -1,0 +1,20 @@
+<Tabs.Root
+      class="max-w-screen-xl mx-auto mt-4 px-4 md:px-8"
+      value={selectedTab}
+      onValueChange={(val) => setSelectedTab(val)}
+      orientation="vertical"
+    >
+      <Tabs.List
+        class="hidden border-l flex-col justify-start items-start gap-y-3 text-sm sm:flex"
+        aria-label="Manage your account"
+      >
+        {tabItems.map((item, idx) => (
+          <Tabs.Trigger
+            key={idx}
+            class="group outline-none px-1.5 border-l-2 border-white text-neutral-500 data-[state=active]:border-{{ PRIMARY_BASE }}-600 data-[state=active]:text-{{ PRIMARY_BASE }}-600"
+            value={item}
+          >
+            <div class="py-1.5 px-3 rounded-2xl duration-150 group-hover:text-{{ PRIMARY_BASE }}-600 group-hover:bg-neutral-100 font-medium">
+              {item}
+            </div>
+          </Tabs.Trigger>

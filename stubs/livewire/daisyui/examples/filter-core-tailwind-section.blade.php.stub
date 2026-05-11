@@ -1,0 +1,13 @@
+<div class="flex flex-col items-center gap-6" x-data="{ active: 'ALL' }">
+        <p class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.3em]">Registry Filter</p>
+        <div class="inline-flex p-1.5 bg-neutral-100 rounded-[24px] dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-inner">
+            <template x-for="item in ['ALL', 'PRELINE', 'DAISYUI', 'SHADCN']">
+                <button 
+                    @click="active = item"
+                    class="px-6 py-2.5 rounded-[18px] text-[10px] font-black uppercase tracking-widest transition-all"
+                    :class="active === item ? 'bg-white text-neutral-900 shadow-xl dark:bg-neutral-800 dark:text-white' : 'text-neutral-400 hover:text-neutral-600'"
+                    x-text="item"
+                ></button>
+            </template>
+        </div>
+    </div>

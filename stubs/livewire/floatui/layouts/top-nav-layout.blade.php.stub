@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ config('app.name', 'Laravel') }} - Float UI TopNav</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
+</head>
+<body class="bg-white">
+    <nav class="bg-white border-b w-full md:static md:text-sm md:border-none">
+        <div class="items-center px-4 max-w-screen-xl mx-auto md:flex md:px-8">
+            <div class="flex items-center justify-between py-3 md:py-5 md:block">
+                <a href="javascript:void(0)" class="text-{{ PRIMARY }} font-bold text-2xl tracking-tighter">
+                    FABRIC
+                </a>
+            </div>
+            <div class="flex-1 pb-3 mt-8 md:block md:pb-0 md:mt-0">
+                <ul class="justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0">
+                    <li class="text-gray-700 hover:text-{{ PRIMARY }}">
+                        <a href="javascript:void(0)" class="block font-medium">Dashboard</a>
+                    </li>
+                    <!-- [FABRIC-HOOK:FLOAT-TOP-NAV] -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="py-14">
+        <div class="max-w-screen-xl mx-auto px-4 md:px-8">
+            {{ $slot }}
+        </div>
+    </main>
+    @livewireScripts
+</body>
+</html>

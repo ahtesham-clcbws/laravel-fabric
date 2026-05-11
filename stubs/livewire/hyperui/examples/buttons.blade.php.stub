@@ -1,0 +1,8 @@
+<div class="flex flex-wrap gap-8 max-w-4xl mx-auto py-20 px-10 items-center justify-center">
+    <button class="px-12 py-5 bg-neutral-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-2xl hover:bg-{{ PRIMARY }} transition-all italic">Provision Node</button>
+    <button class="px-12 py-5 border-2 border-neutral-100 text-neutral-800 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:border-{{ PRIMARY }} transition-all dark:text-white dark:border-neutral-800 italic">Audit Registry</button>
+    <button class="size-14 bg-neutral-50 dark:bg-neutral-900 rounded-2xl flex items-center justify-center text-neutral-400 hover:text-{{ PRIMARY }} transition-all shadow-sm">
+        <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-width="3"/></svg>
+    </button>
+    <button class="px-10 py-4 bg-{{ PRIMARY }} text-white rounded-full text-[8px] font-black uppercase tracking-widest shadow-xl shadow-{{ PRIMARY }}/20 hover:scale-105 transition-all italic">Cluster Sync</button>
+</div>

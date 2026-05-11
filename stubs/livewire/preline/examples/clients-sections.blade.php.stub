@@ -1,0 +1,39 @@
+<div class="max-w-[85rem] px-4 py-24 sm:px-6 lg:px-8 mx-auto">
+    <div class="max-w-2xl mx-auto text-center mb-16">
+        <h2 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em] mb-4">Trusted Ecosystem</h2>
+        <h3 class="text-2xl font-black text-neutral-800 dark:text-white tracking-tight sm:text-3xl">Powering the next generation of <span class="text-{{ PRIMARY }}">Agentic</span> platforms</h3>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-12 items-center opacity-40 dark:invert">
+        <div class="flex justify-center">
+            <img class="h-8 w-auto grayscale transition-all hover:grayscale-0" src="https://www.svgrepo.com/show/442910/google.svg" alt="Google">
+        </div>
+        <div class="flex justify-center">
+            <img class="h-8 w-auto grayscale transition-all hover:grayscale-0" src="https://www.svgrepo.com/show/442946/microsoft.svg" alt="Microsoft">
+        </div>
+        <div class="flex justify-center">
+            <img class="h-10 w-auto grayscale transition-all hover:grayscale-0" src="https://www.svgrepo.com/show/442912/amazon.svg" alt="Amazon">
+        </div>
+        <div class="flex justify-center">
+            <img class="h-8 w-auto grayscale transition-all hover:grayscale-0" src="https://www.svgrepo.com/show/442911/apple.svg" alt="Apple">
+        </div>
+        <div class="flex justify-center">
+            <img class="h-8 w-auto grayscale transition-all hover:grayscale-0" src="https://www.svgrepo.com/show/442921/facebook.svg" alt="Facebook">
+        </div>
+        <div class="flex justify-center">
+            <img class="h-10 w-auto grayscale transition-all hover:grayscale-0" src="https://www.svgrepo.com/show/303254/slack-new-logo.svg" alt="Slack">
+        </div>
+    </div>
+
+    <div class="mt-20 flex flex-wrap justify-center gap-x-8 gap-y-4">
+        <div class="flex items-center gap-x-2">
+            <span class="text-lg font-black text-neutral-800 dark:text-white tracking-tighter">5,000+</span>
+            <span class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Active Nodes</span>
+        </div>
+        <div class="flex items-center gap-x-2">
+            <span class="text-lg font-black text-neutral-800 dark:text-white tracking-tighter">180M+</span>
+            <span class="text-[10px] font-bold text-neutral-400 uppercase tracking-widest">Resources Forged</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="h-80 max-w-md mx-auto p-8 bg-white border border-neutral-100 rounded-[40px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800 overflow-hidden relative">
+    <div class="h-full overflow-y-auto custom-scrollbar pr-4">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.3em] mb-10 italic">Registry Logs</h4>
+        <div class="space-y-10">
+            <template x-for="i in 10">
+                <div class="flex items-start gap-6 border-l-2 border-neutral-50 pl-6 dark:border-neutral-800">
+                    <div class="grow">
+                        <span class="block text-[8px] font-black text-{{ PRIMARY }} uppercase tracking-widest mb-1" x-text="'TIMESTAMP: 12:42:0' + i"></span>
+                        <p class="text-xs text-neutral-500 font-medium">Node Alpha provisioned successfully via high-fidelity WSS bridge.</p>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+    <!-- Shadow Gradient to indicate scroll -->
+    <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent dark:from-neutral-900 pointer-events-none"></div>
+</div>

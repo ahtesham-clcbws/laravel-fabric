@@ -1,0 +1,17 @@
+<div class="flex flex-col p-10 bg-neutral-50 dark:bg-neutral-800/50 rounded-[40px] border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700 transition-all duration-500 group">
+            <div class="grow">
+                <h4 class="text-xs font-black text-neutral-400 uppercase tracking-widest mb-6">Security Module</h4>
+                <h3 class="text-xl font-black text-neutral-800 dark:text-white tracking-tight mb-4 group-hover:text-{{ PRIMARY }} transition-colors">Dependency Purifier</h3>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed font-medium">
+                    Automated removal of non-standard JS bundles from your harvested components.
+                </p>
+            </div>
+            <div class="mt-10 pt-6 border-t border-neutral-100 dark:border-neutral-800">
+                <div class="flex items-center gap-x-3">
+                    <span class="size-2 rounded-full bg-teal-500 animate-pulse"></span>
+                    <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest">Active & Verified</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

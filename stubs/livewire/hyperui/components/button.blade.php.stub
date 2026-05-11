@@ -1,0 +1,33 @@
+@props([
+    'variant' => 'solid', // solid, outline, simple
+    'color' => 'primary',
+    'size' => 'md',
+])
+
+@php
+    $baseClasses = 'inline-block font-medium focus:outline-none focus:ring active:text-opacity-75 transition-all';
+    
+    $sizeClasses = [
+        'sm' => 'px-8 py-3 text-sm rounded-xl',
+        'md' => 'px-12 py-3 text-sm rounded-2xl',
+        'lg' => 'px-16 py-4 text-base rounded-2xl',
+    ][$size] ?? 'px-12 py-3 text-sm rounded-2xl';
+
+    $variants = [
+        'solid' => [
+            'primary' => 'bg-{{ PRIMARY }} text-white hover:bg-transparent hover:text-{{ PRIMARY }} border-2 border-{{ PRIMARY }}',
+        ],
+        'outline' => [
+            'primary' => 'border-2 border-{{ PRIMARY }} text-{{ PRIMARY }} hover:bg-{{ PRIMARY }} hover:text-white',
+        ],
+        'simple' => [
+            'primary' => 'text-{{ PRIMARY }} hover:bg-{{ PRIMARY }}/10',
+        ]
+    ];
+
+    $classes = "{$baseClasses} {$sizeClasses} " . ($variants[$variant][$color] ?? $variants['solid']['primary']);
+@endphp
+
+<button {{ $attributes->merge(['class' => $classes]) }}>
+    {{ $slot }}
+</button>

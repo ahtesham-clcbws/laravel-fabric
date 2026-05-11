@@ -1,0 +1,22 @@
+<section class="py-32 px-10 max-w-7xl mx-auto">
+    <div class="text-center mb-24">
+        <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">ORCHESTRATOR FEEDBACK</span>
+        <h2 class="text-6xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic">Trusted Syncs</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12">
+        <template x-for="i in 3">
+            <div class="p-12 bg-white border border-neutral-100 rounded-[56px] shadow-sm hover:shadow-2xl transition-all duration-700 dark:bg-neutral-900 dark:border-neutral-800 relative">
+                <div class="absolute -top-6 left-12 size-12 bg-neutral-900 text-white rounded-2xl flex items-center justify-center font-black italic shadow-xl">"</div>
+                <p class="text-sm text-neutral-500 font-medium leading-relaxed mb-12 italic">"Fabric's high-fidelity orchestration nodes have completely transformed our global registry sync velocity. The zero-dependency architecture is a game-changer for scale."</p>
+                <div class="flex items-center gap-6 pt-10 border-t border-neutral-50 dark:border-neutral-800">
+                    <img :src="`https://i.pravatar.cc/100?u=testi-${i}`" class="size-12 rounded-xl object-cover">
+                    <div>
+                        <h4 class="text-[10px] font-black text-neutral-800 dark:text-white uppercase tracking-widest italic">Ahtesham Khan</h4>
+                        <p class="text-[8px] font-bold text-neutral-400 uppercase tracking-widest mt-1">Lead Orchestrator</p>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</section>

@@ -1,0 +1,14 @@
+<div class="grid grid-cols-2 gap-12 mb-12">
+            <div>
+                <h3 class="text-xs font-black text-neutral-400 uppercase tracking-widest mb-4">Bill To</h3>
+                <div class="space-y-1">
+                    <p class="text-sm font-black text-neutral-800 dark:text-white">Ahtesham Khan</p>
+                    <p class="text-sm font-bold text-neutral-500">Senior Architect</p>
+                    <p class="text-sm font-bold text-neutral-500">Horizon Labs Inc.</p>
+                </div>
+            </div>
+            <div class="text-end">
+                <h3 class="text-xs font-black text-neutral-400 uppercase tracking-widest mb-4">Date Issued</h3>
+                <p class="text-sm font-black text-neutral-800 dark:text-white">May 10, 2026</p>
+            </div>
+        </div>

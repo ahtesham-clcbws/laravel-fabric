@@ -1,0 +1,7 @@
+<div class="flex items-center gap-x-4">
+        <div class="animate-spin inline-block size-6 border-[3px] border-current border-t-transparent text-{{ PRIMARY }} rounded-full dark:text-{{ PRIMARY }}" role="status" aria-label="loading">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="animate-spin inline-block size-8 border-[3px] border-current border-t-transparent text-teal-600 rounded-full" role="status" aria-label="loading"></div>
+        <div class="animate-spin inline-block size-12 border-[4px] border-current border-t-transparent text-neutral-800 rounded-full dark:text-white" role="status" aria-label="loading"></div>
+    </div>

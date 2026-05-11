@@ -1,0 +1,19 @@
+<?php
+
+use App\Livewire\Fabric\Auth\Login;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+Route::middleware('guest')->group(function () {
+    Route::get('login', Login::class)->name('login');
+    Route::get('login/magic/{token}', [Login::class, 'verifyMagic'])->name('login.magic');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('logout', function () {
+        Auth::logout();
+        session()->invalidate();
+        session()->regenerateToken();
+        return redirect('/');
+    })->name('logout');
+});

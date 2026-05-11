@@ -1,0 +1,20 @@
+<div class="bg-neutral-50 rounded-3xl p-8 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800">
+                            <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-4">Latest Release</h4>
+                            <img class="w-full h-24 rounded-2xl object-cover mb-4 shadow-lg" src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="News">
+                            <p class="text-xs font-black text-neutral-800 dark:text-white mb-2">Fabric v1.2 Alpha</p>
+                            <a class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-widest hover:underline" href="#">Read Log →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a class="text-sm font-bold text-neutral-500 hover:text-{{ PRIMARY }} transition-colors" href="#">Resources</a>
+        </div>
+
+        <div class="flex items-center gap-x-4">
+            <button class="py-2.5 px-6 bg-{{ PRIMARY }} text-white rounded-2xl text-xs font-black shadow-xl shadow-{{ PRIMARY }}/20 hover:bg-{{ PRIMARY }}/90 transition-all">
+                Launch Forge
+            </button>
+        </div>
+    </div>
+</nav>

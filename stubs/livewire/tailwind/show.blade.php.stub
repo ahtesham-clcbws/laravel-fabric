@@ -1,0 +1,24 @@
+<div class="overflow-hidden bg-white shadow sm:rounded-lg">
+    <div class="px-4 py-6 sm:px-6 flex justify-between items-center">
+        <div>
+            <h3 class="text-base font-semibold leading-7 text-gray-900">{{ MODEL_NAME }} {{ __('Details') }}</h3>
+            <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">{{ __('Full information and metadata for this record.') }}</p>
+        </div>
+        <div class="flex gap-3">
+            <button wire:click="$dispatch('openModal', { component: '{{ VIEW_PATH }}.editor', arguments: { record: {{ $record->id }} } })" class="inline-flex items-center px-4 py-2 bg-{{ PRIMARY }} border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-{{ PRIMARY }}">
+                {{ __('Edit') }}
+            </button>
+        </div>
+    </div>
+    <div class="border-t border-gray-100">
+        <dl class="divide-y divide-gray-100">
+            {{ SHOW_FIELDS }}
+            
+            <!-- [FABRIC-HOOK:ADDITIONAL-DETAILS] -->
+            {{ SHOW_ACTIVITY_LOG }}
+        </dl>
+    </div>
+
+    <!-- Related Resources -->
+    {{ RELATIONSHIP_TABLES }}
+</div>

@@ -1,0 +1,20 @@
+<div class="max-w-md mx-auto p-12 bg-white border border-neutral-100 rounded-[48px] shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+    <div class="flex items-center justify-between mb-12">
+        <div class="size-16 bg-neutral-50 dark:bg-neutral-950 rounded-2xl flex items-center justify-center border border-neutral-100 dark:border-neutral-800">
+            <svg class="size-8 text-{{ PRIMARY }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" stroke-width="2"/></svg>
+        </div>
+        <span class="px-4 py-1.5 bg-emerald-500/10 text-emerald-500 rounded-full text-[8px] font-black uppercase tracking-widest italic">ACTIVE SYNC</span>
+    </div>
+    
+    <h3 class="text-2xl font-black text-neutral-800 dark:text-white uppercase tracking-tight italic">Registry Bridge</h3>
+    <p class="mt-4 text-sm text-neutral-500 font-medium leading-relaxed mb-10">Seamlessly connect your local node cluster to the global neural registry with high-fidelity WSS bridges.</p>
+    
+    <div class="flex items-center justify-between pt-10 border-t border-neutral-50 dark:border-neutral-800">
+        <div class="flex -space-x-4">
+            <template x-for="i in 3">
+                <div class="size-10 rounded-xl bg-neutral-50 dark:bg-neutral-950 border-4 border-white dark:border-neutral-900"></div>
+            </template>
+        </div>
+        <button class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-widest hover:underline italic">Configure ➔</button>
+    </div>
+</div>

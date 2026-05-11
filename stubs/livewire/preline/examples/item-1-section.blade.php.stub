@@ -1,0 +1,9 @@
+<div class="break-inside-avoid group">
+            <div class="relative overflow-hidden rounded-[40px] shadow-sm transition-all duration-500 hover:shadow-2xl">
+                <img class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Masonry Image">
+                <div class="absolute inset-0 bg-gradient-to-t from-neutral-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
+                    <p class="text-xs font-black text-white uppercase tracking-widest mb-1">Architecture</p>
+                    <h4 class="text-lg font-black text-white tracking-tight">System Core</h4>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,4 @@
+<div class="flex gap-2">
+            <kbd class="px-3 py-2 bg-neutral-100 border-b-4 border-neutral-200 rounded-xl text-[10px] font-black text-neutral-500 dark:bg-neutral-800 dark:border-neutral-950 dark:text-neutral-400">CMD</kbd>
+            <kbd class="px-3 py-2 bg-neutral-100 border-b-4 border-neutral-200 rounded-xl text-[10px] font-black text-neutral-500 dark:bg-neutral-800 dark:border-neutral-950 dark:text-neutral-400">K</kbd>
+        </div>

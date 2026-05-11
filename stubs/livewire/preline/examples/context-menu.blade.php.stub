@@ -1,0 +1,54 @@
+<div 
+    class="max-w-4xl mx-auto py-24 px-4 text-center"
+    x-data="{ 
+        open: false, 
+        x: 0, 
+        y: 0,
+        showMenu(e) {
+            e.preventDefault();
+            this.open = true;
+            this.x = e.clientX;
+            this.y = e.clientY;
+        }
+    }"
+    @contextmenu="showMenu($event)"
+    @click.away="open = false"
+>
+    <!-- Right Click Zone -->
+    <div class="p-24 border-4 border-dashed border-neutral-100 rounded-[40px] dark:border-neutral-800 transition-all hover:bg-neutral-50 dark:hover:bg-neutral-900/50 group cursor-context-menu">
+        <svg class="size-16 text-neutral-200 dark:text-neutral-800 mx-auto mb-6 transition-colors group-hover:text-{{ PRIMARY }}/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+        <p class="text-sm font-black text-neutral-400 uppercase tracking-widest">Right-click anywhere in this zone to orchestrate</p>
+    </div>
+
+    <!-- Context Menu Portal -->
+    <div 
+        x-show="open"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-cloak
+        class="fixed z-[100] w-64 bg-white border border-neutral-100 rounded-3xl shadow-2xl p-2 dark:bg-neutral-950 dark:border-neutral-900"
+        :style="`top: ${y}px; left: ${x}px`"
+    >
+        <div class="space-y-1">
+            <button class="w-full flex items-center gap-x-3 py-3 px-4 rounded-2xl text-xs font-black text-neutral-800 hover:bg-neutral-50 dark:text-white dark:hover:bg-neutral-900 transition-all group">
+                <svg class="size-4 text-neutral-400 group-hover:text-{{ PRIMARY }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+                New Resource
+            </button>
+            <button class="w-full flex items-center justify-between py-3 px-4 rounded-2xl text-xs font-black text-neutral-800 hover:bg-neutral-50 dark:text-white dark:hover:bg-neutral-900 transition-all group">
+                <div class="flex items-center gap-x-3">
+                    <svg class="size-4 text-neutral-400 group-hover:text-{{ PRIMARY }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                    Sync Cluster
+                </div>
+                <span class="text-[10px] text-neutral-300">⌘S</span>
+            </button>
+            
+            <div class="h-px bg-neutral-100 dark:bg-neutral-900 my-2"></div>
+
+            <button class="w-full flex items-center gap-x-3 py-3 px-4 rounded-2xl text-xs font-black text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-500/10 transition-all">
+                <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                Purge Node
+            </button>
+        </div>
+    </div>
+</div>

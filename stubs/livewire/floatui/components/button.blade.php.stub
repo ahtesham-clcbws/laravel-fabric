@@ -1,0 +1,35 @@
+@props([
+    'variant' => 'solid', // solid, outline, shadow
+    'color' => 'primary', // primary, neutral
+    'size' => 'md',
+])
+
+@php
+    $baseClasses = 'inline-block font-medium duration-150 active:shadow-lg';
+    
+    $sizeClasses = [
+        'sm' => 'px-3 py-1.5 text-sm rounded-lg',
+        'md' => 'px-4 py-2 rounded-lg',
+        'lg' => 'px-6 py-3.5 rounded-lg',
+    ][$size] ?? 'px-4 py-2 rounded-lg';
+
+    $variants = [
+        'solid' => [
+            'primary' => 'text-white bg-{{ PRIMARY }} hover:bg-{{ PRIMARY }}/90',
+            'neutral' => 'text-white bg-neutral-800 hover:bg-neutral-700',
+        ],
+        'outline' => [
+            'primary' => 'text-{{ PRIMARY }} border-2 border-{{ PRIMARY }} hover:bg-{{ PRIMARY }}/10',
+            'neutral' => 'text-neutral-800 border-2 border-neutral-200 hover:bg-neutral-50',
+        ],
+        'shadow' => [
+            'primary' => 'text-white bg-{{ PRIMARY }} hover:bg-{{ PRIMARY }}/90 shadow-lg shadow-{{ PRIMARY }}/20',
+        ]
+    ];
+
+    $classes = "{$baseClasses} {$sizeClasses} " . ($variants[$variant][$color] ?? $variants['solid']['primary']);
+@endphp
+
+<button {{ $attributes->merge(['class' => $classes]) }}>
+    {{ $slot }}
+</button>

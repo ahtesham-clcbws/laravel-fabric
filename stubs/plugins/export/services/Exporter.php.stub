@@ -1,0 +1,30 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Export;
+
+use Illuminate\Support\Facades\Response;
+use Illuminate\Database\Eloquent\Collection;
+
+class Exporter
+{
+    public function csv(Collection $data, string $filename = 'export.csv')
+    {
+        $handle = fopen('php://output', 'w');
+        
+        // Header
+        if ($data->isNotEmpty()) {
+            fputcsv($handle, array_keys($data->first()->getAttributes()));
+        }
+
+        foreach ($data as $row) {
+            fputcsv($handle, $row->getAttributes());
+        }
+
+        fclose($handle);
+
+        return Response::make('', 200, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename={$filename}",
+        ]);
+    }
+}

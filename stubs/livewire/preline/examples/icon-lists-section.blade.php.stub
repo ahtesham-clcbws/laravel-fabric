@@ -1,0 +1,23 @@
+<div class="space-y-6">
+        <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-[0.2em]">Icon Lists</h4>
+        <ul class="space-y-4">
+            <li class="flex gap-x-3 items-center">
+                <div class="shrink-0 size-6 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center dark:bg-teal-500/10 dark:text-teal-400">
+                    <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-neutral-700 dark:text-neutral-300">Automated resource scaffolding</span>
+            </li>
+            <li class="flex gap-x-3 items-center">
+                <div class="shrink-0 size-6 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center dark:bg-teal-500/10 dark:text-teal-400">
+                    <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-neutral-700 dark:text-neutral-300">Real-time status orchestration</span>
+            </li>
+            <li class="flex gap-x-3 items-center">
+                <div class="shrink-0 size-6 bg-neutral-100 text-neutral-400 rounded-lg flex items-center justify-center dark:bg-neutral-800">
+                    <svg class="size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </div>
+                <span class="text-sm font-bold text-neutral-400 line-through">Legacy manual updates</span>
+            </li>
+        </ul>
+    </div>

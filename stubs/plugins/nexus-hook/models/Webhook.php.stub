@@ -1,0 +1,14 @@
+<?php
+
+namespace {{ NAMESPACE }}\Models\NexusHook;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Webhook extends Model
+{
+    protected $fillable = ['url', 'event', 'secret', 'active', 'payload_format'];
+
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+}

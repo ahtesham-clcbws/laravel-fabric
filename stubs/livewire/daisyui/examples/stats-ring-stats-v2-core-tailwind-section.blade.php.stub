@@ -1,0 +1,18 @@
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <template x-for="stat in [{l: 'Nodes', v: '254', c: '{{ PRIMARY }}'}, {l: 'Efficiency', v: '98%', c: 'teal-500'}, {l: 'Uptime', v: '100%', c: 'amber-500'}, {l: 'Latency', v: '12ms', c: 'rose-500'}]">
+            <div class="p-8 bg-white border border-neutral-100 rounded-[40px] flex flex-col items-center text-center dark:bg-neutral-950 dark:border-neutral-900">
+                <div class="relative size-24 mb-6">
+                    <svg class="size-full -rotate-90" viewBox="0 0 36 36">
+                        <circle cx="18" cy="18" r="16" fill="none" class="stroke-neutral-100 dark:stroke-neutral-800" stroke-width="3"></circle>
+                        <circle cx="18" cy="18" r="16" fill="none" :class="'stroke-' + stat.c" stroke-width="3" stroke-dasharray="100" stroke-dashoffset="25" stroke-linecap="round"></circle>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <svg class="size-6 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                </div>
+                <span class="text-3xl font-black text-neutral-800 dark:text-white tracking-tighter" x-text="stat.v"></span>
+                <span class="text-[10px] font-black text-neutral-400 uppercase tracking-widest mt-2" x-text="stat.l"></span>
+            </div>
+        </template>
+    </div>
+</div>

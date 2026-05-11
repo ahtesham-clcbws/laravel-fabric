@@ -1,0 +1,9 @@
+<div class="p-10 bg-neutral-50 border border-neutral-100 rounded-[40px] dark:bg-neutral-900 dark:border-neutral-800 group transition-all duration-500 hover:shadow-2xl">
+                <div class="inline-flex items-center justify-center size-12 text-white bg-{{ PRIMARY }} rounded-2xl shadow-xl shadow-{{ PRIMARY }}/20">
+                    <svg class="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <h2 class="mt-8 text-xl font-black text-neutral-800 dark:text-white tracking-tight group-hover:text-{{ PRIMARY }} transition-colors">Lightning Forge</h2>
+                <p class="mt-4 text-sm text-neutral-500 dark:text-neutral-400 font-medium leading-relaxed">
+                    Orchestrate high-fidelity stubs in seconds with our optimized CLI and agentic engine.
+                </p>
+            </div>

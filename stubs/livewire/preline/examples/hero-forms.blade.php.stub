@@ -1,0 +1,58 @@
+<div class="relative overflow-hidden">
+    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="block text-4xl font-black text-neutral-800 sm:text-5xl lg:text-6xl dark:text-white tracking-tight mb-8">
+                    The Future of <span class="text-{{ PRIMARY }}">Laravel</span> Scaffolding
+                </h1>
+                <p class="text-lg text-neutral-600 dark:text-neutral-400 font-medium leading-relaxed mb-10">
+                    Harvest, purify, and orchestrate high-fidelity UI systems in minutes. Join the elite cluster of engineers building faster with Fabric.
+                </p>
+
+                <div class="flex items-center gap-x-3 mb-10">
+                    <div class="flex -space-x-3">
+                        <img class="size-10 rounded-full ring-2 ring-white dark:ring-neutral-900" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="User">
+                        <img class="size-10 rounded-full ring-2 ring-white dark:ring-neutral-900" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="User">
+                        <img class="size-10 rounded-full ring-2 ring-white dark:ring-neutral-900" src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80" alt="User">
+                    </div>
+                    <span class="text-sm font-bold text-neutral-500 dark:text-neutral-400">Join 2k+ developers already using Fabric</span>
+                </div>
+            </div>
+
+            <div class="relative">
+                <!-- Form Card -->
+                <div class="p-10 bg-white border border-neutral-100 rounded-[40px] shadow-2xl dark:bg-neutral-900 dark:border-neutral-800">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-2 px-1">Full Name</label>
+                            <input type="text" class="p-4 block w-full bg-neutral-50 border-transparent rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-800 dark:border-transparent dark:text-neutral-400 transition-all" placeholder="Sarah Miller">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-2 px-1">Email Address</label>
+                            <input type="email" class="p-4 block w-full bg-neutral-50 border-transparent rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-800 dark:border-transparent dark:text-neutral-400 transition-all" placeholder="sarah@fabricforge.io">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black text-neutral-400 uppercase tracking-widest mb-2 px-1">Orchestration Tier</label>
+                            <select class="p-4 block w-full bg-neutral-50 border-transparent rounded-2xl text-sm focus:border-{{ PRIMARY }} focus:ring-{{ PRIMARY }} dark:bg-neutral-800 dark:border-transparent dark:text-neutral-400 transition-all">
+                                <option>Professional ($29/mo)</option>
+                                <option>Enterprise (Custom)</option>
+                            </select>
+                        </div>
+                        
+                        <button type="button" class="w-full py-4 px-6 bg-{{ PRIMARY }} text-white rounded-2xl font-black shadow-xl shadow-{{ PRIMARY }}/20 hover:bg-{{ PRIMARY }}/90 transition-all">
+                            Get Access Now
+                        </button>
+
+                        <p class="text-center text-[10px] font-bold text-neutral-400 uppercase tracking-widest">
+                            No credit card required for 14-day trial
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Decorative Blob -->
+                <div class="absolute -top-12 -right-12 size-64 bg-{{ PRIMARY }}/10 rounded-full blur-3xl -z-10"></div>
+                <div class="absolute -bottom-12 -left-12 size-48 bg-teal-500/10 rounded-full blur-2xl -z-10"></div>
+            </div>
+        </div>
+    </div>
+</div>

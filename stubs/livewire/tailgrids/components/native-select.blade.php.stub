@@ -1,0 +1,14 @@
+<div class="max-w-md mx-auto relative">
+    <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1 block mb-3">Orchestration Cluster</label>
+    <div class="relative">
+        <select class="w-full pl-8 pr-14 py-5 rounded-[24px] bg-white border-2 border-neutral-100 focus:border-{{ PRIMARY }} outline-none text-sm font-black uppercase tracking-widest appearance-none transition-all dark:bg-neutral-900 dark:border-neutral-800 dark:text-white">
+            <option>Standard Edge</option>
+            <option>High-Fidelity Core</option>
+            <option>Quantum Manifest</option>
+            <option>Neural Bridge</option>
+        </select>
+        <div class="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-neutral-400">
+            <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7" stroke-width="3"/></svg>
+        </div>
+    </div>
+</div>

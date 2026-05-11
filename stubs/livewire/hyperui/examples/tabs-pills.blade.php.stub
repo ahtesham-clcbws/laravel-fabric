@@ -1,0 +1,10 @@
+<div x-data="{ active: 'registry' }" class="flex flex-wrap gap-4 max-w-2xl mx-auto py-20 px-10 justify-center">
+    <template x-for="tab in ['manifest', 'registry', 'clusters', 'security']">
+        <button 
+            @click="active = tab"
+            class="px-8 py-3 rounded-full text-[8px] font-black uppercase tracking-widest transition-all italic"
+            :class="active === tab ? 'bg-neutral-900 text-white shadow-xl shadow-neutral-900/20' : 'bg-neutral-50 text-neutral-400 hover:bg-neutral-100 dark:bg-neutral-900 dark:hover:bg-neutral-800'"
+            x-text="tab"
+        ></button>
+    </template>
+</div>

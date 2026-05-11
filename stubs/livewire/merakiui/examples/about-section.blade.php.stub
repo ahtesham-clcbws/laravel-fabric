@@ -1,0 +1,25 @@
+<section class="bg-white dark:bg-neutral-900 py-32 px-10">
+    <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div class="relative">
+            <div class="absolute -inset-10 bg-{{ PRIMARY }}/10 rounded-full blur-3xl opacity-50"></div>
+            <img class="relative w-full h-full max-w-2xl rounded-[80px] shadow-2xl border border-white/10" src="https://images.unsplash.com/photo-1484950763426-56b5bf172dbb?auto=format&fit=crop&w=1200&q=80" alt="Registry">
+        </div>
+
+        <div>
+            <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">MANIFEST ORIGINS</span>
+            <h2 class="text-7xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-[0.9]">Orchestration <span class="text-{{ PRIMARY }}">Architects</span></h2>
+            <p class="mt-8 text-lg text-neutral-500 font-medium leading-relaxed italic">Fabric was founded on the principle of high-fidelity orchestration. Our mission is to provide the most advanced node synchronization clusters with zero-dependency architecture.</p>
+            
+            <div class="grid grid-cols-2 gap-12 mt-16">
+                <template x-for="stat in [{l:'CLUSTERS',v:'1.4k+'}, {l:'VELOCITY',v:'92Gbps'}]">
+                    <div>
+                        <span class="text-4xl font-black text-neutral-800 dark:text-white tracking-tighter italic" x-text="stat.v"></span>
+                        <p class="text-[10px] font-black text-neutral-400 uppercase tracking-widest mt-2 italic" x-text="stat.l"></p>
+                    </div>
+                </template>
+            </div>
+
+            <button class="mt-16 px-12 py-5 bg-neutral-900 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-2xl hover:bg-{{ PRIMARY }} transition-all italic">Our Manifest ➔</button>
+        </div>
+    </div>
+</section>

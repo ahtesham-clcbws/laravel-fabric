@@ -1,0 +1,36 @@
+<section class="py-14 text-neutral-600">
+            <div class="">
+                <div class='relative max-w-xl mx-auto space-y-3 px-4 sm:text-center md:px-0'>
+                    <h3 class="text-{{ PRIMARY_BASE }}-600 font-semibold">
+                        Pricing
+                    </h3>
+                    <p class='text-neutral-800 text-3xl font-semibold sm:text-4xl'>
+                        Compare our plans and find yours
+                    </p>
+                    <div class='max-w-xl'>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam efficitur consequat nunc.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-16">
+                    <div class="sticky top-0 py-6 border-b bg-white">
+                        <div class="max-w-screen-xl mx-auto">
+                            <ul class="ml-auto flex gap-x-6 px-4 md:px-8 lg:max-w-3xl">
+                                {
+                                    plans.map((item, idx) => (
+                                        <li key={idx} class="space-y-4 w-full ${item.name != selectedPlan ? "hidden lg:block" : ""}">
+                                            <div class="flex items-center justify-between">
+                                                <span class='text-neutral-700 font-medium'>
+                                                    {item.name}
+                                                </span>
+                                                <div class="relative lg:hidden">
+                                                    <svg class="w-5 h-5 text-neutral-500 absolute right-0 inset-y-0 my-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fillRule="evenodd" d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z" clipRule="evenodd" />
+                                                    </svg>
+                                                    <select value="Switch plan" class="bg-transparent appearance-none outline-none px-8 cursor-pointer"
+                                                        onChange={(e) => setSelectedPlan(e.target.value)}
+                                                    >
+                                                        <option disabled selected>Switch plan</option>
+                                                        {plans.map((option, idx) => (
+                                                            <option key={idx}>{option.name}</option>

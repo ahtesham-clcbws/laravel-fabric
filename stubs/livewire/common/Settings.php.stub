@@ -1,0 +1,35 @@
+<?php
+
+namespace {{ NAMESPACE }};
+
+use Livewire\Component;
+use Livewire\Attributes\Layout;
+use {{ SETTINGS_CLASS }} as SettingsModel;
+
+#[Layout('layouts.fabric.sidebar')]
+class {{ CLASS_NAME }} extends Component
+{
+    /**
+     * 🧬 FORGED BY FABRIC
+     * Handles state for {{ CLASS_NAME }}.
+     */
+    public array $state = [];
+
+    public function mount(SettingsModel $settings)
+    {
+        $this->state = $settings->toArray();
+    }
+
+    public function save(SettingsModel $settings)
+    {
+        $settings->fill($this->state);
+        $settings->save();
+
+        $this->dispatch('notify', message: __('Settings saved successfully.'));
+    }
+
+    public function render()
+    {
+        return view('{{ VIEW_PATH }}.settings');
+    }
+}

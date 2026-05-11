@@ -1,0 +1,11 @@
+<div class="space-y-3" x-data="{ power: 75 }">
+                    <div class="flex justify-between px-1">
+                        <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest">Resource Power</label>
+                        <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-widest" x-text="power + '%'"></span>
+                    </div>
+                    <input 
+                        type="range" 
+                        x-model="power"
+                        class="w-full h-2 bg-neutral-100 rounded-lg appearance-none cursor-pointer accent-{{ PRIMARY }} dark:bg-neutral-800"
+                    >
+                </div>

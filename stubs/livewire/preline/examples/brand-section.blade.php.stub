@@ -1,0 +1,5 @@
+<div class="mb-12">
+                <a class="text-2xl font-black text-neutral-800 dark:text-white tracking-tighter" href="#">
+                    Fabric <span class="text-{{ PRIMARY }}">Forge</span>
+                </a>
+            </div>

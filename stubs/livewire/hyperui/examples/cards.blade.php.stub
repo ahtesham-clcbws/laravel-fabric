@@ -1,0 +1,32 @@
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto py-20 px-10">
+    <template x-for="i in 3">
+        <article class="overflow-hidden rounded-[56px] border border-neutral-100 bg-white shadow-sm hover:shadow-2xl transition-all duration-700 dark:border-neutral-800 dark:bg-neutral-900 group">
+            <img alt="Node" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" class="h-64 w-full object-cover group-hover:scale-110 transition-transform duration-1000" />
+
+            <div class="p-10">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="rounded-full bg-emerald-50 px-4 py-1.5 text-[8px] font-black uppercase tracking-widest text-emerald-500 italic">ACTIVE SYNC</span>
+                    <span class="text-[8px] font-bold text-neutral-300 uppercase tracking-widest">CLUSTER-07</span>
+                </div>
+
+                <a href="#">
+                    <h3 class="text-2xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic group-hover:text-{{ PRIMARY }} transition-colors">
+                        Neural Registry V2
+                    </h3>
+                </a>
+
+                <p class="mt-4 line-clamp-3 text-sm/relaxed text-neutral-500 font-medium leading-relaxed mb-10">
+                    High-fidelity orchestration for modern node clusters. Built with zero-dependency logic and premium visual standards.
+                </p>
+
+                <div class="pt-8 border-t border-neutral-50 dark:border-neutral-800 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <div class="size-8 rounded-lg bg-neutral-100 dark:bg-neutral-950"></div>
+                        <span class="text-[8px] font-black text-neutral-400 uppercase tracking-widest">Ahtesham Khan</span>
+                    </div>
+                    <button class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-widest hover:underline italic">Provision ➔</button>
+                </div>
+            </div>
+        </article>
+    </template>
+</div>

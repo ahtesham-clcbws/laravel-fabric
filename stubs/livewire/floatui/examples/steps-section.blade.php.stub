@@ -1,0 +1,22 @@
+<div class="max-w-4xl mx-auto px-10">
+    <div class="flex items-center justify-between relative">
+        <!-- Line -->
+        <div class="absolute top-1/2 left-0 w-full h-0.5 bg-neutral-100 -translate-y-1/2 dark:bg-neutral-900"></div>
+        
+        <template x-for="(step, i) in ['PROVISION', 'SYNC', 'AUDIT', 'DECOMMISSION']">
+            <div class="relative z-10 flex flex-col items-center gap-6">
+                <div 
+                    class="size-16 rounded-2xl flex items-center justify-center text-xs font-black shadow-2xl transition-all duration-700"
+                    :class="i === 0 ? 'bg-neutral-900 text-white' : i === 1 ? 'bg-{{ PRIMARY }} text-white shadow-{{ PRIMARY }}/40' : 'bg-white border-2 border-neutral-100 text-neutral-300 dark:bg-neutral-950 dark:border-neutral-800'"
+                >
+                    <span x-text="i + 1"></span>
+                </div>
+                <span 
+                    class="text-[10px] font-black uppercase tracking-[0.2em] italic"
+                    :class="i <= 1 ? 'text-neutral-800 dark:text-white' : 'text-neutral-300'"
+                    x-text="step"
+                ></span>
+            </div>
+        </template>
+    </div>
+</div>

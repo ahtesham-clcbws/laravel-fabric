@@ -1,0 +1,20 @@
+<div class="bg-neutral-950 rounded-[32px] border border-neutral-800 shadow-2xl overflow-hidden font-mono text-xs">
+        <div class="flex items-center gap-2 px-6 py-4 bg-neutral-900 border-b border-neutral-800">
+            <div class="size-2.5 rounded-full bg-neutral-700"></div>
+            <span class="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">Terminal — Fabric Engine</span>
+        </div>
+        <div class="p-8 space-y-2">
+            <div class="flex gap-4">
+                <span class="text-neutral-600 select-none">$</span>
+                <code class="text-neutral-300">php artisan fabric:forge daisyui:mockups</code>
+            </div>
+            <div class="flex gap-4">
+                <span class="text-neutral-600 select-none">></span>
+                <code class="text-amber-400">analyzing stubs...</code>
+            </div>
+            <div class="flex gap-4">
+                <span class="text-neutral-600 select-none">></span>
+                <code class="text-teal-400">Done! Cluster node active at port 8080.</code>
+            </div>
+        </div>
+    </div>

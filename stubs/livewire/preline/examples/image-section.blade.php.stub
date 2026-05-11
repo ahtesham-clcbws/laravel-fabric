@@ -1,0 +1,15 @@
+<div class="relative pt-[100%] overflow-hidden">
+        <img 
+            class="absolute top-0 start-0 size-full object-cover transition-transform duration-700 group-hover:scale-110" 
+            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
+            alt="Product Image"
+        >
+        <div class="absolute top-4 start-4">
+            <span class="inline-flex items-center gap-x-1.5 py-1.5 px-3 rounded-xl text-xs font-bold bg-neutral-900/80 text-white backdrop-blur-md">
+                New Arrival
+            </span>
+        </div>
+        <button type="button" class="absolute top-4 end-4 size-10 flex justify-center items-center rounded-xl bg-white/80 text-neutral-800 backdrop-blur-md hover:bg-red-50 hover:text-red-600 transition-all opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
+            <svg class="size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </button>
+    </div>

@@ -1,0 +1,17 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto py-20 px-10">
+    <template x-for="i in 3">
+        <div class="group cursor-pointer">
+            <div class="relative overflow-hidden rounded-[56px] aspect-[4/5] mb-8 shadow-2xl border border-white/10">
+                <img class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt="Card Image">
+                <div class="absolute inset-0 bg-neutral-900/20 group-hover:bg-neutral-900/10 transition-colors"></div>
+                <div class="absolute bottom-10 left-10">
+                    <span class="px-6 py-2 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest text-neutral-900 italic shadow-2xl">REGISTRY SYNC</span>
+                </div>
+            </div>
+            <div class="px-6">
+                <h3 class="text-2xl font-black text-neutral-800 dark:text-white uppercase tracking-tighter italic group-hover:text-{{ PRIMARY }} transition-colors">Node ALPHA-07 Provision</h3>
+                <p class="mt-4 text-sm text-neutral-500 font-medium italic leading-relaxed">High-fidelity node synchronization established with zero-dependency orchestration.</p>
+            </div>
+        </div>
+    </template>
+</div>

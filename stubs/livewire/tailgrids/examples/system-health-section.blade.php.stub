@@ -1,0 +1,19 @@
+<div class="p-10 bg-neutral-900 rounded-[40px] shadow-2xl relative overflow-hidden">
+            <div class="absolute -bottom-10 -right-10 size-48 bg-{{ PRIMARY }}/20 rounded-full blur-3xl"></div>
+            <h4 class="text-[10px] font-black text-white/50 uppercase tracking-[0.3em] mb-12">Core Diagnostics</h4>
+            <div class="space-y-8">
+                <template x-for="item in [{ l: 'CPU Load', v: 45, c: '{{ PRIMARY }}' }, { l: 'Memory', v: 72, c: 'emerald-500' }, { l: 'Disk Ops', v: 18, c: 'blue-500' }]">
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-[10px] font-bold text-white uppercase tracking-widest">
+                            <span x-text="item.l"></span>
+                            <span x-text="item.v + '%'"></span>
+                        </div>
+                        <div class="h-1.5 bg-white/10 rounded-full overflow-hidden">
+                            <div class="h-full rounded-full transition-all duration-1000" :style="`width: ${item.v}%; background-color: ${item.c === '{{ PRIMARY }}' ? 'var(--primary)' : item.c}`" :class="item.c === '{{ PRIMARY }}' ? 'bg-{{ PRIMARY }}' : ''"></div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</div>

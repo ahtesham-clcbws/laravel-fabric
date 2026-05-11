@@ -1,0 +1,104 @@
+<div class="space-y-16 py-12 px-4 max-w-4xl mx-auto flex flex-col items-center">
+    <!-- Shadcn Calendar / Date Picker Mockup -->
+    <div class="space-y-3" x-data="{ open: false, date: 'Pick a date' }">
+        <label class="text-xs font-black uppercase tracking-widest text-neutral-400">Scheduled Sync</label>
+        <div class="relative">
+            <button 
+                @click="open = !open"
+                class="flex items-center gap-3 px-4 py-3 rounded-md border border-neutral-200 bg-white text-sm font-medium shadow-sm hover:bg-neutral-50 transition-all dark:bg-neutral-950 dark:border-neutral-800"
+                :class="date !== 'Pick a date' ? 'text-neutral-900 dark:text-white' : 'text-neutral-400'"
+            >
+                <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span x-text="date"></span>
+            </button>
+
+            <div 
+                x-show="open" 
+                @click.away="open = false"
+                x-transition
+                x-cloak
+                class="absolute top-full left-0 mt-2 p-4 bg-white rounded-lg border border-neutral-200 shadow-2xl z-50 dark:bg-neutral-950 dark:border-neutral-800"
+            >
+                <!-- Simple Calendar UI Mockup -->
+                <div class="flex items-center justify-between mb-4">
+                    <button class="p-1 hover:bg-neutral-100 rounded dark:hover:bg-neutral-900"><svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg></button>
+                    <span class="text-xs font-bold uppercase tracking-widest">February 2026</span>
+                    <button class="p-1 hover:bg-neutral-100 rounded dark:hover:bg-neutral-900"><svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center">
+                    <template x-for="day in ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']">
+                        <span class="text-[10px] font-black text-neutral-300" x-text="day"></span>
+                    </template>
+                    <template x-for="i in 31">
+                        <button 
+                            @click="date = 'Feb ' + i + ', 2026'; open = false"
+                            class="size-8 rounded-md text-[10px] font-bold hover:bg-neutral-100 flex items-center justify-center transition-colors dark:hover:bg-neutral-900"
+                            :class="i === 10 ? 'bg-neutral-900 text-white dark:bg-white dark:text-neutral-900' : ''"
+                            x-text="i"
+                        ></button>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shadcn Combobox / Command -->
+    <div class="space-y-3 w-80" x-data="{ open: false, search: '', selected: null, items: ['Fabric UI', 'DaisyUI', 'Preline', 'Tailgrids', 'Meraki UI'] }">
+        <label class="text-xs font-black uppercase tracking-widest text-neutral-400">Library Selection</label>
+        <div class="relative">
+            <button 
+                @click="open = !open"
+                class="w-full flex items-center justify-between px-4 py-3 rounded-md border border-neutral-200 bg-white text-sm font-medium shadow-sm hover:bg-neutral-50 transition-all dark:bg-neutral-950 dark:border-neutral-800"
+            >
+                <span x-text="selected ? selected : 'Select library...'"></span>
+                <svg class="size-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+            </button>
+
+            <div 
+                x-show="open" 
+                @click.away="open = false"
+                x-transition
+                x-cloak
+                class="absolute top-full left-0 right-0 mt-2 bg-white rounded-md border border-neutral-200 shadow-2xl z-50 overflow-hidden dark:bg-neutral-950 dark:border-neutral-800"
+            >
+                <div class="p-2 border-b dark:border-neutral-800 flex items-center gap-2">
+                    <svg class="size-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    <input type="text" x-model="search" placeholder="Search..." class="bg-transparent text-xs font-medium outline-none w-full">
+                </div>
+                <div class="p-1 max-h-48 overflow-y-auto">
+                    <template x-for="item in items.filter(i => i.toLowerCase().includes(search.toLowerCase()))">
+                        <button 
+                            @click="selected = item; open = false; search = ''"
+                            class="w-full text-left px-3 py-2 rounded-sm hover:bg-neutral-100 text-xs font-medium dark:hover:bg-neutral-900 transition-colors flex items-center justify-between"
+                        >
+                            <span x-text="item"></span>
+                            <svg x-show="selected === item" class="size-3 text-neutral-900 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                        </button>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shadcn Hover Card -->
+    <div class="relative group">
+        <span class="text-sm font-bold border-b border-neutral-900 dark:border-white">@fabric/forge</span>
+        
+        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-72 bg-white rounded-lg border border-neutral-200 shadow-2xl p-6 opacity-0 group-hover:opacity-100 transition-all pointer-events-none group-hover:pointer-events-auto dark:bg-neutral-950 dark:border-neutral-800 z-50">
+            <div class="flex gap-4">
+                <div class="size-10 rounded-full bg-neutral-100 flex items-center justify-center font-black dark:bg-neutral-900">F</div>
+                <div class="flex-1 space-y-1">
+                    <h4 class="text-sm font-bold text-neutral-900 dark:text-white">Fabric UI</h4>
+                    <p class="text-xs text-neutral-500 font-medium">The ultimate orchestration engine for Laravel. Zero dependencies.</p>
+                    <div class="flex items-center pt-2 gap-4">
+                        <div class="flex items-center gap-1">
+                            <svg class="size-3 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                            <span class="text-[10px] text-neutral-400 font-bold">Joined May 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-neutral-200 dark:border-t-neutral-800"></div>
+        </div>
+    </div>
+</div>

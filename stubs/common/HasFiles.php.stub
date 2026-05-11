@@ -1,0 +1,53 @@
+<?php
+
+namespace {{ NAMESPACE }}\Traits;
+
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
+/**
+ * 🧬 FORGED BY FABRIC (Lean Media Handler)
+ * A lightweight, zero-dependency alternative to Spatie MediaLibrary.
+ * Handles single and multiple file uploads directly via Laravel Storage.
+ */
+trait HasFiles
+{
+    public function uploadFile(string $field, $file, string $disk = 'public')
+    {
+        if (!$file) return;
+
+        // Delete old file if it exists
+        if ($this->{$field}) {
+            Storage::disk($disk)->delete($this->{$field});
+        }
+
+        $extension = $file->getClientOriginalExtension();
+        $filename = Str::random(40) . '.' . $extension;
+        $targetDir = "uploads/" . Str::kebab(class_basename($this));
+
+        // Attempt WebP Conversion if it's an image
+        if (\in_array(\strtolower($extension), ['jpg', 'jpeg', 'png']) && \extension_loaded('gd')) {
+            $image = ($extension === 'png') ? \imagecreatefrompng($file->path()) : \imagecreatefromjpeg($file->path());
+            if ($image) {
+                $filename = Str::random(40) . '.webp';
+                $tempPath = \tempnam(\sys_get_temp_dir(), 'fabric');
+                \imagewebp($image, $tempPath, 80);
+                \imagedestroy($image);
+                $path = Storage::disk($disk)->putFileAs($targetDir, new \Illuminate\Http\File($tempPath), $filename);
+                \unlink($tempPath);
+            } else {
+                $path = $file->storeAs($targetDir, $filename, $disk);
+            }
+        } else {
+            $path = $file->storeAs($targetDir, $filename, $disk);
+        }
+
+        $this->update([$field => $path]);
+    }
+
+    public function getFileUrl(string $field, string $disk = 'public')
+    {
+        if (!$this->{$field}) return null;
+        return Storage::disk($disk)->url($this->{$field});
+    }
+}

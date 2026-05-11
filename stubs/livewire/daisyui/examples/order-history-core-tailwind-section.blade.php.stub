@@ -1,0 +1,21 @@
+<div class="p-10 bg-neutral-900 rounded-[40px] shadow-2xl border border-neutral-800">
+            <h4 class="text-[10px] font-black text-neutral-500 uppercase tracking-[0.3em] mb-10">Sync History</h4>
+            <div class="space-y-6">
+                <template x-for="i in 3">
+                    <div class="flex items-center justify-between p-4 rounded-2xl bg-neutral-800/50 hover:bg-neutral-800 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <div class="size-10 rounded-xl bg-teal-500/10 text-teal-500 flex items-center justify-center">
+                                <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <div>
+                                <div class="text-[10px] font-black text-white uppercase tracking-widest">Orchestration Commit</div>
+                                <div class="text-[8px] font-bold text-neutral-500 uppercase mt-1">2026-05-10 03:15</div>
+                            </div>
+                        </div>
+                        <span class="text-xs font-black text-white tracking-tighter">Done</span>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</div>

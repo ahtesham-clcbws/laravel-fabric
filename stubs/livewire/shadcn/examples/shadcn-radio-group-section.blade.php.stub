@@ -1,0 +1,17 @@
+<div class="space-y-6" x-data="{ active: 'all' }">
+        <label class="text-xs font-black uppercase tracking-widest text-neutral-400">Node Priority</label>
+        <div class="space-y-3">
+            <template x-for="val in ['all', 'mentions', 'none']">
+                <label class="flex items-center gap-3 cursor-pointer group">
+                    <div class="relative flex items-center">
+                        <input type="radio" name="priority" :value="val" x-model="active" class="peer h-4 w-4 opacity-0 absolute cursor-pointer" />
+                        <div class="h-4 w-4 rounded-full border border-neutral-300 peer-checked:border-neutral-900 transition-all dark:border-neutral-700 dark:peer-checked:border-white flex items-center justify-center">
+                            <div class="size-2 bg-neutral-900 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity dark:bg-white"></div>
+                        </div>
+                    </div>
+                    <span class="text-sm font-bold text-neutral-500 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors capitalize" x-text="val"></span>
+                </label>
+            </template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<section class="bg-white dark:bg-neutral-900">
+    <div class="container px-10 py-32 mx-auto lg:flex lg:h-screen lg:items-center">
+        <div class="w-full lg:w-1/2">
+            <div class="lg:max-w-xl">
+                <span class="text-[10px] font-black text-{{ PRIMARY }} uppercase tracking-[0.5em] mb-6 block italic">PROVISIONING CLUSTER V4</span>
+                <h1 class="text-7xl font-black text-neutral-800 dark:text-white tracking-tighter uppercase italic leading-[0.9]">
+                    Orchestrate Your <span class="text-{{ PRIMARY }}">Neural Registry</span>
+                </h1>
+                
+                <p class="mt-8 text-lg text-neutral-500 font-medium leading-relaxed">
+                    Establish high-fidelity node synchronization with the most advanced orchestration engine. Built with 100% dependency-free logic.
+                </p>
+                
+                <div class="flex flex-wrap items-center gap-6 mt-12">
+                    <button class="px-12 py-5 bg-neutral-900 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-2xl hover:bg-{{ PRIMARY }} transition-all">Start Provisioning</button>
+                    <button class="px-12 py-5 border-2 border-neutral-100 text-neutral-800 rounded-2xl text-xs font-black uppercase tracking-widest hover:border-{{ PRIMARY }} transition-all dark:text-white dark:border-neutral-800">Documentation</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex items-center justify-center w-full mt-20 lg:mt-0 lg:w-1/2">
+            <div class="relative">
+                <div class="absolute -inset-10 bg-{{ PRIMARY }}/10 rounded-full blur-3xl opacity-50"></div>
+                <img class="relative w-full h-full max-w-2xl rounded-[80px] shadow-2xl border border-white/10" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80" alt="Registry">
+            </div>
+        </div>
+    </div>
+</section>

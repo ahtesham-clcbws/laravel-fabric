@@ -1,0 +1,17 @@
+<line x1="0" y1="300" x2="1000" y2="300" stroke="currentColor" class="opacity-10" />
+                <line x1="0" y1="200" x2="1000" y2="200" stroke="currentColor" class="opacity-10" />
+                <line x1="0" y1="100" x2="1000" y2="100" stroke="currentColor" class="opacity-10" />
+            </svg>
+        </div>
+        
+        <div class="flex items-center gap-2 mt-6 border-t border-neutral-100 dark:border-neutral-800 pt-4">
+            <div class="flex items-center gap-1.5">
+                <div class="size-2 rounded-full bg-{{ PRIMARY }}"></div>
+                <span class="text-[10px] font-medium">Node Sync</span>
+            </div>
+            <div class="flex items-center gap-1.5 ml-4">
+                <div class="size-2 rounded-full bg-neutral-200 dark:bg-neutral-800"></div>
+                <span class="text-[10px] font-medium text-neutral-500">Baseline</span>
+            </div>
+        </div>
+    </div>

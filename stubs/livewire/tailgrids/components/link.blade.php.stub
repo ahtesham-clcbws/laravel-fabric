@@ -1,0 +1,4 @@
+<a href="#" class="inline-flex items-center gap-3 text-sm font-black text-neutral-800 dark:text-white uppercase tracking-widest italic group transition-all">
+    <span class="border-b-2 border-{{ PRIMARY }} group-hover:border-neutral-900 dark:group-hover:border-white transition-all">Explore Manifest</span>
+    <svg class="size-4 text-{{ PRIMARY }} group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="2.5"/></svg>
+</a>

@@ -1,0 +1,27 @@
+<div class="rounded-md border border-neutral-200 dark:border-neutral-800">
+        <table class="w-full caption-bottom text-sm">
+            <thead class="bg-neutral-50/50 dark:bg-neutral-900/50 border-b border-neutral-200 dark:border-neutral-800">
+                <tr class="transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                    <th class="h-12 px-4 text-left align-middle font-medium text-neutral-500 dark:text-neutral-400">Status</th>
+                    <th class="h-12 px-4 text-left align-middle font-medium text-neutral-500 dark:text-neutral-400">Node Identifier</th>
+                    <th class="h-12 px-4 text-left align-middle font-medium text-neutral-500 dark:text-neutral-400">Tier</th>
+                    <th class="h-12 px-4 text-right align-middle font-medium text-neutral-500 dark:text-neutral-400">Efficiency</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-neutral-200 dark:divide-neutral-800">
+                <tr class="hover:bg-neutral-50/50 dark:hover:bg-neutral-900/50 transition-colors">
+                    <td class="p-4 align-middle font-medium"><div class="size-2 rounded-full bg-teal-500"></div></td>
+                    <td class="p-4 align-middle">Fabric-Alpha-01</td>
+                    <td class="p-4 align-middle">Master</td>
+                    <td class="p-4 align-middle text-right">99.8%</td>
+                </tr>
+                <tr class="hover:bg-neutral-50/50 dark:hover:bg-neutral-900/50 transition-colors">
+                    <td class="p-4 align-middle font-medium"><div class="size-2 rounded-full bg-amber-500"></div></td>
+                    <td class="p-4 align-middle">Fabric-Beta-02</td>
+                    <td class="p-4 align-middle">Worker</td>
+                    <td class="p-4 align-middle text-right">84.2%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

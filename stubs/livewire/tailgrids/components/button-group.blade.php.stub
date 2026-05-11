@@ -1,0 +1,11 @@
+<div class="flex items-center justify-center">
+    <div class="inline-flex rounded-[28px] border-2 border-neutral-100 bg-white p-2 shadow-sm dark:bg-neutral-900 dark:border-neutral-800">
+        <template x-for="item in ['Active', 'Pending', 'Archived']">
+            <button 
+                class="px-8 py-3 text-[10px] font-black uppercase tracking-widest rounded-[20px] transition-all"
+                :class="item === 'Active' ? 'bg-neutral-900 text-white shadow-lg' : 'text-neutral-400 hover:text-neutral-800 dark:hover:text-white'"
+                x-text="item"
+            ></button>
+        </template>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="space-y-3" x-data="{ rating: 4 }">
+                    <label class="text-[10px] font-black text-neutral-400 uppercase tracking-widest px-1">Security Tier</label>
+                    <div class="flex gap-2">
+                        <template x-for="i in 5">
+                            <button 
+                                @click="rating = i"
+                                class="size-10 rounded-xl flex items-center justify-center transition-all"
+                                :class="i <= rating ? 'text-amber-400' : 'text-neutral-200 dark:text-neutral-800'"
+                            >
+                                <svg class="size-6 fill-current" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            </button>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

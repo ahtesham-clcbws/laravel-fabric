@@ -1,0 +1,60 @@
+<div class="space-y-12 flex flex-col items-center py-12" x-data="{ active: 1 }">
+    <!-- Solid Button Group -->
+    <div class="inline-flex rounded-2xl shadow-sm bg-neutral-100 p-1.5 dark:bg-neutral-800">
+        <button 
+            @click="active = 1"
+            class="py-2.5 px-6 rounded-xl text-sm font-black transition-all duration-300"
+            :class="active === 1 ? 'bg-white text-{{ PRIMARY }} shadow-sm dark:bg-neutral-900' : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-white'"
+        >
+            Orchestrate
+        </button>
+        <button 
+            @click="active = 2"
+            class="py-2.5 px-6 rounded-xl text-sm font-black transition-all duration-300"
+            :class="active === 2 ? 'bg-white text-{{ PRIMARY }} shadow-sm dark:bg-neutral-900' : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-white'"
+        >
+            Forge
+        </button>
+        <button 
+            @click="active = 3"
+            class="py-2.5 px-6 rounded-xl text-sm font-black transition-all duration-300"
+            :class="active === 3 ? 'bg-white text-{{ PRIMARY }} shadow-sm dark:bg-neutral-900' : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-white'"
+        >
+            Sync
+        </button>
+    </div>
+
+    <!-- Icon Button Group -->
+    <div class="inline-flex rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-800 overflow-hidden">
+        <button class="py-3 px-5 inline-flex items-center gap-x-2 text-sm font-bold bg-white text-neutral-800 hover:bg-neutral-50 border-e border-neutral-200 last:border-e-0 dark:bg-neutral-900 dark:text-white dark:border-neutral-800 dark:hover:bg-neutral-800 transition-all">
+            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+            Edit
+        </button>
+        <button class="py-3 px-5 inline-flex items-center gap-x-2 text-sm font-bold bg-white text-neutral-800 hover:bg-neutral-50 border-e border-neutral-200 last:border-e-0 dark:bg-neutral-900 dark:text-white dark:border-neutral-800 dark:hover:bg-neutral-800 transition-all">
+            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            View
+        </button>
+        <button class="py-3 px-5 inline-flex items-center gap-x-2 text-sm font-black bg-white text-rose-500 hover:bg-rose-50 border-e border-neutral-200 last:border-e-0 dark:bg-neutral-900 dark:border-neutral-800 dark:hover:bg-rose-500/10 transition-all">
+            <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+            Purge
+        </button>
+    </div>
+
+    <!-- Segmented Toggle -->
+    <div class="p-1 bg-neutral-100 rounded-full dark:bg-neutral-800 inline-flex items-center" x-data="{ view: 'list' }">
+        <button 
+            @click="view = 'list'"
+            class="px-5 py-2 rounded-full text-xs font-black transition-all"
+            :class="view === 'list' ? 'bg-{{ PRIMARY }} text-white shadow-lg' : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-white'"
+        >
+            List View
+        </button>
+        <button 
+            @click="view = 'grid'"
+            class="px-5 py-2 rounded-full text-xs font-black transition-all"
+            :class="view === 'grid' ? 'bg-{{ PRIMARY }} text-white shadow-lg' : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-white'"
+        >
+            Grid View
+        </button>
+    </div>
+</div>

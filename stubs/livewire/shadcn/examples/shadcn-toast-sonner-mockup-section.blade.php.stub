@@ -1,0 +1,23 @@
+<div x-data="{ toasts: [] }" class="fixed bottom-8 right-8 z-50 flex flex-col gap-2 items-end">
+        <button 
+            @click="toasts.push({id: Date.now(), title: 'Event Scheduled', desc: 'Friday, February 10, 2026 at 5:57 PM'})"
+            class="px-4 py-2 border border-neutral-200 rounded-md text-xs font-bold hover:bg-neutral-50 transition-all dark:border-neutral-800 dark:hover:bg-neutral-900"
+        >
+            Show Toast
+        </button>
+
+        <template x-for="toast in toasts" :key="toast.id">
+            <div 
+                x-init="setTimeout(() => toasts = toasts.filter(t => t.id !== toast.id), 5000)"
+                x-transition
+                class="w-80 p-5 bg-white border border-neutral-200 rounded-lg shadow-2xl dark:bg-neutral-950 dark:border-neutral-800 flex flex-col gap-1"
+            >
+                <div class="text-sm font-bold text-neutral-900 dark:text-white" x-text="toast.title"></div>
+                <div class="text-xs text-neutral-500 font-medium" x-text="toast.desc"></div>
+                <button @click="toasts = toasts.filter(t => t.id !== toast.id)" class="absolute top-2 right-2 text-neutral-300 hover:text-neutral-500">
+                    <svg class="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+        </template>
+    </div>
+</div>

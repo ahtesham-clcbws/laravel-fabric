@@ -1,0 +1,17 @@
+<section class="bg-white dark:bg-neutral-900 py-32 px-10">
+  <div class="mx-auto max-w-screen-xl">
+    <div class="grid md:grid-cols-4 gap-12">
+        <template x-for="stat in [
+            { l: 'TOTAL CLUSTERS', v: '1,492' },
+            { l: 'REGISTRY NODES', v: '92k+' },
+            { l: 'UPTIME SEC', v: '99.9%' },
+            { l: 'LATENCY MS', v: '12ms' }
+        ]">
+            <div class="p-12 bg-neutral-50 dark:bg-neutral-950 rounded-[48px] text-center group hover:bg-neutral-900 transition-all duration-500">
+                <span class="block text-5xl font-black text-neutral-800 dark:text-white group-hover:text-white tracking-tighter italic mb-4" x-text="stat.v"></span>
+                <h4 class="text-[10px] font-black text-neutral-400 uppercase tracking-widest italic group-hover:text-{{ PRIMARY }}" x-text="stat.l"></h4>
+            </div>
+        </template>
+    </div>
+  </div>
+</section>

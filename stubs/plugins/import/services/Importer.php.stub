@@ -1,0 +1,23 @@
+<?php
+
+namespace {{ NAMESPACE }}\Services\Import;
+
+use Illuminate\Support\Facades\File;
+
+class Importer
+{
+    public function csv(string $path, string $model): void
+    {
+        $handle = fopen($path, 'r');
+        $headers = fgetcsv($handle);
+        
+        $class = "App\\Models\\{$model}";
+        
+        while (($data = fgetcsv($handle)) !== FALSE) {
+            $row = array_combine($headers, $data);
+            $class::create($row);
+        }
+        
+        fclose($handle);
+    }
+}
