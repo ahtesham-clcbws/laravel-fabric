@@ -102,7 +102,20 @@ class WizardCommand extends Command
             ]);
 
             $this->info("✨ Success! Your resource is forged.");
-            outro("Visit your browser to see the results.");
+            
+            // 🧙 Post-Forge Hooks
+            $this->newLine();
+            $this->components->info('Post-Forge Rituals');
+            
+            if (confirm('Would you like to run the Vacuum to prune vendor bloat?', true)) {
+                $this->call('fabric:vacuum');
+            }
+
+            if (confirm('Would you like to run the Doctor to verify the installation?', true)) {
+                $this->call('fabric:doctor');
+            }
+
+            outro("The Forge is complete. Your architecture is hardened.");
         } catch (\Exception $e) {
             $this->error("Forging failed: " . $e->getMessage());
         }
