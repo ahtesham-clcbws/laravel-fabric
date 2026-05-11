@@ -1,7 +1,7 @@
 {
     "name": "clcbws/laravel-fabric",
-    "version": "1.2.0-beta",
     "description": "High-fidelity, zero-dependency administrative scaffolding engine for the modern web.",
+    "homepage": "https://github.com/ahtesham-clcbws/laravel-fabric",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CLCBWS\\Fabric\\": "src/"
+            "CLCBWS\\Fabric\\": "core/src/"
         }
     },
     "extra": {
