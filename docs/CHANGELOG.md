@@ -33,3 +33,6 @@ All notable changes to **Laravel Fabric** will be documented in this file.
 ### Added
 - **Native Ghost Plugins**: Transitioned to zero-dependency native components for Permissions, Media, and Auditing.
 - **Lazarus 2.0**: Implemented surgical structural healing engine with `--dry-run` support.
+- **Library Lexicon**: Created an exhaustive technical glossary for framework codenames (Loom, Nexus, Dynasty, etc.).
+- **Technical FAQ**: Added a 200+ entry knowledge base for advanced troubleshooting and architectural philosophy.
+- **30+ Ghost Suite**: Finalized the native replacement ecosystem for all 3rd party package dependencies.
