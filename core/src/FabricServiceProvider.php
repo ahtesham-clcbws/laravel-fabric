@@ -20,6 +20,14 @@ class FabricServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom(__DIR__ . '/../config/fabric.php', 'fabric');
 
+        // 🛡️ Internal Registry Defaults (Hardened)
+        if (!config('fabric.registry.url')) {
+            config(['fabric.registry.url' => 'https://tmltbnodgzxujahdllpq.supabase.co']);
+        }
+        if (!config('fabric.registry.key')) {
+            config(['fabric.registry.key' => 'sb_publishable_YEk2DaZ6Vdtz8cwS8l5hIQ_jcHhEXIH']);
+        }
+
         // Bind Contracts
         $this->app->singleton(\CLCBWS\Fabric\Engines\Guard::class, \CLCBWS\Fabric\Engines\Guard::class);
         $this->app->singleton(\CLCBWS\Fabric\Contracts\LoomContract::class, \CLCBWS\Fabric\Engines\Loom::class);
