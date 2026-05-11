@@ -166,6 +166,18 @@ class FabricServiceProvider extends ServiceProvider
 
         if (File::exists($pharPath) && !str_starts_with(__FILE__, 'phar://')) {
             \Phar::loadPhar($pharPath, 'fabric.phar');
+
+            // 🧬 Register a custom autoloader for PHAR-based classes
+            spl_autoload_register(function ($class) {
+                if (str_starts_with($class, 'CLCBWS\\Fabric\\')) {
+                    $relativeClass = str_replace('CLCBWS\\Fabric\\', '', $class);
+                    $filePath = 'phar://fabric.phar/' . str_replace('\\', '/', $relativeClass) . '.php';
+
+                    if (file_exists($filePath)) {
+                        require_once $filePath;
+                    }
+                }
+            }, true, true);
         }
     }
 }
