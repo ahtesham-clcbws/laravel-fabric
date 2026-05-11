@@ -174,7 +174,7 @@ return [
     | The commercial management backend for Fabric project enrollment.
     */
     'registry' => [
-        'url' => env('FABRIC_REGISTRY_URL', 'https://tmltbnodgzxujahdllpq.supabase.co'),
-        'key' => env('FABRIC_REGISTRY_KEY', 'sb_publishable_YEk2DaZ6Vdtz8cwS8l5hIQ_jcHhEXIH'),
+        'url' => env('FABRIC_REGISTRY_URL'),
+        'key' => env('FABRIC_REGISTRY_KEY'),
     ],
 ];
