@@ -17,7 +17,13 @@ class FabricServiceProvider extends ServiceProvider
     {
         $this->mountPharEngine();
 
-        $this->mergeConfigFrom(__DIR__ . '/../config/fabric.php', 'fabric');
+        // 🧬 Bulletproof Path Resolution
+        $packagePath = \str_replace('\\', '/', \dirname(__DIR__));
+        if (\str_starts_with($packagePath, 'phar://')) {
+            $packagePath = \str_replace(['phar://', '/bin/fabric.phar', '/src'], '', $packagePath);
+        }
+
+        $this->mergeConfigFrom($packagePath . '/config/fabric.php', 'fabric');
 
         // 🛡️ Internal Registry Defaults (Hardened)
         if (!config('fabric.registry.url')) {
@@ -50,10 +56,15 @@ class FabricServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'fabric');
+        $packagePath = \str_replace('\\', '/', \dirname(__DIR__));
+        if (\str_starts_with($packagePath, 'phar://')) {
+            $packagePath = \str_replace(['phar://', '/bin/fabric.phar', '/src'], '', $packagePath);
+        }
+
+        $this->loadViewsFrom($packagePath . '/resources/views', 'fabric');
 
         if ($this->app->runningInConsole()) {
-            $this->publishResources();
+            $this->publishResources($packagePath);
         }
 
         \Illuminate\Support\Facades\Blade::anonymousComponentPath(resource_path('views/components/fabric'), 'fabric');
@@ -131,31 +142,31 @@ class FabricServiceProvider extends ServiceProvider
     /**
      * Publish package resources.
      */
-    protected function publishResources(): void
+    protected function publishResources(string $packagePath): void
     {
         $this->publishes([
-            __DIR__ . '/../config/fabric.php' => \config_path('fabric.php'),
+            $packagePath . '/config/fabric.php' => \config_path('fabric.php'),
         ], 'fabric-config');
 
         $this->publishes([
-            __DIR__ . '/../stubs' => \base_path('stubs/fabric'),
+            $packagePath . '/stubs' => \base_path('stubs/fabric'),
         ], 'fabric-stubs');
 
         $this->publishes([
-            __DIR__ . '/../stubs/common/js' => public_path('vendor/fabric/common/js'),
+            $packagePath . '/stubs/common/js' => public_path('vendor/fabric/common/js'),
         ], 'fabric-assets');
 
         $this->publishes([
-            __DIR__ . '/Livewire/Fabric' => \app_path('Livewire/Fabric'),
+            $packagePath . '/Livewire/Fabric' => \app_path('Livewire/Fabric'),
         ], 'fabric-components');
 
         $this->publishes([
-            __DIR__ . '/../resources/views' => \resource_path('views/vendor/fabric'),
+            $packagePath . '/resources/views' => \resource_path('views/vendor/fabric'),
         ], 'fabric-views');
 
         // Layouts for slim installs
         $this->publishes([
-            __DIR__ . '/../resources/views/layouts' => \resource_path('views/layouts/fabric'),
+            $packagePath . '/resources/views/layouts' => \resource_path('views/layouts/fabric'),
         ], 'fabric-layouts');
     }
 
