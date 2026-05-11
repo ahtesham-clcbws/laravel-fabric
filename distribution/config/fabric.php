@@ -166,15 +166,4 @@ return [
         'manifest' => base_path('fabric.json'),
         'strict_nexus' => true,
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Global Registry (Supabase)
-    |--------------------------------------------------------------------------
-    | The commercial management backend for Fabric project enrollment.
-    */
-    'registry' => [
-        'url' => env('FABRIC_REGISTRY_URL'),
-        'key' => env('FABRIC_REGISTRY_KEY'),
-    ],
 ];
