@@ -105,6 +105,8 @@ class Table extends Component
     public function getRowsQuery(): Builder
     {
         return {{ MODEL_CLASS_FQN }}::query()
+            {{ STI_SCOPE }}
+            {{ EAGER_LOAD }}
             {{ TABLE_FILTER_LOGIC }}
             ->when($this->search, function ($query) {
                 $query->where(function ($q) {
