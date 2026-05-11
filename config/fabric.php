@@ -141,4 +141,29 @@ return [
         'deleted_at',
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Shadow Mode (Hybrid Compatibility)
+    |--------------------------------------------------------------------------
+    | Define per-module adapter overrides. This allows you to use Native Fabric
+    | plugins for new modules while maintaining 3rd-party packages for legacy
+    | ones. Example: 'School' => ['media' => 'native']
+    */
+    'shadow_mode' => [
+        // 'School' => [
+        //     'media' => 'native',
+        //     'permissions' => 'native',
+        // ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Forge Manifest Settings
+    |--------------------------------------------------------------------------
+    | Default configuration for the 'fabric:forge' batch generation command.
+    */
+    'forge' => [
+        'manifest' => base_path('fabric.json'),
+        'strict_nexus' => true,
+    ],
 ];

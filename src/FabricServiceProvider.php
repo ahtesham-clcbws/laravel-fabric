@@ -112,6 +112,8 @@ class FabricServiceProvider extends ServiceProvider
             \CLCBWS\Fabric\Commands\LexiconCommand::class,
             \CLCBWS\Fabric\Commands\AnalyticsCommand::class,
             \CLCBWS\Fabric\Commands\SnapshotCommand::class,
+            \CLCBWS\Fabric\Commands\RegisterCommand::class,
+            \CLCBWS\Fabric\Commands\ForgeCommand::class,
         ]);
     }
 

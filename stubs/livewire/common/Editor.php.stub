@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace {{ NAMESPACE }};
 
 use LivewireUI\Modal\ModalComponent;
 use Livewire\Attributes\Validate;
 use {{ MODEL_CLASS }};
+use Illuminate\Contracts\View\View;
 
 /**
  * [FABRIC-METADATA]
@@ -27,13 +30,12 @@ class Editor extends ModalComponent
      * 🔍 Dynamic Validation
      * These rules are derived directly from your database schema during forging.
      */
-
-    public function rules()
+    public function rules(): array
     {
         return {{ VALIDATION_RULES }};
     }
 
-    public function mount({{ MODEL_CLASS_FQN }} $record = null)
+    public function mount({{ MODEL_CLASS_FQN }} $record = null): void
     {
         $this->record = $record ?: new {{ MODEL_CLASS_FQN }};
         $this->form = $this->record->toArray();
@@ -41,7 +43,7 @@ class Editor extends ModalComponent
         // [FABRIC-RELATIONSHIP-FETCH]
     }
 
-    public function save()
+    public function save(): void
     {
         // $this->authorize($this->record->exists ? 'update' : 'create', $this->record);
         
@@ -60,7 +62,7 @@ class Editor extends ModalComponent
      */
     {{ FIELD_REACTIVE_HOOKS }}
 
-    public function render()
+    public function render(): View
     {
         return view('{{ VIEW_PATH }}.editor');
     }
