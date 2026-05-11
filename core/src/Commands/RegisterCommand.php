@@ -29,12 +29,26 @@ class RegisterCommand extends Command
         $projectName = basename(base_path());
 
         $this->components->task('Enrolling project in Free Beta...', function () use ($uuid, $email, $projectName) {
-            // 🛡️ Supabase Edge Function Ping
-            // For now, this is a simulated ping. 
-            // In production, this pings: config('fabric.registry.url') . '/functions/v1/register'
+            $url = config('fabric.registry.url') . '/functions/v1/register';
+            $key = config('fabric.registry.key');
+
+            $response = Http::withHeaders([
+                'Authorization' => "Bearer {$key}",
+                'apikey' => $key,
+            ])->post($url, [
+                'uuid' => $uuid,
+                'email' => $email,
+                'projectName' => $projectName,
+                'machineId' => php_uname('n'),
+            ]);
+
+            if ($response->failed()) {
+                throw new \Exception($response->json('error') ?? 'Registry connection failed.');
+            }
+
+            // Save the license artifact
+            File::put(base_path('.fabric_license'), $response->json('license'));
             
-            // Simulation:
-            sleep(1); 
             return true;
         });
 

@@ -15,6 +15,11 @@ readonly class Guard
      */
     public function verify(): bool
     {
+        // 🛡️ PHAR Enforcement (Hardening)
+        if (!$this->isPharEnforced()) {
+            return false;
+        }
+
         if (app()->isLocal() || app()->runningUnitTests()) {
             return true;
         }
@@ -26,6 +31,19 @@ readonly class Guard
         }
 
         return $this->validateChecksum($key);
+    }
+
+    /**
+     * Ensure the engine is running from a protected PHAR in production.
+     */
+    protected function isPharEnforced(): bool
+    {
+        if (app()->isLocal() || app()->runningUnitTests()) {
+            return true;
+        }
+
+        // Check if the current file is inside a PHAR
+        return \str_starts_with(__FILE__, 'phar://');
     }
 
     /**

@@ -131,7 +131,8 @@ readonly class ViewCompiler
             '{{ TABLE_FILTER_LOGIC }}' => $this->compileTableFilterLogic($data),
             '{{ TABLE_ACTION_METHODS }}' => $this->compileTableActionMethods($data),
             '{{ TABLE_LISTENERS }}' => "protected \$listeners = ['" . Str::camel($modelName) . "-saved' => '\$refresh'];",
-            '{{ FIELD_REACTIVE_HOOKS }}' => $this->compileFieldReactiveHooks($data['fields']),
+            '{{ EAGER_LOAD }}' => $this->compileEagerLoading($data),
+            '{{ STI_SCOPE }}' => $this->compileSTIScoping($data),
             '{{ PRIMARY }}' => (string) \config('fabric.palettes.primary', 'indigo-600'),
             '{{ SECONDARY }}' => (string) \config('fabric.palettes.secondary', 'gray-600'),
             '{{ TEST_FIELD }}' => $this->getTestField($data['fields']),
@@ -228,6 +229,29 @@ readonly class ViewCompiler
                 <input type=\"checkbox\" wire:model.live=\"showTrashed\" class=\"rounded border-gray-300 text-{{ PRIMARY }} shadow-sm focus:ring-{{ PRIMARY }}\">
             </div>";
     }
+    protected function compileEagerLoading(array $data): string
+    {
+        $relations = $data['relationships']['belongs_to'] ?? [];
+        if (empty($relations)) return "";
 
+        $keys = array_keys($relations);
+        return "->with(['" . implode("', '", $keys) . "'])";
+    }
 
+    protected function compileSTIScoping(array $data): string
+    {
+        $modelClass = $data['model'];
+        if (!class_exists($modelClass)) return "";
+
+        // Check if model uses a Type/STI scoping
+        $reflection = new \ReflectionClass($modelClass);
+        $traits = $reflection->getTraitNames();
+        
+        if (in_array('CLCBWS\Fabric\Traits\Dynasty', $traits) || $reflection->hasProperty('stiType')) {
+            $type = Str::snake(class_basename($modelClass));
+            return "->where('type', '{$type}')";
+        }
+
+        return "";
+    }
 }

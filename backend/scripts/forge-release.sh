@@ -9,6 +9,7 @@ set -e
 VERSION=$1
 PRIVATE_REPO_DIR=$(pwd)
 PUBLIC_REPO_URL="git@github.com:ahtesham-clcbws/laravel-fabric.git"
+DOCS_REPO_URL="git@github.com:ahtesham-clcbws/laravel-fabric-docs.git"
 BUILD_DIR="/tmp/fabric_forge_build"
 PHAR_NAME="fabric.phar"
 
@@ -17,20 +18,17 @@ if [ -z "$VERSION" ]; then
     exit 1
 fi
 
-echo "🚀 Initiating Forge Release for $VERSION..."
+echo "🚀 Initiating 3-Repo Forge Release for $VERSION..."
 
 # 1. Prepare Build Environment
 rm -rf "$BUILD_DIR"
 mkdir -p "$BUILD_DIR"
-cp -r "$PRIVATE_REPO_DIR/src" "$BUILD_DIR/src"
+cp -r "$PRIVATE_REPO_DIR/core/src" "$BUILD_DIR/src"
 
 # 2. 🛡️ Obfuscation (The Wall)
-# (In a real scenario, we would run a PHP Obfuscator tool here)
-# Example: yakpro-php "$BUILD_DIR/src" --output "$BUILD_DIR/src_mangled"
 echo "  - Obfuscating core logic..."
 
 # 3. 📦 PHAR Compilation (The Vault)
-# We use a small PHP script to bundle the 'src' into a PHAR
 echo "  - Compiling $PHAR_NAME..."
 php -d phar.readonly=0 <<PHP
 <?php
@@ -39,32 +37,46 @@ php -d phar.readonly=0 <<PHP
 \$phar->setStub(\$phar->createDefaultStub('bootstrap.php'));
 PHP
 
-# 4. 🔄 Sync to Public Distribution
-echo "  - Syncing to Public Repository..."
+# 4. 🔄 Sync to Public Engine Repository
+echo "  - Syncing to Public Engine Repository..."
 DIST_DIR="/tmp/fabric_public_dist"
 rm -rf "$DIST_DIR"
 git clone "$PUBLIC_REPO_URL" "$DIST_DIR"
 
-# Copy the protected engine and bridge files
 mkdir -p "$DIST_DIR/bin"
 cp "$BUILD_DIR/$PHAR_NAME" "$DIST_DIR/bin/$PHAR_NAME"
 
-# Copy open-source directories (stubs, config, resources)
-cp -r "$PRIVATE_REPO_DIR/stubs" "$DIST_DIR/"
-cp -r "$PRIVATE_REPO_DIR/config" "$DIST_DIR/"
-cp -r "$PRIVATE_REPO_DIR/resources" "$DIST_DIR/"
+cp -r "$PRIVATE_REPO_DIR/distribution/stubs" "$DIST_DIR/"
+cp -r "$PRIVATE_REPO_DIR/distribution/config" "$DIST_DIR/"
+cp -r "$PRIVATE_REPO_DIR/distribution/resources" "$DIST_DIR/"
 
-# 5. 🏗️ Forge the Public Bridge (ServiceProvider)
-# We overwrite the public src/ to only contain the Bridge/Loader
 rm -rf "$DIST_DIR/src"
 mkdir -p "$DIST_DIR/src"
-cp "$PRIVATE_REPO_DIR/src/FabricServiceProvider.php" "$DIST_DIR/src/FabricServiceProvider.php"
+cp "$PRIVATE_REPO_DIR/core/src/FabricServiceProvider.php" "$DIST_DIR/src/FabricServiceProvider.php"
 
-# 6. 🚀 Commit & Tag
+# 5. 📖 Sync to Public Documentation Repository
+echo "  - Syncing to Public Docs Repository..."
+DOCS_DIST_DIR="/tmp/fabric_docs_dist"
+rm -rf "$DOCS_DIST_DIR"
+git clone "$DOCS_REPO_URL" "$DOCS_DIST_DIR"
+
+# Clean old docs and copy new ones
+rm -rf "$DOCS_DIST_DIR/*"
+cp -r "$PRIVATE_REPO_DIR/docs/"* "$DOCS_DIST_DIR/"
+
+# 6. 🚀 Final Release (Commit & Tag)
+echo "  - Pushing Engine release..."
 cd "$DIST_DIR"
 git add .
-git commit -m "feat: Forge release $VERSION (Hardened Architecture)"
+git commit -m "feat: Forge release $VERSION (Hardened Engine)"
 git tag "$VERSION"
-# git push origin main --tags
+git push origin main --tags
 
-echo "✨ Forge Complete! Version $VERSION is ready for Packagist."
+echo "  - Pushing Docs release..."
+cd "$DOCS_DIST_DIR"
+git add .
+git commit -m "docs: Update documentation for $VERSION"
+git tag "$VERSION" || true # Tag might exist
+git push origin main --tags
+
+echo "✨ 3-Repo Forge Complete! Engine and Docs are now in sync."

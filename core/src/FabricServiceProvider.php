@@ -15,6 +15,9 @@ class FabricServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // 🎭 PHAR Mounting (Hardening)
+        $this->mountPharEngine();
+
         $this->mergeConfigFrom(__DIR__ . '/../config/fabric.php', 'fabric');
 
         // Bind Contracts
@@ -113,6 +116,7 @@ class FabricServiceProvider extends ServiceProvider
             \CLCBWS\Fabric\Commands\AnalyticsCommand::class,
             \CLCBWS\Fabric\Commands\SnapshotCommand::class,
             \CLCBWS\Fabric\Commands\RegisterCommand::class,
+            \CLCBWS\Fabric\Commands\LoginCommand::class,
             \CLCBWS\Fabric\Commands\ForgeCommand::class,
         ]);
     }
@@ -146,5 +150,14 @@ class FabricServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/views/layouts' => \resource_path('views/layouts/fabric'),
         ], 'fabric-layouts');
+    }
+
+    protected function mountPharEngine(): void
+    {
+        $pharPath = __DIR__ . '/../bin/fabric.phar';
+
+        if (File::exists($pharPath) && !str_starts_with(__FILE__, 'phar://')) {
+            \Phar::loadPhar($pharPath, 'fabric.phar');
+        }
     }
 }
