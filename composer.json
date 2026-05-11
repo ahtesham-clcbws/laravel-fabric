@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CLCBWS\\Fabric\\": "core/src/"
+            "CLCBWS\\Fabric\\": "src/"
         }
     },
     "extra": {
