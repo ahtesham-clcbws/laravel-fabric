@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Http;
 
-readonly class Guard
+class Guard
 {
     /**
      * The Master Public Key for license verification.
      */
-    private string $publicKey = "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA70gUKT1VONMTK0kzvBdJ\nYfzBpF7VCXs6Ogg7ABKkjRn4SQvwrkAaXlUlToIhN1ezwSdG0Qk3mWExu8aXeNB1\nzK0TSQ3jpvfKD/4AfJq8i38JKz9agCiDMcR43mbW+vT3+bQzEzNcMMJzCY48DPBp\nNpZpAvtiBKl8SQ+zx0zC0OTbqUAN/M9S0FCzFsGzL6A7NNe2NpI7X58bMklIQbRJ\ngMUNN1/3EQ+DssMBVT92SYgB8PLZTlGTaLMjYxO+oYd30qsQXaIMUJlsJeAeX8DX\nGtmGmxUkfr8Qrlom2xOV/KV1Z5uOQEBgUA9Bbk3TQFFaSZ5atj8q2ilUUm0BBzSs\n6wIDAQAB\n-----END PUBLIC KEY-----";
+    private const PUBLIC_KEY = "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA70gUKT1VONMTK0kzvBdJ\nYfzBpF7VCXs6Ogg7ABKkjRn4SQvwrkAaXlUlToIhN1ezwSdG0Qk3mWExu8aXeNB1\nzK0TSQ3jpvfKD/4AfJq8i38JKz9agCiDMcR43mbW+vT3+bQzEzNcMMJzCY48DPBp\nNpZpAvtiBKl8SQ+zx0zC0OTbqUAN/M9S0FCzFsGzL6A7NNe2NpI7X58bMklIQbRJ\ngMUNN1/3EQ+DssMBVT92SYgB8PLZTlGTaLMjYxO+oYd30qsQXaIMUJlsJeAeX8DX\nGtmGmxUkfr8Qrlom2xOV/KV1Z5uOQEBgUA9Bbk3TQFFaSZ5atj8q2ilUUm0BBzSs\n6wIDAQAB\n-----END PUBLIC KEY-----";
 
     /**
      * Verify if the current installation has a valid license.
@@ -60,7 +60,7 @@ readonly class Guard
         $uuid = \trim(File::get($uuidPath));
         $signature = \base64_decode($data);
         
-        return \openssl_verify($uuid, $signature, $this->publicKey, OPENSSL_ALGO_SHA256) === 1;
+        return \openssl_verify($uuid, $signature, self::PUBLIC_KEY, OPENSSL_ALGO_SHA256) === 1;
     }
 
     /**

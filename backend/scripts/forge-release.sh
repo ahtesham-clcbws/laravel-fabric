@@ -69,15 +69,17 @@ cp -r "$PRIVATE_REPO_DIR/docs/"* "$DOCS_DIST_DIR/"
 echo "  - Pushing Engine release..."
 cd "$DIST_DIR"
 git add .
-git commit -m "feat: Forge release $VERSION (Hardened Engine)"
+git commit -m "feat: Forge release $VERSION (Hardened Engine)" || echo "No changes to commit"
+git tag -d "$VERSION" || true
 git tag "$VERSION"
-git push origin main --tags
+git push origin main --tags --force
 
 echo "  - Pushing Docs release..."
 cd "$DOCS_DIST_DIR"
 git add .
-git commit -m "docs: Update documentation for $VERSION"
-git tag "$VERSION" || true # Tag might exist
-git push origin main --tags
+git commit -m "docs: Update documentation for $VERSION" || echo "No changes to commit"
+git tag -d "$VERSION" || true
+git tag "$VERSION"
+git push origin main --tags --force
 
 echo "✨ 3-Repo Forge Complete! Engine and Docs are now in sync."
