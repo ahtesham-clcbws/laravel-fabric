@@ -1,0 +1,25 @@
+# 🗺️ Fabric Forge Manifest (Multi-School SaaS Blueprint)
+
+# This manifest defines the architecture for a multi-tenant school management system.
+# Run 'php artisan fabric:forge fabric.yaml' to weave this architecture.
+
+models:
+  School:
+    theme: preline
+    tenant: false
+
+  Student:
+    theme: preline
+    tenant: true
+
+  Teacher:
+    theme: preline
+    tenant: true
+
+  Syllabus:
+    theme: daisyui
+    tenant: true
+
+  Grade:
+    theme: daisyui
+    tenant: true

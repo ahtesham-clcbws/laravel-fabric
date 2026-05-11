@@ -23,15 +23,15 @@ The "Heart of the Forge" is the config file. Publish it to manage your themes an
 php artisan vendor:publish --tag=fabric-config
 ```
 
-## 4. The Diagnostic Ritual
-Before forging, run the **Doctor** to ensure your frontend dependencies and Tailwind configuration are ready for your chosen theme:
+## 4. The Diagnostic Ritual (MANDATORY)
+Before forging, run the **Doctor**. This is the automated path senior developers prefer to ensure your frontend dependencies and Tailwind configuration are 100% ready:
 
 ```bash
 php artisan fabric:doctor
 ```
 
-> [!TIP]
-> If you are using **DaisyUI** or **Preline**, the Doctor will tell you exactly which `npm` packages you are missing and provide the install commands.
+> [!IMPORTANT]
+> **The Doctor's Orders**: If you are using **DaisyUI** or **Preline**, the Doctor will perform deep introspection of your `package.json` and provide the exact commands to resolve missing dependencies. **Do not ignore the Doctor.**
 
 ## 5. Setting Your Brand Colors
 Open `config/fabric.php` and set your brand palette. These colors will be injected into every component Fabric generates.

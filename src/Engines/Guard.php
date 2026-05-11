@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\File;
 
 use Illuminate\Support\Facades\Http;
 
-class Guard
+readonly class Guard
 {
     /**
      * Verify if the current installation has a valid license.
@@ -19,12 +19,12 @@ class Guard
             return true;
         }
 
+        $key = \config('fabric.license_key');
+
         if (empty($key)) {
             return false;
         }
 
-        // For now, we use a smart local checksum validation.
-        // In the future, this can be swapped for a remote API call.
         return $this->validateChecksum($key);
     }
 
@@ -43,13 +43,36 @@ class Guard
             return false;
         }
 
-        // Project Fingerprint: A unique hash of the project's base path
-        $fingerprint = \substr(\md5(\base_path()), 0, 8);
+        $fingerprint = $this->getProjectFingerprint();
         $providedHash = $parts[1];
 
-        // The key is valid if the first hash part matches the project fingerprint
-        // This prevents sharing keys across different projects/folders.
         return \strtoupper($providedHash) === \strtoupper($fingerprint);
+    }
+
+    /**
+     * Get or generate a project-stable fingerprint.
+     */
+    protected function getProjectFingerprint(): string
+    {
+        $path = \base_path('.fabric');
+        
+        if (File::exists($path)) {
+            $uuid = \trim(File::get($path));
+        } else {
+            $uuid = Str::random(32);
+            File::put($path, $uuid);
+            
+            // Proactively hide the identity from git
+            $gitignore = \base_path('.gitignore');
+            if (File::exists($gitignore)) {
+                $content = File::get($gitignore);
+                if (!\str_contains($content, '.fabric')) {
+                    File::append($gitignore, "\n# Fabric Identity\n.fabric\n");
+                }
+            }
+        }
+
+        return \substr(\md5($uuid), 0, 8);
     }
 
     /**
@@ -64,11 +87,10 @@ class Guard
 
     /**
      * Helper for the author to generate a valid key for a customer.
-     * Usage: (new Guard)->generateKey('/path/to/customer/project')
      */
-    public function generateKey(string $basePath): string
+    public function generateKey(string $uuid): string
     {
-        $fingerprint = \substr(\md5($basePath), 0, 8);
+        $fingerprint = \substr(\md5($uuid), 0, 8);
         $random = \strtoupper(\substr(\md5(\uniqid()), 0, 8));
         
         return "FAB-" . \strtoupper($fingerprint) . "-" . $random;

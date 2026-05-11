@@ -22,9 +22,3 @@
         border-color: var(--color-gray-200);
     }
 }
-
-/* Preline Pro Customizations */
-.hs-dropdown-menu.show {
-    opacity: 1 !important;
-    display: block !important;
-}

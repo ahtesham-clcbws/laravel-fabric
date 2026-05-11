@@ -24,6 +24,14 @@ class ContextCommand extends Command
             ->filter(fn($m) => class_exists($m));
 
         $context = "# 🛡️ Laravel Fabric: Application Context\n\n";
+        
+        $context .= "## 🤖 Rules of Engagement for AI Agents\n";
+        $context .= "> [!IMPORTANT]\n";
+        $context .= "> This codebase utilizes **Surgical Patching** (Heal Points). Do NOT remove or relocate the following markers:\n";
+        $context .= "> 1. `<!-- [FABRIC-HEAL-FORM] -->`: Used by `fabric:heal` to inject new database columns into views.\n";
+        $context .= "> 2. `// [FABRIC-RELATIONSHIP-PROPERTIES]`: Used to inject dynamic Eloquent properties.\n";
+        $context .= "> 3. `// [FABRIC-RELATIONSHIP-FETCH]`: Used to inject dynamic data fetching logic.\n\n";
+
         $context .= "## 🧬 Data Architecture\n\n";
 
         foreach ($models as $modelClass) {

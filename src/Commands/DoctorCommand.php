@@ -45,6 +45,7 @@ class DoctorCommand extends Command
         $this->checkConfig();
         $this->checkRuntime();
         $this->checkThemes();
+        $this->checkHardening();
         $this->checkFrontend();
 
         $this->newLine();
@@ -124,6 +125,21 @@ class DoctorCommand extends Command
             $exists = class_exists(\Livewire\Livewire::class);
             $this->components->twoColumnDetail('Livewire Presence', $exists ? '<fg=green>Pass</>' : '<fg=red>Fail (Required for Livewire runtime)</>');
         }
+    }
+
+    protected function checkHardening(): void
+    {
+        $this->newLine();
+        $this->components->info('🛡️ Hardening & Architectural Guardrails');
+
+        $identityExists = File::exists(base_path('.fabric'));
+        $this->components->twoColumnDetail('Project Identity (.fabric)', $identityExists ? '<fg=green>SECURED</>' : '<fg=yellow>MISSING (Run fabric:install)</>');
+
+        $rulesExists = File::exists(base_path('.agent/fabric-rules.md'));
+        $this->components->twoColumnDetail('Agentic Guardrails', $rulesExists ? '<fg=green>ACTIVE</>' : '<fg=yellow>INACTIVE (AI safety at risk)</>');
+
+        $manifestExists = File::exists(base_path('fabric.json')) || File::exists(base_path('fabric.yaml'));
+        $this->components->twoColumnDetail('Forge Manifest', $manifestExists ? '<fg=green>Found</>' : '<fg=gray>Not Present</>');
     }
 
     protected function checkThemes(): void

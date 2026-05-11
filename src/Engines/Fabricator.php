@@ -16,19 +16,22 @@ readonly class Fabricator implements FabricatorContract
     protected ViewCompiler $viewCompiler;
     protected Guard $guard;
     protected \CLCBWS\Fabric\Services\ModelWeaver $modelWeaver;
+    protected \CLCBWS\Fabric\Services\ContractScaffolder $contractScaffolder;
 
     public function __construct(
         Loom $loom, 
         ThemeResolver $themeResolver, 
         ViewCompiler $viewCompiler, 
         Guard $guard,
-        \CLCBWS\Fabric\Services\ModelWeaver $modelWeaver
+        \CLCBWS\Fabric\Services\ModelWeaver $modelWeaver,
+        \CLCBWS\Fabric\Services\ContractScaffolder $contractScaffolder
     ) {
         $this->loom = $loom;
         $this->themeResolver = $themeResolver;
         $this->viewCompiler = $viewCompiler;
         $this->guard = $guard;
         $this->modelWeaver = $modelWeaver;
+        $this->contractScaffolder = $contractScaffolder;
     }
 
     /**
@@ -40,10 +43,13 @@ readonly class Fabricator implements FabricatorContract
 
         $dataContract = $this->loom->introspect($modelClass);
         $dataContract['options'] = $options;
-        $dataContract['ecosystem'] = $this->detectEcosystem();
+        $dataContract['ecosystem'] = $this->detectEcosystem($modelClass);
 
         // Weave missing relationships into the Model file
         $this->modelWeaver->weave($modelClass, $dataContract['relationships']);
+
+        // 🔗 Modular Decoupling: Scaffold Internal Contracts
+        $this->contractScaffolder->scaffold($modelClass, $dataContract['relationships']);
 
         $theme = $options['theme'] ?? \config('fabric.theme', 'tailwind');
         $runtime = $options['runtime'] ?? \config('fabric.runtime', 'livewire');
@@ -157,14 +163,28 @@ readonly class Fabricator implements FabricatorContract
     /**
      * Intelligently detect the installed packages and native plugins.
      */
-    protected function detectEcosystem(): array
+    protected function detectEcosystem(?string $modelClass = null): array
     {
-        return [
+        $global = [
             'permissions' => \class_exists('Spatie\Permission\Models\Role') ? 'spatie' : (\class_exists('App\Models\Permissions\Role') ? 'native' : 'none'),
             'media'       => \class_exists('Spatie\MediaLibrary\MediaCollections\Models\Media') ? 'spatie' : (\class_exists('App\Models\Media\Media') ? 'native' : 'none'),
             'audit'       => \class_exists('Spatie\Activitylog\Models\Activity') ? 'spatie' : (\class_exists('App\Models\Audit\Audit') ? 'native' : 'none'),
             'tenancy'     => \class_exists('Stancl\Tenancy\Tenancy') ? 'spatie' : (\class_exists('App\Models\Tenancy\Tenant') ? 'native' : 'none'),
             'settings'    => \class_exists('Spatie\LaravelSettings\Settings') ? 'spatie' : (\class_exists('App\Models\Settings\Setting') ? 'native' : 'none'),
         ];
+
+        if (!$modelClass) return $global;
+
+        // 🛡️ Shadow Mode Logic
+        $module = explode('\\', str_replace(['App\\Models\\', 'App\\Models'], '', $modelClass))[0];
+        $shadows = \config("fabric.shadow_mode.{$module}", []);
+
+        foreach ($shadows as $feature => $adapter) {
+            if (isset($global[$feature])) {
+                $global[$feature] = $adapter;
+            }
+        }
+
+        return $global;
     }
 }

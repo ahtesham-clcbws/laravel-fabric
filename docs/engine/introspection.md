@@ -24,9 +24,10 @@ To ensure zero-lag in large enterprise databases, the Loom implements a static *
 The **Guard** ensures that your application remains secure and your intellectual property is protected.
 
 ## 🔑 Project-Bound Licensing
-Fabric uses a proprietary fingerprinting algorithm to bind your license key to your specific project path. 
-- **Fingerprint**: `sha256(base_path())`.
-- **Validation**: License keys are validated against this fingerprint to prevent unauthorized distribution.
+Fabric uses a proprietary fingerprinting algorithm to bind your license key to your specific project.
+- **Fingerprint**: `md5(fabric_uuid)`.
+- **Identity**: A unique `.fabric` identity file is generated in your project root and automatically added to `.gitignore`. This ensures license validity across varying environment paths (CI/CD, Docker).
+- **Validation**: License keys are validated against this stable fingerprint to prevent unauthorized distribution while maintaining deployment flexibility.
 
 ## 🔐 Automatic Authorization
 Every generated component includes strict authorization gates:

@@ -17,6 +17,9 @@ The engine uses the Loom introspector to generate a single, dense, text-optimize
 - **API Map**: All active endpoints and their corresponding resources.
 - **Validation Rules**: The core business logic for every record.
 
+## 🛡️ Rules of Engagement for AI
+The generated context now includes explicit **Rules of Engagement** to ensure that AI agents respect the surgical markers (Heal Points) used by the Lazarus engine. This prevents AI assistants from accidentally removing or relocating the markers required for `fabric:heal`.
+
 ## 🧪 Use Case
 Paste this file into your AI assistant (Claude, Gemini, GPT) and say: *"I am working on this Laravel Fabric project. Based on the attached context, write me a new service for..."*
 The AI will have 100% accurate knowledge of your architecture, eliminating hallucinations and "context drift."

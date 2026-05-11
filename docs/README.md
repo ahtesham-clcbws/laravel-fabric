@@ -5,7 +5,8 @@
 
 > [!IMPORTANT]
 > **🚀 PUBLIC BETA (v1.2.0-beta)**
-> This repository is now in **Public Beta Testing**. All core Forge engines (30+ Features) are operational. We are now accepting feedback and stress-testing the library lexicon across diverse design systems.
+> This repository is now in **Public Beta Testing**. All core Forge engines (30+ Features) are operational.
+> **Packagist**: [https://packagist.org/packages/clcbws/laravel-fabric](https://packagist.org/packages/clcbws/laravel-fabric)
 
 Welcome to the official technical documentation for **Laravel Livewire Fabric**. Built on the **[Philosophy of Zero](testaments/philosophy.md)**, this guide is designed for developers who want to master the art of enterprise-grade ghost scaffolding using modern design frameworks like **DaisyUI** and **Preline**.
 

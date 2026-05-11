@@ -15,7 +15,7 @@ class HealCommand extends Command
     protected $signature = 'fabric:heal {model} {--force}';
     protected $description = 'Surgically patch existing Fabric components with new database columns';
 
-    public function handle(Loom $loom, ViewCompiler $compiler): void
+    public function handle(Loom $loom, ViewCompiler $compiler, \CLCBWS\Fabric\Services\StructuralHealer $healer): void
     {
         $model = $this->argument('model');
         $modelClass = "App\\Models\\{$model}";
@@ -31,15 +31,50 @@ class HealCommand extends Command
         $viewPath = $compiler->getViewPath($contract);
         $targetDir = resource_path('views/' . str_replace('.', '/', $viewPath));
 
-        if (!File::isDirectory($targetDir)) {
-            $this->error("Component directory not found at: {$targetDir}. Run fabric:generate first.");
-            return;
+        // 🧬 Lazarus 2.0: Class Healing
+        $classPath = app_path('Livewire/Fabric/' . str_replace('\\', '/', $model) . '/Editor.php');
+        if (File::exists($classPath)) {
+            $this->healClass($classPath, $contract, $healer);
         }
 
-        $this->healEditor($targetDir . '/editor.blade.php', $contract, $compiler);
-        $this->healTable($targetDir . '/table.blade.php', $contract, $compiler);
+        if (File::isDirectory($targetDir)) {
+            $this->healEditor($targetDir . '/editor.blade.php', $contract, $compiler);
+            $this->healTable($targetDir . '/table.blade.php', $contract, $compiler);
+        }
 
-        $this->info("Healing complete. Your components have been surgically updated.");
+        $this->info("Healing complete. Your architecture has been surgically updated.");
+    }
+
+    protected function healClass(string $path, array $contract, \CLCBWS\Fabric\Services\StructuralHealer $healer): void
+    {
+        $content = File::get($path);
+        $this->line("  - Class: Structural audit initiating...");
+
+        // Inject new validation rules into rules() method
+        $pos = $healer->findMethodEnd($content, 'rules');
+        if ($pos !== null) {
+            $newRules = [];
+            foreach ($contract['fields'] as $name => $field) {
+                if ($name === 'id') continue;
+                // Simple check if rule already exists in string
+                if (!Str::contains($content, "'{$name}' =>")) {
+                    $newRules[$name] = $field['rules'] ?? 'required';
+                }
+            }
+
+            if (!empty($newRules)) {
+                $this->line("    [Lazarus] Injecting " . count($newRules) . " new validation rules.");
+                $ruleString = "";
+                foreach ($newRules as $name => $rule) {
+                    $ruleString .= "            '{$name}' => '{$rule}',\n";
+                }
+                
+                // Inject before the closing brace of the rules() method
+                $content = substr_replace($content, "\n" . $ruleString . "        ", $pos - 10, 0); // Offset adjustment for return statement
+            }
+        }
+
+        File::put($path, $content);
     }
 
     protected function healEditor(string $path, array $contract, ViewCompiler $compiler): void
@@ -74,8 +109,20 @@ class HealCommand extends Command
             // Inject before the submit button or at the end of the form
             if (Str::contains($content, '<!-- [FABRIC-HEAL-FORM] -->')) {
                 $content = str_replace('<!-- [FABRIC-HEAL-FORM] -->', $fieldStub . "\n    <!-- [FABRIC-HEAL-FORM] -->", $content);
+            } elseif (preg_match_all('/wire:model(?:\.blur)?="form\.([^"]+)"/', $content, $matches, PREG_OFFSET_CAPTURE)) {
+                // Find the last wire:model and its parent block
+                $lastMatch = end($matches[0]);
+                $offset = $lastMatch[1] + strlen($lastMatch[0]);
+                
+                // Find the next closing tag like </div> or </x-fabric::*> or the end of the line
+                $nextNewline = strpos($content, "\n", $offset);
+                if ($nextNewline !== false) {
+                    $content = substr_replace($content, "\n    " . trim($fieldStub) . "\n", $nextNewline, 0);
+                } else {
+                    $content = str_replace('</form>', $fieldStub . "\n</form>", $content);
+                }
             } else {
-                // Fallback: inject before the footer
+                // Final fallback: inject before the footer
                 $content = str_replace('</form>', $fieldStub . "\n</form>", $content);
             }
         }

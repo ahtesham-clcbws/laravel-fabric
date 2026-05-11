@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace {{ NAMESPACE }};
 
 use Livewire\Component;
 use {{ MODEL_CLASS }};
+use Illuminate\Contracts\View\View;
 
 /**
  * [FABRIC-METADATA]
@@ -12,7 +15,7 @@ use {{ MODEL_CLASS }};
  */
 class {{ MODEL_NAME }}Stats extends Component
 {
-    public function render()
+    public function render(): View
     {
         return view('{{ VIEW_PATH }}.stats', [
             'total' => {{ MODEL_NAME }}::count(),
